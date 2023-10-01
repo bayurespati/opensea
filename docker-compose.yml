@@ -1,55 +1,37 @@
+version: "3.3"
 services:
-    laravel.test:
-        build:
-            context: ./vendor/laravel/sail/runtimes/8.2
-            dockerfile: Dockerfile
-            args:
-                WWWGROUP: '${WWWGROUP}'
-        image: sail-8.2/app
-        extra_hosts:
-            - 'host.docker.internal:host-gateway'
-        ports:
-            - '${APP_PORT:-80}:80'
-            - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
-        environment:
-            WWWUSER: '${WWWUSER}'
-            LARAVEL_SAIL: 1
-            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
-            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
-            IGNITION_LOCAL_SITES_PATH: '${PWD}'
-        volumes:
-            - '.:/var/www/html'
-        networks:
-            - sail
+    dwp2-api:
+        container_name: dwp2api
+        build: .
+        image: dwp2api
         depends_on:
-            - mysql
-    mysql:
-        image: 'mysql/mysql-server:8.0'
-        ports:
-            - '${FORWARD_DB_PORT:-3306}:3306'
-        environment:
-            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
-            MYSQL_ROOT_HOST: '%'
-            MYSQL_DATABASE: '${DB_DATABASE}'
-            MYSQL_USER: '${DB_USERNAME}'
-            MYSQL_PASSWORD: '${DB_PASSWORD}'
-            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+            - dwp-db
         volumes:
-            - 'sail-mysql:/var/lib/mysql'
-            - './vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
-        networks:
-            - sail
-        healthcheck:
-            test:
-                - CMD
-                - mysqladmin
-                - ping
-                - '-p${DB_PASSWORD}'
-            retries: 3
-            timeout: 5s
-networks:
-    sail:
-        driver: bridge
+            - .:/var/www/html
+            - /var/www/html/vendor
+    dwp2-web:
+        container_name: dwp2web
+        build: ./docker-services/nginx
+        image: dwpweb
+        ports:
+            - "8090:80"
+        depends_on:
+            - dwp2-api
+        volumes:
+            - .:/var/www/html
+    dwp2-db:
+        container_name: dwp2db
+        build: ./docker-services/mysql
+        image: dwp2db
+        ports:
+            - "33064:3306"
+        environment:
+            MYSQL_DATABASE: "dwp2"
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_USER: "dwp2"
+            MYSQL_PASSWORD: "dwp2"
+        volumes:
+            - dwp2-db:/var/lib/mysql
 volumes:
-    sail-mysql:
-        driver: local
+    dwp2-db:
+        external: true
