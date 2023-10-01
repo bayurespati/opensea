@@ -117,7 +117,7 @@
                                         <i class="icon-show password-addon" id="password-addon"></i>
                                     </fieldset>
                                     <div class="btn-submit mb-30">
-                                        <a href="market.html" class="tf-button style-1 h50 w-100" type="submit">Login<i class="icon-arrow-up-right2"></i></a>
+                                        <a href="/home" class="tf-button style-1 h50 w-100" type="submit">Login<i class="icon-arrow-up-right2"></i></a>
                                     </div>
                                 </form>
                             </div>

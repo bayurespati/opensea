@@ -57,7 +57,7 @@
                                 <div class="wrap-box flex">
                                     <div id="site-logo">
                                         <div id="site-logo-inner">
-                                            <a href="index.html" rel="home" class="main-logo">
+                                            <a href="/home" rel="home" class="main-logo">
                                                 <img id="logo_header" src="assets/images/logo/logo_PINS.png" data-retina="assets/images/logo/logo_PINS.png">
                                             </a>
                                         </div>
@@ -131,7 +131,7 @@
                                             <div class="content">
                                                 <ul class="menu-tab">
                                                     <li class="tablinks" data-tabs="settings">
-                                                        <a href="index.html">Logout</a>
+                                                        <a href="/">Logout</a>
                                                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <g opacity="0.2">
                                                                 <path d="M13.7627 6.77369V5.91844C13.7627 4.05303 12.2502 2.54053 10.3848 2.54053H5.91606C4.05156 2.54053 2.53906 4.05303 2.53906 5.91844V16.1209C2.53906 17.9864 4.05156 19.4989 5.91606 19.4989H10.394C12.2539 19.4989 13.7627 17.9909 13.7627 16.131V15.2666" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -168,7 +168,16 @@
                         <nav id="mobile-main-nav" class="mobile-main-nav">
                             <ul id="menu-mobile-menu" class="menu">
                                 <li class="menu-item">
-                                    <a class="item-menu-mobile" href="/faq">faq</a>
+                                    <a class="item-menu-mobile" href="#">Menu 1</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="item-menu-mobile" href="#">Menu 2<a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="item-menu-mobile" href="#">Menu 3</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="item-menu-mobile" href="/faq">FAQ</a>
                                 </li>
                             </ul>
                         </nav>
