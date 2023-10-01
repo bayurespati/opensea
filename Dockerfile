@@ -54,13 +54,13 @@ RUN composer install --optimize-autoloader --no-dev
 
 RUN chown -R www-data:www-data /var/www/html/vendor
 
-COPY ./docker-services/php/www.conf /usr/local/etc/php-fpm.d/www.conf
+COPY ./docker/php/www.conf /usr/local/etc/php-fpm.d/www.conf
 
-COPY ./docker-services/php/local.ini /usr/local/etc/php/conf.d
+COPY ./docker/php/local.ini /usr/local/etc/php/conf.d
 
-COPY ./docker-services/php/docker-entrypoint.sh /usr/local/bin/
+COPY ./docker/php/docker-entrypoint.sh /usr/local/bin/
 
-# COPY ./docker-services/php/cron /etc/cron.d/cron
+# COPY ./docker/php/cron /etc/cron.d/cron
 
 # RUN chmod 777 /etc/cron.d/cron
 
