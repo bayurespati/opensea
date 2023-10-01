@@ -11,7 +11,7 @@ services:
             - /var/www/html/vendor
     dwp2-web:
         container_name: dwp2web
-        build: ./docker-services/nginx
+        build: ./docker/nginx
         image: dwpweb
         ports:
             - "8090:80"
@@ -21,7 +21,7 @@ services:
             - .:/var/www/html
     dwp2-db:
         container_name: dwp2db
-        build: ./docker-services/mysql
+        build: ./docker/mysql
         image: dwp2db
         ports:
             - "33064:3306"
