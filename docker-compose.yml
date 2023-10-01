@@ -12,7 +12,7 @@ services:
     dwp2-web:
         container_name: dwp2web
         build: ./docker/nginx
-        image: dwpweb
+        image: dwp2web
         ports:
             - "8090:80"
         depends_on:
