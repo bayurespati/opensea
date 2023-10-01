@@ -5,7 +5,7 @@ services:
         build: .
         image: dwp2api
         depends_on:
-            - dwp-db
+            - dwp2-db
         volumes:
             - .:/var/www/html
             - /var/www/html/vendor
