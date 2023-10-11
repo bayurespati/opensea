@@ -63,21 +63,13 @@
                                     <div class="mobile-button">
                                         <span></span>
                                     </div><!-- /.mobile-button -->
-                                    <!-- <div id="main-nav" class="main-nav">
-                                        <form action="#" method="get" role="search" class="search-form relative">
-                                            <input type="search" id="search" class="search-field style-1" placeholder="Search..." value="" name="s" title="Search for" required="">
-                                            <button class="search search-submit" type="submit" title="Search">
-                                                <i class="icon-search"></i>
-                                            </button>
-                                        </form>
-                                    </div> -->
                                     <nav id="main-nav" class="main-nav">
                                         <ul id="menu-primary-menu" class="menu">
                                         </ul>
                                     </nav><!-- /#main-nav -->
                                     <div class="flat-wallet flex">
                                         <div class="" id="wallet-header">
-                                            <a href="https://wa.me/6287887773893?text=Saya ingin bertanya seputar eCatalog PINS" id="connectbtn" class="tf-button style-1">
+                                            <a href="https://wa.me/6287887773893?text=Saya ingin bertanya seputar eCatalog PINS" target="_blank" id="connectbtn" class="tf-button style-1">
                                                 <span>Hubungi Admin</span>
                                             </a>
                                         </div>
@@ -443,17 +435,6 @@
                                                 </div>
                                             </div>
                                             <h5 class="name"><a href="nft-detail-2.html">Macbook Pro 2023</a></h5>
-                                            <div class="author flex items-center">
-                                                <div class="avatar">
-                                                    <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
-                                                </div>
-                                                <div class="info">
-                                                    <span>Apple Indonesia</span>
-                                                    <h6>
-                                                        <a href="author-2.html">Jakarta</a>
-                                                    </h6>
-                                                </div>
-                                            </div>
                                             <div class="divider"></div>
                                             <div class="meta-info flex items-center justify-between">
                                                 <span class="color-ready">Ready</span>
@@ -476,17 +457,6 @@
                                                 </div>
                                             </div>
                                             <h5 class="name"><a href="nft-detail-2.html">Macbook Air 2023</a></h5>
-                                            <div class="author flex items-center">
-                                                <div class="avatar">
-                                                    <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
-                                                </div>
-                                                <div class="info">
-                                                    <span>Apple Indonesia</span>
-                                                    <h6>
-                                                        <a href="author-2.html">Jakarta</a>
-                                                    </h6>
-                                                </div>
-                                            </div>
                                             <div class="divider"></div>
                                             <div class="meta-info flex items-center justify-between">
                                                 <span class="color-ready">Ready</span>
@@ -509,17 +479,6 @@
                                                 </div>
                                             </div>
                                             <h5 class="name"><a href="nft-detail-2.html">Asus ROG X203</a></h5>
-                                            <div class="author flex items-center">
-                                                <div class="avatar">
-                                                    <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
-                                                </div>
-                                                <div class="info">
-                                                    <span>Asus Indonesia</span>
-                                                    <h6>
-                                                        <a href="author-2.html">Tangerang</a>
-                                                    </h6>
-                                                </div>
-                                            </div>
                                             <div class="divider"></div>
                                             <div class="meta-info flex items-center justify-between">
                                                 <span class="color-indent">Indent</span>
@@ -542,17 +501,6 @@
                                                 </div>
                                             </div>
                                             <h5 class="name"><a href="nft-detail-2.html">Microsoft Surface</a></h5>
-                                            <div class="author flex items-center">
-                                                <div class="avatar">
-                                                    <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
-                                                </div>
-                                                <div class="info">
-                                                    <span>Microsoft Indonesia</span>
-                                                    <h6>
-                                                        <a href="author-2.html">Jakarta</a>
-                                                    </h6>
-                                                </div>
-                                            </div>
                                             <div class="divider"></div>
                                             <div class="meta-info flex items-center justify-between">
                                                 <span class="color-ready">Ready</span>
@@ -575,17 +523,6 @@
                                                 </div>
                                             </div>
                                             <h5 class="name"><a href="nft-detail-2.html">Macbook Pro 2023</a></h5>
-                                            <div class="author flex items-center">
-                                                <div class="avatar">
-                                                    <img src="assets/images/avatar/avatar-box-01.jpg" alt="Image">
-                                                </div>
-                                                <div class="info">
-                                                    <span>Apple Indonesia</span>
-                                                    <h6>
-                                                        <a href="author-2.html">Jakarta</a>
-                                                    </h6>
-                                                </div>
-                                            </div>
                                             <div class="divider"></div>
                                             <div class="meta-info flex items-center justify-between">
                                                 <span class="color-ready">Ready</span>
@@ -608,7 +545,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading-section pb-20">
-                                <h2 class="tf-title ">Diskon Hingga
+                                <h2 class="tf-title ">Bundling / Hemat
                                     <span class="dropdown" id="select-day">
                                         <span class="btn-selector tf-color">
                                             <span>60%</span>
@@ -958,13 +895,13 @@
                                             </a>
                                             <a class="dropdown-item">
                                                 <div class="sort-filter">
-                                                    <span>Komersial / Retail</span>
+                                                    <span>Commercial / Retail</span>
                                                     <span class="icon-tick"><span class="path2"></span></span>
                                                 </div>
                                             </a>
                                             <a class="dropdown-item">
                                                 <div class="sort-filter">
-                                                    <span>Konsumen / Enterprise</span>
+                                                    <span>Consumer / Enterprise</span>
                                                     <span class="icon-tick"><span class="path2"></span></span>
                                                 </div>
                                             </a>
@@ -1082,18 +1019,6 @@
                                             <span>Urutkan</span>
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a href="#" class="dropdown-item">
-                                                <div class="sort-filter" href="#">
-                                                    <span>Terbaru</span>
-                                                    <span class="icon-tick"><span class="path2"></span></span>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="dropdown-item">
-                                                <div class="sort-filter" href="#">
-                                                    <span>Terlama</span>
-                                                    <span class="icon-tick"><span class="path2"></span></span>
-                                                </div>
-                                            </a>
                                             <a href="#" class="dropdown-item">
                                                 <div class="sort-filter" href="#">
                                                     <span>IDR Tinggi ke Rendah</span>

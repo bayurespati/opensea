@@ -71,7 +71,7 @@
                                     </nav><!-- /#main-nav -->
                                     <div class="flat-wallet flex">
                                         <div class="" id="wallet-header">
-                                            <a href="https://wa.me/6287887773893?text=Saya ingin bertanya seputar eCatalog PINS" id="connectbtn" class="tf-button style-1">
+                                            <a href="https://wa.me/6287887773893?text=Saya ingin bertanya seputar eCatalog PINS" target="_blank" id="connectbtn" class="tf-button style-1">
                                                 <span>Hubungi Admin</span>
                                             </a>
                                         </div>
@@ -283,7 +283,7 @@
                                         </p>
                                         <p data-wow-delay="0.1s" class="wow fadeInUp ">
                                             Tidak menemukan yang anda cari? silahkan
-                                            <a href="https://wa.me/6287887773893?text=Saya ingin bertanya seputar eCatalog PINS">
+                                            <a href="https://wa.me/6287887773893?text=Saya ingin bertanya seputar eCatalog PINS" target="_blank">
                                                 <span style="color: #e63946">Hubungi tim kami</span>
                                             </a>
                                         </p>
