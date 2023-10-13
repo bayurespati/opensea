@@ -64,8 +64,7 @@
                                         <span></span>
                                     </div><!-- /.mobile-button -->
                                     <nav id="main-nav" class="main-nav">
-                                        <ul id="menu-primary-menu" class="menu">
-                                        </ul>
+                                        <ul id="menu-primary-menu" class="menu"></ul>
                                     </nav><!-- /#main-nav -->
                                     <div class="flat-wallet flex">
                                         <div class="" id="wallet-header">
@@ -114,7 +113,7 @@
                                         <div class="cate-item"><a href="#">Menu 2</a></div>
                                     </li>
                                     <li>
-                                        <div class="cate-item"><a href="#">Menu 3</a></div>
+                                        <div class="cate-item"><a href="/browse_product">Product</a></div>
                                     </li>
                                     <li>
                                         <div class="cate-item"><a href="/faq">FAQ</a></div>
