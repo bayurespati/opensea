@@ -24,7 +24,6 @@
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/favicon_pins.png">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/favicon_pins.png">
-
 </head>
 
 <body class="body">
@@ -43,7 +42,6 @@
         </div>
     </div>
     <!-- /preload -->
-
 
 
     <div id="wrapper">
@@ -311,10 +309,8 @@
                     </div>
                 </div>
             </footer><!-- /#footer -->
-
         </div>
         <!-- /#page -->
-
     </div>
     <!-- /#wrapper -->
 

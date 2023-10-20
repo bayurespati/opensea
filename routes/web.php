@@ -19,13 +19,21 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    return view('client.home');
 });
 
 Route::get('/faq', function () {
-    return view('faq');
+    return view('client.faq');
+});
+
+Route::get('/wishlist', function () {
+    return view('client.wishlist');
 });
 
 Route::get('/browse_product', function () {
-    return view('browse_product');
+    return view('client.browse_product');
+});
+
+Route::get('/detail_product', function () {
+    return view('client.detail_product');
 });
