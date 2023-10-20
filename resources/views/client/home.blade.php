@@ -20,7 +20,7 @@
                     </p>
                     <div data-wow-delay="0.2s" class=" wow fadeInUp flat-button flex justify-center">
                         <a href="#" class="tf-button style-1 h50 w190 mr-16">Selengkapnya<i class="icon-arrow-up-right2"></i></a>
-                        <a href="#" class="tf-button style-1 h50 w190 active">Cari Perangkat<i class="icon-search"></i></a>
+                        <a href="/browse_product" class="tf-button style-1 h50 w190 active">Cari Perangkat<i class="icon-search"></i></a>
                     </div>
                 </div>
                 <div class="icon-background">
@@ -42,7 +42,7 @@
                                         </a>
                                         <span class="wishlist-button icon-heart" style="color:black !important"></span>
                                         <div class="button-place-bid">
-                                            <a href="/detail_product" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
+                                            <a href="/detail_product" class="tf-button"><span>Detil</span></a>
                                         </div>
                                     </div>
                                     <div class="meta-info text-center">

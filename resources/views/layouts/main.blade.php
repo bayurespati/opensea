@@ -166,11 +166,11 @@
                                 <li class="menu-item">
                                     <a class="item-menu-mobile" href="#">Menu 1</a>
                                 </li>
-                                <li class="menu-item">
-                                    <a class="item-menu-mobile" href="#">Menu 2<a>
+                                <li>
+                                    <div class="item-menu-mobile"><a href="/wishlist">Wishlist</a></div>
                                 </li>
-                                <li class="menu-item">
-                                    <a class="item-menu-mobile" href="#">Menu 3</a>
+                                <li>
+                                    <div class="item-menu-mobile"><a href="/browse_product">Product</a></div>
                                 </li>
                                 <li class="menu-item">
                                     <a class="item-menu-mobile" href="/faq">FAQ</a>
