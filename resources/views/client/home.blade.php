@@ -597,7 +597,7 @@
             <div class="col-md-12">
                 <div class="heading-section pb-30">
                     <h2 class="tf-title ">Cari Perangkat</h2>
-                    <a href="explore-3.html" class="">Selengkapnya<i class="icon-arrow-right2"></i></a>
+                    <a href="#" class="">Selengkapnya<i class="icon-arrow-right2"></i></a>
                 </div>
             </div>
             <div class="col-md-12 pb-30">

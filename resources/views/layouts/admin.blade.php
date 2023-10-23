@@ -24,6 +24,7 @@
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="../assets/icon/favicon_pins.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/icon/favicon_pins.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 
 <body class="body dashboard1">
@@ -161,39 +162,39 @@
                     </div>
                 </div>
 
-            @yield('content')
+                @yield('content')
+            </div>
+            <!-- /#page -->
         </div>
-        <!-- /#page -->
-    </div>
-    <!-- /#wrapper -->
+        <!-- /#wrapper -->
 
-    <div class="tf-mouse tf-mouse-outer"></div>
-    <div class="tf-mouse tf-mouse-inner"></div>
+        <div class="tf-mouse tf-mouse-outer"></div>
+        <div class="tf-mouse tf-mouse-inner"></div>
 
-    <div class="progress-wrap active-progress">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
-        </svg>
-    </div>
+        <div class="progress-wrap active-progress">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+            </svg>
+        </div>
 
-    <!-- Javascript -->
-    @yield('js')
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/swiper-bundle.min.js"></script>
-    <script src="../assets/js/swiper.js"></script>
-    <script src="../assets/js/countto.js"></script>
-    <script src="../assets/js/count-down.js"></script>
-    <script src="../assets/js/simpleParallax.min.js"></script>
-    <script src="../assets/js/gsap.js"></script>
-    <script src="../assets/js/SplitText.js"></script>
-    <script src="../assets/js/wow.min.js"></script>
-    <script src="../assets/js/ScrollTrigger.js"></script>
-    <script src="../assets/js/gsap-animation.js"></script>
-    <script src="../assets/js/tsparticles.min.js"></script>
-    <script src="../assets/js/tsparticles.js"></script>
-    <script src="../assets/js/main.js"></script>
+        <!-- Javascript -->
+        @yield('js')
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/swiper-bundle.min.js"></script>
+        <script src="../assets/js/swiper.js"></script>
+        <script src="../assets/js/countto.js"></script>
+        <script src="../assets/js/count-down.js"></script>
+        <script src="../assets/js/simpleParallax.min.js"></script>
+        <script src="../assets/js/gsap.js"></script>
+        <script src="../assets/js/SplitText.js"></script>
+        <script src="../assets/js/wow.min.js"></script>
+        <script src="../assets/js/ScrollTrigger.js"></script>
+        <script src="../assets/js/gsap-animation.js"></script>
+        <script src="../assets/js/tsparticles.min.js"></script>
+        <script src="../assets/js/tsparticles.js"></script>
+        <script src="../assets/js/main.js"></script>
 
 </body>
 

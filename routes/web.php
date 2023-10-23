@@ -37,3 +37,11 @@ Route::get('/browse_product', function () {
 Route::get('/detail_product', function () {
     return view('client.detail_product');
 });
+
+Route::get('/admin/dashboard', function () {
+    return view('admin.layout');
+});
+
+Route::get('/admin/item', function () {
+    return view('admin.item');
+});
