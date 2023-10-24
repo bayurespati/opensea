@@ -55,7 +55,7 @@
                                 <div class="wrap-box flex">
                                     <div id="site-logo">
                                         <div id="site-logo-inner">
-                                            <a href="index.html" rel="home" class="main-logo">
+                                            <a rel="home" class="main-logo">
                                                 <img id="logo_header" src="assets/images/logo/logo_PINS.png" data-retina="assets/images/logo/logo_PINS.png">
                                             </a>
                                         </div>
