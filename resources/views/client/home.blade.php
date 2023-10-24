@@ -23,14 +23,14 @@
                         <a href="/browse_product" class="tf-button style-1 h50 w190 active">Cari Perangkat<i class="icon-search"></i></a>
                     </div>
                 </div>
-                <div class="icon-background">
+                <!-- <div class="icon-background">
                     <img class="absolute item1" src="assets/images/item-background/item1.png" alt="">
                     <img class="absolute item2" src="assets/images/item-background/item2.png" alt="">
                     <img class="absolute item4" src="assets/images/item-background/item1.png" alt="">
                     <img class="absolute item5" src="assets/images/item-background/item1.png" alt="">
                     <img class="absolute item7" src="assets/images/item-background/item5.png" alt="">
                     <img class="absolute item8" src="assets/images/item-background/item5.png" alt="">
-                </div>
+                </div> -->
                 <div class="relative">
                     <div class="swiper swiper-3d-7">
                         <div class="swiper-wrapper">

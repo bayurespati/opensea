@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,35 +15,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/home', function () {
-    return view('client.home');
-});
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 
-Route::get('/faq', function () {
-    return view('client.faq');
-});
 
-Route::get('/wishlist', function () {
-    return view('client.wishlist');
-});
+Route::middleware('auth')->group(function () {
 
-Route::get('/browse_product', function () {
-    return view('client.browse_product');
-});
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/detail_product', function () {
-    return view('client.detail_product');
-});
+    Route::get('/home', function () {
+        return view('client.home');
+    });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.layout');
-});
+    Route::get('/faq', function () {
+        return view('client.faq');
+    });
 
-Route::get('/admin/item', function () {
-    return view('admin.item');
+    Route::get('/wishlist', function () {
+        return view('client.wishlist');
+    });
+
+    Route::get('/browse_product', function () {
+        return view('client.browse_product');
+    });
+
+    Route::get('/detail_product', function () {
+        return view('client.detail_product');
+    });
+
+    Route::get('/admin/dashboard', function () {
+        return view('admin.layout');
+    });
+
+    Route::get('/admin/item', function () {
+        return view('admin.item');
+    });
 });

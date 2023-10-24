@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
                 'is_admin' => false,
                 'email' => 'dimaswahyu18@gmail.com',
                 'phone' => '087887773893',
-                'password' => bcrypt('vendorvendor'),
+                'password' => bcrypt('12345678'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],

@@ -106,18 +106,24 @@
                         </div>
                         <div class="col-12">
                             <div class="widget-login">
-                                <form id="commentform" class="comment-form">
+                                <form id="commentform" class="comment-form" action="/login" method="POST">
+                                    @csrf
                                     <fieldset class="email">
                                         <label>Email *</label>
                                         <input type="email" id="email" placeholder="Masukan alamat email terdaftar" name="email" tabindex="2" value="" aria-required="true" required>
                                     </fieldset>
-                                    <fieldset class="password">
+                                    <fieldset class="password" style="margin-bottom: 10px;">
                                         <label>Password *</label>
                                         <input class="password-input" type="password" id="password" placeholder="Masukan kata sandi Anda" name="password" tabindex="2" value="" aria-required="true" required>
                                         <i class="icon-show password-addon" id="password-addon"></i>
                                     </fieldset>
+                                    @error('email')
+                                    <div style="color: red !important; margin-bottom: 10px;">
+                                        <p>* Alamat email anda salah atay password salah</p>
+                                    </div>
+                                    @enderror('email')
                                     <div class="btn-submit mb-30">
-                                        <a href="/home" class="tf-button style-1 h50 w-100" type="submit">Login<i class="icon-arrow-up-right2"></i></a>
+                                        <button class="tf-button style-1 h50 w-100" type="submit">Login<i class="icon-arrow-up-right2"></i></button>
                                     </div>
                                 </form>
                             </div>
