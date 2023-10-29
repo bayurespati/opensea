@@ -16,15 +16,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
     <!-- Reponsive -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="../assets/icon/favicon_pins.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/icon/favicon_pins.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/assets/icon/favicon_pins.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/icon/favicon_pins.png">
 </head>
 
 <body class="body dashboard1">
@@ -54,7 +53,7 @@
                     <div class="admin_active" id="header_admin">
                         <div class="popup-user relative">
                             <div class="user">
-                                <img src="../assets/images/avatar/avatar-small-09.png" alt="">
+                                <img src="/assets/images/avatar/avatar-small-09.png" alt="">
                                 <span>Admin<i class="icon-keyboard_arrow_down"></i></span>
                             </div>
                             <div class="avatar_popup2">
@@ -95,7 +94,7 @@
             <div class="flat-tabs">
                 <div class="section-menu-left">
                     <div class="box-logo">
-                        <a href="/home"><img src="../assets/images/logo/logo_PINS.png" alt=""></a>
+                        <a href="/home"><img src="/assets/images/logo/logo_PINS.png" alt=""></a>
                     </div>
                     <div class="over-content">
                         <div class="content">
@@ -155,7 +154,7 @@
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4.16134 1.83334H7.25967C8.55217 1.83334 9.58801 2.88751 9.58801 4.18093V7.30584C9.58801 8.60751 8.55217 9.65251 7.25967 9.65251H4.16134C2.87801 9.65251 1.83301 8.60751 1.83301 7.30584V4.18093C1.83301 2.88751 2.87801 1.83334 4.16134 1.83334ZM4.16134 12.3472H7.25967C8.55217 12.3472 9.58801 13.3932 9.58801 14.6948V17.8197C9.58801 19.1122 8.55217 20.1664 7.25967 20.1664H4.16134C2.87801 20.1664 1.83301 19.1122 1.83301 17.8197V14.6948C1.83301 13.3932 2.87801 12.3472 4.16134 12.3472ZM17.8381 1.83334H14.7398C13.4473 1.83334 12.4114 2.88751 12.4114 4.18093V7.30584C12.4114 8.60751 13.4473 9.65251 14.7398 9.65251H17.8381C19.1214 9.65251 20.1664 8.60751 20.1664 7.30584V4.18093C20.1664 2.88751 19.1214 1.83334 17.8381 1.83334ZM14.7398 12.3472H17.8381C19.1214 12.3472 20.1664 13.3932 20.1664 14.6948V17.8197C20.1664 19.1122 19.1214 20.1664 17.8381 20.1664H14.7398C13.4473 20.1664 12.4114 19.1122 12.4114 17.8197V14.6948C12.4114 13.3932 13.4473 12.3472 14.7398 12.3472Z" fill="#DDF247" />
                                     </svg>
                                     <a href="/admin/wishlist">
-                                        Wishlist
+                                        Daftar Order
                                     </a>
                                 </li>
                                 </li>
@@ -184,22 +183,22 @@
 
         <!-- Javascript -->
         @yield('js')
-        <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../assets/js/swiper-bundle.min.js"></script>
-        <script src="../assets/js/swiper.js"></script>
-        <script src="../assets/js/countto.js"></script>
-        <script src="../assets/js/count-down.js"></script>
-        <script src="../assets/js/simpleParallax.min.js"></script>
-        <script src="../assets/js/gsap.js"></script>
-        <script src="../assets/js/SplitText.js"></script>
-        <script src="../assets/js/wow.min.js"></script>
-        <script src="../assets/js/ScrollTrigger.js"></script>
-        <script src="../assets/js/gsap-animation.js"></script>
-        <script src="../assets/js/tsparticles.min.js"></script>
-        <script src="../assets/js/tsparticles.js"></script>
-        <script src="../assets/js/main.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/popper.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/swiper-bundle.min.js"></script>
+        <script src="/assets/js/swiper.js"></script>
+        <script src="/assets/js/countto.js"></script>
+        <script src="/assets/js/count-down.js"></script>
+        <script src="/assets/js/simpleParallax.min.js"></script>
+        <script src="/assets/js/gsap.js"></script>
+        <script src="/assets/js/SplitText.js"></script>
+        <script src="/assets/js/wow.min.js"></script>
+        <script src="/assets/js/ScrollTrigger.js"></script>
+        <script src="/assets/js/gsap-animation.js"></script>
+        <script src="/assets/js/tsparticles.min.js"></script>
+        <script src="/assets/js/tsparticles.js"></script>
+        <script src="/assets/js/main.js"></script>
 
 </body>
 

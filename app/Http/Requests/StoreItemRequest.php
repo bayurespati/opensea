@@ -11,7 +11,7 @@ class StoreItemRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -39,12 +39,12 @@ class StoreItemRequest extends FormRequest
             'input_device_mouse_type' => 'required',
             'interface_provided' => 'required',
             'operating_system' => 'required',
-            'Battery Type' => 'required',
+            'battery_type' => 'required',
             'power_supply' => 'required',
             'weight' => 'required',
             'dimensi' => 'required',
-            'bundled_peripherals' => 'required',
-            'warranty' => 'required'
+            'warranty' => 'required',
+            'price' => 'required'
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreItemRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateItemRequest;
 use App\Models\Item;
 
@@ -14,7 +15,7 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::all();
-        return response->json(["data" => $items, "message" => "Success"]);
+        return view('admin.item.index', ['items' => $items]);
     }
 
     /**
@@ -22,7 +23,8 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        $brands = [];
+        return view('admin.item.create');
     }
 
     /**
@@ -36,7 +38,7 @@ class ItemController extends Controller
         $model->standard_memory = $request->standard_memory;
         $model->video_type = $request->video_type;
         $model->display_size = $request->display_size;
-        $model->display_technology = $request->technology;
+        $model->display_technology = $request->display_technology;
         $model->speakers_type = $request->speakers_type;
         $model->microphone_type = $request->microphone_type;
         $model->webcam_type = $request->webcam_type;
@@ -54,7 +56,11 @@ class ItemController extends Controller
         $model->dimensi = $request->dimensi;
         $model->bundled_peripherals = $request->bundled_perpherals;
         $model->warranty = $request->warranty;
+        $model->price = $request->price;
+        $model->embed = $request->embed;
         $model->save();
+
+        return redirect('/admin/item');
     }
 
     /**
@@ -70,7 +76,8 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        //
+        $brands = [];
+        return view('admin.item.edit', ["item" => $item]);
     }
 
     /**
@@ -83,7 +90,7 @@ class ItemController extends Controller
         $item->standard_memory = $request->standard_memory;
         $item->video_type = $request->video_type;
         $item->display_size = $request->display_size;
-        $item->display_technology = $request->technology;
+        $item->display_technology = $request->display_technology;
         $item->speakers_type = $request->speakers_type;
         $item->microphone_type = $request->microphone_type;
         $item->webcam_type = $request->webcam_type;
@@ -101,7 +108,11 @@ class ItemController extends Controller
         $item->dimensi = $request->dimensi;
         $item->bundled_peripherals = $request->bundled_perpherals;
         $item->warranty = $request->warranty;
+        $item->price = $request->price;
+        $item->embed = $request->embed;
         $item->save();
+
+        return redirect('/admin/item');
     }
 
     /**
@@ -110,5 +121,7 @@ class ItemController extends Controller
     public function destroy(Item $item)
     {
         //
+        $item->delete();
+        return redirect('/admin/item');
     }
 }

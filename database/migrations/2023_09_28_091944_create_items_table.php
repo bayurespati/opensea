@@ -34,10 +34,12 @@ return new class extends Migration
             $table->string('power_supply');
             $table->string('weight');
             $table->string('dimensi');
-            $table->string('bundled_peripherals');
-            $table->integer('warranty');
+            $table->string('warranty');
+            $table->string('bundled_peripherals')->nullable();
+            $table->boolean('is_ready')->default(1);
             $table->bigInteger('price')->nullable();
             $table->integer('quantity')->nullable();
+            $table->text('embed')->nullable();
             $table->timestamps();
         });
     }

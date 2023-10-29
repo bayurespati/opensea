@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+	<title>trash_white</title>
+	<defs>
+		<image  width="20" height="24" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAMAAADNlS1EAAAAAXNSR0IB2cksfwAAALdQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////EIqpSQAAAD10Uk5TABO0+f+RiJC+wy3W1Syrqr+oBSI0Zvjf7HyNDU1wgEBvZGNYV0tKPz4zMicmGhkOAv6mLmqn9MEry/3KKfGyALcAAAC7SURBVHicZdHnDoJAEATgFQYUe0dExd4L9vr+z+VITJRlftxmvuRyyZ5IlJRhAqaRkv9YpmXblpmOYcb5nE7mW7M5qOQLUtQGlKScxLJUkliRai2Rqki9oVLn8zYvNF2g1QLcJotN9DjbPtDpAH6bxSN2OXsCBAEgPZY+caBxSBxpHBMnGqfEmcY5caFxSVxpXBM3GrfEnUafGO6BwxE4nYDsGdiHn91f4ou7RB/ixPEa4e3++NHj+RJ5A66lE6DJCrQhAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="2" y="0"/>
+</svg>
