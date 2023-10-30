@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
 
@@ -58,4 +59,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/item/update/{item}', [ItemController::class, 'update'])->name('admin-item-update');
     Route::get('/admin/item/edit/{item}', [ItemController::class, 'edit'])->name('admin-item-edit');
     Route::get('/admin/item/delete/{item}', [ItemController::class, 'destroy'])->name('admin-item-delete');
+
+    Route::get('/admin/brand', [BrandController::class, 'index'])->name('admin-brand-index');
+    Route::get('/admin/brand/create', [BrandController::class, 'create'])->name('admin-brand-create');
+    Route::post('/admin/brand/store', [BrandController::class, 'store'])->name('admin-brand-store');
+    Route::post('/admin/brand/update/{brand}', [BrandController::class, 'update'])->name('admin-brand-update');
+    Route::get('/admin/brand/edit/{brand}', [BrandController::class, 'edit'])->name('admin-brand-edit');
+    Route::get('/admin/brand/delete/{brand}', [BrandController::class, 'destroy'])->name('admin-brand-delete');
 });
