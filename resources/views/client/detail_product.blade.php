@@ -58,33 +58,11 @@
                                 </a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#"><i class="icon-link"></i>Copy link</a>
-                                    <a class="dropdown-item" href="#"><i class="icon-facebook"></i>Share on facebook</a>
-                                    <a class="dropdown-item mb-0" href="#"><i class="icon-twitter"></i>Share on twitter</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <div class="icon">
-                                <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="icon-content"></i>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"><i class="icon-refresh"></i>Refresh metadata</a>
-                                    <a class="dropdown-item mb-0" href="#"><i class="icon-report"></i>Report</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <h2>ROG STRIX G16 (2023)</h2>
-                    <div class="author flex items-center mb-30">
-                        <div class="avatar">
-                            <img src="assets/images/avatar/avatar-box-05.jpg" alt="Image">
-                        </div>
-                        <div class="info">
-                            <span>Dipasok oleh:</span>
-                            <h6><a href="author-1.html">Asus Indonesia</a> </h6>
-                        </div>
-                    </div>
                     <div class="meta mb-20">
                         <div class="meta-item view">
                             <i class="icon-show"></i>208 view
@@ -98,11 +76,17 @@
                     </div>
                 </div>
                 <div data-wow-delay="0s" class="wow fadeInRight product-item time-sales">
-                    <h6><i class="icon-clock"></i>Bundliing Brakhir pada 30 Nobember 2023 jam 14:00</h6>
+                    <h6>
+                        <i class="icon-clock"></i>
+                        Bundling berakhir pada <span>&nbsp;</span>
+                        <span style="color: red">
+                            30 nobember 2023 jam 14:00
+                        </span>
+                    </h6>
                     <div class="content">
                         <div class="text">Harga saat ini (IDR)</div>
                         <div class="flex justify-between">
-                            <p>25.000.000 <span>25Jt</span></p>
+                            <p>25.000.000</p>
                             <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button style-1 h50 w216">
                                 Masukan Wishlist
                                 <i class="icon-arrow-up-right2"></i>

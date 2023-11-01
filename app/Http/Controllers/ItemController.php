@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreItemRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateItemRequest;
+use App\Models\Brand;
 use App\Models\Item;
 
 class ItemController extends Controller
@@ -23,8 +24,8 @@ class ItemController extends Controller
      */
     public function create()
     {
-        $brands = [];
-        return view('admin.item.create');
+        $brands = Brand::all();
+        return view('admin.item.create', ['brands' => $brands]);
     }
 
     /**
@@ -32,8 +33,12 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
+
         $model = new Item();
+        if ($request->image != null)
+            $model->image = $this->store_image($request);
         $model->type_notebook = $request->type_notebook;
+        $model->brand_id = $request->brand_id;
         $model->processor_onboard = $request->processor_onboard;
         $model->standard_memory = $request->standard_memory;
         $model->video_type = $request->video_type;
@@ -58,6 +63,7 @@ class ItemController extends Controller
         $model->warranty = $request->warranty;
         $model->price = $request->price;
         $model->embed = $request->embed;
+        $model->description = $request->description;
         $model->save();
 
         return redirect('/admin/item');
@@ -76,8 +82,8 @@ class ItemController extends Controller
      */
     public function edit(Item $item)
     {
-        $brands = [];
-        return view('admin.item.edit', ["item" => $item]);
+        $brands = Brand::all();
+        return view('admin.item.edit', ["item" => $item, "brands" => $brands]);
     }
 
     /**
@@ -85,7 +91,11 @@ class ItemController extends Controller
      */
     public function update(UpdateItemRequest $request, Item $item)
     {
+        if ($request->image != null)
+            $item->image = $this->store_image($request);
+
         $item->type_notebook = $request->type_notebook;
+        $item->brand_id = $request->brand_id;
         $item->processor_onboard = $request->processor_onboard;
         $item->standard_memory = $request->standard_memory;
         $item->video_type = $request->video_type;
@@ -110,6 +120,7 @@ class ItemController extends Controller
         $item->warranty = $request->warranty;
         $item->price = $request->price;
         $item->embed = $request->embed;
+        $item->description = $request->description;
         $item->save();
 
         return redirect('/admin/item');

@@ -9,20 +9,20 @@
                     <!-- novalidate="novalidate" -->
                     <form id="commentform" class="comment-form" action="/admin/item/store" method="POST">
                         @csrf
-                        <div class="wrap-upload">
-                            <label class="uploadfile h-full flex items-center justify-center">
-                                <div class="text-center">
-                                    <h5>Upload file</h5>
-                                    <p class="text">Choose your file to upload</p>
-                                    <div class="text filename"></div>
-                                    <input type="file" class="" name="file" accept="image/png, image/jpeg">
-                                </div>
-                            </label>
-                        </div>
                         <div class="wrap-content w-full">
                             <fieldset class="name">
                                 <label>Type Notebook *</label>
                                 <input value="{{old('type_notebook')}}" type="text" id="type_notebook" placeholder="Type Notebook" name="type_notebook" tabindex="2" value="" aria-required="true" required>
+                            </fieldset>
+
+                            <fieldset class="name">
+                                <label>Brand *</label>
+                                <select id="brand_id" name="brand_id" required>
+                                    <option value="">Pilih brand: </option>
+                                    @foreach($brands as $brand)
+                                    <option value="{{$brand->id}}">{{$brand->nama}}</option>
+                                    @endforeach
+                                </select>
                             </fieldset>
 
                             <fieldset class="name">
@@ -141,10 +141,26 @@
                                 <input value="{{old('price')}}" type="number" id="price" placeholder="Price" name="price" tabindex="2" value="" aria-required="true" required>
                             </fieldset>
 
+                            <fieldset>
+                                <label>Description</label>
+                                <textarea name="description" rows="4" placeholder="Description" tabindex="4"></textarea>
+                            </fieldset>
+
                             <fieldset class="properties">
                                 <label>Embed</label>
                                 <textarea value="{{old('embed')}}" id="embed" name="embed" rows="4" placeholder="Embed Video" tabindex="4" aria-required="true" require></textarea>
                             </fieldset>
+
+                            <div class="wrap-upload">
+                                <label class="uploadfile h-full flex items-center justify-center">
+                                    <div class="text-center">
+                                        <h5>Upload file</h5>
+                                        <p class="text">Choose your file to upload</p>
+                                        <div class="text filename"></div>
+                                        <input type="file" class="" name="file" accept="image/png, image/jpeg" multiple>
+                                    </div>
+                                </label>
+                            </div>
 
                             <div class="btn-submit flex gap30 justify-center">
                                 <button class="tf-button style-1 h50 active">

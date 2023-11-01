@@ -7,22 +7,21 @@
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
                 <div class="widget-content-inner description">
                     <!-- novalidate="novalidate" -->
-                    <form id="commentform" class="comment-form" <?php echo ("action=/admin/item/update/" . $item->id) ?> method="POST">
+                    <form id="commentform" class="comment-form" <?php echo ("action=/admin/item/update/" . $item->id) ?> method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="wrap-upload">
-                            <label class="uploadfile h-full flex items-center justify-center">
-                                <div class="text-center">
-                                    <h5>Upload file</h5>
-                                    <p class="text">Choose your file to upload</p>
-                                    <div class="text filename"></div>
-                                    <input type="file" class="" name="file" accept="image/png, image/jpeg">
-                                </div>
-                            </label>
-                        </div>
                         <div class="wrap-content w-full">
                             <fieldset class="name">
                                 <label>Type Notebook *</label>
                                 <input value="{{ old('type_notebook', $item->type_notebook) }}" type="text" id="type_notebook" placeholder="Type Notebook" name="type_notebook" tabindex="2" value="" aria-required="true" required>
+                            </fieldset>
+
+                            <fieldset class="name">
+                                <label>Brand *</label>
+                                <select id="brand_id" name="brand_id" required>
+                                    @foreach($brands as $brand)
+                                    <option value="{{$brand->id}}" {{ ($item->brand_id == $brand->id) ? 'selected' : '' }}>{{$brand->nama}}</option>
+                                    @endforeach
+                                </select>
                             </fieldset>
 
                             <fieldset class="name">
@@ -141,9 +140,25 @@
                                 <input value="{{ old('price', $item->price) }}" type="number" id="price" placeholder="Price" name="price" tabindex="2" value="" aria-required="true" required>
                             </fieldset>
 
+                            <fieldset>
+                                <label>Description</label>
+                                <textarea name="description" rows="4" placeholder="Description" tabindex="4">{{$item->description}}</textarea>
+                            </fieldset>
+
+                            <div class="wrap-upload">
+                                <label class="uploadfile h-full flex items-center justify-center">
+                                    <div class="text-center">
+                                        <h5>Upload file</h5>
+                                        <p class="text">Choose your file to upload</p>
+                                        <div class="text filename"></div>
+                                        <input type="file" class="" name="image" accept="image/png, image/jpeg">
+                                    </div>
+                                </label>
+                            </div>
+
                             <fieldset class="properties">
                                 <label>Embed</label>
-                                <textarea value="{{old('embed', $item->embed)}}" id="embed" name="embed" rows="4" placeholder="Embed Video" tabindex="4" aria-required="true" require></textarea>
+                                <textarea name="embed" rows="4" placeholder="Embed Video" tabindex="4">{{$item->embed}}</textarea>
                             </fieldset>
 
                             <div class="btn-submit flex gap30 justify-center">
