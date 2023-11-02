@@ -8,7 +8,7 @@
                 <div data-wow-delay="0s" class="wow fadeInLeft tf-card-box style-5">
                     <div class="card-media mb-0">
                         <a href="#">
-                            <img src="assets/images/box-item/product-01.jpg" alt="">
+                            <img src="{{$item->image}}" alt="">
                         </a>
                     </div>
                     <h6 class="price gem"><i class="icon-gem"></i></h6>
@@ -62,14 +62,8 @@
                             </div>
                         </div>
                     </div>
-                    <h2>ROG STRIX G16 (2023)</h2>
+                    <h2>{{ $item->type_notebook }}</h2>
                     <div class="meta mb-20">
-                        <div class="meta-item view">
-                            <i class="icon-show"></i>208 view
-                        </div>
-                        <div class="meta-item rating">
-                            <i class="icon-link-2"></i>Top #2 trending
-                        </div>
                         <div class="meta-item favorites">
                             <i class="icon-heart"></i>10 favorites
                         </div>
@@ -86,7 +80,7 @@
                     <div class="content">
                         <div class="text">Harga saat ini (IDR)</div>
                         <div class="flex justify-between">
-                            <p>25.000.000</p>
+                            <p>{{number_format($item->price, 0, '.', ',')}}</p>
                             <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button style-1 h50 w216">
                                 Masukan Wishlist
                                 <i class="icon-arrow-up-right2"></i>
@@ -99,7 +93,7 @@
                     <i class="icon-keyboard_arrow_down"></i>
                     <div class="content">
                         <p>
-                            The ROG Strix G embodies streamlined design, offering a formidable core experience for serious gaming and multitasking on Windows 10 Pro. Featuring the latest 9th Gen Intel Core processors and GeForce RTX™ graphics, it brings impactful gaming performance to a wide audience
+                            {{$item->description}}
                         </p>
                     </div>
                 </div>

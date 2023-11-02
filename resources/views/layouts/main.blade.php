@@ -16,14 +16,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 
     <!-- Reponsive -->
-    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}">
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/icon/favicon_pins.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/favicon_pins.png">
+    <link rel="shortcut icon" href="{{ asset('assets/icon/favicon_pins.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/icon/favicon_pins.png') }}">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body class="body">
@@ -54,7 +55,7 @@
                                     <div id="site-logo">
                                         <div id="site-logo-inner">
                                             <a href="/home" rel="home" class="main-logo">
-                                                <img id="logo_header" src="assets/images/logo/logo_PINS.png" data-retina="assets/images/logo/logo_PINS.png">
+                                                <img id="logo_header" src="{{ asset('assets/images/logo/logo_PINS.png') }}" data-retina="{{ asset('assets/images/logo/logo_PINS.png') }}">
                                             </a>
                                         </div>
                                     </div><!-- logo -->
@@ -85,7 +86,7 @@
                     <div class="inner-canvas-nav">
                         <div class="side-bar">
                             <a href="index.html" rel="home" class="main-logo">
-                                <img id="logo_header" src="assets/images/logo/logo_PINS.png" data-retina="assets/images/logo/logo_PINS.png">
+                                <img id="logo_header" src="{{ asset('assets/images/logo/logo_PINS.png') }}" data-retina="{{ asset('assets/images/logo/logo_PINS.png') }}">
                             </a>
                             <div class="canvas-nav-close">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="white" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 122.878 122.88" enable-background="new 0 0 122.878 122.88" xml:space="preserve">
@@ -106,7 +107,7 @@
                                 <h5 class="title-widget">Menu</h5>
                                 <ul>
                                     <li>
-                                        <div class="cate-item"><a href="#">Menu 1</a></div>
+                                        <div class="cate-item"><a href="/about">About Us</a></div>
                                     </li>
                                     <li>
                                         <div class="cate-item"><a href="/wishlist">Wishlist</a></div>
@@ -157,7 +158,7 @@
                     <div class="overlay-mobile-nav"></div>
                     <div class="inner-mobile-nav">
                         <a href="index.html" rel="home" class="main-logo">
-                            <img id="mobile-logo_header" src="assets/images/logo/logo_PINS.png" data-retina="assets/images/logo/logo_PINS.png">
+                            <img id="mobile-logo_header" src="{{ asset('assets/images/logo/logo_PINS.png') }}" data-retina="{{ asset('assets/images/logo/logo_PINS.png') }}">
                         </a>
                         <div class="mobile-nav-close">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="white" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 122.878 122.88" enable-background="new 0 0 122.878 122.88" xml:space="preserve">
@@ -225,24 +226,22 @@
 
     <!-- Javascript -->
     @yield('js')
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/swiper.js"></script>
-    <script src="assets/js/count-down.js"></script>
-
-    <script src="assets/js/simpleParallax.min.js"></script>
-    <script src="assets/js/gsap.js"></script>
-    <script src="assets/js/SplitText.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/ScrollTrigger.js"></script>
-    <script src="assets/js/gsap-animation.js"></script>
-    <script src="assets/js/tsparticles.min.js"></script>
-    <script src="assets/js/tsparticles.js"></script>
-    <script src="assets/js/main.js"></script>
-
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/swiper.js') }}"></script>
+    <script src="{{ asset('assets/js/count-down.js') }}"></script>
+    <script src="{{ asset('assets/js/simpleParallax.min.js') }}"></script>
+    <script src="{{ asset('assets/js/gsap.js') }}"></script>
+    <script src="{{ asset('assets/js/SplitText.js') }}"></script>
+    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/js/ScrollTrigger.js') }}"></script>
+    <script src="{{ asset('assets/js/gsap-animation.js') }}"></script>
+    <script src="{{ asset('assets/js/tsparticles.min.js') }}"></script>
+    <script src="{{ asset('assets/js/tsparticles.js') }}"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 </html>

@@ -146,80 +146,71 @@
                 </div>
             </div>
             <div class="col-md-9">
+                @if (\Session::has('success'))
+                <div class="alert alert-success alert-dismissible">
+                    <ul>
+                        <li>
+                        <li>{!! \Session::get('success') !!}</li>
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                        </li>
+                    </ul>
+                </div>
+                @endif
                 <div class="row">
-                    @for($i = 0; $i <= 16; $i++) <div data-wow-delay="0" class="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
-                        <?php $data = [
-                            [
-                                "nama" => "HP Omen Transcend 16-u0045TX",
-                                "harga" => "42.299.000",
-                                "image" => "assets/images/item/Product1.jpg"
-                            ],
-                            [
-                                "nama" => "Lenovo Yoga Book 9i i7-1355U",
-                                "harga" => "34.999.000",
-                                "image" => "assets/images/item/Product2.jpg"
-                            ],
-                            [
-                                "nama" => "Lenovo Yoga Book 9i i7-1355U",
-                                "harga" => "34.999.000",
-                                "image" => "assets/images/item/Product3.jpg"
-                            ],
-                            [
-                                "nama" => "Lenovo ThinkPad X1 Carbon",
-                                "harga" => "33.650.000",
-                                "image" => "assets/images/item/Product4.jpg"
-                            ],
-                            [
-                                "nama" => "MacBook Pro 14 M2 Pro",
-                                "harga" => "32.495.000",
-                                "image" => "assets/images/item/Product5.jpg"
-                            ],
-                            [
-                                "nama" => "ASUS ROG G703VI E5209T",
-                                "harga" => "50.000.000",
-                                "image" => "assets/images/item/Product6.jpg"
-                            ],
-                            [
-                                "nama" => "HP Omen 16-wf0031tx",
-                                "harga" => "31.399.000",
-                                "image" => "assets/images/item/Product7.jpg"
-                            ],
-                            [
-                                "nama" => "ASUS Vivobook Pro 16X OLED",
-                                "harga" => "30.999.000",
-                                "image" => "assets/images/item/Product8.jpg"
-                            ],
-                            [
-                                "nama" => "Surface Pro 2023",
-                                "harga" => "30.000.000",
-                                "image" => "assets/images/item/Product9.jpg"
-                            ],
-                        ]; ?>
-                        <?php $number = rand(0, 8); ?>
-                        <div class="tf-card-box style-1">
+                    @foreach($items as $item)
+                    <div data-wow-delay="0" class="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
+                        <div class="tf-card-box style-1" name>
                             <div class="card-media">
-                                <a href="#">
-                                    <img src="<?php echo $data[$number]['image'] ?>" alt="">
+                                <a href="">
+                                    <img src="{{$item->image}}" alt="">
                                 </a>
-                                <span class="wishlist-button icon-heart"></span>
-                                <div class="featured-countdown">
-                                    <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                </div>
+                                <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
+                                    <input type="text" name="item_id" value="{{$item->id}}" hidden>
+                                    @csrf
+                                    <a href="" type="submit">
+                                        <button class="{{sizeOf($item->user) > 0 ? 'wishlist-button active' : 'wishlist-button' }}" type="submit"><i class="icon-heart"></i></button>
+                                    </a>
+                                </form>
+                                <!-- featur time -->
+                                <!-- <div class="featured-countdown"> -->
+                                <!-- <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span> -->
+                                <!-- </div> -->
                                 <div class="button-place-bid">
-                                    <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detail</span></a>
+                                    <a <?php echo ("href='/detail_product/$item->id'") ?> class="tf-button"><span>Detail</span></a>
                                 </div>
                             </div>
-                            <h5 class="name"><a href="nft-detail-2.html">{{$data[$number]['nama']}}</a></h5>
+                            <h5 class="name"><a href="nft-detail-2.html">{{$item->type_notebook}}</a></h5>
                             <div class="divider"></div>
                             <div class="meta-info flex items-center justify-between">
+                                @if($item->is_ready)
                                 <span class="color-ready">Ready</span>
-                                <h6 class="price gem">{{$data[$number]['harga']}}</h6>
+                                @else
+                                <span class="color-indent">Indent</span>
+                                @endif
+                                <h6 class="price gem">{{number_format($item->price, 0, '.', ',')}}</h6>
                             </div>
                         </div>
+                    </div>
+                    @endforeach
                 </div>
-                @endfor
             </div>
         </div>
     </div>
 </div>
+<script>
+    $('a.close').on('click', function() {
+        $(this).parent().hide();
+    });
+</script>
+<style>
+    .alert-dismissible .close {
+        position: relative;
+        top: -2.75rem !important;
+        right: -1.25rem;
+        padding: 0.75rem 1.25rem;
+        color: inherit;
+    }
+</style>
 @stop

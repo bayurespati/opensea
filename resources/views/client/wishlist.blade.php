@@ -3,60 +3,59 @@
     <div class="themesflat-container">
         <div class="row">
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
+                @if (\Session::has('success'))
+                <div class="alert alert-success alert-dismissible">
+                    <ul>
+                        <li>{!! \Session::get('success') !!}</li>
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                    </ul>
+                </div>
+                @endif
                 <div class="product-item offers">
-                    <h6><i class="icon-description"></i>Laptop</h6>
+                    <h6>List Perangkat</h6>
                     <i class="icon-keyboard_arrow_down"></i>
                     <div class="content">
                         <div class="table-heading">
-                            <div class="column">No</div>
-                            <div class="column">Perangkat</div>
-                            <div class="column">ketersedian</div>
-                            <div class="column">Harga</div>
-                            <div class="column">Action</div>
+                            <div class="column" style="width: 10% !important;">NO</div>
+                            <div class="column">PERANGKAT</div>
+                            <div class="column">KETERSEDIAAN</div>
+                            <div class="column">HARGA</div>
+                            <div class="column">AKSI</div>
                         </div>
-
-                        @for($i=0; $i < 5; $i++) <?php
-                                                    $data = [
-                                                        [
-                                                            "Nama Barang",
-                                                            "Ready",
-                                                            "12.000.000",
-                                                        ],
-                                                        [
-                                                            "Nama Barang",
-                                                            "Ready",
-                                                            "12.000.000",
-                                                        ],
-                                                        [
-                                                            "Nama Barang",
-                                                            "Ready",
-                                                            "12.000.000",
-                                                        ],
-                                                        [
-                                                            "Nama Barang",
-                                                            "Ready",
-                                                            "12.000.000",
-                                                        ],
-                                                        [
-                                                            "Nama Barang",
-                                                            "Ready",
-                                                            "12.000.000",
-                                                        ],
-                                                    ];
-                                                    ?> <div class="table-item">
-                            <div class="column">{{ $i+1 }}</div>
-                            <div class="column">{{$data[$i][0]}}</div>
-                            <div class="column">{{$data[$i][1]}}</div>
-                            <div class="column">{{$data[$i][2]}}</div>
+                        @foreach($user->items as $key => $item)
+                        <div class="table-item">
+                            <div class="column" style="width: 10% !important;">{{ $key+1 }}</div>
+                            <div class="column">{{$item->type_notebook}}</div>
                             <div class="column">
-                                <a href="" class="tf-button style-1 h50 w-100">Delete</a>
+                                <span class="{{$item->is_ready ? 'color-ready' : 'color-indent'}}">
+                                    {{$item->is_ready ? "Ready" : "Indent"}}
+                                </span>
                             </div>
+                            <div class="column">
+                                {{ number_format($item->price, 2, '.', ',') }}
+                            </div>
+                            <div class="column">
+                                <a <?php echo ("href=/wishlist/delete/" . $item->id) ?> class="icon">
+                                    <img src="/assets/icon/custome/trash_white.svg" alt="whatsapp" style="width: 22px;">
+                                </a>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
-                    @endfor
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+<style>
+    .alert-dismissible .close {
+        position: relative;
+        top: -2.75rem !important;
+        right: -1.25rem;
+        padding: 0.75rem 1.25rem;
+        color: inherit;
+    }
+</style>
 @stop

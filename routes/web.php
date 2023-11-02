@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\FrontViewController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,26 +33,19 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::get('/home', function () {
-        return view('client.home');
-    });
-
-    Route::get('/faq', function () {
-        return view('client.faq');
-    });
-
-    Route::get('/wishlist', function () {
-        return view('client.wishlist');
-    });
-
-    Route::get('/browse_product', function () {
-        return view('client.browse_product');
-    });
+    Route::get('/home', [FrontViewController::class, 'home']);
+    Route::get('/faq', [FrontViewController::class, 'faq']);
+    Route::get('/about', [FrontViewController::class, 'about']);
+    Route::get('/wishlist', [FrontViewController::class, 'wishlist']);
+    Route::get('/browse_product', [FrontViewController::class, 'products']);
+    Route::get('/detail_product/{item}', [FrontViewController::class, 'detail_product']);
 
     Route::get('/detail_product', function () {
         return view('client.detail_product');
     });
 
+    Route::post('/wishlist/store', [WishlistController::class, 'store']);
+    Route::get('/wishlist/delete/{item}', [WishlistController::class, 'delete']);
 
     Route::get('/admin/item', [ItemController::class, 'index'])->name('admin-item-index');
     Route::get('/admin/item/create', [ItemController::class, 'create'])->name('admin-item-create');

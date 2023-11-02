@@ -33,10 +33,10 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
-
         $model = new Item();
         if ($request->image != null)
             $model->image = $this->store_image($request);
+
         $model->type_notebook = $request->type_notebook;
         $model->brand_id = $request->brand_id;
         $model->processor_onboard = $request->processor_onboard;
@@ -131,7 +131,6 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        //
         $item->delete();
         return redirect('/admin/item');
     }

@@ -7,7 +7,7 @@
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
                 <div class="widget-content-inner description">
                     <!-- novalidate="novalidate" -->
-                    <form id="commentform" class="comment-form" action="/admin/item/store" method="POST">
+                    <form id="commentform" class="comment-form" action="/admin/item/store" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="wrap-content w-full">
                             <fieldset class="name">
@@ -157,7 +157,7 @@
                                         <h5>Upload file</h5>
                                         <p class="text">Choose your file to upload</p>
                                         <div class="text filename"></div>
-                                        <input type="file" class="" name="file" accept="image/png, image/jpeg" multiple>
+                                        <input type="file" class="" name="image" accept="image/png, image/jpeg" multiple>
                                     </div>
                                 </label>
                             </div>

@@ -32,6 +32,33 @@ class UserSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
+            [
+                'name' => 'Ahmad',
+                'is_admin' => false,
+                'email' => 'ahmad@gmail.com',
+                'phone' => '087887773893',
+                'password' => bcrypt('12345678'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'name' => 'Pratama',
+                'is_admin' => false,
+                'email' => 'pratama@gmail.com',
+                'phone' => '087887773893',
+                'password' => bcrypt('12345678'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'name' => 'Hanif',
+                'is_admin' => false,
+                'email' => 'hanif@gmail.com',
+                'phone' => '087887773893',
+                'password' => bcrypt('12345678'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ]);
     }
 }

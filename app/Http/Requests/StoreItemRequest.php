@@ -45,7 +45,8 @@ class StoreItemRequest extends FormRequest
             'weight' => 'required',
             'dimensi' => 'required',
             'warranty' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'image' => 'required'
         ];
     }
 }
