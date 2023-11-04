@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontViewController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
@@ -31,7 +32,7 @@ Route::get('/login', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/home', [FrontViewController::class, 'home']);
     Route::get('/faq', [FrontViewController::class, 'faq']);
@@ -60,4 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/brand/update/{brand}', [BrandController::class, 'update'])->name('admin-brand-update');
     Route::get('/admin/brand/edit/{brand}', [BrandController::class, 'edit'])->name('admin-brand-edit');
     Route::get('/admin/brand/delete/{brand}', [BrandController::class, 'destroy'])->name('admin-brand-delete');
+
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin-dashboard-index');
 });

@@ -61,7 +61,7 @@ class ItemController extends Controller
         $model->dimensi = $request->dimensi;
         $model->bundled_peripherals = $request->bundled_perpherals;
         $model->warranty = $request->warranty;
-        $model->price = $request->price;
+        $model->price = str_replace(",", "", $request->price);
         $model->embed = $request->embed;
         $model->description = $request->description;
         $model->save();
@@ -118,7 +118,7 @@ class ItemController extends Controller
         $item->dimensi = $request->dimensi;
         $item->bundled_peripherals = $request->bundled_perpherals;
         $item->warranty = $request->warranty;
-        $item->price = $request->price;
+        $item->price = str_replace(",", "", $request->price);
         $item->embed = $request->embed;
         $item->description = $request->description;
         $item->save();

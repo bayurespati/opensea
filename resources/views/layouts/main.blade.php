@@ -68,7 +68,7 @@
                                     </nav><!-- /#main-nav -->
                                     <div class="flat-wallet flex">
                                         <div class="" id="wallet-header">
-                                            <a href="https://wa.me/6287887773893?text=Saya ingin bertanya seputar eCatalog PINS" target="_blank" id="connectbtn" class="tf-button style-1">
+                                            <a href="https://wa.me/081289536383?text=Saya ada pertanyaan seputar e-Catalog PINS Indonesia" target="_blank" id="connectbtn" class="tf-button style-1">
                                                 <span>Hubungi Admin</span>
                                             </a>
                                         </div>
@@ -85,9 +85,9 @@
                     <div class="overlay-canvas-nav"></div>
                     <div class="inner-canvas-nav">
                         <div class="side-bar">
-                            <a href="index.html" rel="home" class="main-logo">
+                            <!-- <a href="index.html" rel="home" class="main-logo">
                                 <img id="logo_header" src="{{ asset('assets/images/logo/logo_PINS.png') }}" data-retina="{{ asset('assets/images/logo/logo_PINS.png') }}">
-                            </a>
+                            </a> -->
                             <div class="canvas-nav-close">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="white" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 122.878 122.88" enable-background="new 0 0 122.878 122.88" xml:space="preserve">
                                     <g>
@@ -95,7 +95,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <div class="widget-search mt-30">
+                            <div class="widget-search mt-30" style="margin-top: 50px !important;">
                                 <form action="#" method="get" role="search" class="search-form relative">
                                     <input type="search" id="search" class="search-field style-1" placeholder="Search..." value="" name="s" title="Search for" required="">
                                     <button class="search search-submit" type="submit" title="Search">
@@ -128,12 +128,7 @@
                                             <div class="content">
                                                 <ul class="menu-tab">
                                                     <li class="tablinks" data-tabs="settings">
-                                                        <form action="/logout" method="post">
-                                                            @csrf
-                                                            <button type="submit">
-                                                                <a> Logout </a>
-                                                            </button>
-                                                        </form>
+                                                        <a href="/logout">Logout</a>
                                                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <g opacity="0.2">
                                                                 <path d="M13.7627 6.77369V5.91844C13.7627 4.05303 12.2502 2.54053 10.3848 2.54053H5.91606C4.05156 2.54053 2.53906 4.05303 2.53906 5.91844V16.1209C2.53906 17.9864 4.05156 19.4989 5.91606 19.4989H10.394C12.2539 19.4989 13.7627 17.9909 13.7627 16.131V15.2666" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -157,9 +152,6 @@
                 <div class="mobile-nav-wrap">
                     <div class="overlay-mobile-nav"></div>
                     <div class="inner-mobile-nav">
-                        <a href="index.html" rel="home" class="main-logo">
-                            <img id="mobile-logo_header" src="{{ asset('assets/images/logo/logo_PINS.png') }}" data-retina="{{ asset('assets/images/logo/logo_PINS.png') }}">
-                        </a>
                         <div class="mobile-nav-close">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="white" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 122.878 122.88" enable-background="new 0 0 122.878 122.88" xml:space="preserve">
                                 <g>
@@ -168,9 +160,9 @@
                             </svg>
                         </div>
                         <nav id="mobile-main-nav" class="mobile-main-nav">
-                            <ul id="menu-mobile-menu" class="menu">
+                            <ul id="menu-mobile-menu" class="menu" style="border-top: 0 !important;">
                                 <li class="menu-item">
-                                    <a class="item-menu-mobile" href="#">Menu 1</a>
+                                    <a class="item-menu-mobile" href="/about">About Us</a>
                                 </li>
                                 <li>
                                     <div class="item-menu-mobile"><a href="/wishlist">Wishlist</a></div>

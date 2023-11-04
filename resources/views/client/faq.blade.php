@@ -91,7 +91,7 @@
                             </p>
                             <p data-wow-delay="0.1s" class="wow fadeInUp ">
                                 Tidak menemukan yang anda cari? silahkan
-                                <a href="https://wa.me/6287887773893?text=Saya ingin bertanya seputar eCatalog PINS" target="_blank">
+                                <a href="https://wa.me/081289536383?text=Saya ada pertanyaan seputar e-Catalog PINS Indonesia" target="_blank">
                                     <span style="color: #e63946">Hubungi tim kami</span>
                                 </a>
                             </p>
@@ -102,4 +102,10 @@
         </div>
     </div>
 </div>
+
+<style>
+    .toggle-title.active {
+        color: #e63946 !important;
+    }
+</style>
 @stop

@@ -7,7 +7,7 @@
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
                 <div class="widget-content-inner description">
                     <!-- novalidate="novalidate" -->
-                    <form id="commentform" class="comment-form" action="/admin/item/store" method="POST" enctype="multipart/form-data">
+                    <form id="commentform" class="comment-form" action="/admin/item/store" method="POST" enctype="multipart/form-data" novalidate="novalidate">
                         @csrf
                         <div class="wrap-content w-full">
                             <fieldset class="name">
@@ -126,19 +126,14 @@
                                 </fieldset>
                             </div>
 
-                            <fieldset class="price">
+                            <fieldset class="properties">
                                 <label>Warranty *</label>
                                 <input value="{{old('warranty')}}" type="text" id="warranty" placeholder="Warranty" name="warranty" tabindex="2" value="" aria-required="true" required>
                             </fieldset>
 
                             <fieldset class="price">
-                                <label>Bundled Peripherals</label>
-                                <input value="{{old('bundled_peripherals')}}" type="text" id="bundled_peripherals" placeholder="Bundled Peripherals" name="bundled_peripherals" tabindex="2" value="" aria-required="true">
-                            </fieldset>
-
-                            <fieldset class="price">
                                 <label>Price *</label>
-                                <input value="{{old('price')}}" type="number" id="price" placeholder="Price" name="price" tabindex="2" value="" aria-required="true" required>
+                                <input value="{{old('price')}}" type="text" id="price" placeholder="Price" name="price" tabindex="2" value="" aria-required="true" required>
                             </fieldset>
 
                             <fieldset>
@@ -146,13 +141,8 @@
                                 <textarea name="description" rows="4" placeholder="Description" tabindex="4"></textarea>
                             </fieldset>
 
-                            <fieldset class="properties">
-                                <label>Embed</label>
-                                <textarea value="{{old('embed')}}" id="embed" name="embed" rows="4" placeholder="Embed Video" tabindex="4" aria-required="true" require></textarea>
-                            </fieldset>
-
                             <div class="wrap-upload">
-                                <label class="uploadfile h-full flex items-center justify-center">
+                                <label class="uploadfile h-full">
                                     <div class="text-center">
                                         <h5>Upload file</h5>
                                         <p class="text">Choose your file to upload</p>
@@ -162,13 +152,21 @@
                                 </label>
                             </div>
 
-                            <div class="btn-submit flex gap30 justify-center">
-                                <button class="tf-button style-1 h50 active">
-                                    <a href="/admin/item" style="color: black">
-                                        Cancle
-                                    </a>
-                                </button>
-                                <button class="tf-button style-1 h50" type="submit">Submit item</button>
+                            <fieldset class="properties">
+                                <label>Embed</label>
+                                <textarea value="{{old('embed')}}" id="embed" name="embed" rows="4" placeholder="Embed Video" tabindex="4" aria-required="true" require></textarea>
+                            </fieldset>
+
+                            <div class="btn-submit flex justify-between">
+                                <div></div>
+                                <div class="flex gap30 soft-right">
+                                    <button class="tf-button style-1 h50 active">
+                                        <a href="/admin/item" style="color: black">
+                                            Cancle
+                                        </a>
+                                    </button>
+                                    <button class="tf-button style-1 h50" type="submit">Submit item</button>
+                                </div>
                             </div>
                             @if (count($errors) > 0)
                             <div class="alert alert-danger" style="margin-top: 10px; padding: 4px">
@@ -185,4 +183,24 @@
         </div>
     </div>
 </div>
+<script>
+    $("#price").on("keyup", function(event) {
+        var selection = window.getSelection().toString();
+        if (selection !== '') {
+            return;
+        }
+        // When the arrow keys are pressed, abort.
+        if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
+            return;
+        }
+        var $this = $(this);
+        // Get the value.
+        var input = $this.val();
+        input = input.replace(/[\D\s\._\-]+/g, "");
+        input = input ? parseInt(input, 10) : 0;
+        $this.val(function() {
+            return (input === 0) ? "" : input.toLocaleString("en-US");
+        });
+    })
+</script>
 @stop
