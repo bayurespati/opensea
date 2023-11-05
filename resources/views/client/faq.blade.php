@@ -16,70 +16,26 @@
         <div class="row">
             <div class="col-md-6 mb-20">
                 <div class="flat-accordion2">
+                    @foreach ($faqs->slice(0, 5) as $faq)
                     <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">Pertanyaan #1</h6>
+                        <h6 class="toggle-title">{{$faq->pertanyaan}}</h6>
                         <div class="toggle-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <p>{{$faq->jawaban}}</p>
                         </div>
                     </div>
-                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">Pertanyaan #2</h6>
-                        <div class="toggle-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                    </div>
-                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">Pertanyaan #3</h6>
-                        <div class="toggle-content">
-                            <p>Blockchain is a shared, immutable ledger that facilitates the process of recording transactions and tracking assets in a business network. An asset can be tangible (a house, car, cash, land) or intangible (intellectual property, patents, copyrights, branding). Virtually anything of value can be tracked and traded on a blockchain network, reducing risk and cutting costs for all involved</p>
-                        </div>
-                    </div>
-                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">Pertanyaan #4</h6>
-                        <div class="toggle-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                    </div>
-                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">Pertanyaan #5</h6>
-                        <div class="toggle-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="col-md-6 mb-20">
                 <div class="flat-accordion2">
+                    @foreach ($faqs->slice(5, 10) as $faq)
                     <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">Pertanyaan #6</h6>
+                        <h6 class="toggle-title">{{$faq->pertanyaan}}</h6>
                         <div class="toggle-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+                            <p>{{$faq->jawaban}}</p>
                         </div>
                     </div>
-                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">Pertanyaan #7</h6>
-                        <div class="toggle-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                    </div>
-                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">Pertanyaan #8</h6>
-                        <div class="toggle-content">
-                            <p>Blockchain is a shared, immutable ledger that facilitates the process of recording transactions and tracking assets in a business network. An asset can be tangible (a house, car, cash, land) or intangible (intellectual property, patents, copyrights, branding). Virtually anything of value can be tracked and traded on a blockchain network, reducing risk and cutting costs for all involved</p>
-                        </div>
-                    </div>
-                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">Pertanyaan #9</h6>
-                        <div class="toggle-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                    </div>
-                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">Pertanyaan #10</h6>
-                        <div class="toggle-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="page-title faqs" style="padding-top: 0 !important;">

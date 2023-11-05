@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FrontViewController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
@@ -61,6 +62,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/brand/update/{brand}', [BrandController::class, 'update'])->name('admin-brand-update');
     Route::get('/admin/brand/edit/{brand}', [BrandController::class, 'edit'])->name('admin-brand-edit');
     Route::get('/admin/brand/delete/{brand}', [BrandController::class, 'destroy'])->name('admin-brand-delete');
+
+    Route::get('/admin/faq', [FaqController::class, 'index'])->name('admin-faq-index');
+    Route::post('/admin/faq/update/{faq}', [FaqController::class, 'update'])->name('admin-faq-update');
+    Route::get('/admin/faq/edit/{faq}', [FaqController::class, 'edit'])->name('admin-faq-edit');
 
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin-dashboard-index');
 });

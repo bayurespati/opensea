@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\Item;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class FrontViewController extends Controller
 
     public function faq()
     {
-        return view('client.faq');
+        $faqs = Faq::all();
+        return view('client.faq', ['faqs' => $faqs]);
     }
 
     public function about()

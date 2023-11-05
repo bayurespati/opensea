@@ -119,7 +119,7 @@
                                     </fieldset>
                                     @error('email')
                                     <div style="color: red !important; margin-bottom: 10px;">
-                                        <p>* Alamat email anda salah atay password salah</p>
+                                        <p style="color: red">* Alamat email atau password anda salah</p>
                                     </div>
                                     @enderror('email')
                                     <div class="btn-submit mb-30">
