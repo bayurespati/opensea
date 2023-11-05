@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/wishlist/store', [WishlistController::class, 'store']);
     Route::get('/wishlist/delete/{item}', [WishlistController::class, 'delete']);
+    Route::get('/item/by-search', [ItemController::class, 'search']);
 
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin-dashboard-index');
 

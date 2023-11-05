@@ -45,7 +45,7 @@
                     <div class="content-wg-category-checkbox">
                         @foreach($categories as $category)
                         <label>{{$category->nama}}
-                            <input type="checkbox">
+                            <input type="checkbox" class="category-check" value="{{$category->id}}">
                             <span class="btn-checkbox"></span>
                         </label>
                         <br>
@@ -57,7 +57,7 @@
                     <div class="content-wg-category-checkbox">
                         @foreach($subcategories as $subcategory)
                         <label>{{$subcategory->nama}}
-                            <input type="checkbox">
+                            <input type="checkbox" class="subcategory-check" value="{{$subcategory->id}}">
                             <span class="btn-checkbox"></span>
                         </label>
                         <br>
@@ -69,7 +69,7 @@
                     <div class="content-wg-category-checkbox">
                         @foreach($brands as $brand)
                         <label>{{$brand->nama}}
-                            <input type="checkbox">
+                            <input type="checkbox" class="brand-check" value="{{$brand->id}}">
                             <span class="btn-checkbox"></span>
                         </label>
                         <br>
@@ -117,17 +117,15 @@
                     </ul>
                 </div>
                 @endif
-                <div class="row">
+                <div class="row" id="show-item">
                     @foreach($items as $item)
                     <div data-wow-delay="0" class="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
                         <div class="tf-card-box style-1" name>
                             <div class="card-media">
-                                <a href="">
-                                    <img src="{{$item->image}}" alt="">
-                                </a>
+                                <a href=""> <img src="{{$item->image}}" alt=""></a>
                                 <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
-                                    <input type="text" name="item_id" value="{{$item->id}}" hidden>
                                     @csrf
+                                    <input type="text" name="item_id" value="{{$item->id}}" hidden>
                                     <a href="" type="submit">
                                         <button class="{{sizeOf($item->user) > 0 ? 'wishlist-button active' : 'wishlist-button' }}" type="submit"><i class="icon-heart"></i></button>
                                     </a>
@@ -140,7 +138,7 @@
                                     <a <?php echo ("href='/detail_product/$item->id'") ?> class="tf-button"><span>Detail</span></a>
                                 </div>
                             </div>
-                            <h5 class="name"><a href="nft-detail-2.html">{{$item->type_notebook}}</a></h5>
+                            <h5 class="name"><a href="">{{$item->type_notebook}}</a></h5>
                             <div class="divider"></div>
                             <div class="meta-info flex items-center justify-between">
                                 @if($item->is_ready)
@@ -154,14 +152,116 @@
                     </div>
                     @endforeach
                 </div>
+                <div class="row" id="show-form-search">
+                </div>
             </div>
         </div>
     </div>
 </div>
 <script>
+    let brands_id = [];
+    let category_id = [];
+    let subcategory_id = [];
+
     $('a.close').on('click', function() {
         $(this).parent().hide();
     });
+
+    $('input.brand-check').on('input', function() {
+        let value = $(this).val();
+
+        let index = brands_id.indexOf(value);
+
+        if (index == -1) {
+            brands_id.push(value)
+        } else {
+            brands_id.splice(index, 1);
+        }
+        get_item_by_filter()
+    });
+
+    $('input.category-check').on('input', function() {
+        let value = $(this).val();
+
+        let index = category_id.indexOf(value);
+
+        if (index == -1) {
+            category_id.push(value)
+        } else {
+            category_id.splice(index, 1);
+        }
+        get_item_by_filter()
+    });
+
+    $('input.subcategory-check').on('input', function() {
+        let value = $(this).val();
+
+        let index = subcategory_id.indexOf(value);
+
+        if (index == -1) {
+            subcategory_id.push(value)
+        } else {
+            subcategory_id.splice(index, 1);
+        }
+        get_item_by_filter()
+    });
+
+
+    function get_item_by_filter() {
+        console.log(brands_id);
+        console.log(category_id);
+        console.log(subcategory_id);
+        $("#show-item").empty();
+
+        $.ajax({
+            url: "/item/by-search",
+            type: "get",
+            data: {
+                brands_id: brands_id,
+                category_id: category_id,
+                subcategory_id: subcategory_id
+            },
+            success: function(response) {
+                for (let i = 0; i < response.length; i++) {
+                    console.log(response[i]);
+                    $('#show-item').append(`
+                    <div data-wow-delay="0" class="wow fadeInUp col-lg-4 col-md-6">
+                        <div class="tf-card-box style-1" name>
+                            <div class="card-media">
+                                <a href=""> <img src="` + response[i]['image'] + `" alt=""></a>
+                                <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
+                                    @csrf
+                                    <input type="text" name="item_id" value="` + response[i]['id'] + `" hidden>
+                                    <a href="" type="submit">
+                                        <button class=" ` + (response[i]['user'].length > 0 ? 'wishlist-button active' : 'wishlist-button') + `" type="submit">
+                                            <i class="icon-heart"></i>
+                                        </button>
+                                    </a>
+                                </form>
+                                <!-- featur time -->
+                                <!-- <div class="featured-countdown"> -->
+                                <!-- <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span> -->
+                                <!-- </div> -->
+                                <div class="button-place-bid">
+                                    <a href='/detail_product/` + response[i]['id'] + `' class="tf-button"><span>Detail</span></a>
+                                </div>
+                            </div>
+                            <h5 class="name"><a href="">` + response[i]['type_notebook'] + `</a></h5>
+                            <div class="divider"></div>
+                            <div class="meta-info flex items-center justify-between">
+                                <span class="` + (response[i]['is_ready'] ? 'color-ready' : 'color-indent') + `">
+                                ` + (response[i]['is_ready'] ? 'Ready' : 'Indent') + `
+                                </span>
+                                <h6 class="price gem">` + response[i]['price'].toLocaleString() + `</h6>
+                            </div>
+                        </div>
+                    </div>`);
+                }
+            },
+            error: function(xhr) {}
+        });
+
+    }
 </script>
 <style>
     .alert-dismissible .close {

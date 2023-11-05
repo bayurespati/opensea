@@ -96,7 +96,7 @@ class ItemController extends Controller
         $categories = Category::all();
         $subcategories = Subcategory::all();
         return view('admin.item.edit', [
-            "item" => $item, 
+            "item" => $item,
             "brands" => $brands,
             'categories' => $categories,
             'subcategories' => $subcategories,
@@ -143,6 +143,22 @@ class ItemController extends Controller
         $item->save();
 
         return redirect('/admin/item');
+    }
+
+    public function search(Request $request)
+    {
+        $items = Item::with('user');
+
+        if ($request->brands_id != null)
+            $items->whereIn('brand_id', $request->brands_id);
+        if ($request->category_id != null)
+            $items->whereIn('category_id', $request->category_id);
+        if ($request->subcategory_id != null)
+            $items->whereIn('subcategory_id', $request->subcategory_id);
+
+        $data = $items->get();
+
+        return $data;
     }
 
     /**
