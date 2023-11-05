@@ -42,6 +42,10 @@ return new class extends Migration
             $table->integer('quantity')->nullable();
             $table->text('embed')->nullable();
             $table->text('description');
+            //Relation
+            $table->integer('brand_id');
+            $table->integer('category_id');
+            $table->integer('subcategory_id');
             $table->timestamps();
         });
     }

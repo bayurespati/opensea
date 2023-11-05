@@ -6,7 +6,9 @@ use App\Http\Requests\StoreItemRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateItemRequest;
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Item;
+use App\Models\Subcategory;
 
 class ItemController extends Controller
 {
@@ -25,7 +27,13 @@ class ItemController extends Controller
     public function create()
     {
         $brands = Brand::all();
-        return view('admin.item.create', ['brands' => $brands]);
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        return view('admin.item.create', [
+            'brands' => $brands,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+        ]);
     }
 
     /**
@@ -39,6 +47,8 @@ class ItemController extends Controller
 
         $model->type_notebook = $request->type_notebook;
         $model->brand_id = $request->brand_id;
+        $model->category_id = $request->category_id;
+        $model->subcategory_id = $request->subcategory_id;
         $model->processor_onboard = $request->processor_onboard;
         $model->standard_memory = $request->standard_memory;
         $model->video_type = $request->video_type;
@@ -83,7 +93,14 @@ class ItemController extends Controller
     public function edit(Item $item)
     {
         $brands = Brand::all();
-        return view('admin.item.edit', ["item" => $item, "brands" => $brands]);
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        return view('admin.item.edit', [
+            "item" => $item, 
+            "brands" => $brands,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+        ]);
     }
 
     /**
@@ -96,6 +113,8 @@ class ItemController extends Controller
 
         $item->type_notebook = $request->type_notebook;
         $item->brand_id = $request->brand_id;
+        $item->category_id = $request->category_id;
+        $item->subcategory_id = $request->subcategory_id;
         $item->processor_onboard = $request->processor_onboard;
         $item->standard_memory = $request->standard_memory;
         $item->video_type = $request->video_type;

@@ -24,6 +24,8 @@ class StoreItemRequest extends FormRequest
         return [
             'type_notebook' => 'required',
             'brand_id' => 'required',
+            'category_id' => 'required',
+            'subcategory_id' => 'required',
             'processor_onboard' => 'required',
             'standard_memory' => 'required',
             'video_type' => 'required',

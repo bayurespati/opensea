@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FrontViewController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,12 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/browse_product', [FrontViewController::class, 'products']);
     Route::get('/detail_product/{item}', [FrontViewController::class, 'detail_product']);
 
-    Route::get('/detail_product', function () {
-        return view('client.detail_product');
-    });
-
     Route::post('/wishlist/store', [WishlistController::class, 'store']);
     Route::get('/wishlist/delete/{item}', [WishlistController::class, 'delete']);
+
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin-dashboard-index');
 
     Route::get('/admin/item', [ItemController::class, 'index'])->name('admin-item-index');
     Route::get('/admin/item/create', [ItemController::class, 'create'])->name('admin-item-create');
@@ -63,9 +63,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/brand/edit/{brand}', [BrandController::class, 'edit'])->name('admin-brand-edit');
     Route::get('/admin/brand/delete/{brand}', [BrandController::class, 'destroy'])->name('admin-brand-delete');
 
+    Route::get('/admin/category', [CategoryController::class, 'index'])->name('admin-category-index');
+    Route::get('/admin/category/create', [CategoryController::class, 'create'])->name('admin-category-create');
+    Route::post('/admin/category/store', [CategoryController::class, 'store'])->name('admin-category-store');
+    Route::post('/admin/category/update/{category}', [CategoryController::class, 'update'])->name('admin-category-update');
+    Route::get('/admin/category/edit/{category}', [CategoryController::class, 'edit'])->name('admin-category-edit');
+    Route::get('/admin/category/delete/{category}', [CategoryController::class, 'destroy'])->name('admin-category-delete');
+
+    Route::get('/admin/subcategory', [SubCategoryController::class, 'index'])->name('admin-subcategory-index');
+    Route::get('/admin/subcategory/create', [SubcategoryController::class, 'create'])->name('admin-subcategory-create');
+    Route::post('/admin/subcategory/store', [SubcategoryController::class, 'store'])->name('admin-subcategory-store');
+    Route::post('/admin/subcategory/update/{subcategory}', [SubcategoryController::class, 'update'])->name('admin-subcategory-update');
+    Route::get('/admin/subcategory/edit/{subcategory}', [SubcategoryController::class, 'edit'])->name('admin-subcategory-edit');
+    Route::get('/admin/subcategory/delete/{subcategory}', [SubcategoryController::class, 'destroy'])->name('admin-subcategory-delete');
+
     Route::get('/admin/faq', [FaqController::class, 'index'])->name('admin-faq-index');
     Route::post('/admin/faq/update/{faq}', [FaqController::class, 'update'])->name('admin-faq-update');
     Route::get('/admin/faq/edit/{faq}', [FaqController::class, 'edit'])->name('admin-faq-edit');
-
-    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin-dashboard-index');
 });

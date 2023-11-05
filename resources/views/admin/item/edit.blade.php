@@ -25,6 +25,26 @@
                             </fieldset>
 
                             <fieldset class="name">
+                                <label>Category *</label>
+                                <select id="cagory_id" name="category_id" required>
+                                    <option value="">Pilih category: </option>
+                                    @foreach($categories as $category)
+                                    <option value="{{$category->id}}" {{ ($item->category_id == $category->id) ? 'selected' : '' }}>{{$category->nama}}</option>
+                                    @endforeach
+                                </select>
+                            </fieldset>
+
+                            <fieldset class="name">
+                                <label>Subcategory *</label>
+                                <select id="subcategory_id" name="subcategory_id" required>
+                                    <option value="">Pilih subcategory: </option>
+                                    @foreach($subcategories as $subcategory)
+                                    <option value="{{$subcategory->id}}" {{ ($item->subcategory_id == $subcategory->id) ? 'selected' : '' }}>{{$subcategory->nama}}</option>
+                                    @endforeach
+                                </select>
+                            </fieldset>
+
+                            <fieldset class="name">
                                 <label>Processor Onboard *</label>
                                 <input value="{{ old('processor_onboard', $item->processor_onboard) }}" type="text" id="processor_onboard" placeholder="Processor Onboard" name="processor_onboard" tabindex="2" value="" aria-required="true" required>
                             </fieldset>
@@ -169,7 +189,7 @@
                                             Cancle
                                         </a>
                                     </button>
-                                    <button class="tf-button style-1 h50" type="submit">Submit item</button>
+                                    <button class="tf-button style-1 h50" type="submit">Update item</button>
                                 </div>
                             </div>
                             @if (count($errors) > 0)

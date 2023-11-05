@@ -43,78 +43,37 @@
                 <div class="widget-category-checkbox style-1 mb-30">
                     <h5 class="active">Kategori</h5>
                     <div class="content-wg-category-checkbox">
-                        <form action="#">
-                            <label>Commercial / Retail
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-                            <label>Consumer / Enterprise
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-                        </form>
+                        @foreach($categories as $category)
+                        <label>{{$category->nama}}
+                            <input type="checkbox">
+                            <span class="btn-checkbox"></span>
+                        </label>
+                        <br>
+                        @endforeach
                     </div>
                 </div>
                 <div class="widget-category-checkbox style-1 mb-30">
                     <h5 class="active">Sub Kategori</h5>
                     <div class="content-wg-category-checkbox">
-                        <form action="#">
-                            <label>Laptop
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-                            <label>PC
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-                            <label>All-in-one
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-                            <label>Printer
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-                            <label>Tablet
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-                            <label>Aksesoris
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-                        </form>
+                        @foreach($subcategories as $subcategory)
+                        <label>{{$subcategory->nama}}
+                            <input type="checkbox">
+                            <span class="btn-checkbox"></span>
+                        </label>
+                        <br>
+                        @endforeach
                     </div>
                 </div>
                 <div class="widget-category-checkbox style-1 mb-30">
                     <h5 class="active">Brands</h5>
                     <div class="content-wg-category-checkbox">
-                        <form action="#">
-                            <label>Apple
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-
-                            <label>Asus
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-
-                            <label>HP
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-
-                            <label>DELL
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-
-                            <label>Microsoft
-                                <input type="checkbox">
-                                <span class="btn-checkbox"></span>
-                            </label><br>
-                        </form>
+                        @foreach($brands as $brand)
+                        <label>{{$brand->nama}}
+                            <input type="checkbox">
+                            <span class="btn-checkbox"></span>
+                        </label>
+                        <br>
+                        @endforeach
                     </div>
                 </div>
                 <div class="widget-category-checkbox style-1 mb-30">
