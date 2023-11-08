@@ -260,7 +260,6 @@
             },
             error: function(xhr) {}
         });
-
     }
 </script>
 <style>
