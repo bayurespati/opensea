@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('code');
             $table->integer('total_item');
             $table->bigInteger('total_price');
-            $table->string('status')->nullable()->default("progress");
+            $table->string('status')->nullable()->default("Diterima");
             $table->timestamps();
         });
     }

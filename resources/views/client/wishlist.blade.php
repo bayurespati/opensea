@@ -97,25 +97,33 @@
                     <div class="content">
                         <div class="table-heading">
                             <div class="column" style="width: 10% !important;">NO</div>
-                            <div class="column" style="width: 20% !important;">KODE</div>
-                            <div class="column" style="width: 20% !important;">JUMLAH</div>
-                            <div class="column" style="width: 40% !important;">ITEM</div>
-                            <div class="column" style="width: 20% !important;">TOTAL HARGA</div>
+                            <div class="column">KODE</div>
+                            <div class="column">JUMLAH</div>
+                            <div class="column">ITEM</div>
+                            <div class="column">TOTAL HARGA</div>
+                            <div class="column">STATUS</div>
+                            <div class="column">AKSI</div>
                         </div>
                         @foreach($user->orders as $key => $order)
                         <div class="table-item">
-                            <div class="column" style="width: 10% !important;">{{ $key+1 }}</div>
-                            <div class="column" style="width: 20% !important;">{{$order->code}}</div>
-                            <div class="column" style="width: 20% !important;">{{$order->total_item}}</div>
-                            <div class="column" style="width: 40% !important;">
+                            <div class="column" style="width: 10% !important">{{ $key+1 }}</div>
+                            <div class="column">{{$order->code}}</div>
+                            <div class="column">{{$order->total_item}}</div>
+                            <div class="column">
                                 @foreach($order->items as $key => $item)
                                 <div class="column">
                                     {{$item->type_notebook}}
                                 </div>
                                 @endforeach
                             </div>
-                            <div class="column" style="width: 20% !important;">
+                            <div class="column">
                                 {{ number_format($order->total_price, 2, '.', ',') }}
+                            </div>
+                            <div class="column">{{$order->status}}</div>
+                            <div class="column">
+                                <a <?php echo ('href="https://wa.me/6281289536383?text=Halo Admin eCatalog PINS Indonesia, saya ingin proses pengadaan perangkat dengan nomor order ' . $order->code . ' atas nama ' . Auth::user()->name . ' dengan total harga ' . '$order->total_price' . ', terima kasih."') ?> target="_blank" class="tf-button style-101">
+                                    Nego
+                                </a>
                             </div>
                         </div>
                         @endforeach
@@ -210,6 +218,14 @@
         right: -1.25rem;
         padding: 0.75rem 1.25rem;
         color: inherit;
+    }
+
+    .tf-button.style-101 {
+        width: 100px;
+        height: 44px;
+        gap: 10px;
+        flex-shrink: 0;
+        background-color: #e63946;
     }
 </style>
 @stop

@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('admin-dashboard-index');
 
         Route::get('order', [OrderController::class, 'index'])->name('admin-order-index');
+        Route::get('order/edit/{order}', [OrderController::class, 'edit'])->name('admin-order-edit');
+        Route::post('order/update/{order}', [OrderController::class, 'update'])->name('admin-order-update');
 
         Route::group(['prefix' => 'item'], function () {
             Route::get('', [ItemController::class, 'index'])->name('admin-item-index');

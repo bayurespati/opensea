@@ -193,7 +193,7 @@
             <footer id="footer">
                 <div class="themesflat-container">
                     <div class="footer-bottom">
-                        <p>Â© 2023 PINS INDONESIA</p>
+                        <p>© 2023 PINS INDONESIA</p>
                         <ul class="flex">
                             <li>
                                 <a href="#">Privacy Policy</a>
