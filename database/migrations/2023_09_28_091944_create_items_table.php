@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('type_notebook');
-            $table->integer('brand_id');
             $table->string('processor_onboard');
             $table->string('standard_memory');
             $table->string('video_type');
