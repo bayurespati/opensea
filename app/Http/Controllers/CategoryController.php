@@ -64,7 +64,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         if (sizeOf($category->items) > 0)
-            return redirect()->back()->with('message', 'Category ' . $category->nama . ' tidak Bisa dihapus masih ada item yang menggunakan category ini.');
+            return redirect()->back()->with('message', 'Category ' . $category->nama . ' tidak bisa dihapus masih ada item yang menggunakan category ini.');
 
         $category->delete();
         return redirect()->back()->with('message', 'Category' . $category->nama . ' barhasil dihapus');

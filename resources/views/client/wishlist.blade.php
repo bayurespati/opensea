@@ -121,7 +121,7 @@
                             </div>
                             <div class="column">{{$order->status}}</div>
                             <div class="column">
-                                <a <?php echo ('href="https://wa.me/6281289536383?text=Halo Admin eCatalog PINS Indonesia, saya ingin proses pengadaan perangkat dengan nomor order ' . $order->code . ' atas nama ' . Auth::user()->name . ' dengan total harga ' . '$order->total_price' . ', terima kasih."') ?> target="_blank" class="tf-button style-101">
+                                <a <?php echo ('href="https://wa.me/6281289536383?text=Halo Admin eCatalog PINS Indonesia, saya ingin proses pengadaan perangkat dengan nomor order ' . $order->code . ' atas nama ' . Auth::user()->name . ' dengan total harga ' . $order->total_price . ', terima kasih."') ?> target="_blank" class="tf-button style-101">
                                     Nego
                                 </a>
                             </div>

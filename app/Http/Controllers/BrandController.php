@@ -65,7 +65,7 @@ class BrandController extends Controller
     public function destroy(Brand $brand)
     {
         if (sizeOf($brand->items) > 0)
-            return redirect()->back()->with('message', 'Brand ' . $brand->nama . ' tidak Bisa dihapus masih ada item yang menggunakan brand ini.');
+            return redirect()->back()->with('message', 'Brand ' . $brand->nama . ' tidak bisa dihapus masih ada item yang menggunakan brand ini.');
 
         $brand->delete();
         return redirect()->back()->with('message', 'Brand ' . $brand->nama . ' barhasil dihapus');
