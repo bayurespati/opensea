@@ -9,6 +9,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
@@ -67,6 +68,15 @@ Route::middleware('auth')->group(function () {
             Route::post('update/{brand}', [BrandController::class, 'update'])->name('admin-brand-update');
             Route::get('edit/{brand}', [BrandController::class, 'edit'])->name('admin-brand-edit');
             Route::get('delete/{brand}', [BrandController::class, 'destroy'])->name('admin-brand-delete');
+        });
+
+        Route::group(['prefix' => 'user'], function () {
+            Route::get('', [UserController::class, 'index'])->name('admin-user-index');
+            Route::get('create', [UserController::class, 'create'])->name('admin-user-create');
+            Route::post('store', [UserController::class, 'store'])->name('admin-user-store');
+            Route::post('update/{user}', [UserController::class, 'update'])->name('admin-user-update');
+            Route::get('edit/{user}', [UserController::class, 'edit'])->name('admin-user-edit');
+            Route::get('delete/{user}', [UserController::class, 'destroy'])->name('admin-user-delete');
         });
 
         Route::group(['prefix' => 'category'], function () {

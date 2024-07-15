@@ -41,6 +41,46 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="widget-category-checkbox style-1 mb-30">
+                    <h5 class="active">Divisi</h5>
+                    <div class="content-wg-category-checkbox">
+                        <label>CPE
+                            <input type="checkbox" class="divisi-check" value="cpe">
+                            <span class="btn-checkbox"></span>
+                        </label>
+                        <br>
+                        <label>SM
+                            <input type="checkbox" class="divisi-check" value="sm">
+                            <span class="btn-checkbox"></span>
+                        </label>
+                        <br>
+                    </div>
+                </div>
+                <div class="widget-category-checkbox style-1 mb-30">
+                    <h5 class="active">Ketegori</h5>
+                    <div class="content-wg-category-checkbox" id="show-category">
+                        <!-- <label> Personal Desktop management
+                            <input type="checkbox" class="category-check" value="personal_desktop_management">
+                            <span class="btn-checkbox"></span>
+                        </label>
+                        <br>
+                        <label> Workplace management
+                            <input type="checkbox" class="category-check" value="workplace_management">
+                            <span class="btn-checkbox"></span>
+                        </label>
+                        <br>
+                        <label> Endpoint management
+                            <input type="checkbox" class="category-check" value="endpoint_management">
+                            <span class="btn-checkbox"></span>
+                        </label>
+                        <br> -->
+                    </div>
+                </div>
+                <div class="widget-category-checkbox style-1 mb-30">
+                    <h5 class="active">Sub Category</h5>
+                    <div class="content-wg-category-checkbox" id="show-sub-category">
+                    </div>
+                </div>
+                <!-- <div class="widget-category-checkbox style-1 mb-30">
                     <h5 class="active">Kategori</h5>
                     <div class="content-wg-category-checkbox">
                         @foreach($categories as $category)
@@ -63,7 +103,7 @@
                         <br>
                         @endforeach
                     </div>
-                </div>
+                </div> -->
                 <div class="widget-category-checkbox style-1 mb-30">
                     <h5 class="active">Brands</h5>
                     <div class="content-wg-category-checkbox">
@@ -160,11 +200,116 @@
 </div>
 <script>
     let brands_id = [];
+    let divisi_id = [];
     let category_id = [];
     let subcategory_id = [];
 
+    let list_data_category = [
+        ["Personal Desktop management", "sm", 'personal_desktop_management'],
+        ["Workplace management", "sm", 'workplace_management'],
+        ["Endpoint management", "sm", 'endpoint_management'],
+        ["Data Communication", 'cpe', 'data_communication'],
+        ["IT Infrastructure", 'cpe', 'it_infrastructure'],
+        ["Information Security", 'cpe', 'information_security'],
+        ["IoT", 'cpe', 'iot'],
+    ];
+
+    let list_data_sub_category = [
+        ["Notebook", "personal_desktop_management"],
+        ["Chromebook TKDN", "personal_desktop_management"],
+        ["Chromebook Non TKDN", "personal_desktop_management"],
+        ["All in One", "personal_desktop_management"],
+        ["Smartphone", "personal_desktop_management"],
+        ["Printer", "workplace_management"],
+        ["Projector", "workplace_management"],
+        ["Wall Display", "workplace_management"],
+        ["UEM", "endpoint_management"],
+        ["DLP", "endpoint_management"],
+        ["Antivirus", "endpoint_management"],
+        ["Network Infrastructure", "data_communication"],
+        ["IP Telephony", "data_communication"],
+        ["Server / Hyperconverged Infrastructure", "it_infrastructure"],
+        ["Network Secutiry", 'information_security'],
+        ["Smart Home SaaS", 'iot'],
+        ["Smart Pole", 'iot'],
+        ["Smart Surveilance", 'iot'],
+        ["Smart Branch", 'iot'],
+        ["Other IoT Solutions", 'iot'],
+    ];
+
     $('a.close').on('click', function() {
         $(this).parent().hide();
+    });
+
+    $('input.divisi-check').on('input', function() {
+        let value = $(this).val();
+
+        let index = divisi_id.indexOf(value);
+
+        if (index == -1) {
+            divisi_id.push(value)
+        } else {
+            divisi_id.splice(index, 1);
+        }
+        category_id = [];
+        filterCategory()
+        filterSubCategory()
+    });
+
+    function filterCategory() {
+        $("#show-category").empty();
+        for (let i = 0; i < list_data_category.length; i++) {
+            if (divisi_id.some(str => str.includes(list_data_category[i][1]))) {
+                $('#show-category').append(`
+                     <label> ` + list_data_category[i][0] + `
+                        <input type="checkbox" class="category-check" value="` + list_data_category[i][2] + `">
+                        <span class="btn-checkbox"></span>
+                    </label>
+                    <br>
+            `);
+            }
+        }
+    }
+
+    $(document).on("input", ".category-check", function() {
+        let value = $(this).val();
+
+        let index = category_id.indexOf(value);
+
+        if (index == -1) {
+            category_id.push(value)
+        } else {
+            category_id.splice(index, 1);
+        }
+        filterSubCategory()
+    });
+
+    function filterSubCategory() {
+        $("#show-sub-category").empty();
+        console.log(category_id);
+        for (let i = 0; i < list_data_sub_category.length; i++) {
+            if (category_id.some(str => str.includes(list_data_sub_category[i][1]))) {
+                $('#show-sub-category').append(`
+                     <label> ` + list_data_sub_category[i][0] + `
+                        <input type="checkbox" class="sub-category-check" value="` + list_data_sub_category[i][0] + `">
+                        <span class="btn-checkbox"></span>
+                    </label>
+                    <br>
+            `);
+            }
+        }
+    }
+
+    $('input.subcategory-check').on('input', function() {
+        let value = $(this).val();
+
+        let index = subcategory_id.indexOf(value);
+
+        if (index == -1) {
+            subcategory_id.push(value)
+        } else {
+            subcategory_id.splice(index, 1);
+        }
     });
 
     $('input.brand-check').on('input', function() {
@@ -177,33 +322,6 @@
         } else {
             brands_id.splice(index, 1);
         }
-        get_item_by_filter()
-    });
-
-    $('input.category-check').on('input', function() {
-        let value = $(this).val();
-
-        let index = category_id.indexOf(value);
-
-        if (index == -1) {
-            category_id.push(value)
-        } else {
-            category_id.splice(index, 1);
-        }
-        get_item_by_filter()
-    });
-
-    $('input.subcategory-check').on('input', function() {
-        let value = $(this).val();
-
-        let index = subcategory_id.indexOf(value);
-
-        if (index == -1) {
-            subcategory_id.push(value)
-        } else {
-            subcategory_id.splice(index, 1);
-        }
-        get_item_by_filter()
     });
 
 
