@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FrontViewController;
 use App\Http\Controllers\ItemController;
@@ -77,6 +78,15 @@ Route::middleware('auth')->group(function () {
             Route::post('update/{user}', [UserController::class, 'update'])->name('admin-user-update');
             Route::get('edit/{user}', [UserController::class, 'edit'])->name('admin-user-edit');
             Route::get('delete/{user}', [UserController::class, 'destroy'])->name('admin-user-delete');
+        });
+
+        Route::group(['prefix' => 'divisi'], function () {
+            Route::get('', [DivisiController::class, 'index'])->name('admin-divisi-index');
+            Route::get('create', [DivisiController::class, 'create'])->name('admin-divisi-create');
+            Route::post('store', [DivisiController::class, 'store'])->name('admin-divisi-store');
+            Route::post('update/{divisi}', [DivisiController::class, 'update'])->name('admin-divisi-update');
+            Route::get('edit/{divisi}', [DivisiController::class, 'edit'])->name('admin-divisi-edit');
+            Route::get('delete/{divisi}', [DivisiController::class, 'destroy'])->name('admin-divisi-delete');
         });
 
         Route::group(['prefix' => 'category'], function () {

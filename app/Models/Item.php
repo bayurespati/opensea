@@ -18,4 +18,9 @@ class Item extends Model
     {
         return $this->belongsToMany(User::class, 'wishlists')->where('user_id', Auth::user()->id);
     }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id');
+    }
 }

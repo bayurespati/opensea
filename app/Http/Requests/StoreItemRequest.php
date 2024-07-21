@@ -22,33 +22,19 @@ class StoreItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type_notebook' => 'required',
+            'nama_produk' => 'required',
+            'masa_berlaku_produk' => 'required',
+            'satuan' => 'required',
+            'jenis_produk' => 'required',
+            'nilai_tkdn' => 'required',
+            'nilai_bmp' => 'required',
+            'deskripsi' => 'required',
+            'negara_asal_produk' => 'required',
+            'image' => 'required',
             'brand_id' => 'required',
+            'divisi_id' => 'required',
             'category_id' => 'required',
             'subcategory_id' => 'required',
-            'processor_onboard' => 'required',
-            'standard_memory' => 'required',
-            'video_type' => 'required',
-            'display_size' => 'required',
-            'display_technology' => 'required',
-            'speakers_type' => 'required',
-            'microphone_type' => 'required',
-            'webcam_type' => 'required',
-            'hard_drive_type' => 'required',
-            'internal_wireless_network_type' => 'required',
-            'wireless_network_protocol' => 'required',
-            'internal_bluetooth' => 'required',
-            'keyboard_type' => 'required',
-            'input_device_mouse_type' => 'required',
-            'interface_provided' => 'required',
-            'operating_system' => 'required',
-            'battery_type' => 'required',
-            'power_supply' => 'required',
-            'weight' => 'required',
-            'dimensi' => 'required',
-            'warranty' => 'required',
-            'price' => 'required',
-            'image' => 'required'
         ];
     }
 }

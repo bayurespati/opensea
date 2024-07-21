@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -49,8 +50,9 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(Request $request, Category $category)
     {
+        $request->validate((new UpdateCategoryRequest())->rules($category));
         $category->nama = $request->nama;
         $category->alias = $request->alias;
         $category->save();
@@ -67,6 +69,6 @@ class CategoryController extends Controller
             return redirect()->back()->with('message', 'Category ' . $category->nama . ' tidak bisa dihapus masih ada item yang menggunakan category ini.');
 
         $category->delete();
-        return redirect()->back()->with('message', 'Category' . $category->nama . ' barhasil dihapus');
+        return redirect()->back()->with('message', 'Category ' . $category->nama . ' barhasil dihapus');
     }
 }

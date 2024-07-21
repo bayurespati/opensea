@@ -19,10 +19,10 @@ class UpdateSubCategoryRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules($model): array
     {
         return [
-            'nama' => 'required|unique:subcategories,nama' . $this->id,
+            'nama' => 'required|unique:subcategories,nama,' . $model->id,
         ];
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UpdateItemRequest;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Divisi;
 use App\Models\Item;
 use App\Models\Subcategory;
 
@@ -17,7 +18,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
+        $items = Item::with(['brand'])->get();
         return view('admin.item.index', ['items' => $items]);
     }
 
@@ -27,10 +28,12 @@ class ItemController extends Controller
     public function create()
     {
         $brands = Brand::all();
+        $divisi = Divisi::all();
         $categories = Category::all();
         $subcategories = Subcategory::all();
         return view('admin.item.create', [
             'brands' => $brands,
+            'divisi' => $divisi,
             'categories' => $categories,
             'subcategories' => $subcategories,
         ]);
@@ -45,46 +48,38 @@ class ItemController extends Controller
         if ($request->image != null)
             $model->image = $this->store_image($request);
 
-        $model->type_notebook = $request->type_notebook;
+        //Relation
+        $model->divisi_id = $request->divisi_id;
         $model->brand_id = $request->brand_id;
         $model->category_id = $request->category_id;
         $model->subcategory_id = $request->subcategory_id;
-        $model->processor_onboard = $request->processor_onboard;
-        $model->standard_memory = $request->standard_memory;
-        $model->video_type = $request->video_type;
-        $model->display_size = $request->display_size;
-        $model->display_technology = $request->display_technology;
-        $model->speakers_type = $request->speakers_type;
-        $model->microphone_type = $request->microphone_type;
-        $model->webcam_type = $request->webcam_type;
-        $model->hard_drive_type = $request->hard_drive_type;
-        $model->internal_wireless_network_type = $request->internal_wireless_network_type;
-        $model->wireless_network_protocol = $request->wireless_network_protocol;
-        $model->internal_bluetooth = $request->internal_bluetooth;
-        $model->keyboard_type = $request->keyboard_type;
-        $model->input_device_mouse_type = $request->input_device_mouse_type;
-        $model->interface_provided = $request->interface_provided;
-        $model->operating_system = $request->operating_system;
-        $model->battery_type = $request->battery_type;
-        $model->power_supply = $request->power_supply;
-        $model->weight = $request->weight;
-        $model->dimensi = $request->dimensi;
-        $model->bundled_peripherals = $request->bundled_perpherals;
-        $model->warranty = $request->warranty;
-        $model->price = str_replace(",", "", $request->price);
-        $model->embed = $request->embed;
-        $model->description = $request->description;
+        //Relation
+
+        $model->nama_produk = $request->nama_produk;
+        $model->masa_berlaku_produk = $request->masa_berlaku_produk;
+        $model->satuan = $request->satuan;
+        $model->jenis_produk = $request->jenis_produk;
+        $model->nilai_tkdn = str_replace(",", "", $request->nilai_tkdn);
+        $model->nilai_bmp = str_replace(",", "", $request->nilai_bmp);
+        $model->deskripsi = $request->deskripsi;
+        $model->negara_asal_produk = $request->negara_asal_produk;
+
+        //If product laptop/PC/AiO/Server
+        $model->type = $request->type;
+        $model->prosesor = $request->prosesor;
+        $model->ram = $request->ram;
+        $model->storage = $request->storage;
+        $model->vga = $request->vga;
+        $model->sistem_operasi = $request->sistem_operasi;
+        //If product laptop/PC/AiO/Server
+
+        $model->garansi = $request->garansi;
+        $model->keterangan = $request->keterangan;
+        $model->web_marketplace = $request->web_marketplace;
+
         $model->save();
 
         return redirect('/admin/item');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Item $item)
-    {
-        //
     }
 
     /**
@@ -93,11 +88,13 @@ class ItemController extends Controller
     public function edit(Item $item)
     {
         $brands = Brand::all();
+        $divisi = Divisi::all();
         $categories = Category::all();
         $subcategories = Subcategory::all();
         return view('admin.item.edit', [
             "item" => $item,
             "brands" => $brands,
+            "divisi" => $divisi,
             'categories' => $categories,
             'subcategories' => $subcategories,
         ]);
@@ -106,40 +103,41 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateItemRequest $request, Item $item)
+    public function update(Request $request, Item $item)
     {
+        $request->validate((new UpdateItemRequest())->rules($item));
+
         if ($request->image != null)
             $item->image = $this->store_image($request);
 
-        $item->type_notebook = $request->type_notebook;
+        //Relation
+        $item->divisi_id = $request->divisi_id;
         $item->brand_id = $request->brand_id;
         $item->category_id = $request->category_id;
         $item->subcategory_id = $request->subcategory_id;
-        $item->processor_onboard = $request->processor_onboard;
-        $item->standard_memory = $request->standard_memory;
-        $item->video_type = $request->video_type;
-        $item->display_size = $request->display_size;
-        $item->display_technology = $request->display_technology;
-        $item->speakers_type = $request->speakers_type;
-        $item->microphone_type = $request->microphone_type;
-        $item->webcam_type = $request->webcam_type;
-        $item->hard_drive_type = $request->hard_drive_type;
-        $item->internal_wireless_network_type = $request->internal_wireless_network_type;
-        $item->wireless_network_protocol = $request->wireless_network_protocol;
-        $item->internal_bluetooth = $request->internal_bluetooth;
-        $item->keyboard_type = $request->keyboard_type;
-        $item->input_device_mouse_type = $request->input_device_mouse_type;
-        $item->interface_provided = $request->interface_provided;
-        $item->operating_system = $request->operating_system;
-        $item->battery_type = $request->battery_type;
-        $item->power_supply = $request->power_supply;
-        $item->weight = $request->weight;
-        $item->dimensi = $request->dimensi;
-        $item->bundled_peripherals = $request->bundled_perpherals;
-        $item->warranty = $request->warranty;
-        $item->price = str_replace(",", "", $request->price);
-        $item->embed = $request->embed;
-        $item->description = $request->description;
+        //Relation
+
+        $item->nama_produk = $request->nama_produk;
+        $item->masa_berlaku_produk = $request->masa_berlaku_produk;
+        $item->satuan = $request->satuan;
+        $item->jenis_produk = $request->jenis_produk;
+        $item->nilai_tkdn = $request->nilai_tkdn;
+        $item->nilai_bmp = $request->nilai_bmp;
+        $item->deskripsi = $request->deskripsi;
+        $item->negara_asal_produk = $request->negara_asal_produk;
+
+        //If product laptop/PC/AiO/Server
+        $item->type = $request->type;
+        $item->prosesor = $request->prosesor;
+        $item->ram = $request->ram;
+        $item->storage = $request->storage;
+        $item->vga = $request->vga;
+        $item->sistem_operasi = $request->sistem_operasi;
+        //If product laptop/PC/AiO/Server
+
+        $item->garansi = $request->garansi;
+        $item->keterangan = $request->keterangan;
+        $item->web_marketplace = $request->web_marketplace;
         $item->save();
 
         return redirect('/admin/item');
@@ -149,6 +147,8 @@ class ItemController extends Controller
     {
         $items = Item::with('user');
 
+        if ($request->divisi_id != null)
+            $items->whereIn('divisi_id', $request->divisi_id);
         if ($request->brands_id != null)
             $items->whereIn('brand_id', $request->brands_id);
         if ($request->category_id != null)

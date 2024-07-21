@@ -56,7 +56,7 @@
                                     <div id="site-logo">
                                         <div id="site-logo-inner">
                                             <a rel="home" class="main-logo">
-                                                <img id="logo_header" src="assets/images/logo/logo_PINS.png" data-retina="assets/images/logo/logo_PINS.png">
+                                                <img id="logo_header" src="assets/images/logo/pins_logo_putih.png" data-retina="assets/images/logo/pins_logo_putih.png">
                                             </a>
                                         </div>
                                     </div><!-- logo -->

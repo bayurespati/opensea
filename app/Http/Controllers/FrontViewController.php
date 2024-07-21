@@ -38,11 +38,13 @@ class FrontViewController extends Controller
     public function products()
     {
         $items = Item::with('user')->get();
+        $divisi = Category::all();
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $brands = Brand::all();
         return view('client.browse_product', [
             'items' => $items,
+            'divisi' => $divisi,
             'categories' => $categories,
             'subcategories' => $subcategories,
             'brands' => $brands

@@ -17,7 +17,7 @@
                         <div class="table-heading">
                             <div class="column" style="width: 10% !important;">NO</div>
                             <div class="column">PERANGKAT</div>
-                            <div class="column">KETERSEDIAAN</div>
+                            <div class="column">BRAND</div>
                             <div class="column">HARGA</div>
                             <div class="column">AKSI</div>
                         </div>
@@ -25,9 +25,9 @@
                         @foreach($items as $key => $item)
                         <div class="table-item">
                             <div class="column" style="width: 10% !important;">{{ $key+1 }}</div>
-                            <div class="column">{{$item->type_notebook}}</div>
-                            <div class="column">{{$item->is_ready ? "Ready" : "Indent"}}</div>
-                            <div class="column">{{ number_format($item->price, 2, '.', ',') }}</div>
+                            <div class="column">{{$item->nama_produk}}</div>
+                            <div class="column">{{$item->brand->nama}}</div>
+                            <div class="column">{{number_format($item->nilai_tkdn, 2, '.', ',')}}</div>
                             <div class="column flex gap30">
                                 <a <?php echo ("href=/admin/item/edit/" . $item->id) ?> class="icon">
                                     <img src="/assets/icon/custome/edit_white.svg" alt="whatsapp" style="width: 22px;">

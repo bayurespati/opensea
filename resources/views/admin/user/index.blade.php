@@ -11,7 +11,7 @@
                     </a>
                 </div>
                 <div class="product-item offers mt-10">
-                    <h6>List Perangkat</h6>
+                    <h6>List User</h6>
                     <i class="icon-keyboard_arrow_down"></i>
                     <div class="content">
                         <div class="table-heading">

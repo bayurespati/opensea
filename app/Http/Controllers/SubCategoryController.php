@@ -6,6 +6,7 @@ use App\Http\Requests\StoreSubCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Http\Requests\UpdateSubCategoryRequest;
 use App\Models\Subcategory;
+use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
 {
@@ -50,8 +51,9 @@ class SubCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Subcategory $subcategory)
+    public function update(Request $request, Subcategory $subcategory)
     {
+        $request->validate((new UpdateSubCategoryRequest())->rules($subcategory));
         $subcategory->nama = $request->nama;
         $subcategory->alias = $request->alias;
         $subcategory->save();
@@ -65,9 +67,9 @@ class SubCategoryController extends Controller
     public function destroy(Subcategory $subcategory)
     {
         if (sizeOf($subcategory->items) > 0)
-            return redirect()->back()->with('message', 'Subcategory ' . $subcategory->nama . ' tidak Bisa dihapus masih ada item yang menggunakan subcategory ini.');
+            return redirect()->back()->with('message', 'Subcategory ' . $subcategory->nama . ' tidak bisa dihapus masih ada item yang menggunakan subcategory ini.');
 
         $subcategory->delete();
-        return redirect()->back()->with('message', 'Subcategory' . $subcategory->nama . ' barhasil dihapus');
+        return redirect()->back()->with('message', 'Subcategory ' . $subcategory->nama . ' barhasil dihapus');
     }
 }

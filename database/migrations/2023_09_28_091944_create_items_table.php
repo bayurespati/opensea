@@ -13,39 +13,37 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('type_notebook');
-            $table->string('processor_onboard');
-            $table->string('standard_memory');
-            $table->string('video_type');
-            $table->string('display_size');
-            $table->string('display_technology');
-            $table->string('speakers_type');
-            $table->string('microphone_type');
-            $table->string('webcam_type');
-            $table->string('hard_drive_type');
-            $table->string('internal_wireless_network_type');
-            $table->string('wireless_network_protocol');
-            $table->string('internal_bluetooth');
-            $table->string('keyboard_type');
-            $table->string('input_device_mouse_type');
-            $table->string('interface_provided');
-            $table->string('operating_system');
-            $table->string('battery_type');
-            $table->string('power_supply');
-            $table->string('weight');
-            $table->string('dimensi');
-            $table->string('warranty');
-            $table->string('bundled_peripherals')->nullable();
-            $table->boolean('is_ready')->default(1);
-            $table->bigInteger('price')->nullable();
-            $table->integer('quantity')->nullable();
-            $table->text('embed')->nullable();
-            $table->text('description');
+            $table->string('nama_produk');
+            $table->string('masa_berlaku_produk');
+            $table->string('satuan');
+            $table->string('jenis_produk');
+            $table->bigInteger('nilai_tkdn');
+            $table->bigInteger('nilai_bmp');
+            $table->string('deskripsi');
+            $table->string('negara_asal_produk');
+
+            //If product laptop/PC/AiO/Server
+            $table->string('type')->nullable();
+            $table->string('prosesor')->nullable();
+            $table->string('ram')->nullable();
+            $table->string('storage')->nullable();
+            $table->string('vga')->nullable();
+            $table->string('sistem_operasi');
+            //If product laptop/PC/AiO/Server
+
+            $table->string('garansi')->nullable();
+            $table->string('keterangan')->nullable();
+            $table->string('web_marketplace')->nullable();
+
+            //Image
             $table->string('image')->nullable();
+
             //Relation
-            $table->integer('brand_id');
+            $table->integer('brand_id'); // Merek
+            $table->integer('divisi_id');
             $table->integer('category_id');
             $table->integer('subcategory_id');
+            $table->boolean('is_ready')->default(1);
             $table->timestamps();
         });
     }

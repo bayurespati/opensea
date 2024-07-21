@@ -178,7 +178,7 @@
                                     <a <?php echo ("href='/detail_product/$item->id'") ?> class="tf-button"><span>Detail</span></a>
                                 </div>
                             </div>
-                            <h5 class="name"><a href="">{{$item->type_notebook}}</a></h5>
+                            <h5 class="name"><a href="">{{$item->nama_produk}}</a></h5>
                             <div class="divider"></div>
                             <div class="meta-info flex items-center justify-between">
                                 @if($item->is_ready)

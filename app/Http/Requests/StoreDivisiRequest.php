@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBrandRequest extends FormRequest
+class StoreDivisiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,10 +19,10 @@ class UpdateBrandRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules($model): array
+    public function rules(): array
     {
         return [
-            'nama' => 'required|unique:brands,nama,' . $model->id,
+            'nama' => 'required|unique:divisi,nama'
         ];
     }
 }

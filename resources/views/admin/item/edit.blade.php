@@ -11,8 +11,13 @@
                         @csrf
                         <div class="wrap-content w-full">
                             <fieldset class="name">
-                                <label>Type Notebook *</label>
-                                <input value="{{ old('type_notebook', $item->type_notebook) }}" type="text" id="type_notebook" placeholder="Type Notebook" name="type_notebook" tabindex="2" value="" aria-required="true" required>
+                                <label>Divisi *</label>
+                                <select id="brand_id" name="divisi_id" required>
+                                    <option value="">Pilih divisi: </option>
+                                    @foreach($divisi as $data)
+                                    <option value="{{$data->id}}" {{ ($item->divisi_id == $data->id) ? 'selected' : '' }}>{{$data->nama}}</option>
+                                    @endforeach
+                                </select>
                             </fieldset>
 
                             <fieldset class="name">
@@ -45,124 +50,103 @@
                             </fieldset>
 
                             <fieldset class="name">
-                                <label>Processor Onboard *</label>
-                                <input value="{{ old('processor_onboard', $item->processor_onboard) }}" type="text" id="processor_onboard" placeholder="Processor Onboard" name="processor_onboard" tabindex="2" value="" aria-required="true" required>
+                                <label>Nama Produk</label>
+                                <input value="{{old('nama_produk', $item->nama_produk)}}" type="text" id="nama_produk" placeholder="Nama Produk" name="nama_produk" tabindex="2" value="" aria-required="true" required="">
                             </fieldset>
 
                             <fieldset class="name">
-                                <label>Standard Memory *</label>
-                                <input value="{{ old('standard_memory', $item->standard_memory) }}" type="text" id="standard_memory" placeholder="Standard Memory" name="standard_memory" tabindex="2" value="" aria-required="true" required>
+                                <label>Masa Berlaku Produk</label>
+                                <input value="{{old('masa_berlaku_produk', $item->masa_berlaku_produk)}}" type="text" id="masa_berlaku_produk" placeholder="Mana Berlaku Produk" name="masa_berlaku_produk" tabindex="2" value="" aria-required="true" required>
                             </fieldset>
 
                             <fieldset class="name">
-                                <label>Video Type *</label>
-                                <input value="{{ old('video_type', $item->video_type) }}" type="text" id="video_type" placeholder="Video Type" name="video_type" tabindex="2" value="" aria-required="true" required>
+                                <label>Satuan</label>
+                                <select id="satuan" name="satuan" required>
+                                    <option value="">Pilih satuan: </option>
+                                    <option value="unit" {{ ($item->satuan == "unit") ? 'selected' : '' }}>Unit</option>
+                                    <option value="set" {{ ($item->satuan == "set") ? 'selected' : '' }}>Set</option>
+                                    <option value="pcs" {{ ($item->satuan == "pcs") ? 'selected' : '' }}>Pcs</option>
+                                    <option value="ls" {{ ($item->satuan == "ls") ? 'selected' : '' }}>Ls</option>
+                                </select>
                             </fieldset>
 
                             <fieldset class="name">
-                                <label>Display Size *</label>
-                                <input value="{{ old('display_size', $item->display_size) }}" type="text" id="display_size" placeholder="Display Size" name="display_size" tabindex="2" value="" aria-required="true" required>
-                            </fieldset>
-
-                            <fieldset class="name">
-                                <label>Display Technology *</label>
-                                <input value="{{ old('display_technology', $item->display_technology) }}" type="text" id="display_technology" placeholder="Display Technology" name="display_technology" tabindex="2" value="" aria-required="true" required>
-                            </fieldset>
-
-                            <fieldset class="price">
-                                <label>Speakers Type *</label>
-                                <input value="{{ old('speakers_type', $item->speakers_type) }}" type="text" id="speakers_type" placeholder="Speakers Type" name="speakers_type" tabindex="2" value="" aria-required="true" required>
-                            </fieldset>
-
-                            <fieldset class="size">
-                                <label>Microphone Type *</label>
-                                <input value="{{ old('microphone_type', $item->microphone_type) }}" type="text" id="microphone_type" placeholder="Microphone Type" name="microphone_type" tabindex="2" value="" aria-required="true" required>
-                            </fieldset>
-
-                            <fieldset class="properties">
-                                <label>Webcam Type *</label>
-                                <input value="{{ old('webcam_type', $item->webcam_type) }}" type="text" id="webcam_type" placeholder="Webcam Type" name="webcam_type" tabindex="2" value="" aria-required="true" required="">
-                            </fieldset>
-
-                            <fieldset class="properties">
-                                <label>Hard Drive Type *</label>
-                                <input value="{{ old('hard_drive_type', $item->hard_drive_type) }}" type="text" id="hard_drive_type" placeholder="Hard Drive Type" name="hard_drive_type" tabindex="2" value="" aria-required="true" required="">
-                            </fieldset>
-
-                            <fieldset class="properties">
-                                <label>Internal Wireless Network Type *</label>
-                                <input value="{{ old('internal_wireless_network_type', $item->internal_wireless_network_type) }}" type="text" id="internal_wireless_network_type" placeholder="Internal Wireless Network Type" name="internal_wireless_network_type" tabindex="2" value="" aria-required="true" required="">
-                            </fieldset>
-
-                            <fieldset class="properties">
-                                <label>Wireless Network Protocol *</label>
-                                <input value="{{ old('wireless_network_protocol', $item->wireless_network_protocol) }}" type="text" id="wireless_network_protocol" placeholder="Wireless Network Protocol" name="wireless_network_protocol" tabindex="2" value="" aria-required="true" required="">
-                            </fieldset>
-
-                            <fieldset class="properties">
-                                <label>Internal Bluetooth *</label>
-                                <input value="{{ old('internal_bluetooth', $item->internal_bluetooth) }}" type="text" id="internal_bluetooth" placeholder="Internal Bluetooth" name="internal_bluetooth" tabindex="2" value="" aria-required="true" required="">
-                            </fieldset>
-
-                            <fieldset class="properties">
-                                <label>Interface Provided *</label>
-                                <input value="{{ old('interface_provided', $item->interface_provided) }}" type="text" id="interface_provided" placeholder="Interface Provided" name="interface_provided" tabindex="2" value="" aria-required="true" required>
+                                <label>Jenis Produk</label>
+                                <select id="jenis_produk" name="jenis_produk" required>
+                                    <option value="">Pilih jenis produk: </option>
+                                    <option value="import" {{ ($item->jenis_produk == "import") ? 'selected' : '' }}>Impor</option>
+                                    <option value="pdn" {{ ($item->jenis_produk == "pdn") ? 'selected' : '' }}>PDN</option>
+                                </select>
                             </fieldset>
 
                             <div class="flex gap30">
                                 <fieldset class="price">
-                                    <label>Input mouse Type *</label>
-                                    <input value="{{ old('input_device_mouse_type', $item->input_device_mouse_type) }}" type="text" id="input_device_mouse_type" placeholder="Input mouse Type" name="input_device_mouse_type" tabindex="2" value="" aria-required="true" required>
+                                    <label>Nilai TKDN</label>
+                                    <input value="{{old('nilai_tkdn', $item->nilai_tkdn)}}" type="text" id="nilai_tkdn" placeholder="Nilai TKDN" name="nilai_tkdn" tabindex="2" value="" aria-required="true" required>
                                 </fieldset>
-                                <fieldset class="properties">
-                                    <label>Keyboard Type *</label>
-                                    <input value="{{ old('keyboard_type', $item->keyboard_type) }}" type="text" id="keyboard_type" placeholder="Keyboard Type" name="keyboard_type" tabindex="2" value="" aria-required="true" required>
-                                </fieldset>
-                                <fieldset class="properties">
-                                    <label>Operating System *</label>
-                                    <input value="{{ old('operating_system', $item->operating_system) }}" type="text" id="operating_system" placeholder="Operating System" name="operating_system" tabindex="2" value="" aria-required="true" required>
+                                <fieldset class="price">
+                                    <label>Nilai BMP</label>
+                                    <input value="{{old('nilai_bmp', $item->nilai_bmp)}}" type="text" id="nilai_bmp" placeholder="Nilai BMP" name="nilai_bmp" tabindex="2" value="" aria-required="true" required>
                                 </fieldset>
                             </div>
 
-                            <fieldset class="properties">
-                                <label>Battery Type *</label>
-                                <input value="{{ old('battery_type', $item->battery_type) }}" type="text" id="battery_type" placeholder="Battery Type" name="battery_type" tabindex="2" value="" aria-required="true" required>
+                            <fieldset>
+                                <label>Deskripsi</label>
+                                <textarea value="{{old('deskripsi')}}" name="deskripsi" rows="4" placeholder="Spesifikasi Teknis" tabindex="4">{{$item->deskripsi}}</textarea>
                             </fieldset>
 
-                            <fieldset class="properties">
-                                <label>Power Supply *</label>
-                                <input value="{{ old('power_supply', $item->power_supply) }}" type="text" id="power_supply" placeholder="Power Supply" name="power_supply" tabindex="2" value="" aria-required="true" required>
+                            <fieldset class="name">
+                                <label>Negara Asal Produk</label>
+                                <input value="{{old('negara_asal_produk', $item->negara_asal_produk)}}" type="text" id="negara_asal_produk" placeholder="Negara asal produk" name="negara_asal_produk" tabindex="2" value="" aria-required="true" required>
                             </fieldset>
 
-                            <div class="flex gap30">
-                                <fieldset class="properties">
-                                    <label>Weight *</label>
-                                    <input value="{{ old('weight', $item->weight) }}" type="text" id="weight" placeholder="Weight" name="weight" tabindex="2" value="" aria-required="true" required>
+                            <!-- Field Laptop / PC / AiO / Server -->
+                            <div id="form-full-data" {{$item->subcategory_id == 1 || $item->subcategory_id == 4 || $item->subcategory_id == 14 ? '' : 'hidden' }}>
+                                <fieldset class="name">
+                                    <label>Tipe</label>
+                                    <input value="{{old('type', $item->type)}}" type="text" id="type" placeholder="Type" name="type" tabindex="2" value="" aria-required="true">
                                 </fieldset>
-                                <fieldset class="properties">
-                                    <label>Dimensi *</label>
-                                    <input value="{{ old('dimensi', $item->dimensi) }}" type="text" id="dimensi" placeholder="Dimensi" name="dimensi" tabindex="2" value="" aria-required="true" requied>
+
+                                <fieldset class="name">
+                                    <label>Prosesor</label>
+                                    <input value="{{old('prosesor', $item->prosesor)}}" type="text" id="prosesor" placeholder="Prosesor" name="prosesor" tabindex="2" value="" aria-required="true">
+                                </fieldset>
+
+                                <fieldset class="name">
+                                    <label>RAM</label>
+                                    <input value="{{old('ram', $item->ram)}}" type="text" id="ram" placeholder="RAM" name="ram" tabindex="2" value="" aria-required="true">
+                                </fieldset>
+
+                                <fieldset class="name">
+                                    <label>Storage</label>
+                                    <input value="{{old('storage', $item->storage)}}" type="text" id="storage" placeholder="Storage" name="storage" tabindex="2" value="" aria-required="true">
+                                </fieldset>
+
+                                <fieldset class="name">
+                                    <label>VGA</label>
+                                    <input value="{{old('vga', $item->vga)}}" type="text" id="vga" placeholder="VGA" name="vga" tabindex="2" aria-required="true">
+                                </fieldset>
+
+                                <fieldset class="name">
+                                    <label>Sistem Operasi</label>
+                                    <input value="{{old('sistem_operasi', $item->sistem_operasi)}}" type="text" id="sistem_operasi" placeholder="Sistem Operasi" name="sistem_operasi" tabindex="2" value="" aria-required="true">
                                 </fieldset>
                             </div>
+                            <!-- Field Laptop / PC / AiO / Server -->
 
-                            <fieldset class="properties">
-                                <label>Warranty *</label>
-                                <input value="{{ old('warranty', $item->warranty) }}" type="text" id="warranty" placeholder="Warranty" name="warranty" tabindex="2" value="" aria-required="true" required>
-                            </fieldset>
-
-                            <fieldset class="properties">
-                                <label>Bundled Peripherals</label>
-                                <input value="{{ old('bundled_peripherals', $item->bundled_peripherals) }}" type="text" id="bundled_peripherals" placeholder="Bundled Peripherals" name="bundled_peripherals" tabindex="2" value="" aria-required="true">
-                            </fieldset>
-
-                            <fieldset class="price">
-                                <label>Price *</label>
-                                <input value="{{ old('price', $item->price) }}" type="text" id="price" placeholder="Price" name="price" tabindex="2" value="" aria-required="true" required>
+                            <fieldset class="name">
+                                <label>Garansi</label>
+                                <input value="{{old('garansi', $item->garansi)}}" type="text" id="garansi" placeholder="Garansi" name="garansi" tabindex="2" value="" aria-required="true">
                             </fieldset>
 
                             <fieldset>
-                                <label>Description</label>
-                                <textarea name="description" rows="4" placeholder="Description" tabindex="4">{{$item->description}}</textarea>
+                                <label>Keterangan</label>
+                                <textarea value="{{old('keterangan')}}" name="keterangan" rows="4" placeholder="Keterangan" tabindex="4">{{$item->keterangan}}</textarea>
+                            </fieldset>
+
+                            <fieldset class="name">
+                                <label>Web Marketplace</label>
+                                <input value="{{old('web_marketplace', $item->web_marketplace)}}" type="text" id="web_marketplace" placeholder="Web Link" name="web_marketplace" tabindex="2" value="" aria-required="true" required="">
                             </fieldset>
 
                             <div class="wrap-upload">
@@ -175,11 +159,6 @@
                                     </div>
                                 </label>
                             </div>
-
-                            <fieldset class="properties">
-                                <label>Embed</label>
-                                <textarea name="embed" rows="4" placeholder="Embed Video" tabindex="4">{{$item->embed}}</textarea>
-                            </fieldset>
 
                             <div class="btn-submit flex justify-between">
                                 <div></div>
@@ -208,7 +187,7 @@
     </div>
 </div>
 <script>
-    $("#price").on("keyup", function(event) {
+    $("#nilai_tkdn").on("keyup", function(event) {
         var selection = window.getSelection().toString();
         if (selection !== '') {
             return;
@@ -226,5 +205,43 @@
             return (input === 0) ? "" : input.toLocaleString("en-US");
         });
     })
+    $("#nilai_bmp").on("keyup", function(event) {
+        var selection = window.getSelection().toString();
+        if (selection !== '') {
+            return;
+        }
+        // When the arrow keys are pressed, abort.
+        if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
+            return;
+        }
+        var $this = $(this);
+        // Get the value.
+        var input = $this.val();
+        input = input.replace(/[\D\s\._\-]+/g, "");
+        input = input ? parseInt(input, 10) : 0;
+        $this.val(function() {
+            return (input === 0) ? "" : input.toLocaleString("en-US");
+        });
+    })
+    $(document).on("input", ".category-check", function() {
+        let value = $(this).val();
+
+        let index = category_id.indexOf(value);
+
+        if (index == -1) {
+            category_id.push(value)
+        } else {
+            category_id.splice(index, 1);
+        }
+        filterSubCategory()
+    });
+
+    $(document).on("change", "#subcategory_id", function() {
+        let value = $(this).val();
+
+        let is_show = value == 1 || value == 14 || value == 4;
+
+        $("#form-full-data").attr("hidden", !is_show);
+    });
 </script>
 @stop

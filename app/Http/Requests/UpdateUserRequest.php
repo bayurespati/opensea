@@ -19,10 +19,13 @@ class UpdateUserRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules($model): array
     {
         return [
-            //
+            'name' => 'required',
+            'email' => 'required|unique:users,email,' . $model->id,
+            'phone' => 'required|unique:users,phone,' . $model->id,
+            'is_admin' => 'required',
         ];
     }
 }
