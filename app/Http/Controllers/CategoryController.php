@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Divisi;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::with(['divisi'])->get();
+        // $items = Item::with(['brand'])->get();
         return view('admin.category.index', ['categories' => $categories]);
     }
 
@@ -23,7 +25,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $divisi = Divisi::all();
+        return view('admin.category.create', ["divisi" => $divisi]);
     }
 
     /**
@@ -34,6 +37,7 @@ class CategoryController extends Controller
         $model = new Category();
         $model->nama = $request->nama;
         $model->alias = $request->alias;
+        $model->divisi_id = $request->divisi_id;
         $model->save();
 
         return redirect('/admin/category');
@@ -44,7 +48,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.category.edit', ["category" => $category]);
+        $divisi = Divisi::all();
+        return view('admin.category.edit', ["category" => $category, "divisi" => $divisi]);
     }
 
     /**
@@ -55,6 +60,7 @@ class CategoryController extends Controller
         $request->validate((new UpdateCategoryRequest())->rules($category));
         $category->nama = $request->nama;
         $category->alias = $request->alias;
+        $category->divisi_id = $request->divisi_id;
         $category->save();
 
         return redirect('/admin/category');

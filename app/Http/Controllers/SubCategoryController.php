@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreSubCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Http\Requests\UpdateSubCategoryRequest;
+use App\Models\Category;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        $subcategories = Subcategory::all();
+        $subcategories = Subcategory::with(['category'])->get();
         return view('admin.subcategory.index', ['subcategories' => $subcategories]);
     }
 
@@ -24,7 +25,8 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.subcategory.create');
+        $categories = Category::all();
+        return view('admin.subcategory.create', ["categories" => $categories]);
     }
 
     /**
@@ -35,6 +37,7 @@ class SubCategoryController extends Controller
         $model = new Subcategory();
         $model->nama = $request->nama;
         $model->alias = $request->alias;
+        $model->category_id = $request->category_id;
         $model->save();
 
         return redirect('/admin/subcategory');
@@ -45,7 +48,8 @@ class SubCategoryController extends Controller
      */
     public function edit(Subcategory $subcategory)
     {
-        return view('admin.subcategory.edit', ["subcategory" => $subcategory]);
+        $categories = Category::all();
+        return view('admin.subcategory.edit', ["subcategory" => $subcategory, "categories" => $categories]);
     }
 
     /**
@@ -56,6 +60,7 @@ class SubCategoryController extends Controller
         $request->validate((new UpdateSubCategoryRequest())->rules($subcategory));
         $subcategory->nama = $request->nama;
         $subcategory->alias = $request->alias;
+        $subcategory->category_id = $request->category_id;
         $subcategory->save();
 
         return redirect('/admin/subcategory');

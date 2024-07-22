@@ -17,7 +17,7 @@
                         <div class="table-heading">
                             <div class="column" style="width: 10% !important;">NO</div>
                             <div class="column" style="width: 40% !important;">NAMA</div>
-                            <div class="column" style="width: 40% !important;">ALIAS</div>
+                            <div class="column" style="width: 40% !important;">CATEGORY</div>
                             <div class="column" style="width: 10% !important;">AKSI</div>
                         </div>
 
@@ -25,7 +25,7 @@
                         <div class="table-item">
                             <div class="column" style="width: 10% !important;">{{ $key+1 }}</div>
                             <div class="column" style="width: 40% !important;">{{$subcategory->nama}}</div>
-                            <div class="column" style="width: 40% !important;">{{$subcategory->alias}}</div>
+                            <div class="column" style="width: 40% !important;">{{$subcategory->category->nama}}</div>
                             <div class="column flex gap30" style="width: 10% !important;">
                                 <a <?php echo ("href=/admin/subcategory/edit/" . $subcategory->id) ?> class="icon">
                                     <img src="/assets/icon/custome/edit_white.svg" alt="whatsapp" style="width: 22px;">

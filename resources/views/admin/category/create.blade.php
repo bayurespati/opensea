@@ -11,6 +11,16 @@
                         @csrf
                         <div class="wrap-content w-full">
 
+                            <fieldset class="name">
+                                <label>Divisi *</label>
+                                <select id="brand_id" name="divisi_id" required>
+                                    <option value="">Pilih divisi: </option>
+                                    @foreach($divisi as $data)
+                                    <option value="{{$data->id}}">{{$data->nama}}</option>
+                                    @endforeach
+                                </select>
+                            </fieldset>
+
                             <div class="flex gap30">
                                 <fieldset class="properties">
                                     <label>Nama *</label>

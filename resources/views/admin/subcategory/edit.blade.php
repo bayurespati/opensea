@@ -11,6 +11,16 @@
                         @csrf
                         <div class="wrap-content w-full">
 
+                            <fieldset class="name">
+                                <label>Category *</label>
+                                <select id="cagory_id" name="category_id" required>
+                                    <option value="">Pilih category: </option>
+                                    @foreach($categories as $category)
+                                    <option value="{{$category->id}}" {{ ($subcategory->category_id == $category->id) ? 'selected' : '' }}>{{$category->nama}}</option>
+                                    @endforeach
+                                </select>
+                            </fieldset>
+
                             <div class="flex gap30">
                                 <fieldset class="properties">
                                     <label>Nama *</label>
