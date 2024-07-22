@@ -17,7 +17,7 @@
                         <div class="table-heading">
                             <div class="column" style="width: 10% !important;">NO</div>
                             <div class="column" style="width: 40% !important;">NAMA</div>
-                            <div class="column" style="width: 40% !important;">DIVISI</div>
+                            <div class="column" style="width: 40% !important;">Lini Produk</div>
                             <div class="column" style="width: 10% !important;">AKSI</div>
                         </div>
 

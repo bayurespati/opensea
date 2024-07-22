@@ -1,5 +1,16 @@
-@extends('layouts.main') @section('content')
-<div class="tf-section-2 product-detail">
+@extends('layouts.main')
+
+@section('content')
+<div class="page-title faqs">
+    <div class="themesflat-container">
+        <div class="row">
+            <div class="col-12">
+                <h1 data-wow-delay="0s" class="wow fadeInUp heading text-center">Wishlist</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tf-section-2 wrap-accordion">
     <div class="themesflat-container">
         <div class="row">
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
@@ -212,7 +223,7 @@
     }
 </script>
 <style>
-    .alert-dismissible .close {
+    /* .alert-dismissible .close {
         position: relative;
         top: -2.75rem !important;
         right: -1.25rem;
@@ -226,6 +237,6 @@
         gap: 10px;
         flex-shrink: 0;
         background-color: #e63946;
-    }
+    } */
 </style>
 @stop

@@ -16,8 +16,13 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::with(['divisi'])->get();
-        // $items = Item::with(['brand'])->get();
         return view('admin.category.index', ['categories' => $categories]);
+    }
+
+    public function byDivisi(Request $request)
+    {
+        $categories = Category::whereIn('divisi_id', $request->divisi_id)->with(['divisi'])->get();
+        return $categories;
     }
 
     /**

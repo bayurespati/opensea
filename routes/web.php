@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/wishlist/delete/{item}', [WishlistController::class, 'delete']);
     Route::get('/item/by-search', [ItemController::class, 'search']);
     Route::post('/order', [OrderController::class, 'store']);
+    Route::get('/category/by-divisi', [CategoryController::class, 'byDivisi'])->name('admin-category-by-divisi');
+    Route::get('/subcategory/by-category', [SubCategoryController::class, 'byCategory'])->name('admin-category-by-category');
 
     Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
 

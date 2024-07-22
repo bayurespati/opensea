@@ -10,7 +10,7 @@
                     @csrf
                     <div class="wrap-upload w-full">
                         <fieldset class="name">
-                            <label>Divisi *</label>
+                            <label>Lini Produk *</label>
                             <select id="brand_id" name="divisi_id" required>
                                 <option value="">Pilih divisi: </option>
                                 @foreach($divisi as $data)

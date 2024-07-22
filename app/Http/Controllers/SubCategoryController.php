@@ -21,6 +21,15 @@ class SubCategoryController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     */
+    public function byCategory(Request $request)
+    {
+        $subcategories = Subcategory::whereIn('category_id', $request->category_id)->get();
+        return $subcategories;
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()

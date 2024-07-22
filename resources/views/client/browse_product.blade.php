@@ -41,69 +41,27 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="widget-category-checkbox style-1 mb-30">
-                    <h5 class="active">Divisi</h5>
+                    <h5 class="active">Lini Produk</h5>
                     <div class="content-wg-category-checkbox">
-                        <label>CPE
-                            <input type="checkbox" class="divisi-check" value="cpe">
-                            <span class="btn-checkbox"></span>
-                        </label>
-                        <br>
-                        <label>SM
-                            <input type="checkbox" class="divisi-check" value="sm">
-                            <span class="btn-checkbox"></span>
-                        </label>
-                        <br>
-                    </div>
-                </div>
-                <div class="widget-category-checkbox style-1 mb-30">
-                    <h5 class="active">Ketegori</h5>
-                    <div class="content-wg-category-checkbox" id="show-category">
-                        <!-- <label> Personal Desktop management
-                            <input type="checkbox" class="category-check" value="personal_desktop_management">
-                            <span class="btn-checkbox"></span>
-                        </label>
-                        <br>
-                        <label> Workplace management
-                            <input type="checkbox" class="category-check" value="workplace_management">
-                            <span class="btn-checkbox"></span>
-                        </label>
-                        <br>
-                        <label> Endpoint management
-                            <input type="checkbox" class="category-check" value="endpoint_management">
-                            <span class="btn-checkbox"></span>
-                        </label>
-                        <br> -->
-                    </div>
-                </div>
-                <div class="widget-category-checkbox style-1 mb-30">
-                    <h5 class="active">Sub Category</h5>
-                    <div class="content-wg-category-checkbox" id="show-sub-category">
-                    </div>
-                </div>
-                <!-- <div class="widget-category-checkbox style-1 mb-30">
-                    <h5 class="active">Kategori</h5>
-                    <div class="content-wg-category-checkbox">
-                        @foreach($categories as $category)
-                        <label>{{$category->nama}}
-                            <input type="checkbox" class="category-check" value="{{$category->id}}">
+                        @foreach($divisi as $data)
+                        <label>{{$data->nama}}
+                            <input type="checkbox" class="divisi-check" value="{{$data->id}}">
                             <span class="btn-checkbox"></span>
                         </label>
                         <br>
                         @endforeach
+                    </div>
+                </div>
+                <div class="widget-category-checkbox style-1 mb-30">
+                    <h5 class="active">Kategori</h5>
+                    <div class="content-wg-category-checkbox" id="show-category">
                     </div>
                 </div>
                 <div class="widget-category-checkbox style-1 mb-30">
                     <h5 class="active">Sub Kategori</h5>
-                    <div class="content-wg-category-checkbox">
-                        @foreach($subcategories as $subcategory)
-                        <label>{{$subcategory->nama}}
-                            <input type="checkbox" class="subcategory-check" value="{{$subcategory->id}}">
-                            <span class="btn-checkbox"></span>
-                        </label>
-                        <br>
-                        @endforeach
+                    <div class="content-wg-category-checkbox" id="show-sub-category">
                     </div>
-                </div> -->
+                </div>
                 <div class="widget-category-checkbox style-1 mb-30">
                     <h5 class="active">Brands</h5>
                     <div class="content-wg-category-checkbox">
@@ -204,41 +162,21 @@
     let category_id = [];
     let subcategory_id = [];
 
-    let list_data_category = [
-        ["Personal Desktop management", "sm", 'personal_desktop_management'],
-        ["Workplace management", "sm", 'workplace_management'],
-        ["Endpoint management", "sm", 'endpoint_management'],
-        ["Data Communication", 'cpe', 'data_communication'],
-        ["IT Infrastructure", 'cpe', 'it_infrastructure'],
-        ["Information Security", 'cpe', 'information_security'],
-        ["IoT", 'cpe', 'iot'],
-    ];
-
-    let list_data_sub_category = [
-        ["Notebook", "personal_desktop_management"],
-        ["Chromebook TKDN", "personal_desktop_management"],
-        ["Chromebook Non TKDN", "personal_desktop_management"],
-        ["All in One", "personal_desktop_management"],
-        ["Smartphone", "personal_desktop_management"],
-        ["Printer", "workplace_management"],
-        ["Projector", "workplace_management"],
-        ["Wall Display", "workplace_management"],
-        ["UEM", "endpoint_management"],
-        ["DLP", "endpoint_management"],
-        ["Antivirus", "endpoint_management"],
-        ["Network Infrastructure", "data_communication"],
-        ["IP Telephony", "data_communication"],
-        ["Server / Hyperconverged Infrastructure", "it_infrastructure"],
-        ["Network Secutiry", 'information_security'],
-        ["Smart Home SaaS", 'iot'],
-        ["Smart Pole", 'iot'],
-        ["Smart Surveilance", 'iot'],
-        ["Smart Branch", 'iot'],
-        ["Other IoT Solutions", 'iot'],
-    ];
-
     $('a.close').on('click', function() {
         $(this).parent().hide();
+    });
+
+    $('input.brand-check').on('input', function() {
+        let value = $(this).val();
+
+        let index = brands_id.indexOf(value);
+
+        if (index == -1) {
+            brands_id.push(value)
+        } else {
+            brands_id.splice(index, 1);
+        }
+        get_item_by_filter();
     });
 
     $('input.divisi-check').on('input', function() {
@@ -252,24 +190,11 @@
             divisi_id.splice(index, 1);
         }
         category_id = [];
+        subcategory_id = [];
         filterCategory()
         filterSubCategory()
+        get_item_by_filter();
     });
-
-    function filterCategory() {
-        $("#show-category").empty();
-        for (let i = 0; i < list_data_category.length; i++) {
-            if (divisi_id.some(str => str.includes(list_data_category[i][1]))) {
-                $('#show-category').append(`
-                     <label> ` + list_data_category[i][0] + `
-                        <input type="checkbox" class="category-check" value="` + list_data_category[i][2] + `">
-                        <span class="btn-checkbox"></span>
-                    </label>
-                    <br>
-            `);
-            }
-        }
-    }
 
     $(document).on("input", ".category-check", function() {
         let value = $(this).val();
@@ -281,26 +206,11 @@
         } else {
             category_id.splice(index, 1);
         }
+        get_item_by_filter();
         filterSubCategory()
     });
 
-    function filterSubCategory() {
-        $("#show-sub-category").empty();
-        console.log(category_id);
-        for (let i = 0; i < list_data_sub_category.length; i++) {
-            if (category_id.some(str => str.includes(list_data_sub_category[i][1]))) {
-                $('#show-sub-category').append(`
-                     <label> ` + list_data_sub_category[i][0] + `
-                        <input type="checkbox" class="sub-category-check" value="` + list_data_sub_category[i][0] + `">
-                        <span class="btn-checkbox"></span>
-                    </label>
-                    <br>
-            `);
-            }
-        }
-    }
-
-    $('input.subcategory-check').on('input', function() {
+    $(document).on("input", ".subcategory-check", function() {
         let value = $(this).val();
 
         let index = subcategory_id.indexOf(value);
@@ -310,25 +220,61 @@
         } else {
             subcategory_id.splice(index, 1);
         }
+        get_item_by_filter();
     });
 
-    $('input.brand-check').on('input', function() {
-        let value = $(this).val();
-
-        let index = brands_id.indexOf(value);
-
-        if (index == -1) {
-            brands_id.push(value)
-        } else {
-            brands_id.splice(index, 1);
+    function filterCategory() {
+        $("#show-category").empty();
+        if (divisi_id.length != 0) {
+            let temp_data = null;
+            $.ajax({
+                url: "/category/by-divisi",
+                type: "get",
+                data: {
+                    divisi_id: divisi_id,
+                },
+                success: function(response) {
+                    for (let i = 0; i < response.length; i++) {
+                        $('#show-category').append(`
+                            <label> ` + response[i].nama + `
+                            <input type="checkbox" class="category-check" value="` + response[i].id + `">
+                            <span class="btn-checkbox"></span>
+                            </label>
+                            <br>
+                        `);
+                    }
+                },
+                error: function(xhr) {}
+            });
         }
-    });
+    }
 
+    function filterSubCategory() {
+        $("#show-sub-category").empty();
+        if (category_id.length != 0) {
+            $.ajax({
+                url: "/subcategory/by-category",
+                type: "get",
+                data: {
+                    category_id: category_id,
+                },
+                success: function(response) {
+                    for (let i = 0; i < response.length; i++) {
+                        $('#show-sub-category').append(`
+                            <label> ` + response[i].nama + `
+                            <input type="checkbox" class="subcategory-check" value="` + response[i].id + `">
+                            <span class="btn-checkbox"></span>
+                            </label>
+                            <br>
+                        `);
+                    }
+                },
+                error: function(xhr) {}
+            });
+        }
+    }
 
     function get_item_by_filter() {
-        console.log(brands_id);
-        console.log(category_id);
-        console.log(subcategory_id);
         $("#show-item").empty();
 
         $.ajax({
@@ -336,12 +282,12 @@
             type: "get",
             data: {
                 brands_id: brands_id,
+                divisi_id: divisi_id,
                 category_id: category_id,
                 subcategory_id: subcategory_id
             },
             success: function(response) {
                 for (let i = 0; i < response.length; i++) {
-                    console.log(response[i]);
                     $('#show-item').append(`
                     <div data-wow-delay="0" class="wow fadeInUp col-lg-4 col-md-6">
                         <div class="tf-card-box style-1" name>
@@ -364,13 +310,13 @@
                                     <a href='/detail_product/` + response[i]['id'] + `' class="tf-button"><span>Detail</span></a>
                                 </div>
                             </div>
-                            <h5 class="name"><a href="">` + response[i]['type_notebook'] + `</a></h5>
+                            <h5 class="name"><a href="">` + response[i]['nama_produk'] + `</a></h5>
                             <div class="divider"></div>
                             <div class="meta-info flex items-center justify-between">
                                 <span class="` + (response[i]['is_ready'] ? 'color-ready' : 'color-indent') + `">
                                 ` + (response[i]['is_ready'] ? 'Ready' : 'Indent') + `
                                 </span>
-                                <h6 class="price gem">` + response[i]['price'].toLocaleString() + `</h6>
+                                <h6 class="price gem">` + response[i]['nilai_tkdn'].toLocaleString() + `</h6>
                             </div>
                         </div>
                     </div>`);

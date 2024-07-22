@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('ram')->nullable();
             $table->string('storage')->nullable();
             $table->string('vga')->nullable();
-            $table->string('sistem_operasi');
+            $table->string('sistem_operasi')->nullable();
             //If product laptop/PC/AiO/Server
 
             $table->string('garansi')->nullable();

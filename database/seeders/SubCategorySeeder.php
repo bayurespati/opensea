@@ -113,8 +113,8 @@ class SubCategorySeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'nama' => 'Network Secutiry',
-                'alias' => 'Network Secutiry',
+                'nama' => 'Network Security',
+                'alias' => 'Network Security',
                 'category_id' => 6,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),

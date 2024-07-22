@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Divisi;
 use App\Models\Faq;
 use App\Models\Item;
 use App\Models\Subcategory;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\AssignOp\Div;
 
 class FrontViewController extends Controller
 {
@@ -38,7 +40,7 @@ class FrontViewController extends Controller
     public function products()
     {
         $items = Item::with('user')->get();
-        $divisi = Category::all();
+        $divisi = Divisi::all();
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $brands = Brand::all();
