@@ -33,152 +33,31 @@
                 <div class="relative">
                     <div class="swiper swiper-3d-7">
                         <div class="swiper-wrapper">
+                            @foreach($items as $item)
                             <div class="swiper-slide">
                                 <div class="tf-card-box">
                                     <div class="card-media">
                                         <a href="#">
-                                            <img src="assets/images/item/Product1.jpg" alt="">
+                                            <img src="{{$item->image == null ? 'solid_gray.png' : $item->image}}" alt="">
                                         </a>
-                                        <span class="wishlist-button icon-heart" style="color:black !important"></span>
+                                        <span class="wishlist-button icon-heart"></span>
                                         <div class="button-place-bid">
-                                            <a href="/detail_product" class="tf-button"><span>Detil</span></a>
+                                            <a href="/detail_product/{{$item->id}}" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
                                         </div>
                                     </div>
                                     <div class="meta-info text-center">
                                         <h5 class="name">
                                             <a href="nft-detail-2.html">
                                                 <span class="text-overf">
-                                                    HP Omen Transcend 16-u0045TX/u0046tx i9-13900HX RTX4070 1TB SSD 32GB - CERAMIC WHITE
+                                                    {{$item->nama_produk}}
                                                 </span>
                                             </a>
                                         </h5>
-                                        <h6 class="price gem">IDR 42.299.000</h6>
+                                        <h6 class="price gem">{{number_format($item->harga, 0, '.', ',')}}</h6>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="tf-card-box">
-                                    <div class="card-media">
-                                        <a href="#">
-                                            <img src="assets/images/item/Product2.jpg" alt="">
-                                        </a>
-                                        <span class="wishlist-button icon-heart"></span>
-                                        <div class="button-place-bid">
-                                            <a href="/detail_product" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="meta-info text-center">
-                                        <h5 class="name">
-                                            <a href="nft-detail-2.html">
-                                                <span class="text-overf">
-                                                    Lenovo Yoga Book 9i i7-1355U 16GB 1TB SSD Iris Xe Dual Screen Win11
-                                                </span>
-                                            </a>
-                                        </h5>
-                                        <h6 class="price gem">IDR 34.999.000</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="tf-card-box">
-                                    <div class="card-media">
-                                        <a href="#">
-                                            <img src="assets/images/item/Product3.jpg" alt="">
-                                        </a>
-                                        <span class="wishlist-button icon-heart"></span>
-                                        <div class="featured-countdown">
-                                            <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                        </div>
-                                        <div class="button-place-bid">
-                                            <a href="/detail_product" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="meta-info text-center">
-                                        <h5 class="name"><a href="nft-detail-2.html">Microsoft Surface</a></h5>
-                                        <h6 class="price gem">IDR 27.999.000</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="tf-card-box">
-                                    <div class="card-media">
-                                        <a href="#">
-                                            <img src="assets/images/item/Product4.jpg" alt="">
-                                        </a>
-                                        <span class="wishlist-button icon-heart"></span>
-                                        <div class="featured-countdown">
-                                            <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                        </div>
-                                        <div class="button-place-bid">
-                                            <a href="/detail_product" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="meta-info text-center">
-                                        <h5 class="name"><a href="nft-detail-2.html">Microsoft Surface</a></h5>
-                                        <h6 class="price gem">IDR 26.999.000</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="tf-card-box">
-                                    <div class="card-media">
-                                        <a href="#">
-                                            <img src="assets/images/item/Product5.jpg" alt="">
-                                        </a>
-                                        <span class="wishlist-button icon-heart"></span>
-                                        <div class="featured-countdown">
-                                            <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                        </div>
-                                        <div class="button-place-bid">
-                                            <a href="/detail_product" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="meta-info text-center">
-                                        <h5 class="name"><a href="nft-detail-2.html">Macbook Pro 2022</a></h5>
-                                        <h6 class="price gem">IDR 24.000.000</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="tf-card-box">
-                                    <div class="card-media">
-                                        <a href="#">
-                                            <img src="assets/images/item/Product6.jpg" alt="">
-                                        </a>
-                                        <span class="wishlist-button icon-heart"></span>
-                                        <div class="featured-countdown">
-                                            <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                        </div>
-                                        <div class="button-place-bid">
-                                            <a href="/detail_product" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="meta-info text-center">
-                                        <h5 class="name"><a href="nft-detail-2.html">Asus ROG X</a></h5>
-                                        <h6 class="price gem">IDR 25.000.000</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="tf-card-box">
-                                    <div class="card-media">
-                                        <a href="#">
-                                            <img src="assets/images/item/Product7.jpg" alt="">
-                                        </a>
-                                        <span class="wishlist-button icon-heart"></span>
-                                        <div class="featured-countdown">
-                                            <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                        </div>
-                                        <div class="button-place-bid">
-                                            <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="meta-info text-center">
-                                        <h5 class="name"><a href="nft-detail-2.html">Asus ROG</a></h5>
-                                        <h6 class="price gem">IDR 24.999.000</h6>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="swiper-pagination pagination-number"></div>
                     </div>
@@ -604,7 +483,7 @@
                         <img src="assets/images/box-icon/step1.png" alt="">
                         <p>Step 1</p>
                     </div>
-                    <h4 class="heading"><a href="contact-us.html">Telusuri Perangkat</a></h4>
+                    <h4 class="heading"><a href="#">Telusuri Perangkat</a></h4>
                     <p class="content">Cari perangkat sesuai dengan kebutuhan Anda</p>
                     <div class="arrow">
                         <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -628,7 +507,7 @@
                         <img src="assets/images/box-icon/step2.png" alt="">
                         <p>Step 2</p>
                     </div>
-                    <h4 class="heading"><a href="contact-us.html">Masukan Whishlist</a></h4>
+                    <h4 class="heading"><a href="#">Masukan Whishlist</a></h4>
                     <p class="content">Daftarkan perangkat yang diminati ke dalam wishlist</p>
                     <div class="arrow">
                         <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -652,7 +531,7 @@
                         <img src="assets/images/box-icon/step3.png" alt="">
                         <p>Step 3</p>
                     </div>
-                    <h4 class="heading"><a href="contact-us.html">Hubungi Kami</a></h4>
+                    <h4 class="heading"><a href="#">Hubungi Kami</a></h4>
                     <p class="content">Hubungi Admin untuk mengetahui SOP pemesanan & negosiasi</p>
                     <div class="arrow">
                         <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -676,7 +555,7 @@
                         <img src="assets/images/box-icon/step4.png" alt="">
                         <p>Step 4</p>
                     </div>
-                    <h4 class="heading"><a href="contact-us.html">Detil Daftar Perangkat</a></h4>
+                    <h4 class="heading"><a href="#">Detil Daftar Perangkat</a></h4>
                     <p class="content">Cek kembali daftar pesanan Anda untuk dimasukan ke dalam pengadaan</p>
                 </div>
             </div>

@@ -48,6 +48,17 @@
                 </div>
             </div>
             <div class="col-md-6">
+                @if (\Session::has('success'))
+                <div class="alert alert-success alert-dismissible">
+                    <ul>
+                        <li>{!! \Session::get('success') !!}
+                            <button type="button" class="close" data-dismiss="alert" style="top: -20px">
+                                <span aria-hidden="true" style="top: -20px;">&times;</span>
+                            </button>
+                        <li>
+                    </ul>
+                </div>
+                @endif
                 <div data-wow-delay="0s" class="wow fadeInRight infor-product">
                     <div class="text">Bagian Dari: Paket Hemat 2023 <span class="icon-tick"><span class="path1"></span><span class="path2"></span></span></div>
                     <div class="menu_card">
@@ -80,11 +91,16 @@
                     <div class="content">
                         <div class="text">Harga saat ini (IDR)</div>
                         <div class="flex justify-between">
-                            <p>{{number_format($item->price, 0, '.', ',')}}</p>
-                            <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button style-1 h50 w216">
-                                Masukan Wishlist
-                                <i class="icon-arrow-up-right2"></i>
-                            </a>
+                            <p>{{number_format($item->harga, 0, '.', ',')}}</p>
+                            <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
+                                @csrf
+                                <input type="text" name="item_id" value="{{$item->id}}" hidden>
+                                <button type="submit" class="tf-button h50 w216" style="background-color: #e63946 !important">
+                                    {{sizeOf($item->user) > 0 ? 'Keluarkan' : 'Masukan' }}
+                                    Wishlist
+                                    <i class="icon-arrow-up-right2"></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

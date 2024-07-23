@@ -17,7 +17,8 @@ class FrontViewController extends Controller
 {
     public function home()
     {
-        return view('client.home');
+        $items = Item::all()->take(10);
+        return view('client.home', ['items' => $items]);
     }
 
     public function faq()
@@ -55,6 +56,7 @@ class FrontViewController extends Controller
 
     public function detail_product(Item $item)
     {
+        $item = Item::where('id', $item->id)->with('user')->first();
         return view('client.detail_product', ['item' => $item]);
     }
 }

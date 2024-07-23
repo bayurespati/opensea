@@ -59,10 +59,11 @@ class ItemController extends Controller
         $model->masa_berlaku_produk = $request->masa_berlaku_produk;
         $model->satuan = $request->satuan;
         $model->jenis_produk = $request->jenis_produk;
-        $model->nilai_tkdn = str_replace(",", "", $request->nilai_tkdn);
-        $model->nilai_bmp = str_replace(",", "", $request->nilai_bmp);
+        $model->jenis_produk = $request->jenis_produk;
+        $model->nilai_tkdn = $request->nilai_tkdn;
         $model->deskripsi = $request->deskripsi;
         $model->negara_asal_produk = $request->negara_asal_produk;
+        $model->harga = str_replace(",", "", $request->harga);
 
         //If product laptop/PC/AiO/Server
         $model->type = $request->type;
@@ -125,6 +126,7 @@ class ItemController extends Controller
         $item->nilai_bmp = $request->nilai_bmp;
         $item->deskripsi = $request->deskripsi;
         $item->negara_asal_produk = $request->negara_asal_produk;
+        $item->harga = str_replace(",", "", $request->harga);
 
         //If product laptop/PC/AiO/Server
         $item->type = $request->type;

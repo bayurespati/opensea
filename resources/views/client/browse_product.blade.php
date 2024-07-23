@@ -120,7 +120,7 @@
                     <div data-wow-delay="0" class="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
                         <div class="tf-card-box style-1" name>
                             <div class="card-media">
-                                <a href=""> <img src="{{$item->image}}" alt=""></a>
+                                <a href=""> <img src="{{$item->image == null ? 'solid_gray.png' : $item->image}}" alt=""></a>
                                 <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
                                     @csrf
                                     <input type="text" name="item_id" value="{{$item->id}}" hidden>
@@ -144,7 +144,7 @@
                                 @else
                                 <span class="color-indent">Indent</span>
                                 @endif
-                                <h6 class="price gem">{{number_format($item->price, 0, '.', ',')}}</h6>
+                                <h6 class="price gem">{{number_format($item->harga, 0, '.', ',')}}</h6>
                             </div>
                         </div>
                     </div>
@@ -292,7 +292,7 @@
                     <div data-wow-delay="0" class="wow fadeInUp col-lg-4 col-md-6">
                         <div class="tf-card-box style-1" name>
                             <div class="card-media">
-                                <a href=""> <img src="` + response[i]['image'] + `" alt=""></a>
+                                <a href=""> <img src="` + (response[i]['image'] == "" ? 'solid_gray.png' : response[i]['image']) + `" alt=""></a>
                                 <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
                                     @csrf
                                     <input type="text" name="item_id" value="` + response[i]['id'] + `" hidden>
@@ -316,7 +316,7 @@
                                 <span class="` + (response[i]['is_ready'] ? 'color-ready' : 'color-indent') + `">
                                 ` + (response[i]['is_ready'] ? 'Ready' : 'Indent') + `
                                 </span>
-                                <h6 class="price gem">` + response[i]['nilai_tkdn'].toLocaleString() + `</h6>
+                                <h6 class="price gem">` + response[i]['harga'].toLocaleString() + `</h6>
                             </div>
                         </div>
                     </div>`);

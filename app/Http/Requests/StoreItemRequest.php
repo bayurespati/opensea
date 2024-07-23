@@ -35,6 +35,7 @@ class StoreItemRequest extends FormRequest
             'divisi_id' => 'required',
             'category_id' => 'required',
             'subcategory_id' => 'required',
+            'harga' => 'required',
         ];
     }
 }

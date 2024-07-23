@@ -17,9 +17,10 @@ return new class extends Migration
             $table->string('masa_berlaku_produk');
             $table->string('satuan');
             $table->string('jenis_produk');
-            $table->bigInteger('nilai_tkdn');
-            $table->bigInteger('nilai_bmp');
-            $table->string('deskripsi');
+            $table->string('nilai_tkdn');
+            $table->string('nilai_bmp');
+            $table->bigInteger('harga');
+            $table->text('deskripsi');
             $table->string('negara_asal_produk');
 
             //If product laptop/PC/AiO/Server
@@ -32,7 +33,7 @@ return new class extends Migration
             //If product laptop/PC/AiO/Server
 
             $table->string('garansi')->nullable();
-            $table->string('keterangan')->nullable();
+            $table->text('keterangan')->nullable();
             $table->string('web_marketplace')->nullable();
 
             //Image

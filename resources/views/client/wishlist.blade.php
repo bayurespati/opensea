@@ -49,14 +49,14 @@
                             <div class="column data-row" style="width: 10% !important;">
                                 <div class="widget-category-checkbox style-1">
                                     <div class="content-wg-category-checkbox">
-                                        <input type="checkbox" class="item-check" value="{{$item->id}}#{{$item->price}}">
+                                        <input type="checkbox" class="item-check" value="{{$item->id}}#{{$item->harga}}">
                                     </div>
                                 </div>
                             </div>
                             <div class="column" style="width: 10% !important;">
                                 {{ $key+1 }}
                             </div>
-                            <div class="column">{{$item->type_notebook}}</div>
+                            <div class="column">{{$item->nama_produk}}</div>
                             <div class="column">
                                 <div class="column">
                                     <span class="{{$item->is_ready ? 'color-ready' : 'color-indent'}}">
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="column">
-                                {{ number_format($item->price, 2, '.', ',') }}
+                                {{ number_format($item->harga, 2, '.', ',') }}
                             </div>
                             <div class="column" style="width: 10% !important;">
                                 <a <?php echo ("href=/wishlist/delete/" . $item->id) ?> class="icon">

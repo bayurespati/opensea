@@ -243,18 +243,21 @@
                                     <h5 class="title-widget mt-30">Social Media</h5>
                                     <div class="widget-social">
                                         <ul class="flex">
-                                            <li><a href="#" class="icon-facebook"></a></li>
-                                            <li><a href="#" class="icon-twitter"></a></li>
-                                            <li><a href="#" class="icon-vt"></a></li>
-                                            <li><a href="#" class="icon-youtube"></a></li>
+                                            <li><a href="https://www.instagram.com/p/C78uqMxSCwB/?igsh=bm42N3dkZG1tdTd5" class="icon-instagram"></a></li>
+                                            <li><a href="https://www.linkedin.com/company/pt-pins-indonesia/" class="icon-linkedin2"></a></li>
+                                            <li><a href="https://www.facebook.com/pinstheiotcompany" class="icon-facebook"></a></li>
+                                            <li><a href="https://youtu.be/SC5jOcUB4Y4?si=3OBmJnbqpN43JlEu" class="icon-youtube"></a></li>
                                         </ul>
                                     </div>
+                                    <h6 class="title-widget mt-10">
+                                        <a href="https://www.pins.co.id/#/nav/home">www.pins.co.id</a>
+                                    </h6>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="footer-bottom">
-                        <p>© 2023 PINS INDONESIA</p>
+                    <div class="footer-bottom" style="margin-top: 0 !important">
+                        <p>© 2024 PINS INDONESIA</p>
                         <ul class="flex">
                             <li>
                                 <a href="#">Privacy Policy</a>

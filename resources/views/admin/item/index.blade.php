@@ -27,7 +27,7 @@
                             <div class="column" style="width: 10% !important;">{{ $key+1 }}</div>
                             <div class="column">{{$item->nama_produk}}</div>
                             <div class="column">{{$item->brand->nama}}</div>
-                            <div class="column">{{number_format($item->nilai_tkdn, 2, '.', ',')}}</div>
+                            <div class="column">{{number_format($item->harga, 2, '.', ',')}}</div>
                             <div class="column flex gap30">
                                 <a <?php echo ("href=/admin/item/edit/" . $item->id) ?> class="icon">
                                     <img src="/assets/icon/custome/edit_white.svg" alt="whatsapp" style="width: 22px;">
