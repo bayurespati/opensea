@@ -61,6 +61,7 @@ class ItemController extends Controller
         $model->jenis_produk = $request->jenis_produk;
         $model->jenis_produk = $request->jenis_produk;
         $model->nilai_tkdn = $request->nilai_tkdn;
+        $model->nilai_bmp = $request->nilai_bmp;
         $model->deskripsi = $request->deskripsi;
         $model->negara_asal_produk = $request->negara_asal_produk;
         $model->harga = str_replace(",", "", $request->harga);
