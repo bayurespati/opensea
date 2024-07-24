@@ -90,6 +90,11 @@
                                 </fieldset>
                             </div>
 
+                            <fieldset class="price">
+                                <label>Harga</label>
+                                <input value="{{old('harga' , $item->harga)}}" type="text" id="harga" placeholder="Harga" name="harga" tabindex="2" value="" aria-required="true" required>
+                            </fieldset>
+
                             <fieldset>
                                 <label>Deskripsi</label>
                                 <textarea value="{{old('deskripsi')}}" name="deskripsi" rows="4" placeholder="Spesifikasi Teknis" tabindex="4">{{$item->deskripsi}}</textarea>
@@ -243,5 +248,24 @@
 
         $("#form-full-data").attr("hidden", !is_show);
     });
+
+    $("#harga").on("keyup", function(event) {
+        var selection = window.getSelection().toString();
+        if (selection !== '') {
+            return;
+        }
+        // When the arrow keys are pressed, abort.
+        if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
+            return;
+        }
+        var $this = $(this);
+        // Get the value.
+        var input = $this.val();
+        input = input.replace(/[\D\s\._\-]+/g, "");
+        input = input ? parseInt(input, 10) : 0;
+        $this.val(function() {
+            return (input === 0) ? "" : input.toLocaleString("en-US");
+        });
+    })
 </script>
 @stop
