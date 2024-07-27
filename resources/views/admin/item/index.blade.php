@@ -5,10 +5,25 @@
     <div class="themesflat-container">
         <div class="row">
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
-                <div class="tf-button style-1 h50 w190">
+                <div class="flex gap30" style="margin-bottom: 10px;">
                     <a href="/admin/item/create">
-                        Daftarkan Perangkat
+                        <div class="tf-button style-1 h50 w190">
+                            Daftarkan Perangkat
+                        </div>
                     </a>
+                    <a href="/admin/item/upload-view">
+                        <div class="tf-button style-1 h50 w190">
+                            Upload Perangkat
+                        </div>
+                    </a>
+                </div>
+                <div class="widget-search" style="margin-bottom: 10px;">
+                    <form action="{{ route('admin-item-index') }}" method="GET">
+                        @csrf
+                        <input type="text" id="search-item" placeholder="Search" name="search" tabindex="2" value="" aria-required="true" value="" class="style-1">
+                        <button class="search search-submit" title="Search" type="submit" onclick="searchItem()">
+                        </button>
+                    </form>
                 </div>
                 <div class="product-item offers mt-10">
                     <h6>List Perangkat</h6>
@@ -35,11 +50,15 @@
                                 <a <?php echo ("href=/admin/item/delete/" . $item->id) ?> class="icon">
                                     <img src="/assets/icon/custome/trash_white.svg" alt="whatsapp" style="width: 22px;">
                                 </a>
+                                <a <?php echo ("href=/admin/item/upload-image/" . $item->id) ?> class="icon">
+                                    <img src="/assets/icon/custome/image_white_1.svg" alt="whatsapp" style="width: 22px;">
+                                </a>
                             </div>
                         </div>
                         @endforeach
                     </div>
                 </div>
+                {{ $items->links('vendor.pagination.bootstrap-5') }}
             </div>
         </div>
     </div>

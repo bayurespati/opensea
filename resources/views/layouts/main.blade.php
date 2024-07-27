@@ -233,7 +233,7 @@
                                             <li><a href="#">0215082079</a></li>
                                             <li><a href="#">kontak@pins.co.id</a></li>
                                             <li><a href="#">
-                                                    The Telkom Hub, Twoer II lt.42
+                                                    The Telkom Hub, Tower II lt.42
                                                     <br>
                                                     Jl. Gatot Subroto Kav. 52, Jakarta Selatan 12710
                                                 </a>

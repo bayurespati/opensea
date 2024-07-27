@@ -38,6 +38,12 @@
 
 <div class="tf-section-5 artwork loadmore-12-item-1">
     <div class="themesflat-container">
+        <div class="widget-search" style="margin-bottom: 10px;">
+            <input type="text" id="search-item" placeholder="Search" name="search" tabindex="2" value="" aria-required="true" value="" class="style-1">
+            <button class="search search-submit" title="Search" onclick="searchItem()">
+                <i class="icon-search"></i>
+            </button>
+        </div>
         <div class="row">
             <div class="col-md-3">
                 <div class="widget-category-checkbox style-1 mb-30">
@@ -274,7 +280,20 @@
         }
     }
 
-    function get_item_by_filter() {
+    var push_search = document.getElementById("search-item");
+    push_search.addEventListener("keydown", function(e) {
+        if (e.code === "Enter") { //checks whether the pressed key is "Enter"
+            searchItem(e);
+        }
+    });
+
+    function searchItem() {
+        // $value = document.getElementById("search");
+        $search = document.getElementById("search-item").value;
+        get_item_by_filter($search);
+    }
+
+    function get_item_by_filter(search) {
         $("#show-item").empty();
 
         $.ajax({
@@ -284,7 +303,8 @@
                 brands_id: brands_id,
                 divisi_id: divisi_id,
                 category_id: category_id,
-                subcategory_id: subcategory_id
+                subcategory_id: subcategory_id,
+                search: search
             },
             success: function(response) {
                 for (let i = 0; i < response.length; i++) {
@@ -292,7 +312,7 @@
                     <div data-wow-delay="0" class="wow fadeInUp col-lg-4 col-md-6">
                         <div class="tf-card-box style-1" name>
                             <div class="card-media">
-                                <a href=""> <img src="` + (response[i]['image'] == "" ? 'solid_gray.png' : response[i]['image']) + `" alt=""></a>
+                                <a href=""> <img src="` + (response[i]['image'] == "" || response[i]['image'] == null ? '/solid_gray.png' : response[i]['image']) + `" alt=""></a>
                                 <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
                                     @csrf
                                     <input type="text" name="item_id" value="` + response[i]['id'] + `" hidden>

@@ -474,7 +474,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="heading-section justify-content-center">
-                    <h2 class="tf-title pb-30">Tahapan Pemesana Perangkat Di E-Catalog PINS</h2>
+                    <h2 class="tf-title pb-30">Tahapan Pemesanan Perangkat Di E-Catalog PINS</h2>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">

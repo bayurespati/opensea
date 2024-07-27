@@ -8,21 +8,21 @@
                 <div data-wow-delay="0s" class="wow fadeInLeft tf-card-box style-5">
                     <div class="card-media mb-0">
                         <a href="#">
-                            <img src="{{$item->image}}" alt="">
+                            <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="">
                         </a>
                     </div>
-                    <h6 class="price gem"><i class="icon-gem"></i></h6>
-                    <div class="wishlist-button">10<i class="icon-heart"></i></div>
-                    <div class="featured-countdown">
+                    <!-- <h6 class="price gem"><i class="icon-gem"></i></h6> -->
+                    <!-- <div class="wishlist-button">10<i class="icon-heart"></i></div> -->
+                    <!-- <div class="featured-countdown">
                         <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                         <div class="tf-card-box style-4">
                             <div class="card-media">
                                 <a href="#">
-                                    <img src="assets/images/box-item/card-item-49.jpg" alt="">
+                                    <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                         <div class="tf-card-box style-4">
                             <div class="card-media">
                                 <a href="#">
-                                    <img src="assets/images/box-item/card-item-49.jpg" alt="">
+                                    <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="">
                                 </a>
                             </div>
                         </div>
@@ -40,11 +40,11 @@
                         <div class="tf-card-box style-4">
                             <div class="card-media">
                                 <a href="#">
-                                    <img src="assets/images/box-item/card-item-49.jpg" alt="">
+                                    <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="">
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-md-6">
@@ -60,34 +60,34 @@
                 </div>
                 @endif
                 <div data-wow-delay="0s" class="wow fadeInRight infor-product">
-                    <div class="text">Bagian Dari: Paket Hemat 2023 <span class="icon-tick"><span class="path1"></span><span class="path2"></span></span></div>
+                    <!-- <div class="text">Bagian Dari: Paket Hemat 2023 <span class="icon-tick"><span class="path1"></span><span class="path2"></span></span></div> -->
                     <div class="menu_card">
                         <div class="dropdown">
-                            <div class="icon">
+                            <!-- <div class="icon">
                                 <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="icon-link-1"></i>
                                 </a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#"><i class="icon-link"></i>Copy link</a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <h2>{{ $item->type_notebook }}</h2>
+                    <h2>{{ $item->nama_produk }}</h2>
                     <div class="meta mb-20">
-                        <div class="meta-item favorites">
+                        <!-- <div class="meta-item favorites">
                             <i class="icon-heart"></i>10 favorites
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div data-wow-delay="0s" class="wow fadeInRight product-item time-sales">
-                    <h6>
+                    <!-- <h6>
                         <i class="icon-clock"></i>
                         Bundling berakhir pada <span>&nbsp;</span>
                         <span style="color: red">
                             30 nobember 2023 jam 14:00
                         </span>
-                    </h6>
+                    </h6> -->
                     <div class="content">
                         <div class="text">Harga saat ini (IDR)</div>
                         <div class="flex justify-between">
@@ -105,11 +105,20 @@
                     </div>
                 </div>
                 <div data-wow-delay="0s" class="wow fadeInRight product-item description">
-                    <h6><i class="icon-description"></i>Description</h6>
+                    <h6><i class="icon-description"></i>Deskripsi</h6>
                     <i class="icon-keyboard_arrow_down"></i>
                     <div class="content">
                         <p>
-                            {{$item->description}}
+                            {{$item->deskripsi}}
+                        </p>
+                    </div>
+                </div>
+                <div data-wow-delay="0s" class="wow fadeInRight product-item description">
+                    <h6><i class="icon-description"></i>Keterangan</h6>
+                    <i class="icon-keyboard_arrow_down"></i>
+                    <div class="content">
+                        <p>
+                            {{$item->keterangan}}
                         </p>
                     </div>
                 </div>
@@ -118,49 +127,28 @@
                     <i class="icon-keyboard_arrow_down"></i>
                     <div class="content">
                         <div class="trait-item">
-                            <p>Resolusi</p>
-                            <div class="title">FHD 16:10</div>
-                            <p>1920x1200 WUXGA</p>
+                            <p>Prosesor</p>
+                            <div class="title">{{$item->prosesor}}</div>
                         </div>
                         <div class="trait-item">
-                            <p>Teknologi Layar</p>
-                            <div class="title">IPS Anti-Glare</div>
-                            <p>Refresh rate 165Hz</p>
+                            <p>RAM</p>
+                            <div class="title">{{$item->ram}}</div>
                         </div>
                         <div class="trait-item">
-                            <p>Memory</p>
-                            <div class="title">8GB Dual Channel</div>
-                            <p>DDR5 - 4800</p>
+                            <p>Storage</p>
+                            <div class="title">{{$item->storage}}</div>
                         </div>
                         <div class="trait-item">
-                            <p>Penyimpanan</p>
-                            <div class="title">512GB PCIe</div>
-                            <p>4.0 NVMe,M.2 SSD</p>
+                            <p>VGA</p>
+                            <div class="title">{{$item->vga}}</div>
                         </div>
                         <div class="trait-item">
-                            <p>Kamera</p>
-                            <div class="title">720 HD</div>
-                            <p>-</p>
+                            <p>Sistem Operasi</p>
+                            <div class="title">{{$item->sistem_operasi}}</div>
                         </div>
                         <div class="trait-item">
-                            <p>Audio</p>
-                            <div class="title">Dolby Atoms</div>
-                            <p>Smart Amp Technology</p>
-                        </div>
-                        <div class="trait-item">
-                            <p>Baterai</p>
-                            <div class="title">90WHrs 4S1P</div>
-                            <p>4-cell Li-ion</p>
-                        </div>
-                        <div class="trait-item">
-                            <p>Suplay Daya</p>
-                            <div class="title">240W</div>
-                            <p>AC 50/60Hz Universal</p>
-                        </div>
-                        <div class="trait-item">
-                            <p>Dimensi & Berat</p>
-                            <div class="title">25.5Kg (5.51 Lbs)</div>
-                            <p>35x26x2 cm</p>
+                            <p>Garansi</p>
+                            <div class="title">{{$item->garansi}}</div>
                         </div>
                     </div>
                 </div>

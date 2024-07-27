@@ -5,21 +5,58 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreItemRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateItemRequest;
+use App\Imports\ItemImport;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Divisi;
 use App\Models\Item;
 use App\Models\Subcategory;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = Item::with(['brand'])->get();
+        if ($request->search != null)
+            $items = Item::where('nama_produk', 'like', '%' . $request->search . '%')->with(['brand'])->paginate(10);
+        else
+            $items = Item::with(['brand'])->paginate(10);
         return view('admin.item.index', ['items' => $items]);
+    }
+
+    /**
+     * Show the form for upload data
+     */
+    public function uploadView(Request $request)
+    {
+        return view('admin.item.upload');
+    }
+
+    /**
+     * Show the form for upload image
+     */
+    public function uploadImage(Request $request, Item $item)
+    {
+        return view('admin.item.upload-image', ['item' => $item->with(['images'])->first()]);
+    }
+
+    /**
+     * Upload data into storage.
+     */
+    public function upload(Request $request)
+    {
+        try {
+            $file = $request->file('file');
+            Excel::import(new ItemImport(), $file, \Maatwebsite\Excel\Excel::XLSX);
+
+            return redirect()->back()->with('success', 'Berhasil upload data');
+        } catch (Exception $e) {
+            dd($e->getMessage());
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     /**
@@ -158,6 +195,8 @@ class ItemController extends Controller
             $items->whereIn('category_id', $request->category_id);
         if ($request->subcategory_id != null)
             $items->whereIn('subcategory_id', $request->subcategory_id);
+        if ($request->search)
+            $items->where('nama_produk', "LIKE", "%" . $request->search . "%");
 
         $data = $items->get();
 

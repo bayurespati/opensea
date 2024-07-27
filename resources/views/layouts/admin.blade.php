@@ -17,6 +17,7 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/shortcodes.css">
 
     <!-- Reponsive -->
     <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
@@ -25,6 +26,9 @@
     <link rel="shortcut icon" href="/assets/icon/favicon_pins.png">
     <link rel="apple-touch-icon-precomposed" href="/assets/icon/favicon_pins.png">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+
+    </style>
 </head>
 
 <body class="body dashboard1">

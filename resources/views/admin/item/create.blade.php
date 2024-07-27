@@ -151,7 +151,7 @@
 
                         <fieldset class="name">
                             <label>Web Marketplace</label>
-                            <input value="{{old('web_marketplace')}}" type="text" id="web_marketplace" placeholder="Wireless Network Protocol" name="web_marketplace" tabindex="2" value="" aria-required="true" required="">
+                            <input value="{{old('web_marketplace')}}" type="text" id="web_marketplace" placeholder="Wireless Network Protocol" name="web_marketplace" tabindex="2" value="" aria-required="true">
                         </fieldset>
 
                         <div class="wrap-upload">
@@ -168,11 +168,11 @@
                         <div class="btn-submit flex justify-between">
                             <div></div>
                             <div class="flex gap30 soft-right">
-                                <button class="tf-button style-1 h50 active">
-                                    <a href="/admin/item" style="color: black">
+                                <a href="{{ route('admin-item-index') }}" style="color: black">
+                                    <div class="tf-button style-1 h50 active" formaction="{{ route('admin-item-index') }}">
                                         Cancle
-                                    </a>
-                                </button>
+                                    </div>
+                                </a>
                                 <button class="tf-button style-1 h50" type="submit">Submit item</button>
                             </div>
                         </div>

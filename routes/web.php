@@ -7,6 +7,7 @@ use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FrontViewController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ItemImageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SubCategoryController;
@@ -57,11 +58,19 @@ Route::middleware('auth')->group(function () {
 
         Route::group(['prefix' => 'item'], function () {
             Route::get('', [ItemController::class, 'index'])->name('admin-item-index');
+            Route::get('upload-view', [ItemController::class, 'uploadView'])->name('admin-item-upload-view');
+            Route::get('upload-image/{item}', [ItemController::class, 'uploadImage'])->name('admin-item-upload-image');
+            Route::post('upload', [ItemController::class, 'upload'])->name('admin-item-upload');
             Route::get('create', [ItemController::class, 'create'])->name('admin-item-create');
             Route::post('store', [ItemController::class, 'store'])->name('admin-item-store');
             Route::post('update/{item}', [ItemController::class, 'update'])->name('admin-item-update');
             Route::get('edit/{item}', [ItemController::class, 'edit'])->name('admin-item-edit');
             Route::get('delete/{item}', [ItemController::class, 'destroy'])->name('admin-item-delete');
+        });
+
+        Route::group(['prefix' => 'item-image'], function () {
+            Route::post('upload', [ItemImageController::class, 'store'])->name('admin-item-image-upload');
+            Route::get('delete/{item}', [ItemImageController::class, 'destroy'])->name('admin-item-image-delete');
         });
 
         Route::group(['prefix' => 'brand'], function () {
