@@ -35,7 +35,7 @@
                             <div class="btn-submit flex gap30 justify-center">
                                 <button class="tf-button style-1 h50 active">
                                     <a href="/admin/subcategory" style="color: black">
-                                        Cancle
+                                        Cancel
                                     </a>
                                 </button>
                                 <button class="tf-button style-1 h50" type="submit">Submit subcategory</button>

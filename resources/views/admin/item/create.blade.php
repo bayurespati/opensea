@@ -170,7 +170,7 @@
                             <div class="flex gap30 soft-right">
                                 <a href="{{ route('admin-item-index') }}" style="color: black">
                                     <div class="tf-button style-1 h50 active" formaction="{{ route('admin-item-index') }}">
-                                        Cancle
+                                        Cancel
                                     </div>
                                 </a>
                                 <button class="tf-button style-1 h50" type="submit">Submit item</button>

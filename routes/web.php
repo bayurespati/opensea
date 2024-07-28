@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DiskonController;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FrontViewController;
@@ -58,6 +59,8 @@ Route::middleware('auth')->group(function () {
 
         Route::group(['prefix' => 'item'], function () {
             Route::get('', [ItemController::class, 'index'])->name('admin-item-index');
+            Route::get('setting/{item}', [ItemController::class, 'setting'])->name('admin-item-setting');
+            Route::post('update-setting/{item}', [ItemController::class, 'updateSetting'])->name('admin-item-update-setting');
             Route::get('upload-view', [ItemController::class, 'uploadView'])->name('admin-item-upload-view');
             Route::get('upload-image/{item}', [ItemController::class, 'uploadImage'])->name('admin-item-upload-image');
             Route::post('upload', [ItemController::class, 'upload'])->name('admin-item-upload');
@@ -116,6 +119,15 @@ Route::middleware('auth')->group(function () {
             Route::post('update/{subcategory}', [SubcategoryController::class, 'update'])->name('admin-subcategory-update');
             Route::get('edit/{subcategory}', [SubcategoryController::class, 'edit'])->name('admin-subcategory-edit');
             Route::get('delete/{subcategory}', [SubcategoryController::class, 'destroy'])->name('admin-subcategory-delete');
+        });
+
+        Route::group(['prefix' => 'diskon'], function () {
+            Route::get('', [DiskonController::class, 'index'])->name('admin-diskon-index');
+            Route::get('create', [DiskonController::class, 'create'])->name('admin-diskon-create');
+            Route::post('store', [DiskonController::class, 'store'])->name('admin-diskon-store');
+            Route::post('update/{category}', [DiskonController::class, 'update'])->name('admin-diskon-update');
+            Route::get('edit/{category}', [DiskonController::class, 'edit'])->name('admin-diskon-edit');
+            Route::get('delete/{category}', [DiskonController::class, 'destroy'])->name('admin-diskon-delete');
         });
 
         Route::group(['prefix' => 'faq'], function () {

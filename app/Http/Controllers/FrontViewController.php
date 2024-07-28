@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Diskon;
 use App\Models\Divisi;
 use App\Models\Faq;
 use App\Models\Item;
@@ -17,8 +18,16 @@ class FrontViewController extends Controller
 {
     public function home()
     {
-        $items = Item::all()->take(10);
-        return view('client.home', ['items' => $items]);
+        $new_items = Item::all()->take(8);
+        $featured_items = Item::where('is_featured', '=', 1)->get();
+        $diskon_items = Item::where('diskon_id', '!=', null)->get();
+        $diskons = Diskon::all();
+        return view('client.home', [
+            'new_items' => $new_items,
+            'featured_items' => $featured_items,
+            'diskon_items' => $diskon_items,
+            'diskons' => $diskons,
+        ]);
     }
 
     public function faq()

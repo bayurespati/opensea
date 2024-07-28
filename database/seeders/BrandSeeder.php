@@ -43,7 +43,25 @@ class BrandSeeder extends Seeder
                 'alias' => 'microsoft',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
-            ]
+            ],
+            [
+                'nama' => 'CISCO',
+                'alias' => 'CISCO',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama' => 'Axioo',
+                'alias' => 'Axioo',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'nama' => 'Acer',
+                'alias' => 'Acer',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ]);
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateItemRequest;
 use App\Imports\ItemImport;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Diskon;
 use App\Models\Divisi;
 use App\Models\Item;
 use App\Models\Subcategory;
@@ -21,9 +22,9 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         if ($request->search != null)
-            $items = Item::where('nama_produk', 'like', '%' . $request->search . '%')->with(['brand'])->paginate(10);
+            $items = Item::where('nama_produk', 'like', '%' . $request->search . '%')->with(['brand', 'diskon'])->orderBy('is_featured', 'DESC')->paginate(10);
         else
-            $items = Item::with(['brand'])->paginate(10);
+            $items = Item::with(['brand', 'diskon'])->orderBy('is_featured', 'DESC')->paginate(10);
         return view('admin.item.index', ['items' => $items]);
     }
 
@@ -35,12 +36,38 @@ class ItemController extends Controller
         return view('admin.item.upload');
     }
 
+
     /**
      * Show the form for upload image
      */
     public function uploadImage(Request $request, Item $item)
     {
         return view('admin.item.upload-image', ['item' => $item->with(['images'])->first()]);
+    }
+
+    /**
+     * Show the form for setting data
+     */
+    public function setting(Item $item)
+    {
+        $diskons = Diskon::all();
+        return view('admin.item.setting', ['item' => $item, 'diskons' => $diskons]);
+    }
+
+    /**
+     * Show the form for setting data
+     */
+    public function updateSetting(Request $request, Item $item)
+    {
+        $items = Item::where('is_featured', "=", 1)->get();
+        if ($items->count() >= 10) {
+            return redirect()->back()->with('error', "Item untuk show sudah max");
+        }
+
+        $item->is_featured = (int) $request->is_featured;
+        $item->diskon_id = $request->diskon_id;
+        $item->save();
+        return redirect('/admin/item')->with('success', "Berhasil update data");
     }
 
     /**
@@ -197,6 +224,10 @@ class ItemController extends Controller
             $items->whereIn('subcategory_id', $request->subcategory_id);
         if ($request->search)
             $items->where('nama_produk', "LIKE", "%" . $request->search . "%");
+        if ($request->diskon_nilai) {
+            $diskon = Diskon::where('nilai', $request->diskon_nilai)->first();
+            $items->where('diskon_id', "=", $diskon->id);
+        }
 
         $data = $items->get();
 

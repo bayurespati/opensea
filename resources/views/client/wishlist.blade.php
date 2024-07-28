@@ -92,8 +92,8 @@
                         <div class="btn-submit flex justify-between">
                             <div></div>
                             <div class="flex gap30 soft-right">
-                                <button class="tf-button style-1 h50 active" id="button-cancle" onclick="cancleOrder()">
-                                    Cancle
+                                <button class="tf-button style-1 h50 active" id="button-cancel" onclick="cancelOrder()">
+                                    Cancel
                                 </button>
                                 <button class="tf-button style-1 h50" id="button-submit" onclick="submitItem()">Submit order</button>
                                 <button class="tf-button style-1 h50" id="button-order" onclick="showOrder()">Order item</button>
@@ -148,7 +148,7 @@
     let items_id = [];
     let total_price = 0;
     $('.data-row').hide();
-    $('#button-cancle').hide();
+    $('#button-cancel').hide();
     $('#button-submit').hide();
     $('#header-data').hide();
     $('#total-item').hide();
@@ -181,7 +181,7 @@
     }
 
     function showOrder() {
-        $('#button-cancle').show();
+        $('#button-cancel').show();
         $('#button-submit').show();
         $('#header-data').show();
         $('.data-row').show();
@@ -189,10 +189,10 @@
         $('#button-order').hide();
     }
 
-    function cancleOrder() {
+    function cancelOrder() {
         items_id = [];
         total_price = 0;
-        $('#button-cancle').hide();
+        $('#button-cancel').hide();
         $('#button-submit').hide();
         $('#header-data').hide();
         $('.data-row').hide();
@@ -214,7 +214,7 @@
             },
             success: function(response) {
                 location.reload();
-                cancleOrder();
+                cancelOrder();
                 $('#alert-item-order').show();
                 document.getElementById("button-submit").disabled = false;
             },

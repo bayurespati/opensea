@@ -24,6 +24,11 @@ class Item extends Model
         return $this->belongsTo(Brand::class, 'brand_id');
     }
 
+    public function diskon()
+    {
+        return $this->belongsTo(Diskon::class, 'diskon_id');
+    }
+
     public function images()
     {
         return $this->hasMany(ItemImage::class, 'item_id');

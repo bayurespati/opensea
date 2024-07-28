@@ -44,7 +44,9 @@ return new class extends Migration
             $table->integer('divisi_id');
             $table->integer('category_id');
             $table->integer('subcategory_id');
+            $table->integer('diskon_id')->nullable();
             $table->boolean('is_ready')->default(1);
+            $table->boolean('is_featured')->default(0);
             $table->timestamps();
         });
     }

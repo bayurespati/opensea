@@ -33,7 +33,7 @@
                 <div class="relative">
                     <div class="swiper swiper-3d-7">
                         <div class="swiper-wrapper">
-                            @foreach($items as $item)
+                            @foreach($featured_items as $item)
                             <div class="swiper-slide">
                                 <div class="tf-card-box">
                                     <div class="card-media">
@@ -110,116 +110,26 @@
                                 }
                             }'>
                     <div class="swiper-wrapper">
+                        @foreach($new_items as $item)
                         <div class="swiper-slide">
                             <div class="tf-card-box style-1">
                                 <div class="card-media">
                                     <a href="#">
-                                        <img src="assets/images/item/Product5.jpg" alt="">
+                                        <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="">
                                     </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
                                     <div class="button-place-bid">
-                                        <a href="/detail_product" class="tf-button"><span>Detil</span></a>
+                                        <a <?php echo ("href='/detail_product/$item->id'") ?> class="tf-button"><span>Detil</span></a>
                                     </div>
                                 </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Macbook Pro 2023</a></h5>
+                                <h5 class="name"><a href="nft-detail-2.html">{{$item->nama_produk}}</a></h5>
                                 <div class="divider"></div>
                                 <div class="meta-info flex items-center justify-between">
                                     <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 23.000.000</h6>
+                                    <h6 class="price gem">{{number_format($item->harga, 0, '.', ',')}}</h6>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product8.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Macbook Air 2023</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 18.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product7.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Asus ROG X203</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-indent">Indent</span>
-                                    <h6 class="price gem">IDR 28.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product3.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Microsoft Surface</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 22.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product6.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Macbook Pro 2023</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 23.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                     <div class="slider-next swiper-button-next"></div>
@@ -238,12 +148,12 @@
                     <h2 class="tf-title ">Bundling / Hemat
                         <span class="dropdown" id="select-day">
                             <span class="btn-selector tf-color">
-                                <span>60%</span>
+                                <span>0%</span>
                             </span>
-                            <ul>
-                                <li><span>70%</span></li>
-                                <li><span>80%</span></li>
-                                <li><span>90%</span></li>
+                            <ul id="diskon_value">
+                                @foreach($diskons as $item)
+                                <li><span>{{$item->nilai}}%</span></li>
+                                @endforeach
                             </ul>
                         </span>
                     </h2>
@@ -281,188 +191,41 @@
                                     }
                                 }
                             }'>
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" id="show-item">
+                        @foreach($diskon_items as $item)
                         <div class="swiper-slide">
                             <div class="tf-card-box style-1">
                                 <div class="card-media">
                                     <a href="#">
-                                        <img src="assets/images/item/Product1.jpg" alt="">
+                                        <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="">
                                     </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
                                     <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
+                                        <a <?php echo ("href='/detail_product/$item->id'") ?> class="tf-button"><span>Detil</span></a>
                                     </div>
                                 </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Omen</a></h5>
+                                <h5 class="name"><a href="nft-detail-2.html">{{$item->nama_produk}}</a></h5>
                                 <div class="divider"></div>
                                 <div class="meta-info flex items-center justify-between">
                                     <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 24.000.000</h6>
+                                    <h6 class="price gem">{{number_format($item->harga, 0, '.', ',')}}</h6>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product6.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Asus ROG</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 23.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product3.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Microsoft Surface</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 22.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product5.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Macbook Pro 2023</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 23.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product6.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Macbook Pro 2023</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 23.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product7.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Macbook Pro 2023</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 23.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product8.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Macbook Pro 2023</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 23.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="tf-card-box style-1">
-                                <div class="card-media">
-                                    <a href="#">
-                                        <img src="assets/images/item/Product9.jpg" alt="">
-                                    </a>
-                                    <span class="wishlist-button icon-heart"></span>
-                                    <div class="featured-countdown">
-                                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                                    </div>
-                                    <div class="button-place-bid">
-                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                    </div>
-                                </div>
-                                <h5 class="name"><a href="nft-detail-2.html">Macbook Pro 2023</a></h5>
-                                <div class="divider"></div>
-                                <div class="meta-info flex items-center justify-between">
-                                    <span class="color-ready">Ready</span>
-                                    <h6 class="price gem">IDR 23.000.000</h6>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="slider-next swiper-button-next"></div>
-                    <div class="slider-prev swiper-button-prev"></div>
+                    @if ($diskon_items->count() > 4)
+                    <div class="swiper-pagination" id="pagination-diskon"></div>
+                    <div class="slider-next swiper-button-next" id="next-diskon"></div>
+                    <div class="slider-prev swiper-button-prev" id="prev-diskon"></div>
+                    @endif
                 </div>
+                @if (count($diskon_items) == 0)
+                <div class="col-md-12" id="information-diskon-null">
+                    <div class="heading-section justify-content-center">
+                        <h2 class="tf-title pb-30">Belum ada data diskon</h2>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>
@@ -580,4 +343,86 @@
         </div>
     </div>
 </div>
+<script>
+    $('#diskon-value').on('click', function() {
+        console.log("oke", $(this).text());
+    });
+    $('#select-day').on('click', function() {
+        console.log("oke", $(this).text());
+    });
+    $('#diskon-value li').click(function() {
+        // $(this).closest('.headlink').find('.heading').text($(this).text());
+        console.log("oke", $(this).text());
+    });
+
+    $(function() {
+        monthly_payment('#select-day');
+    });
+
+    var monthly_payment = function(id) {
+        if ($('span').hasClass('dropdown')) {
+            var obj = $(id + '.dropdown');
+            var btn = obj.find('.btn-selector');
+            var dd = obj.find('ul');
+            var opt = dd.find('li');
+            dd.hide();
+            obj.on("mouseenter", function() {
+                dd.show();
+                dd.addClass('show');
+                $(this).css("z-index", 1000);
+            }).on("mouseleave", function() {
+                dd.hide();
+                $(this).css("z-index", "auto")
+                dd.removeClass('show');
+            })
+
+            opt.on("click", function() {
+                dd.hide();
+                var txt = $(this).text();
+                opt.removeClass("active");
+                $(this).addClass("active");
+                get_item_by_filter(txt.slice(0, -1))
+            });
+        }
+    }
+
+    function get_item_by_filter(value) {
+        $("#show-item").empty();
+
+        $.ajax({
+            url: "/item/by-search",
+            type: "get",
+            data: {
+                diskon_nilai: value,
+            },
+            success: function(response) {
+                for (let i = 0; i < response.length; i++) {
+                    $('#show-item').append(`
+                        <div class="swiper-slide">
+                            <div class="tf-card-box style-1">
+                                <div class="card-media">
+                                    <a href="#">
+                                        <img src="` + (response[i]['image'] == "" || response[i]['image'] == null ? '/solid_gray.png' : response[i]['image']) + `" alt="">
+                                    </a>
+                                    <div class="button-place-bid">
+                                        <a href='/detail_product/` + response[i]['id'] + `' class="tf-button"><span>Detail</span></a>
+                                    </div>
+                                </div>
+                                <h5 class="name"><a href="nft-detail-2.html">` + response[i]['nama_produk'] + `</a></h5>
+                                <div class="divider"></div>
+                                <div class="meta-info flex items-center justify-between">
+                                    <span class="` + (response[i]['is_ready'] ? 'color-ready' : 'color-indent') + `">
+                                    ` + (response[i]['is_ready'] ? 'Ready' : 'Indent') + `
+                                    </span>
+                                    <h6 class="price gem">` + response[i]['harga'].toLocaleString() + `</h6>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                }
+            },
+            error: function(xhr) {}
+        });
+    }
+</script>
 @stop
