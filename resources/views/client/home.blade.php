@@ -40,10 +40,6 @@
                                         <a href="#">
                                             <img src="{{$item->image == null ? 'solid_gray.png' : $item->image}}" alt="">
                                         </a>
-                                        <span class="wishlist-button icon-heart"></span>
-                                        <div class="button-place-bid">
-                                            <a href="/detail_product/{{$item->id}}" data-toggle="modal" data-target="#popup_bid" class="tf-button"><span>Detil</span></a>
-                                        </div>
                                     </div>
                                     <div class="meta-info text-center">
                                         <h5 class="name">
@@ -294,7 +290,7 @@
                         <img src="assets/images/box-icon/step3.png" alt="">
                         <p>Step 3</p>
                     </div>
-                    <h4 class="heading"><a href="#">Hubungi Kami</a></h4>
+                    <h4 class="heading"><a href="https://wa.me/6281287133571?text=Halo Admin eCatalog PINS Indonesia">Hubungi Kami</a></h4>
                     <p class="content">Hubungi Admin untuk mengetahui SOP pemesanan & negosiasi</p>
                     <div class="arrow">
                         <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -21,9 +21,9 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->search != null)
+        if ($request->search != null) {
             $items = Item::where('nama_produk', 'like', '%' . $request->search . '%')->with(['brand', 'diskon'])->orderBy('is_featured', 'DESC')->paginate(10);
-        else
+        } else
             $items = Item::with(['brand', 'diskon'])->orderBy('is_featured', 'DESC')->paginate(10);
         return view('admin.item.index', ['items' => $items]);
     }
@@ -42,7 +42,8 @@ class ItemController extends Controller
      */
     public function uploadImage(Request $request, Item $item)
     {
-        return view('admin.item.upload-image', ['item' => $item->with(['images'])->first()]);
+        $data = Item::where('id', $item->id)->with(['images'])->first();
+        return view('admin.item.upload-image', ['item' => $data]);
     }
 
     /**
@@ -142,6 +143,7 @@ class ItemController extends Controller
         $model->garansi = $request->garansi;
         $model->keterangan = $request->keterangan;
         $model->web_marketplace = $request->web_marketplace;
+        $model->quantity = $request->quantity;
 
         $model->save();
 
@@ -205,6 +207,7 @@ class ItemController extends Controller
         $item->garansi = $request->garansi;
         $item->keterangan = $request->keterangan;
         $item->web_marketplace = $request->web_marketplace;
+        $item->quantity = $request->quantity;
         $item->save();
 
         return redirect('/admin/item');
@@ -222,14 +225,24 @@ class ItemController extends Controller
             $items->whereIn('category_id', $request->category_id);
         if ($request->subcategory_id != null)
             $items->whereIn('subcategory_id', $request->subcategory_id);
-        if ($request->search)
+        if ($request->search) {
+            $brand = Brand::where('nama', "LIKE", "%" . $request->search . "%")->first();
             $items->where('nama_produk', "LIKE", "%" . $request->search . "%");
+            if ($brand)
+                $items->orWhere('brand_id', $brand->id);
+        }
         if ($request->diskon_nilai) {
             $diskon = Diskon::where('nilai', $request->diskon_nilai)->first();
             $items->where('diskon_id', "=", $diskon->id);
         }
+        if ($request->max) {
+            $items->whereBetween('harga', [$request->min * 1000000, $request->max * 1000000]);
+        }
+        if ($request->short) {
+            $items->orderBy('harga', $request->short);
+        }
 
-        $data = $items->get();
+        $data = $items->with(['user', 'brand'])->get();
 
         return $data;
     }

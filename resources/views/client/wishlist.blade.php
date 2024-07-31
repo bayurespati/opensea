@@ -123,7 +123,7 @@
                             <div class="column">
                                 @foreach($order->items as $key => $item)
                                 <div class="column">
-                                    {{$item->type_notebook}}
+                                    {{$item->nama_produk}}
                                 </div>
                                 @endforeach
                             </div>
@@ -132,7 +132,7 @@
                             </div>
                             <div class="column">{{$order->status}}</div>
                             <div class="column">
-                                <a <?php echo ('href="https://wa.me/6287887773893?text=Halo Admin eCatalog PINS Indonesia, saya ingin proses pengadaan perangkat dengan nomor order ' . $order->code . ' atas nama ' . Auth::user()->name . ' dengan total harga ' . $order->total_price . ', terima kasih."') ?> target="_blank" class="tf-button style-101">
+                                <a <?php echo ('href="https://wa.me/6281287133571?text=Halo Admin eCatalog PINS Indonesia, saya ingin proses pengadaan perangkat dengan nomor order ' . $order->code . ' atas nama ' . Auth::user()->name . ' dengan total harga ' . $order->total_price . ', terima kasih."') ?> target="_blank" class="tf-button style-101">
                                     Nego
                                 </a>
                             </div>

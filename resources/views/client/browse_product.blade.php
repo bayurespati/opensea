@@ -13,25 +13,24 @@
                                     <span>Urutkan</span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a href="#" class="dropdown-item">
+                                    <button href="#" class="dropdown-item" onclick="doShort('desc')">
                                         <div class="sort-filter" href="#">
-                                            <span>Tertingi</span>
+                                            <span>Harga Tertingi</span>
                                             <span class="icon-tick"><span class="path2"></span></span>
                                         </div>
-                                    </a>
-                                    <a href="#" class="dropdown-item">
-                                        <div class="sort-filter active" href="#">
-                                            <span>Terendah</span>
+                                    </button>
+                                    <button href="#" class="dropdown-item" onclick="doShort('asc')">
+                                        <div class="sort-filter" href="#">
+                                            <span>Harga Terendah</span>
                                             <span class="icon-tick"><span class="path2"></span></span>
                                         </div>
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -85,23 +84,23 @@
                     <div class="content-wg-category-checkbox">
                         <form action="#">
                             <label>0 - 1jt
-                                <input type="checkbox">
+                                <input type="checkbox" class="harga-check" value="0-1">
                                 <span class="btn-checkbox"></span>
                             </label><br>
                             <label>1jt- 5jt
-                                <input type="checkbox">
+                                <input type="checkbox" class="harga-check" value="1-5">
                                 <span class="btn-checkbox"></span>
                             </label><br>
                             <label>5jt - 13jt
-                                <input type="checkbox">
+                                <input type="checkbox" class="harga-check" value="5-13">
                                 <span class="btn-checkbox"></span>
                             </label><br>
                             <label>13jt - 25jt
-                                <input type="checkbox">
+                                <input type="checkbox" class="harga-check" value="13-25">
                                 <span class="btn-checkbox"></span>
                             </label><br>
                             <label>25jt - 50jt
-                                <input type="checkbox">
+                                <input type="checkbox" class="harga-check" value="25-50">
                                 <span class="btn-checkbox"></span>
                             </label><br>
                         </form>
@@ -142,7 +141,11 @@
                                     <a <?php echo ("href='/detail_product/$item->id'") ?> class="tf-button"><span>Detail</span></a>
                                 </div>
                             </div>
-                            <h5 class="name"><a href="">{{$item->nama_produk}}</a></h5>
+                            <h5 class="name">
+                                <a href="">{{$item->brand->nama}}</a>
+                                <br>
+                                <a href="">{{$item->nama_produk}}</a>
+                            </h5>
                             <div class="divider"></div>
                             <div class="meta-info flex items-center justify-between">
                                 @if($item->is_ready)
@@ -167,9 +170,44 @@
     let divisi_id = [];
     let category_id = [];
     let subcategory_id = [];
+    let harga = [];
+    let search = "";
+    let short = "";
+    let min = "";
+    let max = "";
 
     $('a.close').on('click', function() {
         $(this).parent().hide();
+    });
+
+    $('input.harga-check').on('input', function() {
+        let value = $(this).val();
+
+        let index = harga.indexOf(value);
+
+        if (index == -1) {
+            harga.push(value);
+        } else {
+            harga.splice(index, 1);
+        }
+
+        if (harga.length > 0) {
+
+            let data = [];
+            for (let i = 0; i < harga.length; i++) {
+                let temp = harga[i].split("-")
+                data.push(parseInt(temp[0]));
+                data.push(parseInt(temp[1]));
+            }
+
+
+            max = Math.max(...data);
+            min = Math.min(...data);
+        } else {
+            max = "";
+            min = "";
+        }
+        get_item_by_filter();
     });
 
     $('input.brand-check').on('input', function() {
@@ -288,12 +326,16 @@
     });
 
     function searchItem() {
-        // $value = document.getElementById("search");
-        $search = document.getElementById("search-item").value;
-        get_item_by_filter($search);
+        search = document.getElementById("search-item").value;
+        get_item_by_filter();
     }
 
-    function get_item_by_filter(search) {
+    function doShort(value) {
+        short = value;
+        get_item_by_filter();
+    }
+
+    function get_item_by_filter() {
         $("#show-item").empty();
 
         $.ajax({
@@ -304,7 +346,10 @@
                 divisi_id: divisi_id,
                 category_id: category_id,
                 subcategory_id: subcategory_id,
-                search: search
+                search: search,
+                short: short,
+                min:min,
+                max:max
             },
             success: function(response) {
                 for (let i = 0; i < response.length; i++) {
@@ -330,7 +375,11 @@
                                     <a href='/detail_product/` + response[i]['id'] + `' class="tf-button"><span>Detail</span></a>
                                 </div>
                             </div>
-                            <h5 class="name"><a href="">` + response[i]['nama_produk'] + `</a></h5>
+                            <h5 class="name">
+                            <a href="">` + response[i]['brand']['nama'] + `</a>
+                            <br>
+                            <a href="">` + response[i]['nama_produk'] + `</a>
+                            </h5>
                             <div class="divider"></div>
                             <div class="meta-info flex items-center justify-between">
                                 <span class="` + (response[i]['is_ready'] ? 'color-ready' : 'color-indent') + `">

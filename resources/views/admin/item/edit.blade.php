@@ -82,11 +82,11 @@
                             <div class="flex gap30">
                                 <fieldset class="price">
                                     <label>Nilai TKDN</label>
-                                    <input value="{{old('nilai_tkdn', $item->nilai_tkdn)}}" type="text" id="nilai_tkdn" placeholder="Nilai TKDN" name="nilai_tkdn" tabindex="2" value="" aria-required="true" required>
+                                    <input value="{{old('nilai_tkdn', $item->nilai_tkdn)}}" type="text" id="nilai_tkdn" placeholder="Nilai TKDN" name="nilai_tkdn" tabindex="2" value="" aria-required="true">
                                 </fieldset>
                                 <fieldset class="price">
                                     <label>Nilai BMP</label>
-                                    <input value="{{old('nilai_bmp', $item->nilai_bmp)}}" type="text" id="nilai_bmp" placeholder="Nilai BMP" name="nilai_bmp" tabindex="2" value="" aria-required="true" required>
+                                    <input value="{{old('nilai_bmp', $item->nilai_bmp)}}" type="text" id="nilai_bmp" placeholder="Nilai BMP" name="nilai_bmp" tabindex="2" value="" aria-required="true">
                                 </fieldset>
                             </div>
 
@@ -152,6 +152,11 @@
                             <fieldset class="name">
                                 <label>Web Marketplace</label>
                                 <input value="{{old('web_marketplace', $item->web_marketplace)}}" type="text" id="web_marketplace" placeholder="Web Link" name="web_marketplace" tabindex="2" value="" aria-required="true">
+                            </fieldset>
+
+                            <fieldset class="name">
+                                <label>Quantity</label>
+                                <input value="{{old('quantity', $item->quantity)}}" type="number" id="quantity" name="quantity" tabindex="2">
                             </fieldset>
 
                             <div class="wrap-upload">

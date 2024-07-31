@@ -68,7 +68,7 @@
                                     </nav><!-- /#main-nav -->
                                     <div class="flat-wallet flex">
                                         <div class="" id="wallet-header">
-                                            <a href="https://wa.me/081289536383?text=Saya ada pertanyaan seputar e-Catalog PINS Indonesia" target="_blank" id="connectbtn" class="tf-button style-1">
+                                            <a href="https://wa.me/6281287133571?text=Saya ada pertanyaan seputar e-Catalog PINS Indonesia" target="_blank" id="connectbtn" class="tf-button style-1">
                                                 <span>Hubungi Admin</span>
                                             </a>
                                         </div>
@@ -231,7 +231,7 @@
                                     <div class="widget-menu style-4">
                                         <ul>
                                             <li><a href="#">0215082079</a></li>
-                                            <li><a href="#">kontak@pins.co.id</a></li>
+                                            <li><a href="#">product@pins.co.id</a></li>
                                             <li><a href="#">
                                                     The Telkom Hub, Tower II lt.42
                                                     <br>

@@ -26,8 +26,6 @@ class StoreItemRequest extends FormRequest
             'masa_berlaku_produk' => 'required',
             'satuan' => 'required',
             'jenis_produk' => 'required',
-            'nilai_tkdn' => 'required',
-            'nilai_bmp' => 'required',
             'deskripsi' => 'required',
             'negara_asal_produk' => 'required',
             'image' => 'required',

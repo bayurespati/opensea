@@ -82,11 +82,11 @@
                         <div class="flex gap30">
                             <fieldset class="price">
                                 <label>Nilai TKDN</label>
-                                <input value="{{old('nilai_tkdn')}}" type="text" id="nilai_tkdn" placeholder="Nilai TKDN" name="nilai_tkdn" tabindex="2" value="" aria-required="true" required>
+                                <input value="{{old('nilai_tkdn')}}" type="text" id="nilai_tkdn" placeholder="Nilai TKDN" name="nilai_tkdn" tabindex="2" value="" aria-required="true">
                             </fieldset>
                             <fieldset class="price">
                                 <label>Nilai BMP</label>
-                                <input value="{{old('nilai_bmp')}}" type="text" id="nilai_bmp" placeholder="Nilai BMP" name="nilai_bmp" tabindex="2" value="" aria-required="true" required>
+                                <input value="{{old('nilai_bmp')}}" type="text" id="nilai_bmp" placeholder="Nilai BMP" name="nilai_bmp" tabindex="2" value="" aria-required="true">
                             </fieldset>
                         </div>
 
@@ -151,7 +151,12 @@
 
                         <fieldset class="name">
                             <label>Web Marketplace</label>
-                            <input value="{{old('web_marketplace')}}" type="text" id="web_marketplace" placeholder="Wireless Network Protocol" name="web_marketplace" tabindex="2" value="" aria-required="true">
+                            <input value="{{old('web_marketplace')}}" type="text" id="web_marketplace" placeholder="Web" name="web_marketplace" tabindex="2" aria-required="true">
+                        </fieldset>
+
+                        <fieldset class="name">
+                            <label>Quantity</label>
+                            <input value="{{old('quantity')}}" type="number" id="quantity" name="quantity" tabindex="2">
                         </fieldset>
 
                         <div class="wrap-upload">
@@ -192,42 +197,6 @@
     </div>
 </div>
 <script>
-    $("#nilai_tkdn").on("keyup", function(event) {
-        var selection = window.getSelection().toString();
-        if (selection !== '') {
-            return;
-        }
-        // When the arrow keys are pressed, abort.
-        if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
-            return;
-        }
-        var $this = $(this);
-        // Get the value.
-        var input = $this.val();
-        input = input.replace(/[\D\s\._\-]+/g, "");
-        input = input ? parseInt(input, 10) : 0;
-        $this.val(function() {
-            return (input === 0) ? "" : input.toLocaleString("en-US");
-        });
-    })
-    $("#nilai_bmp").on("keyup", function(event) {
-        var selection = window.getSelection().toString();
-        if (selection !== '') {
-            return;
-        }
-        // When the arrow keys are pressed, abort.
-        if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
-            return;
-        }
-        var $this = $(this);
-        // Get the value.
-        var input = $this.val();
-        input = input.replace(/[\D\s\._\-]+/g, "");
-        input = input ? parseInt(input, 10) : 0;
-        $this.val(function() {
-            return (input === 0) ? "" : input.toLocaleString("en-US");
-        });
-    })
     $("#harga").on("keyup", function(event) {
         var selection = window.getSelection().toString();
         if (selection !== '') {

@@ -35,8 +35,7 @@
                     <form action="{{ route('admin-item-index') }}" method="GET">
                         @csrf
                         <input type="text" id="search-item" placeholder="Search" name="search" tabindex="2" value="" aria-required="true" value="" class="style-1">
-                        <button class="search search-submit" title="Search" type="submit">
-                        </button>
+                        <button class="search search-submit" title="Search" type="submit"></button>
                     </form>
                 </div>
                 <div class="product-item offers mt-10">

@@ -49,7 +49,7 @@ class FrontViewController extends Controller
 
     public function products()
     {
-        $items = Item::with('user')->get();
+        $items = Item::with(['user', 'brand'])->get();
         $divisi = Divisi::all();
         $categories = Category::all();
         $subcategories = Subcategory::all();

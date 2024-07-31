@@ -26,7 +26,7 @@
                             <input type="text" name="item_id" value="{{$item->id}}" hidden>
                             <label class="uploadfile">
                                 <h5>Upload file</h5>
-                                <p class="text">Upload image untuk {{$item->nama_produk}}</p>
+                                <p class="text">Upload image untuk {{$item->nama_produk}} {{$item->id}}</p>
                                 <div class="text filename">Format file excel</div>
                                 <input type="file" class="" name="image">
                             </label>
