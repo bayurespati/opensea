@@ -18,7 +18,7 @@ class FrontViewController extends Controller
 {
     public function home()
     {
-        $new_items = Item::all()->take(8);
+        $new_items = Item::orderBy('created_at', 'desc')->take(8)->get();
         $featured_items = Item::where('is_featured', '=', 1)->get();
         $diskon_items = Item::where('diskon_id', '!=', null)->get();
         $diskons = Diskon::all();

@@ -72,34 +72,15 @@
                 </div>
                 @endif
                 <div data-wow-delay="0s" class="wow fadeInRight infor-product">
-                    <!-- <div class="text">Bagian Dari: Paket Hemat 2023 <span class="icon-tick"><span class="path1"></span><span class="path2"></span></span></div> -->
                     <div class="menu_card">
                         <div class="dropdown">
-                            <!-- <div class="icon">
-                                <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="icon-link-1"></i>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"><i class="icon-link"></i>Copy link</a>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                     <h2>{{ $item->nama_produk }}</h2>
                     <div class="meta mb-20">
-                        <!-- <div class="meta-item favorites">
-                            <i class="icon-heart"></i>10 favorites
-                        </div> -->
                     </div>
                 </div>
                 <div data-wow-delay="0s" class="wow fadeInRight product-item time-sales">
-                    <!-- <h6>
-                        <i class="icon-clock"></i>
-                        Bundling berakhir pada <span>&nbsp;</span>
-                        <span style="color: red">
-                            30 nobember 2023 jam 14:00
-                        </span>
-                    </h6> -->
                     <div class="content">
                         <div class="text">Harga saat ini (IDR)</div>
                         <div class="flex justify-between">
@@ -134,6 +115,7 @@
                         </p>
                     </div>
                 </div>
+                @if($item->prosesor)
                 <div data-wow-delay="0s" class="wow fadeInRight product-item traits">
                     <h6><i class="icon-description"></i>Spesifikasi Teknis</h6>
                     <i class="icon-keyboard_arrow_down"></i>
@@ -164,6 +146,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     </div>
