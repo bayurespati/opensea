@@ -6,6 +6,7 @@ use App\Http\Requests\StoreBrandRequest;
 use App\Models\Brand;
 use App\Http\Requests\UpdateBrandRequest;
 use App\Models\Item;
+use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
@@ -50,8 +51,9 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBrandRequest $request, Brand $brand)
+    public function update(Request $request, Brand $brand)
     {
+        $request->validate((new UpdateBrandRequest())->rules($brand));
         $brand->nama = $request->nama;
         $brand->alias = $request->alias;
         $brand->save();

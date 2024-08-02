@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\OrderItems;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,8 +30,13 @@ class OrderController extends Controller
         $order->total_price = $request->total_price;
         $order->status = "Diterima";
         $order->save();
-        $order->items()->attach($request->items_id);
-
+        foreach ($request->items_id as $key => $data) {
+            $order_item = new OrderItems();
+            $order_item->order_id = $order->id;
+            $order_item->item_id = $data;
+            $order_item->qty = $request->items_qty[$key];
+            $order_item->save();
+        }
         return response()->json(['data' => $order, 'message' => 'Success store data'], 200);
     }
 

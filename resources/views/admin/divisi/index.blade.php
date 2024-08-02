@@ -5,6 +5,16 @@
     <div class="themesflat-container">
         <div class="row">
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
+                @if (\Session::has('message'))
+                <div class="alert alert-success alert-dismissible">
+                    <ul>
+                        <li>{!! \Session::get('message') !!}</li>
+                        <button type="button" class="close" data-dismiss="alert">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                    </ul>
+                </div>
+                @endif
                 <div class="tf-button style-1 h50 w190">
                     <a href="/admin/divisi/create">
                         Daftarkan Divisi

@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Diskon extends Model
+class OrderItems extends Model
 {
     use HasFactory;
 
-    protected $table = 'diskons';
+    protected $table = 'order_item';
 
     protected $guarded = [];
-
-    public function items()
-    {
-        return $this->hasMany(Item::class);
-    }
 }

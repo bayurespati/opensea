@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDiskonRequest;
 use App\Http\Requests\UpdateDiskonRequest;
 use App\Models\Diskon;
+use Illuminate\Http\Request;
 
 class DiskonController extends Controller
 {

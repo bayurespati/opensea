@@ -41,10 +41,11 @@
                             <div class="column" style="width: 10% !important;">NO</div>
                             <div class="column">PERANGKAT</div>
                             <div class="column">KETERSEDIAAN</div>
+                            <div class="column" id="qty-data">QTY</div>
                             <div class="column">HARGA</div>
                             <div class="column" style="width: 10% !important;">AKSI</div>
                         </div>
-                        @foreach($user->items as $key => $item)
+                        @foreach($user->wishlists as $key => $item)
                         <div class="table-item">
                             <div class="column data-row" style="width: 10% !important;">
                                 <div class="widget-category-checkbox style-1">
@@ -63,6 +64,9 @@
                                         {{$item->is_ready ? "Ready" : "Indent"}}
                                     </span>
                                 </div>
+                            </div>
+                            <div class="name qty-data" style="width: 30% !important">
+                                <input value="{{$item->id}}#{{$item->harga}}" class="item-qty" type="number" id="{{$item->id}}#{{$item->harga}}" name="quantity" tabindex="2" style="padding: 7px 14px !important">
                             </div>
                             <div class="column">
                                 {{ number_format($item->harga, 2, '.', ',') }}
@@ -111,6 +115,7 @@
                             <div class="column">KODE</div>
                             <div class="column">JUMLAH</div>
                             <div class="column">ITEM</div>
+                            <div class="column">QTY</div>
                             <div class="column">TOTAL HARGA</div>
                             <div class="column">STATUS</div>
                             <div class="column">AKSI</div>
@@ -121,11 +126,16 @@
                             <div class="column">{{$order->code}}</div>
                             <div class="column">{{$order->total_item}}</div>
                             <div class="column">
+                                <?php $qty = 0 ?>
                                 @foreach($order->items as $key => $item)
                                 <div class="column">
                                     {{$item->nama_produk}}
+                                    <?php $qty += $item->pivot->qty; ?>
                                 </div>
                                 @endforeach
+                            </div>
+                            <div class="column">
+                                <?php echo ($qty) ?>
                             </div>
                             <div class="column">
                                 {{ number_format($order->total_price, 2, '.', ',') }}
@@ -146,30 +156,61 @@
 </div>
 <script>
     let items_id = [];
+    let items_harga = [];
+    let items_qty = [];
     let total_price = 0;
     $('.data-row').hide();
+    $('.qty-data').hide();
     $('#button-cancel').hide();
     $('#button-submit').hide();
     $('#header-data').hide();
+    $('#qty-data').hide();
     $('#total-item').hide();
     $('#alert-item-order').hide();
     document.getElementById("button-submit").disabled = true;
 
     $('input.item-check').on('input', function() {
+        let temp_id = $(this).val();
         let value = $(this).val().split("#");
         let id = parseInt(value[0]);
         let price = parseInt(value[1]);
 
         let index = items_id.indexOf(id);
         if (index == -1) {
+            document.getElementById(temp_id).value = 1;
             items_id.push(id);
-            total_price += price;
+            items_harga.push(price);
+            items_qty.push(1);
         } else {
+            document.getElementById(temp_id).value = 0;
             items_id.splice(index, 1);
-            total_price -= price;
+            items_harga.splice(index, 1);
+            items_qty.splice(index, 1);
         }
+        total_price = getTotalPrice();
         document.getElementById("show_total_value").value = numberWithCommas(total_price)
         document.getElementById("button-submit").disabled = items_id.length > 0 ? false : true;
+    });
+
+    function getTotalPrice() {
+        let harga = 0;
+        for (let i = 0; i < items_harga.length; i++) {
+            harga += items_harga[i] * items_qty[i];
+        }
+        return harga;
+    }
+
+    $('input.item-qty').on('input', function() {
+        let attribute = this.attributes.id.nodeValue.split("#");
+        let value = $(this).val()
+        let id = parseInt(attribute[0]);
+        let price = parseInt(attribute[1]);
+        let index = items_id.indexOf(id);
+        if (index != -1) {
+            items_qty[index] = parseInt(value);
+            total_price = getTotalPrice();
+            document.getElementById("show_total_value").value = numberWithCommas(total_price)
+        }
     });
 
     function numberWithCommas(x) {
@@ -184,7 +225,9 @@
         $('#button-cancel').show();
         $('#button-submit').show();
         $('#header-data').show();
+        $('#qty-data').show();
         $('.data-row').show();
+        $('.qty-data').show();
         $('#total-item').show();
         $('#button-order').hide();
     }
@@ -210,6 +253,7 @@
             data: {
                 "_token": "{{ csrf_token() }}",
                 items_id: items_id,
+                items_qty: items_qty,
                 total_price: total_price,
             },
             success: function(response) {

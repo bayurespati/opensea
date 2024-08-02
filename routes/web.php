@@ -125,9 +125,9 @@ Route::middleware('auth')->group(function () {
             Route::get('', [DiskonController::class, 'index'])->name('admin-diskon-index');
             Route::get('create', [DiskonController::class, 'create'])->name('admin-diskon-create');
             Route::post('store', [DiskonController::class, 'store'])->name('admin-diskon-store');
-            Route::post('update/{category}', [DiskonController::class, 'update'])->name('admin-diskon-update');
-            Route::get('edit/{category}', [DiskonController::class, 'edit'])->name('admin-diskon-edit');
-            Route::get('delete/{category}', [DiskonController::class, 'destroy'])->name('admin-diskon-delete');
+            Route::post('update/{diskon}', [DiskonController::class, 'update'])->name('admin-diskon-update');
+            Route::get('edit/{diskon}', [DiskonController::class, 'edit'])->name('admin-diskon-edit');
+            Route::get('delete/{diskon}', [DiskonController::class, 'destroy'])->name('admin-diskon-delete');
         });
 
         Route::group(['prefix' => 'faq'], function () {

@@ -12,4 +12,9 @@ class Divisi extends Model
     protected $table = 'divisi';
 
     protected $guarded = [];
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
 }

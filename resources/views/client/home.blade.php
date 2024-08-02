@@ -18,7 +18,7 @@
                     <p class="wow fadeInUp" data-wow-delay="0.1s">
                         Selamat datang di catalog PINS. Dimana Anda dapat menelusuri perangkat yang tersedia untuk diajukan sebagai alat bantu kerja Pegawai.
                     </p>
-                    <div data-wow-delay="0.2s" class=" wow fadeInUp flat-button flex justify-center">
+                    <div data-wow-delay="0.2s" class="wow fadeInUp flat-button flex justify-center">
                         <a href="/browse_product" class="tf-button style-1 h50 w190 active">Cari Perangkat<i class="icon-search"></i></a>
                     </div>
                 </div>

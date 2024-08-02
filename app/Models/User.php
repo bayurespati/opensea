@@ -46,7 +46,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function items()
+    public function wishlists()
     {
         return  $this->BelongsToMany(Item::class, 'wishlists');
     }

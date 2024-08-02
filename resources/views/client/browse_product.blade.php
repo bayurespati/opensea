@@ -37,7 +37,7 @@
 
 <div class="tf-section-5 artwork loadmore-12-item-1">
     <div class="themesflat-container">
-        <div class="widget-search" style="margin-bottom: 10px;">
+        <div class="widget-search" style="margin-bottom: 20px;">
             <input type="text" id="search-item" placeholder="Search" name="search" tabindex="2" value="" aria-required="true" value="" class="style-1">
             <button class="search search-submit" title="Search" onclick="searchItem()">
                 <i class="icon-search"></i>
@@ -125,7 +125,7 @@
                     <div data-wow-delay="0" class="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
                         <div class="tf-card-box style-1" name>
                             <div class="card-media">
-                                <a href=""> <img src="{{$item->image == null ? 'solid_gray.png' : $item->image}}" alt=""></a>
+                                <a <?php echo ("href='/detail_product/$item->id'") ?>> <img src="{{$item->image == null ? 'solid_gray.png' : $item->image}}" alt=""></a>
                                 <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
                                     @csrf
                                     <input type="text" name="item_id" value="{{$item->id}}" hidden>
@@ -133,18 +133,14 @@
                                         <button class="{{sizeOf($item->user) > 0 ? 'wishlist-button active' : 'wishlist-button' }}" type="submit"><i class="icon-heart"></i></button>
                                     </a>
                                 </form>
-                                <!-- featur time -->
-                                <!-- <div class="featured-countdown"> -->
-                                <!-- <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span> -->
-                                <!-- </div> -->
                                 <div class="button-place-bid">
                                     <a <?php echo ("href='/detail_product/$item->id'") ?> class="tf-button"><span>Detail</span></a>
                                 </div>
                             </div>
                             <h5 class="name">
-                                <a href="">{{$item->brand->nama}}</a>
+                                <a <?php echo ("href='/detail_product/$item->id'") ?>>{{$item->brand->nama}}</a>
                                 <br>
-                                <a href="">{{$item->nama_produk}}</a>
+                                <a <?php echo ("href='/detail_product/$item->id'") ?>>{{$item->nama_produk}}</a>
                             </h5>
                             <div class="divider"></div>
                             <div class="meta-info flex items-center justify-between">
@@ -158,6 +154,11 @@
                         </div>
                     </div>
                     @endforeach
+                    <div data-wow-delay="0" class="col-12">
+                        <div data-wow-delay="0.2s" class="wow fadeInUp flat-button flex justify-center" onclick="get_item_by_filter()">
+                            <p class="tf-button style-1 h50 w190 active">Muat lebih banyak</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="row" id="show-form-search">
                 </div>
@@ -348,8 +349,8 @@
                 subcategory_id: subcategory_id,
                 search: search,
                 short: short,
-                min:min,
-                max:max
+                min: min,
+                max: max
             },
             success: function(response) {
                 for (let i = 0; i < response.length; i++) {
