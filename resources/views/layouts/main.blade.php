@@ -55,7 +55,7 @@
                                     <div id="site-logo">
                                         <div id="site-logo-inner">
                                             <a href="/home" rel="home" class="main-logo">
-                                                <img id="logo_header" src="{{ asset('assets/images/logo/pins_logo_putih.png') }}" data-retina="{{ asset('assets/images/logo/pins_logo_putih.png') }}">
+                                                <img id="logo_header" src="assets/images/logo/pins_logo_putih.png">
                                             </a>
                                         </div>
                                     </div><!-- logo -->

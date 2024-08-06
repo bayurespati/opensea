@@ -56,7 +56,7 @@
                                     <div id="site-logo">
                                         <div id="site-logo-inner">
                                             <a rel="home" class="main-logo">
-                                                <img id="logo_header" src="assets/images/logo/pins_logo_putih.png" data-retina="assets/images/logo/pins_logo_putih.png">
+                                                <img id="logo_header" src="assets/images/logo/pins_logo_putih.png">
                                             </a>
                                         </div>
                                     </div><!-- logo -->
@@ -72,7 +72,7 @@
                     <div class="overlay-canvas-nav"></div>
                     <div class="inner-canvas-nav">
                         <div class="side-bar">
-                            <a href="index.html" rel="home" class="main-logo">
+                            <a href="index.html">
                                 <img id="logo_header" src="assets/images/logo/logo.png" data-retina="assets/images/logo/logo@2x.png">
                             </a>
                             <div class="canvas-nav-close">
