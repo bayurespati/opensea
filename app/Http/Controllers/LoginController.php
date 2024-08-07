@@ -13,12 +13,20 @@ class LoginController extends Controller
         return view('login');
     }
 
+    public function reloadCaptcha()
+    {
+        return response()->json(['captcha' => captcha_img()]);
+    }
+
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
+            'captcha' => ['required', 'captcha'],
         ]);
+
+        unset($credentials["captcha"]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();

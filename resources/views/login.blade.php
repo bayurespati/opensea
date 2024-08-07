@@ -117,6 +117,22 @@
                                         <input class="password-input" type="password" id="password" placeholder="Masukan kata sandi Anda" name="password" tabindex="2" value="" aria-required="true" required>
                                         <i class="icon-show password-addon" id="password-addon"></i>
                                     </fieldset>
+                                    <fieldset class="text" style="margin-bottom: 10px;">
+                                        <div class="captcha" style="margin-bottom: 10px;">
+                                            <span>{!! captcha_img() !!}</span>
+                                            <button type="button" class="btn btn-sm btn-danger" id="reload" style="margin-left: 10px; height: fit-content">
+                                                <h4>
+                                                    &#x21bb;
+                                                </h4>
+                                            </button>
+                                        </div>
+                                        <input type="text" id="captcha" placeholder="CAPTCHA" name="captcha" tabindex="2" value="" aria-required="true" required>
+                                    </fieldset>
+                                    @error('captcha')
+                                    <div style="color: red !important; margin-bottom: 10px;">
+                                        <p style="color: red">* Captha Salah</p>
+                                    </div>
+                                    @enderror('captcha')
                                     @error('email')
                                     <div style="color: red !important; margin-bottom: 10px;">
                                         <p style="color: red">* Alamat email atau password anda salah</p>
@@ -180,6 +196,18 @@
     <script src="assets/js/tsparticles.min.js"></script>
     <script src="assets/js/tsparticles.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <script>
+        $('#reload').click(function() {
+            $.ajax({
+                type: 'GET',
+                url: 'reload-captcha',
+                success: function(data) {
+                    $(".captcha span").html(data.captcha)
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>

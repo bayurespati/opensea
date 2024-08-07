@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('reload-captcha', [LoginController::class, 'reloadCaptcha'])->name('reload-captcha');
 
 Route::middleware('auth')->group(function () {
 
