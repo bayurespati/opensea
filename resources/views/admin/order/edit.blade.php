@@ -5,7 +5,7 @@
     <div class="themesflat-container">
         <div class="row">
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
-                <div class="widget-content-inner description">
+                <div class="widget-content-inner description" style="margin-bottom: 40px;">
                     <!-- novalidate="novalidate" -->
                     <form id="commentform" class="comment-form" <?php echo ("action=/admin/order/update/" . $order->id) ?> method="POST">
                         @csrf
@@ -49,6 +49,31 @@
                             </div>
                             @endif
                     </form>
+                </div>
+            </div>
+
+            <!-- table -->
+            <div class="product-item offers mt-10">
+                <h6>List Perangkat</h6>
+                <i class="icon-keyboard_arrow_down"></i>
+                <div class="content">
+                    <div class="table-heading">
+                        <div class="column" style="width: 10% !important;">NO</div>
+                        <div class="column">PERANGKAT</div>
+                        <div class="column">BRAND</div>
+                        <div class="column">HARGA</div>
+                        <div class="column">QTY</div>
+                    </div>
+
+                    @foreach($order->items as $key => $item)
+                    <div class="table-item">
+                        <div class="column" style="width: 10% !important;">{{ $key+1 }}</div>
+                        <div class="column">{{$item->nama_produk}}</div>
+                        <div class="column">{{$item->brand->nama}}</div>
+                        <div class="column">{{number_format($item->harga, 2, '.', ',')}}</div>
+                        <div class="column">{{$item->pivot->qty}}</div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

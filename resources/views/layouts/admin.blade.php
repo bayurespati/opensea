@@ -75,7 +75,7 @@
             <div class="flat-tabs">
                 <div class="section-menu-left">
                     <div class="box-logo">
-                        <a href="/home"><img src="/assets/images/logo/pins_logo_putih.png" alt=""></a>
+                        <a href="/home"><img src="/assets/images/logo/logo_epins_fix_2.png" alt=""></a>
                     </div>
                     <div class="over-content">
                         <div class="content">

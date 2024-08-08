@@ -55,7 +55,7 @@
                                     <div id="site-logo">
                                         <div id="site-logo-inner">
                                             <a href="/home" rel="home" class="main-logo">
-                                                <img id="logo_header" src="assets/images/logo/pins_logo_putih.png">
+                                                <img id="logo_header" src="assets/images/logo/logo_epins_fix_2.png">
                                             </a>
                                         </div>
                                     </div><!-- logo -->

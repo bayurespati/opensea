@@ -53,7 +53,9 @@ class OrderController extends Controller
             'Selesai'
         ];
 
-        return view('admin.order.edit', ["order" => $order, "list_status" => $list_status]);
+        $data = Order::where('id', $order->id)->with(['items'])->first();
+
+        return view('admin.order.edit', ["order" => $data, "list_status" => $list_status]);
     }
 
     /**
