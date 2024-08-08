@@ -119,7 +119,7 @@
                                     </fieldset>
                                     <fieldset class="text" style="margin-bottom: 10px;">
                                         <div class="captcha" style="margin-bottom: 10px;">
-                                            <span>{!! captcha_img() !!}</span>
+                                            <span>{!! captcha_img('flat') !!}</span>
                                             <button type="button" class="btn btn-sm btn-danger" id="reload" style="margin-left: 10px; height: fit-content">
                                                 <h4>
                                                     &#x21bb;
