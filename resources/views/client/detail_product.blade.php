@@ -115,7 +115,7 @@
                         </p>
                     </div>
                 </div>
-                @if($item->prosesor)
+                @if($item->subcategory_id == 1 || $item->subcategory_id == 4 || $item->subcategory_id == 14 )
                 <div data-wow-delay="0s" class="wow fadeInRight product-item traits">
                     <h6><i class="icon-description"></i>Spesifikasi Teknis</h6>
                     <i class="icon-keyboard_arrow_down"></i>
