@@ -23,7 +23,7 @@
                             <div class="column" style="width: 10% !important;">NO</div>
                             <div class="column">USER</div>
                             <div class="column">KODE</div>
-                            <div class="column">JUMLAH ITEM</div>
+                            <div class="column">JUMLAH PRODUK</div>
                             <div class="column">TOTAL HARGA</div>
                             <div class="column">STATUS</div>
                             <div class="column">AKSI</div>

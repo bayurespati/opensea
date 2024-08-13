@@ -16,13 +16,13 @@ class WishlistController extends Controller
         $wishlist = Wishlist::where('item_id', $request->item_id)->where('user_id', $user_id)->first();
         if ($wishlist) {
             $wishlist->delete();
-            return redirect()->back()->with('success', 'Berhasil menghapus item wishlist');
+            return redirect()->back()->with('success', 'Berhasil menghapus produk di dalam keranjang belanja');
         } else {
             $wishlist = new Wishlist();
             $wishlist->user_id = $user_id;
             $wishlist->item_id = $request->item_id;
             $wishlist->save();
-            return redirect()->back()->with('success', 'Berhasil dimasukan kedalam wishlist');
+            return redirect()->back()->with('success', 'Berhasil dimasukan kedalam keranjang belanja');
         }
     }
 

@@ -5,17 +5,38 @@
     <div class="themesflat-container">
         <div class="row">
             <div class="col-md-6">
-                <div data-wow-delay="0s" class="wow fadeInLeft tf-card-box style-5">
-                    <div class="card-media mb-0">
-                        <a href="#">
-                            <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="">
-                        </a>
+                <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        @foreach($produk->images as $index => $item)
+                        <li data-target="#imageCarousel" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                        @endforeach
+                    </ol>
+
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        @foreach($produk->images as $index => $item)
+                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                            <div class="fadeInLeft tf-card-box style-5" style="width: 100%">
+                                <div class="card-media mb-0">
+                                    <a href="#">
+                                        <img src="{{ $item->url == null ? '/solid_gray.png' : $item->url }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
-                    <!-- <h6 class="price gem"><i class="icon-gem"></i></h6> -->
-                    <!-- <div class="wishlist-button">10<i class="icon-heart"></i></div> -->
-                    <!-- <div class="featured-countdown">
-                        <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span>
-                    </div> -->
+
+                    <!-- Controls -->
+                    <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -76,7 +97,7 @@
                         <div class="dropdown">
                         </div>
                     </div>
-                    <h2>{{ $item->nama_produk }}</h2>
+                    <h2>{{ $produk->nama_produk }}</h2>
                     <div class="meta mb-20">
                     </div>
                 </div>
@@ -84,13 +105,13 @@
                     <div class="content">
                         <div class="text">Harga saat ini (IDR)</div>
                         <div class="flex justify-between">
-                            <p>{{number_format($item->harga, 0, '.', ',')}}</p>
+                            <p>{{number_format($produk->harga, 0, '.', ',')}}</p>
                             <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
                                 @csrf
-                                <input type="text" name="item_id" value="{{$item->id}}" hidden>
+                                <input type="text" name="item_id" value="{{$produk->id}}" hidden>
                                 <button type="submit" class="tf-button h50 w216" style="background-color: #e63946 !important">
-                                    {{sizeOf($item->user) > 0 ? 'Keluarkan' : 'Masukan' }}
-                                    Wishlist
+                                    {{sizeOf($produk->user) > 0 ? 'Keluarkan' : 'Masukan' }}
+                                    Keranjang Belanja
                                     <i class="icon-arrow-up-right2"></i>
                                 </button>
                             </form>
@@ -102,7 +123,7 @@
                     <i class="icon-keyboard_arrow_down"></i>
                     <div class="content">
                         <p>
-                            {{$item->deskripsi}}
+                            {{$produk->deskripsi}}
                         </p>
                     </div>
                 </div>
@@ -111,38 +132,38 @@
                     <i class="icon-keyboard_arrow_down"></i>
                     <div class="content">
                         <p>
-                            {{$item->keterangan}}
+                            {{$produk->keterangan}}
                         </p>
                     </div>
                 </div>
-                @if($item->subcategory_id == 1 || $item->subcategory_id == 4 || $item->subcategory_id == 14 )
+                @if($produk->subcategory_id == 1 || $produk->subcategory_id == 4 || $produk->subcategory_id == 14 )
                 <div data-wow-delay="0s" class="wow fadeInRight product-item traits">
                     <h6><i class="icon-description"></i>Spesifikasi Teknis</h6>
                     <i class="icon-keyboard_arrow_down"></i>
                     <div class="content">
                         <div class="trait-item">
                             <p>Prosesor</p>
-                            <div class="title">{{$item->prosesor}}</div>
+                            <div class="title">{{$produk->prosesor}}</div>
                         </div>
                         <div class="trait-item">
                             <p>RAM</p>
-                            <div class="title">{{$item->ram}}</div>
+                            <div class="title">{{$produk->ram}}</div>
                         </div>
                         <div class="trait-item">
                             <p>Storage</p>
-                            <div class="title">{{$item->storage}}</div>
+                            <div class="title">{{$produk->storage}}</div>
                         </div>
                         <div class="trait-item">
                             <p>VGA</p>
-                            <div class="title">{{$item->vga}}</div>
+                            <div class="title">{{$produk->vga}}</div>
                         </div>
                         <div class="trait-item">
                             <p>Sistem Operasi</p>
-                            <div class="title">{{$item->sistem_operasi}}</div>
+                            <div class="title">{{$produk->sistem_operasi}}</div>
                         </div>
                         <div class="trait-item">
                             <p>Garansi</p>
-                            <div class="title">{{$item->garansi}}</div>
+                            <div class="title">{{$produk->garansi}}</div>
                         </div>
                     </div>
                 </div>

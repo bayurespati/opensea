@@ -5,7 +5,7 @@
     <div class="themesflat-container">
         <div class="row">
             <div class="col-12">
-                <h1 data-wow-delay="0s" class="wow fadeInUp heading text-center">Wishlist</h1>
+                <h1 data-wow-delay="0s" class="wow fadeInUp heading text-center">Keranjang Belanja</h1>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 @endif
                 <div class="alert alert-success alert-dismissible" id="alert-item-order">
                     <ul>
-                        <li>Success order item</li>
+                        <li>Success order produk</li>
                         <button type="button" class="close" data-dismiss="alert">
                             <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                         </button>
@@ -100,7 +100,7 @@
                                     Cancel
                                 </button>
                                 <button class="tf-button style-1 h50" id="button-submit" onclick="submitItem()">Submit order</button>
-                                <button class="tf-button style-1 h50" id="button-order" onclick="showOrder()">Order item</button>
+                                <button class="tf-button style-1 h50" id="button-order" onclick="showOrder()">Order Produk</button>
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                             <div class="column" style="width: 10% !important;">NO</div>
                             <div class="column">KODE</div>
                             <div class="column">JUMLAH</div>
-                            <div class="column">ITEM</div>
+                            <div class="column">PRODUK</div>
                             <div class="column">QTY</div>
                             <div class="column">TOTAL HARGA</div>
                             <div class="column">STATUS</div>

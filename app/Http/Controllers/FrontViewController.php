@@ -65,7 +65,7 @@ class FrontViewController extends Controller
 
     public function detail_product(Item $item)
     {
-        $item = Item::where('id', $item->id)->with('user')->first();
-        return view('client.detail_product', ['item' => $item]);
+        $produk = Item::where('id', $item->id)->with(['user', 'images'])->first();
+        return view('client.detail_product', ['produk' => $produk]);
     }
 }

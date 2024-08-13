@@ -25,6 +25,14 @@
     <link rel="shortcut icon" href="{{ asset('assets/icon/favicon_pins.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/icon/favicon_pins.png') }}">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <style>
+        .carousel-item img {
+            width: 100%;
+            object-fit: cover;
+            /* Ensures the image covers the entire area, cropping the excess if needed */
+        }
+    </style>
 </head>
 
 <body class="body">
@@ -110,10 +118,10 @@
                                         <div class="cate-item"><a href="/about">About Us</a></div>
                                     </li>
                                     <li>
-                                        <div class="cate-item"><a href="/wishlist">Wishlist</a></div>
+                                        <div class="cate-item"><a href="/wishlist">Keranjang Belanja</a></div>
                                     </li>
                                     <li>
-                                        <div class="cate-item"><a href="/browse_product">Product</a></div>
+                                        <div class="cate-item"><a href="/browse_product">Produk</a></div>
                                     </li>
                                     <li>
                                         <div class="cate-item"><a href="/faq">FAQ</a></div>
@@ -165,10 +173,10 @@
                                     <a class="item-menu-mobile" href="/about">About Us</a>
                                 </li>
                                 <li>
-                                    <div class="item-menu-mobile"><a href="/wishlist">Wishlist</a></div>
+                                    <div class="item-menu-mobile"><a href="/wishlist">Keranjang Belanja</a></div>
                                 </li>
                                 <li>
-                                    <div class="item-menu-mobile"><a href="/browse_product">Product</a></div>
+                                    <div class="item-menu-mobile"><a href="/browse_product">Produk</a></div>
                                 </li>
                                 <li class="menu-item">
                                     <a class="item-menu-mobile" href="/faq">FAQ</a>
@@ -195,38 +203,6 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="footer-content flex flex-grow">
-                                <!-- <div class="widget-logo flex-grow"> -->
-                                <!-- <div class="logo-footer" id="logo-footer"> -->
-                                <!-- <a href="index.html">
-                                            <img id="logo_footer" src="assets/images/logo/logo-dark.png" 
-                                            data-retina="assets/images/logo/logo-dark@2x.png">
-                                        </a> -->
-                                <!-- </div> -->
-                                <!-- </div> -->
-                                <!-- <div class="widget widget-menu style-1">
-                                    <h5 class="title-widget">Marketplace</h5>
-                                    <ul>
-                                        <li><a href="#">All NFTs</a></li>
-                                        <li><a href="#">New</a></li>
-                                        <li><a href="#">Art</a></li>
-                                        <li><a href="#">Music</a></li>
-                                        <li><a href="#">Domain names</a></li>
-                                        <li><a href="#">Virtual worlds</a></li>
-                                    </ul>
-                                </div> -->
-                                <!-- <div class="widget widget-menu style-2">
-                                    <h5 class="title-widget">Resources</h5>
-                                    <ul>
-                                        <li><a href="#">Help center</a></li>
-                                        <li><a href="#">Platform status</a></li>
-                                        <li><a href="#">Partners</a></li>
-                                        <li><a href="#">Discount communiti</a></li>
-                                        <li><a href="#">Suggestions</a></li>
-                                        <li><a href="#">User Content FAQs</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Doc</a></li>
-                                    </ul>
-                                </div> -->
                                 <div class="widget-last">
                                     <div class="widget-menu style-4">
                                         <ul>

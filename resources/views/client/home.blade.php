@@ -22,14 +22,6 @@
                         <a href="/browse_product" class="tf-button style-1 h50 w190 active">Cari Perangkat<i class="icon-search"></i></a>
                     </div>
                 </div>
-                <div class="icon-background">
-                    <!-- <img class="absolute item1" src="assets/images/item-background/item1.png" alt="">
-                    <img class="absolute item2" src="assets/images/item-background/item2.png" alt="">
-                    <img class="absolute item4" src="assets/images/item-background/item1.png" alt="">
-                    <img class="absolute item5" src="assets/images/item-background/item1.png" alt="">
-                    <img class="absolute item7" src="assets/images/item-background/item5.png" alt="">
-                    <img class="absolute item8" src="assets/images/item-background/item5.png" alt=""> -->
-                </div>
                 <div class="relative">
                     <div class="swiper swiper-3d-7">
                         <div class="swiper-wrapper">
@@ -267,7 +259,7 @@
                         <p>Step 2</p>
                     </div>
                     <h4 class="heading"><a href="#">Masukan Whishlist</a></h4>
-                    <p class="content">Daftarkan perangkat yang diminati ke dalam wishlist</p>
+                    <p class="content">Daftarkan perangkat yang diminati ke dalam keranjang belanja</p>
                     <div class="arrow">
                         <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_625_20131)">

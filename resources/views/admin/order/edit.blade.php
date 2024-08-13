@@ -59,7 +59,7 @@
                 <div class="content">
                     <div class="table-heading">
                         <div class="column" style="width: 10% !important;">NO</div>
-                        <div class="column">PERANGKAT</div>
+                        <div class="column">PRODUK</div>
                         <div class="column">BRAND</div>
                         <div class="column">HARGA</div>
                         <div class="column">QTY</div>

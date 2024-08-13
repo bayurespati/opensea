@@ -178,7 +178,7 @@
                                         Cancel
                                     </div>
                                 </a>
-                                <button class="tf-button style-1 h50" type="submit">Submit item</button>
+                                <button class="tf-button style-1 h50" type="submit">Submit Produk</button>
                             </div>
                         </div>
 
