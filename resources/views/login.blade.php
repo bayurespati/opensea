@@ -212,6 +212,22 @@
                 }
             })
         });
+
+        // JavaScript to toggle password visibility
+        const passwordInput = document.getElementById('password');
+        const passwordAddon = document.getElementById('password-addon');
+
+        passwordAddon.addEventListener('click', function() {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text'; // Show the password
+                passwordAddon.classList.remove('icon-show');
+                passwordAddon.classList.add('icon-hide'); // Change to hide icon
+            } else {
+                passwordInput.type = 'password'; // Hide the password
+                passwordAddon.classList.remove('icon-hide');
+                passwordAddon.classList.add('icon-show'); // Change to show icon
+            }
+        });
     </script>
 </body>
 
