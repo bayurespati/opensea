@@ -32,10 +32,37 @@
             object-fit: cover;
             /* Ensures the image covers the entire area, cropping the excess if needed */
         }
+
+        .swiper-pagination-bulle {
+            background: none !important;
+        }
+
+        .search-produk::placeholder {
+            color: black !important;
+            opacity: .5;
+        }
+
+        .carousel-control-prev-icon {
+            filter: invert(100%);
+            /* Makes the icon black */
+        }
+
+        /* Change the color of the next icon */
+        .carousel-control-next-icon {
+            filter: invert(100%);
+            /* Makes the icon black */
+        }
+
+        /* Adjust the background color of the control buttons if needed */
+        .carousel-control-prev,
+        .carousel-control-next {
+            border-radius: 50%;
+            /* Optional: Make the controls circular */
+        }
     </style>
 </head>
 
-<body class="body">
+<body class="body background-white">
 
     <!-- preload -->
     <div class="preload preload-container">
@@ -53,8 +80,8 @@
     <!-- /preload -->
 
     <div id="wrapper">
-        <div id="page" class="pt-40 faqs-page">
-            <header id="header_main" class="header_1 header-fixed">
+        <div id="page" class="pt-40">
+            <header id="header_main" class="header_1 header-fixed style-white">
                 <div class="themesflat-container">
                     <div class="row">
                         <div class="col-md-12">
@@ -63,7 +90,7 @@
                                     <div id="site-logo">
                                         <div id="site-logo-inner">
                                             <a href="/home" rel="home" class="main-logo">
-                                                <img id="logo_header" src="/assets/images/logo/logo_epins_fix_2.png">
+                                                <img id="logo_header" src="/assets/images/logo/logo_epins_fix_1.png">
                                             </a>
                                         </div>
                                     </div><!-- logo -->
@@ -80,7 +107,7 @@
                                                 <span>Hubungi Admin</span>
                                             </a>
                                         </div>
-                                        <div class="canvas">
+                                        <div class="canvas style-1">
                                             <span></span>
                                         </div>
                                     </div>
@@ -198,7 +225,7 @@
             @yield('content')
 
             <!-- Footer -->
-            <footer id="footer">
+            <footer id="footer" class="bg-white">
                 <div class="themesflat-container">
                     <div class="row">
                         <div class="col-12">

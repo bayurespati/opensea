@@ -32,11 +32,11 @@
                         </button>
                     </ul>
                 </div>
-                <div class="product-item offers">
-                    <h6>List Perangkat</h6>
+                <div class="product-item offers" style="background: #DEE8E8;">
+                    <h6 style="color: #434141">List Perangkat</h6>
                     <i class="icon-keyboard_arrow_down"></i>
                     <div class="content">
-                        <div class="table-heading">
+                        <div class="table-heading" style="border-bottom: .5px solid #969292;  color: #434141">
                             <div class="column" id="header-data" style="width: 10% !important;">Check</div>
                             <div class="column" style="width: 10% !important;">NO</div>
                             <div class="column">PERANGKAT</div>
@@ -54,10 +54,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="column" style="width: 10% !important;">
+                            <div class="column" style="width: 10% !important; color: #434141">
                                 {{ $key+1 }}
                             </div>
-                            <div class="column">{{$item->nama_produk}}</div>
+                            <div class="column" style="color: #434141">{{$item->nama_produk}}</div>
                             <div class="column">
                                 <div class="column">
                                     <span class="{{$item->is_ready ? 'color-ready' : 'color-indent'}}">
@@ -65,15 +65,15 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="name qty-data" style="width: 30% !important">
+                            <div class="name qty-data" style="width: 30% !important; color: #434141">
                                 <input value="{{$item->id}}#{{$item->harga}}" class="item-qty" type="number" id="{{$item->id}}#{{$item->harga}}" name="quantity" tabindex="2" style="padding: 7px 14px !important">
                             </div>
-                            <div class="column">
+                            <div class="column" style="color: #434141">
                                 {{ number_format($item->harga, 2, '.', ',') }}
                             </div>
                             <div class="column" style="width: 10% !important;">
-                                <a <?php echo ("href=/wishlist/delete/" . $item->id) ?> class="icon">
-                                    <img src="/assets/icon/custome/trash_white.svg" alt="whatsapp" style="width: 22px;">
+                                <a <?php echo ("href=/wishlist/delete/" . $item->id) ?> class="icon ">
+                                    <img src="/assets/icon/custome/trash_white.svg" alt="whatsapp" style="width: 22px; color: #434141">
                                 </a>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                             <div class="column" style="width: 10% !important;"> </div>
                             <div class="column">
                             </div>
-                            <div class="column text-right" style="margin-top: 15px;">
+                            <div class="column text-right" style="margin-top: 15px; color: #434141">
                                 Total:
                             </div>
                             <div class="column">
@@ -238,6 +238,8 @@
         $('#button-cancel').hide();
         $('#button-submit').hide();
         $('#header-data').hide();
+        $('#qty-data').hide();
+        $('.qty-data').hide();
         $('.data-row').hide();
         $('#total-item').hide();
         $('#button-order').show();

@@ -5,7 +5,7 @@
     <div class="themesflat-container">
         <div class="row">
             <div class="col-12">
-                <h1 data-wow-delay="0s" class="wow fadeInUp heading text-center">Frequently asked questions</h1>
+                <h1 data-wow-delay="0s" class="wow fadeInUp heading text-center" style="color: #434141">Frequently asked questions</h1>
             </div>
         </div>
     </div>
@@ -17,10 +17,10 @@
             <div class="col-md-6 mb-20">
                 <div class="flat-accordion2">
                     @foreach ($faqs->slice(0, 5) as $faq)
-                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
-                        <h6 class="toggle-title">{{$faq->pertanyaan}}</h6>
+                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #8b9898 !important">
+                        <h6 class="toggle-title" style="color: #fff !important">{{$faq->pertanyaan}}</h6>
                         <div class="toggle-content">
-                            <p>{{$faq->jawaban}}</p>
+                            <p style="color: #fff">{{$faq->jawaban}}</p>
                         </div>
                     </div>
                     @endforeach
@@ -29,10 +29,10 @@
             <div class="col-md-6 mb-20">
                 <div class="flat-accordion2">
                     @foreach ($faqs->slice(5, 10) as $faq)
-                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2">
+                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #8b9898 !important">
                         <h6 class="toggle-title">{{$faq->pertanyaan}}</h6>
                         <div class="toggle-content">
-                            <p>{{$faq->jawaban}}</p>
+                            <p style="color: #fff">{{$faq->jawaban}}</p>
                         </div>
                     </div>
                     @endforeach
@@ -42,8 +42,8 @@
                 <div class="themesflat-container">
                     <div class="row">
                         <div class="col-12">
-                            <p>
-                                <span>Masih memiliki pertanyaan?</span>
+                            <p style="color: #434141">
+                                <span style="color: #434141">Masih memiliki pertanyaan?</span>
                             </p>
                             <p data-wow-delay="0.1s" class="wow fadeInUp ">
                                 Tidak menemukan yang anda cari? silahkan

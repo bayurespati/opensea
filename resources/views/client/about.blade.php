@@ -6,23 +6,23 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="heading-section-1">
-                    <h2 class="tf-title pb-20">Informasi</h2>
-                    <p class="pb-40">Untuk menghubungi kantor PINS Indonesia dapat melalui beberapa opsi kontak berikut.</p>
+                    <h2 class="tf-title pb-20" style="color: #434141">Informasi</h2>
+                    <p class="pb-40" style="color: #434141">Untuk menghubungi kantor PINS Indonesia dapat melalui beberapa opsi kontak berikut.</p>
                 </div>
             </div>
             <div data-wow-delay="0s" class="wow fadeInUp col-md-4">
-                <div class="box-icon-item">
+                <div class="box-icon-item" style="background: #DEE8E8 !important">
                     <img src="assets/images/box-icon/address.png" alt="">
-                    <div class="title"><a href="#">Alamat Kantor</a></div>
-                    <p>Telkom Landmark Tower, 42th floor, Jl. Gatot Subroto Kav. 52, Jakarta - 12710</p>
+                    <div class="title"><a href="#" style="color: #434141">Alamat Kantor</a></div>
+                    <p style="color: #434141">Telkom Landmark Tower, 42th floor, Jl. Gatot Subroto Kav. 52, Jakarta - 12710</p>
                 </div>
             </div>
             <div data-wow-delay="0.1s" class="wow fadeInUp col-md-4">
-                <div class="box-icon-item">
+                <div class="box-icon-item" style="background: #DEE8E8 !important">
                     <img src="assets/images/box-icon/email.png" alt="">
-                    <div class="title"><a href="#">Email</a></div>
-                    <p>
-                        kontak@pins.co.id
+                    <div class="title"><a href="#" style="color: #434141">Email</a></div>
+                    <p style="color: #434141">
+                        product@pins.co.id
                         <br>
                         <br>
                         <br>
@@ -30,10 +30,10 @@
                 </div>
             </div>
             <div data-wow-delay="0.2s" class="wow fadeInUp col-md-4">
-                <div class="box-icon-item">
+                <div class="box-icon-item" style="background: #DEE8E8 !important">
                     <img src="assets/images/box-icon/phone.png" alt="">
-                    <div class="title"><a href="#">No. Telepon Kantor</a></div>
-                    <p>
+                    <div class="title"><a href="#" style="color: #434141">No. Telepon Kantor</a></div>
+                    <p style="color: #434141">
                         (021) 5082079
                         <br>
                         <br>
@@ -49,7 +49,7 @@
     <div class="themesflat-container">
         <div class="row">
             <div class="col-12">
-                <h1 class="heading text-center">Lokasi</h1>
+                <h1 class="heading text-center" style="color: #434141">Lokasi</h1>
             </div>
         </div>
     </div>

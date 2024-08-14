@@ -25,9 +25,15 @@
     <link rel="shortcut icon" href="assets/icon/favicon_pins.png">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/favicon_pins.png">
 
+    <style>
+        .search-produk::placeholder {
+            color: black !important;
+            opacity: .5;
+        }
+    </style>
 </head>
 
-<body class="body counter-scroll">
+<body class="body background-white">
 
     <!-- preload -->
     <div class="preload preload-container">
@@ -46,8 +52,7 @@
 
     <div id="wrapper">
         <div id="page" class="pt-40">
-
-            <header id="header_main" class="header_1 header-fixed">
+            <header id="header_main" class="header_1 header-fixed style-white">
                 <div class="themesflat-container">
                     <div class="row">
                         <div class="col-md-12">
@@ -56,7 +61,7 @@
                                     <div id="site-logo">
                                         <div id="site-logo-inner">
                                             <a rel="home" class="main-logo">
-                                                <img id="logo_header" src="/assets/images/logo/logo_epins_fix_2.png">
+                                                <img id="logo_header" src="/assets/images/logo/logo_epins_fix_1.png">
                                             </a>
                                         </div>
                                     </div><!-- logo -->
@@ -100,21 +105,21 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading-section-1">
-                                <h2 class="tf-title pb-16">Login</h2>
-                                <p class="pb-40">Masukan kredensial Anda untuk mengakses eCatalog PINS</p>
+                                <h2 class="tf-title pb-16" style="color: #434141">Login</h2>
+                                <p class="pb-40" style="color: #434141">Masukan kredensial Anda untuk mengakses eCatalog PINS</p>
                             </div>
                         </div>
                         <div class="col-12">
-                            <div class="widget-login">
+                            <div class="widget-login" style="background: #DEE8E8">
                                 <form id="commentform" class="comment-form" action="/login" method="POST">
                                     @csrf
                                     <fieldset class="email">
-                                        <label>Email *</label>
-                                        <input type="email" id="email" placeholder="Masukan alamat email terdaftar" name="email" tabindex="2" value="" aria-required="true" required>
+                                        <label style="color: #434141">Email *</label>
+                                        <input class="search-produk" type="email" id="email" placeholder="Masukan alamat email terdaftar" name="email" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
                                     </fieldset>
                                     <fieldset class="password" style="margin-bottom: 10px;">
-                                        <label>Password *</label>
-                                        <input class="password-input" type="password" id="password" placeholder="Masukan kata sandi Anda" name="password" tabindex="2" value="" aria-required="true" required>
+                                        <label style="color: #434141">Password *</label>
+                                        <input class="search-produk password-input" type="password" id="password" placeholder="Masukan kata sandi Anda" name="password" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
                                         <i class="icon-show password-addon" id="password-addon"></i>
                                     </fieldset>
                                     <fieldset class="text" style="margin-bottom: 10px;">
@@ -126,7 +131,7 @@
                                                 </h4>
                                             </button>
                                         </div>
-                                        <input type="text" id="captcha" placeholder="CAPTCHA" name="captcha" tabindex="2" value="" aria-required="true" required>
+                                        <input class="search-produk" type="text" id="captcha" placeholder="CAPTCHA" name="captcha" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
                                     </fieldset>
                                     @error('captcha')
                                     <div style="color: red !important; margin-bottom: 10px;">
@@ -139,7 +144,7 @@
                                     </div>
                                     @enderror('email')
                                     <div class="btn-submit mb-30">
-                                        <button class="tf-button style-1 h50 w-100" type="submit">Login<i class="icon-arrow-up-right2"></i></button>
+                                        <button class="tf-button style-1 h50 w-100" type="submit">Login</button>
                                     </div>
                                 </form>
                             </div>
@@ -149,7 +154,7 @@
             </div>
 
             <!-- Footer -->
-            <footer id="footer">
+            <footer id="footer" class="bg-white">
                 <div class="themesflat-container">
                     <div class="footer-bottom">
                         <p>© 2023 PINS INDONESIA</p>

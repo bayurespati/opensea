@@ -9,7 +9,7 @@
                     <div class="tf-soft">
                         <div class="soft-right">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary dropdown-toggle" style="border: .5px solid black; color: #434141" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span>Urutkan</span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -37,42 +37,40 @@
 
 <div class="tf-section-5 artwork loadmore-12-item-1">
     <div class="themesflat-container">
-        <div class="widget-search" style="margin-bottom: 20px;">
-            <input type="text" id="search-item" placeholder="Search" name="search" tabindex="2" value="" aria-required="true" value="" class="style-1">
+        <div class="widget-search" style="margin-bottom: 20px">
+            <input type="text" id="search-item" placeholder="Search" name="search" tabindex="2" value="" aria-required="true" value="" class="search-produk" style="background-color: white !important;border: .5px solid #434141">
             <button class="search search-submit" title="Search" onclick="searchItem()">
-                <i class="icon-search"></i>
+                <i style="color: #434141; opacity: .5" class="icon-search"></i>
             </button>
         </div>
         <div class="row">
             <div class="col-md-3">
-                <div class="widget-category-checkbox style-1 mb-30">
-                    <h5 class="active">Lini Produk</h5>
+                <div class="widget-category-checkbox style-1 mb-30" style="border-bottom: 1px solid rgb(23 22 22 / 8%);">
+                    <h5 class="active" style="background: #DEE8E8; color: #434141">Lini Produk</h5>
                     <div class="content-wg-category-checkbox">
                         @foreach($divisi as $data)
-                        <label>{{$data->nama}}
-                            <input type="checkbox" class="divisi-check" value="{{$data->id}}">
+                        <label style="color: #434141">{{$data->nama}}
+                            <input type="checkbox" class="divisi-check" value="{{$data->id}}" style="opacity: 1">
                             <span class="btn-checkbox"></span>
                         </label>
                         <br>
                         @endforeach
                     </div>
                 </div>
-                <div class="widget-category-checkbox style-1 mb-30">
-                    <h5 class="active">Kategori</h5>
-                    <div class="content-wg-category-checkbox" id="show-category">
-                    </div>
+                <div class="widget-category-checkbox style-1 mb-30" style="border-bottom: 1px solid rgb(23 22 22 / 8%);">
+                    <h5 class="active" style="background: #DEE8E8; color: #434141">Kategori</h5>
+                    <div class="content-wg-category-checkbox" id="show-category"></div>
                 </div>
-                <div class="widget-category-checkbox style-1 mb-30">
-                    <h5 class="active">Sub Kategori</h5>
-                    <div class="content-wg-category-checkbox" id="show-sub-category">
-                    </div>
+                <div class="widget-category-checkbox style-1 mb-30" style="border-bottom: 1px solid rgb(23 22 22 / 8%);">
+                    <h5 class="active" style="background: #DEE8E8; color: #434141">Sub Kategori</h5>
+                    <div class="content-wg-category-checkbox" id="show-sub-category"></div>
                 </div>
-                <div class="widget-category-checkbox style-1 mb-30">
-                    <h5 class="active">Brands</h5>
+                <div class="widget-category-checkbox style-1 mb-30" style="border-bottom: 1px solid rgb(23 22 22 / 8%);">
+                    <h5 class="active" style="background: #DEE8E8; color: #434141">Brands</h5>
                     <div class="content-wg-category-checkbox">
                         @foreach($brands as $brand)
-                        <label>{{$brand->nama}}
-                            <input type="checkbox" class="brand-check" value="{{$brand->id}}">
+                        <label style="color: #434141">{{$brand->nama}}
+                            <input type="checkbox" class="brand-check" value="{{$brand->id}}" style="opacity: 1">
                             <span class="btn-checkbox"></span>
                         </label>
                         <br>
@@ -80,27 +78,27 @@
                     </div>
                 </div>
                 <div class="widget-category-checkbox style-1 mb-30">
-                    <h5 class="active">(IDR) Rentang Harga</h5>
+                    <h5 class="active" style="background: #DEE8E8; color: #434141">(IDR) Rentang Harga</h5>
                     <div class="content-wg-category-checkbox">
                         <form action="#">
-                            <label>0 - 1jt
-                                <input type="checkbox" class="harga-check" value="0-1">
+                            <label style="color: #434141">0 - 1jt
+                                <input type="checkbox" class="harga-check" value="0-1" style="opacity: 1">
                                 <span class="btn-checkbox"></span>
                             </label><br>
-                            <label>1jt- 5jt
-                                <input type="checkbox" class="harga-check" value="1-5">
+                            <label style="color: #434141">1jt- 5jt
+                                <input type="checkbox" class="harga-check" value="1-5" style="opacity: 1">
                                 <span class="btn-checkbox"></span>
                             </label><br>
-                            <label>5jt - 13jt
-                                <input type="checkbox" class="harga-check" value="5-13">
+                            <label style="color: #434141">5jt - 13jt
+                                <input type="checkbox" class="harga-check" value="5-13" style="opacity: 1">
                                 <span class="btn-checkbox"></span>
                             </label><br>
-                            <label>13jt - 25jt
-                                <input type="checkbox" class="harga-check" value="13-25">
+                            <label style="color: #434141">13jt - 25jt
+                                <input type="checkbox" class="harga-check" value="13-25" style="opacity: 1">
                                 <span class="btn-checkbox"></span>
                             </label><br>
-                            <label>25jt - 50jt
-                                <input type="checkbox" class="harga-check" value="25-50">
+                            <label style="color: #434141">25jt - 50jt
+                                <input type="checkbox" class="harga-check" value="25-50" style="opacity: 1">
                                 <span class="btn-checkbox"></span>
                             </label><br>
                         </form>
@@ -123,7 +121,7 @@
                 <div class="row" id="show-item">
                     @foreach($items as $item)
                     <div data-wow-delay="0" class="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
-                        <div class="tf-card-box style-1" name>
+                        <div class="tf-card-box style-1 bg-white">
                             <div class="card-media">
                                 <a <?php echo ("href='/detail_product/$item->id'") ?>> <img src="{{$item->image == null ? 'solid_gray.png' : $item->image}}" alt=""></a>
                                 <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
@@ -133,9 +131,6 @@
                                         <button class="{{sizeOf($item->user) > 0 ? 'wishlist-button active' : 'wishlist-button' }}" type="submit"><i class="icon-heart"></i></button>
                                     </a>
                                 </form>
-                                <div class="button-place-bid">
-                                    <a <?php echo ("href='/detail_product/$item->id'") ?> class="tf-button"><span>Detail</span></a>
-                                </div>
                             </div>
                             <h5 class="name">
                                 <a <?php echo ("href='/detail_product/$item->id'") ?>>{{$item->brand->nama}}</a>
@@ -281,8 +276,8 @@
                 success: function(response) {
                     for (let i = 0; i < response.length; i++) {
                         $('#show-category').append(`
-                            <label> ` + response[i].nama + `
-                            <input type="checkbox" class="category-check" value="` + response[i].id + `">
+                            <label style="color: #434141"> ` + response[i].nama + `
+                            <input type="checkbox" class="category-check" value="` + response[i].id + `" style="opacity: 1">
                             <span class="btn-checkbox"></span>
                             </label>
                             <br>
@@ -306,8 +301,8 @@
                 success: function(response) {
                     for (let i = 0; i < response.length; i++) {
                         $('#show-sub-category').append(`
-                            <label> ` + response[i].nama + `
-                            <input type="checkbox" class="subcategory-check" value="` + response[i].id + `">
+                            <label style="color: #434141"> ` + response[i].nama + `
+                            <input type="checkbox" class="subcategory-check" value="` + response[i].id + `" style="opacity: 1">
                             <span class="btn-checkbox"></span>
                             </label>
                             <br>
@@ -356,7 +351,7 @@
                 for (let i = 0; i < response.length; i++) {
                     $('#show-item').append(`
                     <div data-wow-delay="0" class="wow fadeInUp col-lg-4 col-md-6">
-                        <div class="tf-card-box style-1" name>
+                        <div class="tf-card-box style-1 bg-white">
                             <div class="card-media">
                                 <a href=""> <img src="` + (response[i]['image'] == "" || response[i]['image'] == null ? '/solid_gray.png' : response[i]['image']) + `" alt=""></a>
                                 <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
@@ -368,13 +363,6 @@
                                         </button>
                                     </a>
                                 </form>
-                                <!-- featur time -->
-                                <!-- <div class="featured-countdown"> -->
-                                <!-- <span class="js-countdown" data-timer="7500" data-labels="d,h,m,s"></span> -->
-                                <!-- </div> -->
-                                <div class="button-place-bid">
-                                    <a href='/detail_product/` + response[i]['id'] + `' class="tf-button"><span>Detail</span></a>
-                                </div>
                             </div>
                             <h5 class="name">
                             <a href="">` + response[i]['brand']['nama'] + `</a>
