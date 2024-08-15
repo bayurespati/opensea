@@ -145,10 +145,10 @@
                                         <div class="cate-item"><a href="/about">About Us</a></div>
                                     </li>
                                     <li>
-                                        <div class="cate-item"><a href="/wishlist">Keranjang Belanja</a></div>
+                                        <div class="cate-item"><a href="/browse_product">Produk</a></div>
                                     </li>
                                     <li>
-                                        <div class="cate-item"><a href="/browse_product">Produk</a></div>
+                                        <div class="cate-item"><a href="/wishlist">Keranjang Belanja</a></div>
                                     </li>
                                     <li>
                                         <div class="cate-item"><a href="/faq">FAQ</a></div>
@@ -200,10 +200,10 @@
                                     <a class="item-menu-mobile" href="/about">About Us</a>
                                 </li>
                                 <li>
-                                    <div class="item-menu-mobile"><a href="/wishlist">Keranjang Belanja</a></div>
+                                    <div class="item-menu-mobile"><a href="/browse_product">Produk</a></div>
                                 </li>
                                 <li>
-                                    <div class="item-menu-mobile"><a href="/browse_product">Produk</a></div>
+                                    <div class="item-menu-mobile"><a href="/wishlist">Keranjang Belanja</a></div>
                                 </li>
                                 <li class="menu-item">
                                     <a class="item-menu-mobile" href="/faq">FAQ</a>
