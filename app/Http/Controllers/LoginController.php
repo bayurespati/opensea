@@ -27,16 +27,19 @@ class LoginController extends Controller
             'captcha' => ['required', 'captcha'],
         ]);
 
-        // $username = explode("@", $request->email);
-        // if ($this->ldap_connect($username[0], $request->password)) {
-        //     $user = User::where('email', $request->email)->first();
-        //     $user->password = bcrypt($request->password);
-        //     $user->save();
-        // } else {
-        //     return back()->withErrors([
-        //         'email' => 'The provided credentials do not match our records.',
-        //     ])->onlyInput('email');
-        // }
+        $user = User::where('email', $request->email)->first();
+        if ($user->is_pins) {
+            $username = explode("@", $request->email);
+            if ($this->ldap_connect($username[0], $request->password)) {
+                $user = User::where('email', $request->email)->first();
+                $user->password = bcrypt($request->password);
+                $user->save();
+            } else {
+                return back()->withErrors([
+                    'email' => 'The provided credentials do not match our records.',
+                ])->onlyInput('email');
+            }
+        }
 
         unset($credentials["captcha"]);
 
