@@ -27,6 +27,7 @@ class StoreUserRequest extends FormRequest
             'phone' => 'required|unique:users,phone',
             'password' => 'required',
             'is_admin' => 'required',
+            'is_pins' => 'required',
         ];
     }
 

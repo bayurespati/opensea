@@ -36,6 +36,7 @@ class UserController extends Controller
         $model->email = $request->email;
         $model->phone = $request->phone;
         $model->is_admin = $request->is_admin;
+        $model->is_pins = $request->is_pins;
         $model->password = $request->password;
         $model->save();
 
@@ -60,6 +61,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->is_admin = $request->is_admin;
+        $user->is_pins = $request->is_pins;
         $user->save();
 
         return redirect('/admin/user');

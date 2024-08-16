@@ -27,6 +27,14 @@
                                 <input value="{{ old('password') }}" type="password" id="password" placeholder="Password" name="password" tabindex="2" value="" aria-required="true" required>
                             </fieldset>
                             <fieldset class="properties">
+                                <label>Tipe *</label>
+                                <select id="is_pins" name="is_pins" required>
+                                    <option value="">Pilih tipe: </option>
+                                    <option value="1">PINS</option>
+                                    <option value="0">Non PINS</option>
+                                </select>
+                            </fieldset>
+                            <fieldset class="properties">
                                 <label>Role *</label>
                                 <select id="is_admin" name="is_admin" required>
                                     <option value="">Pilih role: </option>

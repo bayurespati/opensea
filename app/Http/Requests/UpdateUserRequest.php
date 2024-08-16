@@ -26,6 +26,7 @@ class UpdateUserRequest extends FormRequest
             'email' => 'required|unique:users,email,' . $model->id,
             'phone' => 'required|unique:users,phone,' . $model->id,
             'is_admin' => 'required',
+            'is_pins' => 'required',
         ];
     }
 }
