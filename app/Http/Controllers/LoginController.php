@@ -16,7 +16,7 @@ class LoginController extends Controller
 
     public function reloadCaptcha()
     {
-        return response()->json(['captcha' => captcha_img('flat')]);
+        return response()->json(['captcha' => captcha_img('math')]);
     }
 
     public function authenticate(Request $request)
@@ -30,7 +30,7 @@ class LoginController extends Controller
         $user = User::where('email', $request->email)->first();
         if ($user->is_pins) {
             $username = explode("@", $request->email);
-            if ($this->ldap_connect($username[0], $request->password)) {
+            if ($this->_ldap_connect($username[0], $request->password)) {
                 $user = User::where('email', $request->email)->first();
                 $user->password = bcrypt($request->password);
                 $user->save();
@@ -56,7 +56,7 @@ class LoginController extends Controller
         ])->onlyInput('email');
     }
 
-    private function ldap_connect($username, $password)
+    private function _ldap_connect($username, $password)
     {
         set_time_limit(30);
 
