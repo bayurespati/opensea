@@ -151,6 +151,7 @@
                             </ul>
                             <ul class="menu-tab">
                                 <h6>Master Data</h6>
+                                @if(Auth::user() && Auth::user()->email == 'admin@pins.co.id')
                                 <li class="tablinks" data-tabs="bid">
                                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     </svg>
@@ -161,6 +162,7 @@
                                         User
                                     </a>
                                 </li>
+                                @endif
                                 <li class="tablinks" data-tabs="bid">
                                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     </svg>
