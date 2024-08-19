@@ -70,6 +70,7 @@ Route::middleware('auth')->group(function () {
             Route::post('update/{item}', [ItemController::class, 'update'])->name('admin-item-update');
             Route::get('edit/{item}', [ItemController::class, 'edit'])->name('admin-item-edit');
             Route::get('delete/{item}', [ItemController::class, 'destroy'])->name('admin-item-delete');
+            Route::get('download', [ItemController::class, 'download'])->name('admin-item-download');
         });
 
         Route::group(['prefix' => 'item-image'], function () {

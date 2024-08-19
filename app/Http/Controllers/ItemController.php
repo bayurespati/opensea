@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ItemExport;
 use App\Http\Requests\StoreItemRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateItemRequest;
@@ -81,6 +82,16 @@ class ItemController extends Controller
             Excel::import(new ItemImport(), $file, \Maatwebsite\Excel\Excel::XLSX);
 
             return redirect()->back()->with('success', 'Berhasil upload data');
+        } catch (Exception $e) {
+            dd($e->getMessage());
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function download(Request $request)
+    {
+        try {
+            return Excel::download(new ItemExport(), "list_produk.xlsx");
         } catch (Exception $e) {
             dd($e->getMessage());
             return redirect()->back()->with('error', $e->getMessage());

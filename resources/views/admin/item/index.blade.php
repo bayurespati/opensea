@@ -22,12 +22,17 @@
                 <div class="flex gap30" style="margin-bottom: 10px;">
                     <a href="/admin/item/create">
                         <div class="tf-button style-1 h50 w190">
-                            Daftarkan Perangkat
+                            Daftarkan Produk
                         </div>
                     </a>
                     <a href="/admin/item/upload-view">
                         <div class="tf-button style-1 h50 w190">
-                            Upload Perangkat
+                            Upload Produk
+                        </div>
+                    </a>
+                    <a href="{{ route('admin-item-download') }}">
+                        <div class="tf-button style-1 h50 w190">
+                            Download Produk
                         </div>
                     </a>
                 </div>

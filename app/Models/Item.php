@@ -19,10 +19,26 @@ class Item extends Model
         return $this->belongsToMany(User::class, 'wishlists')->where('user_id', Auth::user()->id);
     }
 
+    public function lini()
+    {
+        return $this->belongsTo(Divisi::class, 'divisi_id');
+    }
+
     public function brand()
     {
         return $this->belongsTo(Brand::class, 'brand_id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function subcategory()
+    {
+        return $this->belongsTo(subcategory::class, 'subcategory_id');
+    }
+
 
     public function diskon()
     {
