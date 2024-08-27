@@ -6,6 +6,8 @@ use App\Models\Order;
 use App\Models\OrderItems;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf as PDFS;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -24,7 +26,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $order = new Order();
-        $order->code = uniqid();
+        $order->code = $this->generateKey();
         $order->user_id = Auth::user()->id;
         $order->total_item = sizeOf($request->items_id);
         $order->total_price = $request->total_price;
@@ -38,6 +40,26 @@ class OrderController extends Controller
             $order_item->save();
         }
         return response()->json(['data' => $order, 'message' => 'Success store data'], 200);
+    }
+
+    public function generateKey()
+    {
+        // Get the current year
+        $year = date('Y');
+
+        // Get the latest record to determine the next number
+        $lastRecord = ModelName::orderBy('id', 'desc')->first();
+
+        // If there are no records, start from 1
+        $number = $lastRecord ? $lastRecord->id + 1 : 1;
+
+        // Format the number with leading zeros (e.g., 001)
+        $formattedNumber = str_pad($number, 3, '0', STR_PAD_LEFT);
+
+        // Combine to form the key
+        $key = "{$formattedNumber}/SPH-EPINS/{$year}";
+
+        return $key;
     }
 
     /**
@@ -67,5 +89,37 @@ class OrderController extends Controller
         $order->save();
 
         return redirect('/admin/order')->with('message', 'Order dengan kode ' . $order->code . ' barhasil diupdate');
+    }
+
+    public function sph(Request $request)
+    {
+        $user = Auth::user();
+        $pdf = PDFS::loadView('export.pdf.sph', ['user' => $user]);
+        $pdf->output();
+        $pdf->getDomPDF()->getCanvas()->get_cpdf();
+        return $pdf->download('sph.pdf');
+    }
+
+    public function newSPH(Request $request)
+    {
+        $user = Auth::user();
+        $kepada = $request->kepada;
+        $order = Order::where('id', $request->order_id)->with(['items'])->first();
+        $order->kepada = $request->kepada;
+        $order->save();
+        $today = Carbon::now()->locale('id')->translatedFormat('d F Y');
+        $pdf = PDFS::loadView('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today]);
+        $pdf->output();
+        $pdf->getDomPDF()->getCanvas()->get_cpdf();
+        return $pdf->download('sph.pdf');
+    }
+
+    public function preview(Request $request)
+    {
+        $user = Auth::user();
+        $kepada = $request->kepada ?? "Bayu Respati";
+        $order = Order::where('id', $request->order_id ?? 10)->with(['items'])->first();
+        $today = Carbon::now()->locale('id')->translatedFormat('d F Y');
+        return view('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today]);
     }
 }

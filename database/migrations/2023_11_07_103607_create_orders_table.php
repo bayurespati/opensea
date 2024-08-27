@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('total_item');
             $table->bigInteger('total_price');
             $table->string('status')->nullable()->default("Diterima");
+            $table->string('kepada');
             $table->timestamps();
         });
     }

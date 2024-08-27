@@ -34,6 +34,10 @@ Route::get('reload-captcha', [LoginController::class, 'reloadCaptcha'])->name('r
 
 Route::middleware('auth')->group(function () {
 
+    Route::get('preview', [OrderController::class, 'preview'])->name('preveiw-export-sph');
+    Route::get('download-sph', [OrderController::class, 'sph'])->name('download-sph');
+    Route::get('download-new-sph', [OrderController::class, 'newSPH'])->name('download-new-sph');
+
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/home', [FrontViewController::class, 'home']);
@@ -42,6 +46,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/wishlist', [FrontViewController::class, 'wishlist']);
     Route::get('/browse_product', [FrontViewController::class, 'products']);
     Route::get('/detail_product/{item}', [FrontViewController::class, 'detail_product']);
+    Route::get('/change-password', [FrontViewController::class, 'changePassword']);
+    Route::post('/update-password', [LoginController::class, 'updatePassword'])->name('user-password-update');
 
     Route::post('/wishlist/store', [WishlistController::class, 'store']);
     Route::get('/wishlist/delete/{item}', [WishlistController::class, 'delete']);

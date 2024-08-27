@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -56,6 +57,38 @@ class LoginController extends Controller
         ])->onlyInput('email');
     }
 
+    public function updatePassword(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'old_password' => ['required', function ($attribute, $value, $fail) {
+                if (!Hash::check($value, Auth::user()->password)) {
+                    $fail('The current password is incorrect.');
+                }
+            }],
+            'password' => ['required', 'min:8', 'confirmed'],
+        ]);
+
+        // Update the password
+        $user = Auth::user();
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return back()->with('success', 'Password updated successfully!');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
+
+
     private function _ldap_connect($username, $password)
     {
         set_time_limit(30);
@@ -75,16 +108,5 @@ class LoginController extends Controller
         $bind = @ldap_bind($ldap_connect, $ldaprdn, $password);
 
         return $bind;
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/');
     }
 }

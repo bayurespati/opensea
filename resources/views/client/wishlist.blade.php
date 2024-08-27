@@ -73,7 +73,7 @@
                             </div>
                             <div class="column" style="width: 10% !important;">
                                 <a <?php echo ("href=/wishlist/delete/" . $item->id) ?> class="icon ">
-                                    <img src="/assets/icon/custome/trash_white.svg" alt="whatsapp" style="width: 22px; color: #434141">
+                                    <img src="/assets/icon/custome/trash_black.svg" alt="whatsapp" style="width: 22px; color: #434141">
                                 </a>
                             </div>
                         </div>
@@ -142,13 +142,33 @@
                             </div>
                             <div class="column">{{$order->status}}</div>
                             <div class="column">
-                                <a <?php echo ('href="https://wa.me/6281287133571?text=Halo Admin eCatalog PINS Indonesia, saya ingin proses pengadaan perangkat dengan nomor order ' . $order->code . ' atas nama ' . Auth::user()->name . ' dengan total harga ' . $order->total_price . ', terima kasih."') ?> target="_blank" class="tf-button style-101">
+                                <a data-toggle="modal" data-target="#popup_bid" class="tf-button style-101" data-order-id="{{ $order->id }}">
                                     Nego
                                 </a>
                             </div>
                         </div>
                         @endforeach
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal content -->
+    <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="width: 500px;">
+                    <h2>FORM DOWNLOAD SPH</h2>
+                    <form id="commentform" class="comment-form" action="/download-new-sph" method="GET">
+                        @csrf
+                        <input type="text" class="style-1" id="kepada" placeholder="Kepada" name="kepada" tabindex="2" value="" aria-required="true" required="" style="margin-bottom: 15px;">
+                        <input id="hiden_order_id" type="text" name="order_id" value="" aria-required="true" hidden>
+                        <div style="width: 36%; margin: 0 auto;">
+                            <div class="btn-submit">
+                                <button class="tf-button style-1 h50" type="submit">Download</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -168,6 +188,21 @@
     $('#total-item').hide();
     $('#alert-item-order').hide();
     document.getElementById("button-submit").disabled = true;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Select all the "Nego" buttons
+        var negoButtons = document.querySelectorAll('.tf-button.style-101');
+
+        negoButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Get the order ID from the clicked button
+                var orderId = this.getAttribute('data-order-id');
+
+                // Set the order ID in the hidden input field
+                document.getElementById('hiden_order_id').value = orderId;
+            });
+        });
+    });
 
     $('input.item-check').on('input', function() {
         let temp_id = $(this).val();

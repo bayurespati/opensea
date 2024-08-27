@@ -153,6 +153,11 @@
                                     <li>
                                         <div class="cate-item"><a href="/faq">FAQ</a></div>
                                     </li>
+                                    @if(Auth::user() && !Auth::user()->is_pins)
+                                    <li>
+                                        <div class="cate-item"><a href="/change-password">Change Password</a></div>
+                                    </li>
+                                    @endif
                                 </ul>
                             </div>
 
@@ -205,9 +210,14 @@
                                 <li>
                                     <div class="item-menu-mobile"><a href="/wishlist">Keranjang Belanja</a></div>
                                 </li>
-                                <li class="menu-item">
+                                <li>
                                     <a class="item-menu-mobile" href="/faq">FAQ</a>
                                 </li>
+                                @if(Auth::user() && !Auth::user()->is_pins)
+                                <li>
+                                    <div class="item-menu-mobile"><a href="/change-password">Change Password</a></div>
+                                </li>
+                                @endif
                             </ul>
                         </nav>
                         <div class="widget-search mt-30">

@@ -68,4 +68,10 @@ class FrontViewController extends Controller
         $produk = Item::where('id', $item->id)->with(['user', 'images'])->first();
         return view('client.detail_product', ['produk' => $produk]);
     }
+
+    public function changePassword(Item $item)
+    {
+        $user = Auth::user();
+        return view('client.change_password', ['user' => $user]);
+    }
 }
