@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserLogin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -46,6 +47,12 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+
+            UserLogin::create([
+                'user_id' => $user->id,
+                'ip_address' => request()->ip(),
+                'logged_in_at' => now(),
+            ]);
 
             if (Auth::user()->is_admin)
                 return redirect()->intended('/admin/item');

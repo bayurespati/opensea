@@ -59,6 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
 
         Route::get('dashboard', [DashboardController::class, 'index'])->name('admin-dashboard-index');
+        Route::get('user-log', [UserController::class, 'logView'])->name('admin-user-log');
 
         Route::get('order', [OrderController::class, 'index'])->name('admin-order-index');
         Route::get('order/edit/{order}', [OrderController::class, 'edit'])->name('admin-order-edit');

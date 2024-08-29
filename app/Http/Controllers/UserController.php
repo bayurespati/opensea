@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use App\Models\UserLogin;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -16,6 +17,21 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('admin.user.index', ['users' => $users]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function logView(Request $request)
+    {
+        $query = $request->input('query');
+        if ($request->query != null) {
+            $logs = UserLogin::with(['user'])
+                ->paginate(10)
+                ->appends(['query' => $query]);
+        } else
+            $logs = UserLogin::with(['user'])->paginate(10);
+        return view('admin.log.user.index', ['logs' => $logs]);
     }
 
     /**
