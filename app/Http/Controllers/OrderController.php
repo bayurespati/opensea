@@ -49,7 +49,7 @@ class OrderController extends Controller
         $year = date('Y');
 
         // Get the latest record to determine the next number
-        $lastRecord = ModelName::orderBy('id', 'desc')->first();
+        $lastRecord = Order::orderBy('id', 'desc')->first();
 
         // If there are no records, start from 1
         $number = $lastRecord ? $lastRecord->id + 1 : 1;
