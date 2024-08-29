@@ -51,7 +51,7 @@ class LoginController extends Controller
             UserLogin::create([
                 'user_id' => $user->id,
                 'ip_address' => request()->ip(),
-                'logged_in_at' => now(),
+                'logged_in_at' => now()->setTimezone('Asia/Jakarta'),
             ]);
 
             if (Auth::user()->is_admin)

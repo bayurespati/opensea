@@ -6,7 +6,7 @@
         <div class="row">
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
                 <div class="widget-search" style="margin-bottom: 10px;">
-                    <form action="{{ route('admin-item-index') }}" method="GET">
+                    <form action="{{ route('admin-user-log') }}" method="GET">
                         @csrf
                         <input type="text" id="search-item" placeholder="Search" name="query" tabindex="2" value="" aria-required="true" value="" class="style-1">
                         <button class="search search-submit" title="Search" type="submit"></button>

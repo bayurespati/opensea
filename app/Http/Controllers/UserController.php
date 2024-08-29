@@ -26,7 +26,9 @@ class UserController extends Controller
     {
         $query = $request->input('query');
         if ($request->query != null) {
-            $logs = UserLogin::with(['user'])
+            $users = User::where('name', 'like', '%' . $query . '%')->get()->pluck('id');
+            $logs = UserLogin::whereIn('user_id', $users)
+                ->with(['user'])
                 ->paginate(10)
                 ->appends(['query' => $query]);
         } else
