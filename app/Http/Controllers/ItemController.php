@@ -22,8 +22,13 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->search != null) {
-            $items = Item::where('nama_produk', 'like', '%' . $request->search . '%')->with(['brand', 'diskon'])->orderBy('is_featured', 'DESC')->paginate(10);
+        $query = $request->input('query');
+        if ($request->query != null) {
+            $items = Item::where('nama_produk', 'like', '%' . $query . '%')
+                ->with(['brand', 'diskon'])
+                ->orderBy('is_featured', 'DESC')
+                ->paginate(10)
+                ->appends(['query' => $query]);
         } else
             $items = Item::with(['brand', 'diskon'])->orderBy('is_featured', 'DESC')->paginate(10);
         return view('admin.item.index', ['items' => $items]);
@@ -62,7 +67,7 @@ class ItemController extends Controller
     public function updateSetting(Request $request, Item $item)
     {
         $items = Item::where('is_featured', "=", 1)->get();
-        if ($items->count() >= 10) {
+        if ($items->count() >= 11) {
             return redirect()->back()->with('error', "Item untuk show sudah max");
         }
 

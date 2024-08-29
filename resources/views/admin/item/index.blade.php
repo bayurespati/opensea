@@ -39,7 +39,7 @@
                 <div class="widget-search" style="margin-bottom: 10px;">
                     <form action="{{ route('admin-item-index') }}" method="GET">
                         @csrf
-                        <input type="text" id="search-item" placeholder="Search" name="search" tabindex="2" value="" aria-required="true" value="" class="style-1">
+                        <input type="text" id="search-item" placeholder="Search" name="query" tabindex="2" value="" aria-required="true" value="" class="style-1">
                         <button class="search search-submit" title="Search" type="submit"></button>
                     </form>
                 </div>

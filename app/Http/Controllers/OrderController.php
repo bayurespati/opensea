@@ -7,6 +7,7 @@ use App\Models\OrderItems;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf as PDFS;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Carbon\Carbon;
 
 class OrderController extends Controller
@@ -108,6 +109,9 @@ class OrderController extends Controller
         $order->kepada = $request->kepada;
         $order->save();
         $today = Carbon::now()->locale('id')->translatedFormat('d F Y');
+        // $file_name = 'qrcodes/transaction_' . $order->id . '.png';
+        // $value = "http://127.0.0.1:8000/admin/order/edit/" . $request->order_id;
+        // QrCode::format('png')->size(200)->generate($value, public_path($file_name));
         $pdf = PDFS::loadView('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today]);
         $pdf->output();
         $pdf->getDomPDF()->getCanvas()->get_cpdf();
@@ -120,6 +124,8 @@ class OrderController extends Controller
         $kepada = $request->kepada ?? "Bayu Respati";
         $order = Order::where('id', $request->order_id ?? 10)->with(['items'])->first();
         $today = Carbon::now()->locale('id')->translatedFormat('d F Y');
+        // $file_name = 'qrcodes/transaction_' . $order->id . '.png';
+        // QrCode::format('png')->size(200)->generate($order->id, public_path($file_name));
         return view('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today]);
     }
 }
