@@ -130,6 +130,9 @@
             <td style="text-align: center; font-size: 8px !important; font-weight: lighter !important;">2</td>
             <td></td>
         </tr>
+        <!-- <div style="float: right; margin-right: 150px">
+            <img src="{{$qrCode}}" class="w-10" />
+        </div> -->
     </table>
 
     <!-- Optional JavaScript -->

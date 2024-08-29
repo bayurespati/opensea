@@ -143,7 +143,7 @@
                             <div class="column">{{$order->status}}</div>
                             <div class="column">
                                 <a data-toggle="modal" data-target="#popup_bid" class="tf-button style-101" data-order-id="{{ $order->id }}">
-                                    Nego
+                                    SPH
                                 </a>
                             </div>
                         </div>
