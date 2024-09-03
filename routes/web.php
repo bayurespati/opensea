@@ -65,6 +65,9 @@ Route::middleware('auth')->group(function () {
         Route::get('order/edit/{order}', [OrderController::class, 'edit'])->name('admin-order-edit');
         Route::post('order/update/{order}', [OrderController::class, 'update'])->name('admin-order-update');
 
+        Route::get('order/scan', [OrderController::class, 'scan'])->name('admin-order-scan');
+        Route::get('order/get/scan', [OrderController::class, 'scanValue'])->name('admin-order-scan-value');
+
         Route::group(['prefix' => 'item'], function () {
             Route::get('', [ItemController::class, 'index'])->name('admin-item-index');
             Route::get('setting/{item}', [ItemController::class, 'setting'])->name('admin-item-setting');

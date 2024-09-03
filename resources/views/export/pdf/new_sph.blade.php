@@ -192,6 +192,9 @@
             <li>Harga SPH dapat berubah sewaktu-waktu</li>
         </ul>
 
+        <div style="float: right; margin-right: 150px">
+            <img src="{{$qrCode}}" class="w-10" />
+        </div>
     </div>
 </body>
 

@@ -12,7 +12,9 @@ use App\Models\Category;
 use App\Models\Diskon;
 use App\Models\Divisi;
 use App\Models\Item;
+use App\Models\ItemImage;
 use App\Models\Subcategory;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ItemController extends Controller
@@ -125,43 +127,50 @@ class ItemController extends Controller
      */
     public function store(StoreItemRequest $request)
     {
-        $model = new Item();
-        if ($request->image != null)
-            $model->image = $this->store_image($request);
 
-        //Relation
-        $model->divisi_id = $request->divisi_id;
-        $model->brand_id = $request->brand_id;
-        $model->category_id = $request->category_id;
-        $model->subcategory_id = $request->subcategory_id;
-        //Relation
+        DB::transaction(function () use ($request) {
+            $model = new Item();
+            if ($request->image != null)
+                $model->image = $this->store_image($request);
 
-        $model->nama_produk = $request->nama_produk;
-        $model->masa_berlaku_produk = $request->masa_berlaku_produk;
-        $model->satuan = $request->satuan;
-        $model->jenis_produk = $request->jenis_produk;
-        $model->jenis_produk = $request->jenis_produk;
-        $model->nilai_tkdn = $request->nilai_tkdn;
-        $model->nilai_bmp = $request->nilai_bmp;
-        $model->deskripsi = $request->deskripsi;
-        $model->negara_asal_produk = $request->negara_asal_produk;
-        $model->harga = str_replace(",", "", $request->harga);
+            //Relation
+            $model->divisi_id = $request->divisi_id;
+            $model->brand_id = $request->brand_id;
+            $model->category_id = $request->category_id;
+            $model->subcategory_id = $request->subcategory_id;
 
-        //If product laptop/PC/AiO/Server
-        $model->type = $request->type;
-        $model->prosesor = $request->prosesor;
-        $model->ram = $request->ram;
-        $model->storage = $request->storage;
-        $model->vga = $request->vga;
-        $model->sistem_operasi = $request->sistem_operasi;
-        //If product laptop/PC/AiO/Server
+            $model->nama_produk = $request->nama_produk;
+            $model->masa_berlaku_produk = $request->masa_berlaku_produk;
+            $model->satuan = $request->satuan;
+            $model->jenis_produk = $request->jenis_produk;
+            $model->jenis_produk = $request->jenis_produk;
+            $model->nilai_tkdn = $request->nilai_tkdn;
+            $model->nilai_bmp = $request->nilai_bmp;
+            $model->deskripsi = $request->deskripsi;
+            $model->negara_asal_produk = $request->negara_asal_produk;
+            $model->harga = str_replace(",", "", $request->harga);
 
-        $model->garansi = $request->garansi;
-        $model->keterangan = $request->keterangan;
-        $model->web_marketplace = $request->web_marketplace;
-        $model->quantity = $request->quantity;
+            //If product laptop/PC/AiO/Server
+            $model->type = $request->type;
+            $model->prosesor = $request->prosesor;
+            $model->ram = $request->ram;
+            $model->storage = $request->storage;
+            $model->vga = $request->vga;
+            $model->sistem_operasi = $request->sistem_operasi;
 
-        $model->save();
+            $model->garansi = $request->garansi;
+            $model->keterangan = $request->keterangan;
+            $model->web_marketplace = $request->web_marketplace;
+            $model->quantity = $request->quantity;
+            $model->save();
+
+            //Insert Image for many image
+            $item_image = new ItemImage;
+            $item_image->item_id = $model->id;
+            $item_image->name = $model->image;
+            $item_image->url = $model->image;
+            $item_image->save();
+        });
 
         return redirect('/admin/item');
     }
@@ -191,40 +200,49 @@ class ItemController extends Controller
     {
         $request->validate((new UpdateItemRequest())->rules($item));
 
-        if ($request->image != null)
-            $item->image = $this->store_image($request);
+        DB::transaction(function () use ($request, $item) {
+            if ($request->image != null)
+                $item->image = $this->store_image($request);
 
-        //Relation
-        $item->divisi_id = $request->divisi_id;
-        $item->brand_id = $request->brand_id;
-        $item->category_id = $request->category_id;
-        $item->subcategory_id = $request->subcategory_id;
-        //Relation
+            //Relation
+            $item->divisi_id = $request->divisi_id;
+            $item->brand_id = $request->brand_id;
+            $item->category_id = $request->category_id;
+            $item->subcategory_id = $request->subcategory_id;
 
-        $item->nama_produk = $request->nama_produk;
-        $item->masa_berlaku_produk = $request->masa_berlaku_produk;
-        $item->satuan = $request->satuan;
-        $item->jenis_produk = $request->jenis_produk;
-        $item->nilai_tkdn = $request->nilai_tkdn;
-        $item->nilai_bmp = $request->nilai_bmp;
-        $item->deskripsi = $request->deskripsi;
-        $item->negara_asal_produk = $request->negara_asal_produk;
-        $item->harga = str_replace(",", "", $request->harga);
+            $item->nama_produk = $request->nama_produk;
+            $item->masa_berlaku_produk = $request->masa_berlaku_produk;
+            $item->satuan = $request->satuan;
+            $item->jenis_produk = $request->jenis_produk;
+            $item->nilai_tkdn = $request->nilai_tkdn;
+            $item->nilai_bmp = $request->nilai_bmp;
+            $item->deskripsi = $request->deskripsi;
+            $item->negara_asal_produk = $request->negara_asal_produk;
+            $item->harga = str_replace(",", "", $request->harga);
 
-        //If product laptop/PC/AiO/Server
-        $item->type = $request->type;
-        $item->prosesor = $request->prosesor;
-        $item->ram = $request->ram;
-        $item->storage = $request->storage;
-        $item->vga = $request->vga;
-        $item->sistem_operasi = $request->sistem_operasi;
-        //If product laptop/PC/AiO/Server
+            //If product laptop/PC/AiO/Server
+            $item->type = $request->type;
+            $item->prosesor = $request->prosesor;
+            $item->ram = $request->ram;
+            $item->storage = $request->storage;
+            $item->vga = $request->vga;
+            $item->sistem_operasi = $request->sistem_operasi;
 
-        $item->garansi = $request->garansi;
-        $item->keterangan = $request->keterangan;
-        $item->web_marketplace = $request->web_marketplace;
-        $item->quantity = $request->quantity;
-        $item->save();
+            $item->garansi = $request->garansi;
+            $item->keterangan = $request->keterangan;
+            $item->web_marketplace = $request->web_marketplace;
+            $item->quantity = $request->quantity;
+            $item->save();
+
+            if (!ItemImage::where('item_id', $item->id)->first()) {
+                //Insert Image for many image
+                $item_image = new ItemImage;
+                $item_image->item_id = $item->id;
+                $item_image->name = $item->image;
+                $item_image->url = $item->image;
+                $item_image->save();
+            }
+        });
 
         return redirect('/admin/item');
     }

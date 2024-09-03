@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\OrderItems;
+use App\Models\Sph;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf as PDFS;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
@@ -19,6 +21,28 @@ class OrderController extends Controller
     {
         $orders = Order::with('user')->get();
         return view('admin.order.index', ['orders' => $orders]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function scan()
+    {
+        return view('admin.scan.index');
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function scanValue(Request $request)
+    {
+        $value = Order::where('code', $request->qr_code)->with('user', 'items')->first();
+
+        if ($value) {
+            return response()->json(['data' => $value, 'status' => 200], 200);
+        } else {
+            return response()->json(['message' => "Data not found", 'status' => 500], 202);
+        }
     }
 
     /**
@@ -108,11 +132,15 @@ class OrderController extends Controller
         $order = Order::where('id', $request->order_id)->with(['items'])->first();
         $order->kepada = $request->kepada;
         $order->save();
+        $sph = new Sph();
+        $sph->order_id = $order->id;
+        $sph->kepada = $order->kepada;
+        $sph->save();
         $today = Carbon::now()->locale('id')->translatedFormat('d F Y');
-        // $file_name = 'qrcodes/transaction_' . $order->id . '.png';
-        // $value = "http://127.0.0.1:8000/admin/order/edit/" . $request->order_id;
-        // QrCode::format('png')->size(200)->generate($value, public_path($file_name));
-        $pdf = PDFS::loadView('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today]);
+        $file_name = 'qrcodes/transaction_' . $order->id . '.png';
+        $value = $order->code;
+        Storage::disk('public')->put($file_name, QrCode::format('png')->size(200)->generate($value));
+        $pdf = PDFS::loadView('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today, 'qrCode' => 'storage/' . $file_name]);
         $pdf->output();
         $pdf->getDomPDF()->getCanvas()->get_cpdf();
         return $pdf->download('sph.pdf');
