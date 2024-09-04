@@ -90,7 +90,7 @@
                         <div class="dropdown">
                         </div>
                     </div>
-                    <h2>{{ $produk->nama_produk }}</h2>
+                    <h2 style="color: #434141">{{ $produk->nama_produk }}</h2>
                     <div class="meta mb-20">
                     </div>
                 </div>
@@ -160,7 +160,22 @@
                         </div>
                     </div>
                 </div>
+                @else
                 @endif
+                <div data-wow-delay="0s" class="wow fadeInRight product-item traits" style="background: #DEE8E8">
+                    <h6 style="color: #434141"><i class="icon-description" style="color: #434141"></i>Spesifikasi Teknis</h6>
+                    <i class="icon-keyboard_arrow_down"></i>
+                    <div class="content">
+                        <div class="trait-item" style="border: 1px solid rgb(90 87 87 / 17%);">
+                            <p style="color: #434141">Negara</p>
+                            <div class="title" style="color: #434141">{{$produk->negara_asal_produk}}</div>
+                        </div>
+                        <div class="trait-item" style="border: 1px solid rgb(90 87 87 / 17%);">
+                            <p style="color: #434141">Garansi</p>
+                            <div class="title" style="color: #434141">{{$produk->garansi}}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

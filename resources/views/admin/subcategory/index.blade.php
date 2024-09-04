@@ -26,6 +26,7 @@
                     <div class="content">
                         <div class="table-heading">
                             <div class="column" style="width: 10% !important;">NO</div>
+                            <div class="column" style="width: 10% !important;">ID</div>
                             <div class="column" style="width: 40% !important;">NAMA</div>
                             <div class="column" style="width: 40% !important;">CATEGORY</div>
                             <div class="column" style="width: 10% !important;">AKSI</div>
@@ -34,6 +35,7 @@
                         @foreach($subcategories as $key => $subcategory)
                         <div class="table-item">
                             <div class="column" style="width: 10% !important;">{{ $key+1 }}</div>
+                            <div class="column" style="width: 10% !important;">{{ $subcategory->id }}</div>
                             <div class="column" style="width: 40% !important;">{{$subcategory->nama}}</div>
                             <div class="column" style="width: 40% !important;">{{$subcategory->category->nama}}</div>
                             <div class="column flex gap30" style="width: 10% !important;">
