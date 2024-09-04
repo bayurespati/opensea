@@ -88,7 +88,7 @@
                             <div id="site-header-inner">
                                 <div class="wrap-box flex">
                                     <div id="site-logo">
-                                        <div id="site-logo-inner">
+                                        <div id="site-logo-inner" style="width: 180px;">
                                             <a href="/home" rel="home" class="main-logo">
                                                 <img id="logo_header" src="/assets/images/logo/logo_epins_fix_1.png">
                                             </a>
@@ -120,9 +120,6 @@
                     <div class="overlay-canvas-nav"></div>
                     <div class="inner-canvas-nav">
                         <div class="side-bar">
-                            <!-- <a href="index.html" rel="home" class="main-logo">
-                                <img id="logo_header" src="{{ asset('assets/images/logo/logo_PINS.png') }}" data-retina="{{ asset('assets/images/logo/logo_PINS.png') }}">
-                            </a> -->
                             <div class="canvas-nav-close">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="white" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 122.878 122.88" enable-background="new 0 0 122.878 122.88" xml:space="preserve">
                                     <g>

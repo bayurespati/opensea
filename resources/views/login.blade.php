@@ -59,7 +59,7 @@
                             <div id="site-header-inner">
                                 <div class="wrap-box flex">
                                     <div id="site-logo">
-                                        <div id="site-logo-inner">
+                                        <div id="site-logo-inner" style="width: 180px;">
                                             <a rel="home" class="main-logo">
                                                 <img id="logo_header" src="/assets/images/logo/logo_epins_fix_1.png">
                                             </a>
