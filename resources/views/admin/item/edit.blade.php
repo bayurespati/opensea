@@ -74,7 +74,7 @@
                                 <label>Jenis Produk</label>
                                 <select id="jenis_produk" name="jenis_produk" required>
                                     <option value="">Pilih jenis produk: </option>
-                                    <option value="import" {{ ($item->jenis_produk == "import") ? 'selected' : '' }}>Impor</option>
+                                    <option value="impor" {{ ($item->jenis_produk == "import") ? 'selected' : '' }}>Impor</option>
                                     <option value="pdn" {{ ($item->jenis_produk == "pdn") ? 'selected' : '' }}>PDN</option>
                                 </select>
                             </fieldset>

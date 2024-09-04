@@ -74,7 +74,7 @@
                             <label>Jenis Produk</label>
                             <select id="jenis_produk" name="jenis_produk" required>
                                 <option value="">Pilih jenis produk: </option>
-                                <option value="import">Impor</option>
+                                <option value="impor">Impor</option>
                                 <option value="pdn">PDN</option>
                             </select>
                         </fieldset>
