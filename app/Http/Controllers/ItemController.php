@@ -234,7 +234,7 @@ class ItemController extends Controller
             $item->quantity = $request->quantity;
             $item->save();
 
-            if (!ItemImage::where('item_id', $item->id)->first()) {
+            if (!ItemImage::where('item_id', $item->id)->first() && $request->image != null) {
                 //Insert Image for many image
                 $item_image = new ItemImage;
                 $item_image->item_id = $item->id;
