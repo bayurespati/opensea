@@ -30,6 +30,13 @@ class LoginController extends Controller
         ]);
 
         $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return back()->withErrors([
+                'email' => '* User belom terdaftar',
+            ])->onlyInput('email');
+        }
+
         if ($user->is_pins) {
             $username = explode("@", $request->email);
             if ($this->_ldap_connect($username[0], $request->password)) {
@@ -38,7 +45,7 @@ class LoginController extends Controller
                 $user->save();
             } else {
                 return back()->withErrors([
-                    'email' => 'The provided credentials do not match our records.',
+                    'email' => '* Alamat email atau password anda salah',
                 ])->onlyInput('email');
             }
         }
@@ -60,7 +67,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => '* Alamat email atau password anda salah',
         ])->onlyInput('email');
     }
 

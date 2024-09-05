@@ -140,7 +140,7 @@
                                     @enderror('captcha')
                                     @error('email')
                                     <div style="color: red !important; margin-bottom: 10px;">
-                                        <p style="color: red">* Alamat email atau password anda salah</p>
+                                        <p style="color: red">{{ $errors->first('email') }}</p>
                                     </div>
                                     @enderror('email')
                                     <div class="btn-submit mb-30">
@@ -157,7 +157,7 @@
             <footer id="footer" class="bg-white">
                 <div class="themesflat-container">
                     <div class="footer-bottom">
-                        <p>Â© 2023 PINS INDONESIA</p>
+                        <p>© 2023 PINS INDONESIA</p>
                         <ul class="flex">
                             <li>
                                 <a href="#">Privacy Policy</a>
