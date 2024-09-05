@@ -42,6 +42,20 @@
                             </ul>
                         </div>
                         @endif
+                        @if (\Session::has('success'))
+                        <div class="alert alert-success alert-dismissible">
+                            <ul>
+                                <li>
+                                    {!! \Session::get('success') !!}
+                                </li>
+                                <li>
+                                    <div type="" class="close" data-dismiss="alert" style="top: -20px">
+                                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        @endif
                     </form>
                 </div>
             </div>
