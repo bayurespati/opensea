@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\OrderItems;
 use App\Models\Sph;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf as PDFS;
@@ -17,9 +18,17 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::with('user')->get();
+        $query = $request->input('query');
+        if ($request->query != null) {
+            $users = User::where('name', 'like', '%' . $query . '%')->get()->pluck('id');
+            $orders = Order::where('status', 'like', '%' . $query . '%')->orWhere('code', 'like', '%' . $query . '%')->orWhereIn('user_id', $users)
+                ->with(['user'])
+                ->paginate(10)
+                ->appends(['query' => $query]);
+        } else
+            $orders = Order::with('user')->paginate(10);
         return view('admin.order.index', ['orders' => $orders]);
     }
 
