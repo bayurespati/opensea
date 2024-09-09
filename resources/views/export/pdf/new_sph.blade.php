@@ -91,7 +91,7 @@
     <div class="paper">
         <div class="clearfix">
             <div class="logo w-20" style="float:left; margin-right:20px">
-                <img src="logo_pins_2.png" class="w-100" />
+                <img src="round_logo_pins.png" class="w-100" />
             </div>
             <div class=" ms-2">
                 <h2 class="fw-bold m-0" style="font-size: 16px;">PT PINS Indonesia</h2>
