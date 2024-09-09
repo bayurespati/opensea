@@ -138,12 +138,23 @@ class OrderController extends Controller
     {
         $user = Auth::user();
         $kepada = $request->kepada;
+        $nama_pic = $request->nama_pic;
+        $no_telpon = $request->no_telpon;
+        $alamat = $request->alamat;
+        //SAVE ORDER
         $order = Order::where('id', $request->order_id)->with(['items'])->first();
         $order->kepada = $request->kepada;
+        $order->nama_pic = $request->nama_pic;
+        $order->no_telpon = $request->no_telpon;
+        $order->alamat = $request->alamat;
         $order->save();
+        //SAVE SPH
         $sph = new Sph();
         $sph->order_id = $order->id;
         $sph->kepada = $order->kepada;
+        $sph->nama_pic = $request->nama_pic;
+        $sph->no_telpon = $request->no_telpon;
+        $sph->alamat = $request->alamat;
         $sph->save();
         $today = Carbon::now()->locale('id')->translatedFormat('d F Y');
         $file_name = 'qrcodes/transaction_' . $order->id . '.png';

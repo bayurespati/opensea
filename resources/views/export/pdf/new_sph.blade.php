@@ -28,8 +28,8 @@
             display: flex;
         }
 
-        .w-25 {
-            width: 25%;
+        .w-20 {
+            width: 20%;
         }
 
         .w-50 {
@@ -90,8 +90,8 @@
 <body>
     <div class="paper">
         <div class="clearfix">
-            <div class="logo w-25" style="float:left">
-                <img src="logo_pins.png" class="w-100" />
+            <div class="logo w-20" style="float:left; margin-right:20px">
+                <img src="logo_pins_2.png" class="w-100" />
             </div>
             <div class=" ms-2">
                 <h2 class="fw-bold m-0" style="font-size: 16px;">PT PINS Indonesia</h2>
@@ -117,7 +117,22 @@
                             <tr>
                                 <td>Instansi</td>
                                 <td>:</td>
-                                <td>{{$kepada}}</td>
+                                <td>{{$order->kepada}}</td>
+                            </tr>
+                            <tr>
+                                <td>Nama PIC</td>
+                                <td>:</td>
+                                <td>{{$order->nama_pic}}</td>
+                            </tr>
+                            <tr>
+                                <td>No Telp PIC</td>
+                                <td>:</td>
+                                <td>{{$order->no_telpon}}</td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td>:</td>
+                                <td>{{$order->alamat}}</td>
                             </tr>
                         </table>
                     </div>
@@ -132,6 +147,15 @@
                                 <td>Tanggal</td>
                                 <td>:</td>
                                 <td>{{$today}}</td>
+                            </tr>
+                            <tr>
+                                <td style="visibility: hidden;">tes</td>
+                            </tr>
+                            <tr>
+                                <td style="visibility: hidden;">tes</td>
+                            </tr>
+                            <tr>
+                                <td style="visibility: hidden;">tes</td>
                             </tr>
                             <tr>
                                 <td style="visibility: hidden;">tes</td>
@@ -190,6 +214,7 @@
             <li>Harga FOB Jakarta</li>
             <li>Mohon Konfirmasi kembali untuk ketersediaan stok</li>
             <li>Harga SPH dapat berubah sewaktu-waktu</li>
+            <li>SPH ini tidak memerlukan tandatangan</li>
         </ul>
 
         <div style="float: right; margin-right: 150px">

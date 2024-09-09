@@ -162,6 +162,9 @@
                     <form id="commentform" class="comment-form" action="/download-new-sph" method="GET">
                         @csrf
                         <input type="text" class="style-1" id="kepada" placeholder="Kepada" name="kepada" tabindex="2" value="" aria-required="true" required="" style="margin-bottom: 15px;">
+                        <input type="text" class="style-1" id="nama_pic" placeholder="Nama PIC" name="nama_pic" tabindex="2" value="" aria-required="true" required="" style="margin-bottom: 15px;">
+                        <input type="text" class="style-1" id="no_telpon" placeholder="NO Telpon" name="no_telpon" tabindex="2" value="" aria-required="true" required="" style="margin-bottom: 15px;">
+                        <textarea class="style-1" id="alamat" placeholder="Alamat" name="alamat" tabindex="2" aria-required="true" required="" style="margin-bottom: 15px;"></textarea>
                         <input id="hiden_order_id" type="text" name="order_id" value="" aria-required="true" hidden>
                         <div style="width: 36%; margin: 0 auto;">
                             <div class="btn-submit">
