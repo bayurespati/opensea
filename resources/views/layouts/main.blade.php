@@ -217,13 +217,36 @@
                                 @endif
                             </ul>
                         </nav>
-                        <div class="widget-search mt-30">
+                        <!-- <div class="widget-search mt-30">
                             <form action="#" method="get" role="search" class="search-form relative">
                                 <input type="search" class="search-field style-1" placeholder="Search..." value="" name="s" title="Search for" required="">
                                 <button class="search search-submit" type="submit" title="Search">
                                     <i class="icon-search"></i>
                                 </button>
                             </form>
+                        </div> -->
+                        <div class="flat-tabs" style="margin-top: 15px;">
+                            <div class="section-menu-left" style="padding: 0 !important;">
+                                <div class="over-content">
+                                    <div class="content">
+                                        <ul class="menu-tab">
+                                            <li class="tablinks" data-tabs="settings">
+                                                <a href="/logout">Logout</a>
+                                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g opacity="0.2">
+                                                        <path d="M13.7627 6.77369V5.91844C13.7627 4.05303 12.2502 2.54053 10.3848 2.54053H5.91606C4.05156 2.54053 2.53906 4.05303 2.53906 5.91844V16.1209C2.53906 17.9864 4.05156 19.4989 5.91606 19.4989H10.394C12.2539 19.4989 13.7627 17.9909 13.7627 16.131V15.2666" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path d="M19.9907 11.0196H8.95312" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path d="M17.3047 8.34741L19.9887 11.0195L17.3047 13.6925" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </g>
+                                                </svg>
+                                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.0709 10.2942C8.66986 10.2942 8.35275 10.6059 8.35275 11C8.35275 11.385 8.66986 11.7059 9.0709 11.7059H14.6668V16.0875C14.6668 18.3334 12.8108 20.1667 10.5165 20.1667H5.97448C3.68948 20.1667 1.8335 18.3425 1.8335 16.0967V5.91254C1.8335 3.65754 3.69881 1.83337 5.98381 1.83337H10.5352C12.8108 1.83337 14.6668 3.65754 14.6668 5.90337V10.2942H9.0709ZM17.9945 7.82856L20.6712 10.4961C20.8087 10.6336 20.882 10.8077 20.882 11.0002C20.882 11.1836 20.8087 11.3669 20.6712 11.4952L17.9945 14.1627C17.857 14.3002 17.6737 14.3736 17.4995 14.3736C17.3162 14.3736 17.1328 14.3002 16.9953 14.1627C16.7203 13.8877 16.7203 13.4386 16.9953 13.1636L18.462 11.7061H14.667V10.2944H18.462L16.9953 8.83689C16.7203 8.56189 16.7203 8.11272 16.9953 7.83772C17.2703 7.55356 17.7195 7.55356 17.9945 7.82856Z" fill="#e63946" />
+                                                </svg>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

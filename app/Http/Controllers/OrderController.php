@@ -160,9 +160,7 @@ class OrderController extends Controller
         $file_name = 'qrcodes/transaction_' . $order->id . '.png';
         $value = $order->code;
         Storage::disk('public')->put($file_name, QrCode::format('png')->size(200)->generate($value));
-        $pdf = PDFS::loadView('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today, 'qrCode' => 'storage/' . $file_name]);
-        $pdf->output();
-        $pdf->getDomPDF()->getCanvas()->get_cpdf();
+        $pdf = PDFS::loadView('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today, 'qrCode' => 'storage/' . $file_name])->setPaper('A4', 'portrait');
         return $pdf->download('sph.pdf');
     }
 
@@ -172,8 +170,6 @@ class OrderController extends Controller
         $kepada = $request->kepada ?? "Bayu Respati";
         $order = Order::where('id', $request->order_id ?? 10)->with(['items'])->first();
         $today = Carbon::now()->locale('id')->translatedFormat('d F Y');
-        // $file_name = 'qrcodes/transaction_' . $order->id . '.png';
-        // QrCode::format('png')->size(200)->generate($order->id, public_path($file_name));
-        return view('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today]);
+        return view('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today, 'qrCode' => 'storage/qrcodes/transaction_13.png']);
     }
 }

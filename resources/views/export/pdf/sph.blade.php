@@ -1,145 +1,239 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: gray;
+            font-size: 9px;
+            width: 210mm;
+            height: 297mm;
+        }
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        body,
+        .paper {
+            overflow: hidden;
+        }
 
-    <title>Download</title>
+        .paper {
+            background-color: white;
+            width: 210mm;
+            height: 297mm;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        table {
+            page-break-inside: avoid;
+        }
+
+        .table-sm tr td {
+            padding: 0;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .w-20 {
+            width: 20%;
+        }
+
+        .w-50 {
+            width: 50%;
+        }
+
+        .w-100 {
+            width: 100%;
+        }
+
+        .table-bordered {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .table,
+        .table th,
+        .table td {
+            border: 1px solid black;
+        }
+
+        .table-borderless,
+        .table-borderless th,
+        .table-borderless td {
+            border-collapse: collapse;
+            border: 0px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+        }
+
+        .ms-2 {
+            margin-left: 0.5rem;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        th,
+        td {
+            padding: 5px;
+        }
+    </style>
 </head>
-<style>
-    table {
-        border-left: 0.01em solid #ccc;
-        border-right: 0;
-        border-top: 0.01em solid #ccc;
-        border-bottom: 0;
-        border-collapse: collapse;
-    }
-
-    table td,
-    table th {
-        border-left: 0;
-        border-right: 0.01em solid #ccc;
-        border-top: 0;
-        border-bottom: 0.01em solid #ccc;
-    }
-
-    #watermark {
-        position: fixed;
-
-        bottom: 1cm;
-        left: 5cm;
-
-        /** Change image dimensions**/
-        width: 20cm;
-        height: 18cm;
-
-        /** Your watermark should be behind every content**/
-        z-index: -1000;
-
-        opacity: .2;
-    }
-
-    table td {
-        font-size: 10px !important;
-    }
-
-    table th {
-        font-size: 12px !important;
-    }
-
-    br {
-        display: block;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        line-height: 22px;
-    }
-
-    right {
-        position: absolute;
-
-        right: 0px;
-    }
-</style>
 
 <body>
-    <div style="width: 100%; padding: 10px;">
-        <div style="width: 20%; float: left;">
-            <img src="logo_pins.png" style="width: 100%; height: auto;" />
-        </div>
-        <div style="width: 78%; float: right;">
-            <h6 style="font-weight: bold; margin: 0;">PINS Indonesia</h6>
-            <p style="font-size: 12px; margin: 5px 0;">The Telkom Hub, Tower II lt.42 Jl. Jendral Gatot Subroto Kav. 52, Jakarta Selatan 12710</p>
-            <div style="width: 50%; float: left">
-                <div style="width: 20%; float: left;">
-                    <p style="font-size: 10px; margin-bottom: 5px;">Sales person</p>
-                    <p style="font-size: 10px; margin-bottom: 5px;">Telpon</p>
-                    <p style="font-size: 10px; margin-bottom: 5px;">Email</p>
-                    <p style="font-size: 10px; margin-bottom: 5px;">Instansi</p>
-                </div>
-                <div style="width: 80%; float: right;">
-                    <p style="font-size: 10px; margin-bottom: 5px;">: {{$user->name}}</p>
-                    <p style="font-size: 10px; margin-bottom: 5px;">: {{$user->phone}}</p>
-                    <p style="font-size: 10px; margin-bottom: 5px;">: {{$user->email}}</p>
-                    <p style="font-size: 10px; margin-bottom: 5px;">: Instansi data dari mana?</p>
+    <div class="paper">
+        <div class="clearfix">
+            <!-- <div class="logo w-20" style="float:left; margin-right:20px">
+                <img src="round_logo_pins.png" class="w-100" />
+            </div> -->
+            <div class=" ms-2">
+                <h2 class="fw-bold m-0" style="font-size: 16px;">PT PINS Indonesia</h2>
+                <p class="m-0">The Telkom Hub, Tower II lt.42 Jl. Jendral Gatot Subroto Kav. 52, Jakarta Selatan 12710</p>
+                <div class="clearfix">
+                    <div style="float: left; width:30%">
+                        <table class="table table-borderless table-sm" style="width: 100%;">
+                            <tr>
+                                <td>Sales Person</td>
+                                <td>:</td>
+                                <td>{{$user->name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Telepon</td>
+                                <td>:</td>
+                                <td>{{$user->phone}}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>:</td>
+                                <td>{{$user->email}}</td>
+                            </tr>
+                            <tr>
+                                <td>Instansi</td>
+                                <td>:</td>
+                                <td>{{$order->kepada}}</td>
+                            </tr>
+                            <tr>
+                                <td>Nama PIC</td>
+                                <td>:</td>
+                                <td>{{$order->nama_pic}}</td>
+                            </tr>
+                            <tr>
+                                <td>No Telp PIC</td>
+                                <td>:</td>
+                                <td>{{$order->no_telpon}}</td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td>:</td>
+                                <td>{{$order->alamat}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: right;width:30%; margin-right:80px">
+                        <table class="table table-borderless table-sm" style="width: 100%;">
+                            <tr>
+                                <td>Nomor SPH</td>
+                                <td>:</td>
+                                <td>{{$order->code}}</td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal</td>
+                                <td>:</td>
+                                <td>{{$today}}</td>
+                            </tr>
+                            <tr>
+                                <td style="visibility: hidden;">tes</td>
+                            </tr>
+                            <tr>
+                                <td style="visibility: hidden;">tes</td>
+                            </tr>
+                            <tr>
+                                <td style="visibility: hidden;">tes</td>
+                            </tr>
+                            <tr>
+                                <td style="visibility: hidden;">tes</td>
+                            </tr>
+                            <tr>
+                                <td style="visibility: hidden;">tes</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <div style="width: 50%; float: right;">
-                <div style="width: 20%; float: left;">
-                    <p style="font-size: 10px; margin-bottom: 5px;">No SPH</p>
-                    <p style="font-size: 10px; margin-bottom: 5px;">Date</p>
-                </div>
-                <div style="width: 80%; float: right;">
-                    <p style="font-size: 10px; margin-bottom: 5px;">: {{$user->name}}</p>
-                    <p style="font-size: 10px; margin-bottom: 5px;">: {{$user->phone}}</p>
-                </div>
-            </div>
         </div>
-    </div>
-    <h2 class="text-center" style="margin-top: 220px; margin-left: 200px">SURAT PENAWARAN HARGA</h2>
-    <br>
-    <br>
-    <table class="table">
-        <tr>
-            <th style="text-align: center; font-size: 8px !important;">No</th>
-            <th style="text-align: center; font-size: 8px !important">Deskripsi</th>
-            <th style="text-align: center; font-size: 8px !important">Harga Tayang</th>
-            <th style="text-align: center; font-size: 8px !important">Qty</th>
-            <th style="text-align: center; font-size: 8px !important">Total Harga</th>
-            <th style="text-align: center; font-size: 8px !important">Link Pembelian Product</th>
-        </tr>
-        <tr>
-            <td style="text-align: center; font-size: 8px !important; font-weight: lighter !important;">1</td>
-            <td style="text-align: center; font-size: 8px !important; font-weight: lighter !important;">MSI PRO AP242 12M - 23.8 INCH LED - INTEL CORE I5 - 8GB - 1TB HDD - 256GB SSD - WINDOWS
-                11 HOME - 2 TAHUN GARANSI - BLACK
-            </td>
-            <td style="text-align: center; font-size: 8px !important; font-weight: lighter !important;">Rp21.429.000</td>
-            <td style="text-align: center; font-size: 8px !important; font-weight: lighter !important;">2</td>
-            <td style="text-align: center; font-size: 8px !important; font-weight: lighter !important;">42.858.000</td>
-            <td style="text-align: center; font-size: 8px !important; font-weight: lighter !important;">https://e- katalog.lkpp.go.id/katalog/produk/detail/305745
-                1?lang=id&type=general
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3" style="text-align: center; font-size: 8px !important; font-weight: lighter !important;">Total</td>
-            <td style="text-align: center; font-size: 8px !important; font-weight: lighter !important;">2</td>
-            <td style="text-align: center; font-size: 8px !important; font-weight: lighter !important;">2</td>
-            <td></td>
-        </tr>
-        <!-- <div style="float: right; margin-right: 150px">
-            <img src="{{$qrCode}}" class="w-10" />
-        </div> -->
-    </table>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <h2 class="fw-bold text-center" style="font-size: 16px;">Surat Penawaran Harga</h2>
+
+        <table class="table table-bordered text-center" style="width: 80%;">
+            <tr>
+                <th>No</th>
+                <th>Deskripsi</th>
+                <th>Harga Tayang</th>
+                <th>Qty</th>
+                <th>Total Harga</th>
+                <th>Link Pembelian Product</th>
+            </tr>
+            <?php
+            $total_qty = 0;
+            $total_harga = 0;
+            ?>
+            @foreach($order->items as $key => $barang)
+            <tr>
+                <td>{{$key + 1}}</td>
+                <td>{{$barang->deskripsi}}</td>
+                <td style="min-width: 90px;">Rp {{ number_format($barang->harga, 2, '.', ',') }}</td>
+                <td>{{$barang->pivot->qty}}</td>
+                <td style="min-width: 90px;">{{ number_format($barang->pivot->qty * $barang->harga, 2, '.', ',')}}</td>
+                <td style="max-width:150px;word-wrap: break-word;">{{ $barang->web_marketplace }}</td>
+            </tr>
+            <?php
+            $total_qty += $barang->pivot->qty;
+            $total_harga += $barang->harga;
+            ?>
+            @endforeach
+            <tr>
+                <td colspan="2"> </td>
+                <td class="fw-bold">Total</td>
+                <td>{{$total_qty}}</td>
+                <td>{{ number_format($total_harga, 2, '.', ',') }}</td>
+                <td></td>
+            </tr>
+        </table>
+
+        <p class="fw-bold m-0">Keterangan:</p>
+
+        <ul>
+            <li>Harga termasuk PPN 11%</li>
+            <li>Harga FOB Jakarta</li>
+            <li>Mohon Konfirmasi kembali untuk ketersediaan stok</li>
+            <li>Harga SPH dapat berubah sewaktu-waktu</li>
+            <li>SPH ini tidak memerlukan tandatangan</li>
+        </ul>
+        <!-- 
+        <div style="float: right; margin-right: 150px">
+            <img src="{{$qrCode}}" class="page-break" style="width: 100px;" />
+        </div> -->
+    </div>
 </body>
 
 </html>

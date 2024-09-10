@@ -10,14 +10,22 @@
             font-family: 'Times New Roman', Times, serif;
             background-color: gray;
             font-size: 9px;
-            width: 794px;
-            height: 1123px;
+            width: 210mm;
+            height: 297mm;
+            background-color: white;
         }
 
+        body,
         .paper {
-            background-color: white;
-            width: 794px;
-            height: 1123px;
+            overflow: hidden;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        table {
+            page-break-inside: avoid;
         }
 
         .table-sm tr td {
@@ -216,9 +224,8 @@
             <li>Harga SPH dapat berubah sewaktu-waktu</li>
             <li>SPH ini tidak memerlukan tandatangan</li>
         </ul>
-
-        <div style="float: right; margin-right: 150px">
-            <img src="{{$qrCode}}" class="w-10" />
+        <div style="text-align: right; margin-top: 20px; margin-right: 150px">
+            <img src="{{$qrCode}}" style="width: 100px;" />
         </div>
     </div>
 </body>
