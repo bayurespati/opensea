@@ -157,7 +157,7 @@
     <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-body" style="width: 500px;">
+                <div class="modal-body" style="width: 100%;">
                     <h2>FORM DOWNLOAD SPH</h2>
                     <form id="commentform" class="comment-form" action="/download-new-sph" method="GET">
                         @csrf
