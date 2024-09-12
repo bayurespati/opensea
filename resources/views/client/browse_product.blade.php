@@ -357,16 +357,7 @@
                     <div data-wow-delay="0" class="wow fadeInUp col-lg-4 col-md-6">
                         <div class="tf-card-box style-1 bg-white">
                             <div class="card-media">
-                                <a href="/detail_product/` + response[i]['id'] + `"> <img src="` + (response[i]['image'] == "" || response[i]['image'] == null ? '/solid_gray.png' : response[i]['image']) + `" alt="" class="image-fill"></a>
-                                <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
-                                    @csrf
-                                    <input type="text" name="item_id" value="` + response[i]['id'] + `" hidden>
-                                    <a href="" type="submit">
-                                        <button class=" ` + (response[i]['user'].length > 0 ? 'wishlist-button active' : 'wishlist-button') + `" type="submit">
-                                            <i class="icon-heart"></i>
-                                        </button>
-                                    </a>
-                                </form>
+                                <a href="/detail_product/` + response[i]['id'] + `"> <img src="` + (response[i]['image'] == "" || response[i]['image'] == null ? '/solid_gray.png' : response[i]['image']) + `" alt="" style="object-fit: contain !important"></a>
                             </div>
                             <h5 class="name">
                             <a href="/detail_product/` + response[i]['id'] + `">` + response[i]['brand']['nama'] + `</a>

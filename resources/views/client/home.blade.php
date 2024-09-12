@@ -25,7 +25,7 @@
                                 <div class="tf-card-box" style="background: #DEE8E8 !important;">
                                     <div class="card-media">
                                         <a <?php echo ("href='/detail_product/$item->id'") ?>>
-                                            <img src="{{$item->image == null ? 'solid_gray.png' : $item->image}}" alt="">
+                                            <img src="{{$item->image == null ? 'solid_gray.png' : $item->image}}" alt="" style="object-fit: contain !important">
                                         </a>
                                     </div>
                                     <div class="meta-info text-center">
