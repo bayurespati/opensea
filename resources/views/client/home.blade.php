@@ -93,7 +93,7 @@
                             <div class="tf-card-box style-1 bg-white">
                                 <div class="card-media">
                                     <a <?php echo ("href='/detail_product/$item->id'") ?>>
-                                        <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="">
+                                        <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="" style="object-fit: contain !important">
                                     </a>
                                 </div>
                                 <h5 class="name"><a <?php echo ("href='/detail_product/$item->id'") ?>>{{$item->nama_produk}}</a></h5>
@@ -168,7 +168,7 @@
                             <div class="tf-card-box style-1 bg-white">
                                 <div class="card-media">
                                     <a <?php echo ("href='/detail_product/$item->id'") ?>>
-                                        <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="">
+                                        <img src="{{$item->image == null ? '/solid_gray.png' : $item->image}}" alt="" style="object-fit: contain !important">
                                     </a>
                                 </div>
                                 <h5 class="name"><a <?php echo ("href='/detail_product/$item->id'") ?>>{{$item->nama_produk}}</a></h5>
@@ -369,7 +369,7 @@
                             <div class="tf-card-box style-1">
                                 <div class="card-media">
                                     <a href="#">
-                                        <img src="` + (response[i]['image'] == "" || response[i]['image'] == null ? '/solid_gray.png' : response[i]['image']) + `" alt="">
+                                        <img src="` + (response[i]['image'] == "" || response[i]['image'] == null ? '/solid_gray.png' : response[i]['image']) + `" alt="" style="object-fit: contain !important">
                                     </a>
                                     <div class="button-place-bid">
                                         <a href='/detail_product/` + response[i]['id'] + `' class="tf-button"><span>Detail</span></a>
