@@ -8,8 +8,10 @@
             <div class="col-12 pages-title">
                 <div class="content">
                     <h1 data-wow-delay="0s" class="wow fadeInUp" style="color: #434141 !important">E-Catalog PINS</h1>
-                    <p class="wow fadeInUp" data-wow-delay="0.1s" style="color: #434141">
-                        Selamat datang di catalog PINS. Dimana Anda dapat menelusuri perangkat yang tersedia untuk diajukan sebagai alat bantu kerja Pegawai.
+                    <p class="wow fadeInUp" data-wow-delay="0.1s" style="color: #434141; max-width: 100%; font-family: 'Yu Gothic' !important; margin-bottom: 50px; font-size: 20px">
+                        Selamat datang di ePINS, katalog produk digital PT PINS Indonesia.
+                        <br>
+                        One-Stop Solution untuk memenuhi berbagai kebutuhan IT, Telco, & Network Anda!
                     </p>
                     <div data-wow-delay="0.2s" class="wow fadeInUp flat-button flex justify-center">
                         <a href="/browse_product" class="tf-button style-1 h50 w190 active">Cari Perangkat<i class="icon-search"></i></a>

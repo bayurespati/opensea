@@ -1,5 +1,16 @@
 @extends('layouts.main')
 
+@push('additional_css')
+<style>
+    .image-fill {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Ensures the image fills the container while maintaining its aspect ratio */
+    }
+</style>
+@endpush
+
 @section('content')
 <div class="tf-section-2 discover-item loadmore-12-item" style="margin-top: 30px; margin-bottom: -20px !important">
     <div class="themesflat-container">
@@ -123,14 +134,7 @@
                     <div data-wow-delay="0" class="wow fadeInUp fl-item-1 col-lg-4 col-md-6">
                         <div class="tf-card-box style-1 bg-white">
                             <div class="card-media">
-                                <a <?php echo ("href='/detail_product/$item->id'") ?>> <img src="{{$item->image == null ? 'solid_gray.png' : $item->image}}" alt=""></a>
-                                <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
-                                    @csrf
-                                    <input type="text" name="item_id" value="{{$item->id}}" hidden>
-                                    <a href="" type="submit">
-                                        <button class="{{sizeOf($item->user) > 0 ? 'wishlist-button active' : 'wishlist-button' }}" type="submit"><i class="icon-heart"></i></button>
-                                    </a>
-                                </form>
+                                <a <?php echo ("href='/detail_product/$item->id'") ?>> <img src="{{$item->image == null ? 'solid_gray.png' : $item->image}}" alt="" style="object-fit: contain !important"></a>
                             </div>
                             <h5 class="name">
                                 <a <?php echo ("href='/detail_product/$item->id'") ?>>{{$item->brand->nama}}</a>
@@ -353,7 +357,7 @@
                     <div data-wow-delay="0" class="wow fadeInUp col-lg-4 col-md-6">
                         <div class="tf-card-box style-1 bg-white">
                             <div class="card-media">
-                                <a href="/detail_product/` + response[i]['id'] + `"> <img src="` + (response[i]['image'] == "" || response[i]['image'] == null ? '/solid_gray.png' : response[i]['image']) + `" alt=""></a>
+                                <a href="/detail_product/` + response[i]['id'] + `"> <img src="` + (response[i]['image'] == "" || response[i]['image'] == null ? '/solid_gray.png' : response[i]['image']) + `" alt="" class="image-fill"></a>
                                 <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
                                     @csrf
                                     <input type="text" name="item_id" value="` + response[i]['id'] + `" hidden>
@@ -369,6 +373,7 @@
                             <br>
                             <a href="/detail_product/` + response[i]['id'] + `">` + response[i]['nama_produk'] + `</a>
                             </h5>
+                           <span class="color-ready">` + response[i]['jenis_produk'].toUpperCase() + `</span> 
                             <div class="divider"></div>
                             <div class="meta-info flex items-center justify-between">
                                 <span class="` + (response[i]['is_ready'] ? 'color-ready' : 'color-indent') + `">

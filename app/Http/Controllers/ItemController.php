@@ -16,6 +16,7 @@ use App\Models\ItemImage;
 use App\Models\Subcategory;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Str;
 
 class ItemController extends Controller
 {
@@ -26,7 +27,9 @@ class ItemController extends Controller
     {
         $query = $request->input('query');
         if ($request->query != null) {
-            $items = Item::where('nama_produk', 'like', '%' . $query . '%')
+            $brand_id = Brand::where('nama', 'like', '%' . $query . '%')->get()->pluck('id');
+            $items = Item::whereIn('brand_id', $brand_id)
+                ->orWhere('nama_produk', 'like', '%' . $query . '%')
                 ->with(['brand', 'diskon'])
                 ->orderBy('is_featured', 'DESC')
                 ->paginate(10)
@@ -261,9 +264,12 @@ class ItemController extends Controller
             $items->whereIn('subcategory_id', $request->subcategory_id);
         if ($request->search) {
             $brand = Brand::where('nama', "LIKE", "%" . $request->search . "%")->first();
-            $items->where('nama_produk', "LIKE", "%" . $request->search . "%");
+            $items->where('nama_produk', "LIKE", "%" . $request->search . "%")->orWhere('jenis_produk', "LIKE", "%" . $request->search . "%");
             if ($brand)
                 $items->orWhere('brand_id', $brand->id);
+            if (Str::lower($request->search) == "tkdn") {
+                $items->orWhere('jenis_produk', "=", "pdn");
+            }
         }
         if ($request->diskon_nilai) {
             $diskon = Diskon::where('nilai', $request->diskon_nilai)->first();

@@ -60,6 +60,7 @@
             /* Optional: Make the controls circular */
         }
     </style>
+    @stack('additional_css')
 </head>
 
 <body class="body background-white">
