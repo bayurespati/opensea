@@ -20,8 +20,8 @@ class ItemExport implements FromCollection, WithHeadings, WithTitle, WithMapping
 
     public function map($data): array
     {
-
         return [
+            "id" => $data->id,
             "nama" => $data->nama_produk,
             "lini" => $data->lini->nama,
             "brand" => $data->brand->nama,
@@ -50,6 +50,7 @@ class ItemExport implements FromCollection, WithHeadings, WithTitle, WithMapping
     public function headings(): array
     {
         return [
+            'ID',
             'Nama',
             'Lini',
             'Brand',

@@ -73,8 +73,10 @@ Route::middleware('auth')->group(function () {
             Route::get('setting/{item}', [ItemController::class, 'setting'])->name('admin-item-setting');
             Route::post('update-setting/{item}', [ItemController::class, 'updateSetting'])->name('admin-item-update-setting');
             Route::get('upload-view', [ItemController::class, 'uploadView'])->name('admin-item-upload-view');
+            Route::get('upload-harga-view', [ItemController::class, 'uploadHargaView'])->name('admin-item-upload-harga-view');
             Route::get('upload-image/{item}', [ItemController::class, 'uploadImage'])->name('admin-item-upload-image');
             Route::post('upload', [ItemController::class, 'upload'])->name('admin-item-upload');
+            Route::post('upload-harga', [ItemController::class, 'uploadHarga'])->name('admin-item-upload');
             Route::get('create', [ItemController::class, 'create'])->name('admin-item-create');
             Route::post('store', [ItemController::class, 'store'])->name('admin-item-store');
             Route::post('update/{item}', [ItemController::class, 'update'])->name('admin-item-update');
@@ -104,6 +106,7 @@ Route::middleware('auth')->group(function () {
             Route::post('update/{user}', [UserController::class, 'update'])->name('admin-user-update');
             Route::get('edit/{user}', [UserController::class, 'edit'])->name('admin-user-edit');
             Route::get('delete/{user}', [UserController::class, 'destroy'])->name('admin-user-delete');
+            Route::get('download', [UserController::class, 'download'])->name('admin-user-download');
         });
 
         Route::group(['prefix' => 'divisi'], function () {

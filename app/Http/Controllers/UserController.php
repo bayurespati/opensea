@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\UserLogExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
@@ -92,5 +94,14 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect()->back()->with('message', 'User ' . $user->nama . ' barhasil dihapus');
+    }
+
+    public function download(Request $request)
+    {
+        try {
+            return Excel::download(new UserLogExport(), "user_logs.xlsx");
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 }

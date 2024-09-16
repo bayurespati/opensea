@@ -30,6 +30,11 @@
                             Upload Produk
                         </div>
                     </a>
+                    <a href="/admin/item/upload-harga-view">
+                        <div class="tf-button style-1 h50 w190">
+                            Upload Harga
+                        </div>
+                    </a>
                     <a href="{{ route('admin-item-download') }}">
                         <div class="tf-button style-1 h50 w190">
                             Download Produk

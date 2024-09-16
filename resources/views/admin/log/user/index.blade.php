@@ -5,6 +5,13 @@
     <div class="themesflat-container">
         <div class="row">
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
+                <div class="flex gap30" style="margin-bottom: 10px;">
+                    <a href="{{ route('admin-user-download') }}">
+                        <div class="tf-button style-1 h50 w190">
+                            Download User Log
+                        </div>
+                    </a>
+                </div>
                 <div class="widget-search" style="margin-bottom: 10px;">
                     <form action="{{ route('admin-user-log') }}" method="GET">
                         @csrf

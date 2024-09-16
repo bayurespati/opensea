@@ -6,6 +6,7 @@ use App\Exports\ItemExport;
 use App\Http\Requests\StoreItemRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateItemRequest;
+use App\Imports\ItemHargaImport;
 use App\Imports\ItemImport;
 use App\Models\Brand;
 use App\Models\Category;
@@ -47,6 +48,13 @@ class ItemController extends Controller
         return view('admin.item.upload');
     }
 
+    /**
+     * Show the form for upload data
+     */
+    public function uploadHargaView(Request $request)
+    {
+        return view('admin.item.upload_harga');
+    }
 
     /**
      * Show the form for upload image
@@ -94,6 +102,21 @@ class ItemController extends Controller
             return redirect()->back()->with('success', 'Berhasil upload data');
         } catch (Exception $e) {
             dd($e->getMessage());
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    /**
+     * Upload data harga into storage.
+     */
+    public function uploadHarga(Request $request)
+    {
+        try {
+            $file = $request->file('file');
+            Excel::import(new ItemHargaImport(), $file, \Maatwebsite\Excel\Excel::XLSX);
+
+            return redirect()->back()->with('success', 'Berhasil upload data harga');
+        } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
