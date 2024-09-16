@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('order_id');
             $table->bigInteger('item_id');
+            $table->integer('qty');
+            $table->bigInteger('item_harga');
+            $table->string('item_nama');
             $table->timestamps();
         });
     }

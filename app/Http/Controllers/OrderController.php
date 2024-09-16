@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Order;
 use App\Models\OrderItems;
 use App\Models\Sph;
@@ -67,9 +68,12 @@ class OrderController extends Controller
         $order->status = "Diterima";
         $order->save();
         foreach ($request->items_id as $key => $data) {
+            $item = Item::where('id', (int) $data)->first();
             $order_item = new OrderItems();
             $order_item->order_id = $order->id;
             $order_item->item_id = $data;
+            $order_item->item_nama = $item->nama_produk;
+            $order_item->item_harga = $item->harga;
             $order_item->qty = $request->items_qty[$key];
             $order_item->save();
         }
