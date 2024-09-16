@@ -43,7 +43,9 @@ class FrontViewController extends Controller
 
     public function wishlist()
     {
-        $user = User::where('id', Auth::user()->id)->with(['wishlists', 'orders.items'])->first();
+        $user = User::where('id', Auth::user()->id)->with(['wishlists', 'orders' => function ($order) {
+            return $order->with(['order_items.item']);
+        }])->first();
         return view('client.wishlist', ['user' => $user]);
     }
 

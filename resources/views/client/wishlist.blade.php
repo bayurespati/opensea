@@ -127,10 +127,10 @@
                             <div class="column">{{$order->total_item}}</div>
                             <div class="column">
                                 <?php $qty = 0 ?>
-                                @foreach($order->items as $key => $item)
+                                @foreach($order->order_items as $key => $item)
                                 <div class="column">
-                                    {{$item->nama_produk}}
-                                    <?php $qty += $item->pivot->qty; ?>
+                                    {{$item->item_nama}}
+                                    <?php $qty += $item->qty; ?>
                                 </div>
                                 @endforeach
                             </div>

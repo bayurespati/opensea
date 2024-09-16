@@ -197,13 +197,13 @@
             $total_qty = 0;
             $total_harga = 0;
             ?>
-            @foreach($order->items as $key => $barang)
+            @foreach($order->order_items as $key => $barang)
             <tr>
                 <td>{{$key + 1}}</td>
                 <td>{{$barang->deskripsi}}</td>
                 <td style="min-width: 90px;">Rp {{ number_format($barang->harga, 2, '.', ',') }}</td>
-                <td>{{$barang->pivot->qty}}</td>
-                <td style="min-width: 90px;">{{ number_format($barang->pivot->qty * $barang->harga, 2, '.', ',')}}</td>
+                <td>{{$barang->qty}}</td>
+                <td style="min-width: 90px;">{{ number_format($barang->qty * $barang->harga, 2, '.', ',')}}</td>
                 <td style="max-width:150px;word-wrap: break-word;">{{ $barang->web_marketplace }}</td>
             </tr>
             <?php

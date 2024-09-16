@@ -12,4 +12,9 @@ class OrderItems extends Model
     protected $table = 'order_item';
 
     protected $guarded = [];
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
 }
