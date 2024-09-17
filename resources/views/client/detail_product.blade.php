@@ -40,33 +40,73 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <p style="color: #e63946">Links:</p>
+                        <p style="color: #e63946">Channel Pembelian:</p>
                         <br>
-                        <div class="flat-accordion2">
-                            <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #DEE8E8;">
-                                <h6>
-                                    <a style="color: #434141" href="https://e-katalog.lkpp.go.id/productsearchcontroller/listproduk?authenticityToken=2f70cfa83593b68c95f1d755105f17dfc1dd96cf&cat=&commodityId=90424&q=&jenis_produk=&pid=258739&mid=&tkdn_produk=-99&sni=-99&btu_id=&gt=&lt=">e-Catalogue</a>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="flat-accordion2">
+                                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #FFFFFF; display: flex; align-items: center; height: 60px">
+                                        <h6 style="margin: 0;">
+                                            <a href="https://e-katalog.lkpp.go.id/productsearchcontroller/listproduk?authenticityToken=2f70cfa83593b68c95f1d755105f17dfc1dd96cf&cat=&commodityId=90424&q=&jenis_produk=&pid=258739&mid=&tkdn_produk=-99&sni=-99&btu_id=&gt=&lt=">
+                                                <img src="/ecatalog_epins.jpeg" alt="e-Catalogue Icon" style="width: 150px; height: 100%;">
+                                            </a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="flat-accordion2">
+                                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #FFFFFF; display: flex; align-items: center; height: 60px">
+                                        <h6 style="margin: 0;">
+                                            <a style="color: #434141" href="https://padiumkm.id/store/64ed5a19acfa1ba5c3fa609d">
+                                                <img src="/padi_epins.jpeg" alt="e-Catalogue Icon" style="width: 150px; height: 100%;">
+                                            </a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="flat-accordion2">
+                                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #FFFFFF; display: flex; align-items: center; height: 60px">
+                                        <h6 style="margin: 0;">
+                                            <a style="color: #434141" href="https://siplah.blibli.com/merchant-detail/SPPI-0039?itemPerPage=40&page=0&merchantId=SPPI-0039">
+                                                <img src="/siplah_epins.jpeg" alt="e-Catalogue Icon" style="width: 150px; height: 100%;">
+                                            </a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="flat-accordion2">
+                                    <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #FFFFFF; display: flex; align-items: center; height: 60px">
+                                        <h6 style="margin: 0;">
+                                            <a style="color: #434141" href="https://siplah.tokoladang.co.id/official-store/pt-pins-indonesia.46753">
+                                                <img src="/siplah_2_epins.jpeg" alt="e-Catalogue Icon" style="width: 150px; height: 100%;">
+                                            </a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flat-accordion2" style="margin-bottom: 50px;">
+                            <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #FFFFFF; display: flex; align-items: center; height: 60px">
+                                <h6 style="margin: 0;">
+                                    <a style="color: #434141" href="#">
+                                        <img src="/pl_epins.jpeg" alt="e-Catalogue Icon" style="width: 150px; height: 100%;">
+                                    </a>
                                 </h6>
                             </div>
                         </div>
+
                         <div class="flat-accordion2">
-                            <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #DEE8E8;">
-                                <h6>
-                                    <a style="color: #434141" href="https://padiumkm.id/store/64ed5a19acfa1ba5c3fa609d">Padi UMKM</a>
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="flat-accordion2">
-                            <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #DEE8E8;">
-                                <h6>
-                                    <a style="color: #434141" href="https://siplah.blibli.com/merchant-detail/SPPI-0039?itemPerPage=40&page=0&merchantId=SPPI-0039">SIPLah BliBli</a>
-                                </h6>
-                            </div>
-                        </div>
-                        <div class="flat-accordion2">
-                            <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #DEE8E8;">
-                                <h6>
-                                    <a style="color: #434141" href="https://siplah.tokoladang.co.id/official-store/pt-pins-indonesia.46753">SIPLah Toko Ladang</a>
+                            <div data-wow-delay="0s" class="wow fadeInUp flat-toggle2" style="background: #FFFFFF; display: flex; align-items: center; height: 20px">
+                                <h6 style="margin: 0;">
+                                    <a style="color: #434141" href="#">
+                                        <img src="/tender_3_epins.png" alt="e-Catalogue Icon" style="width: 150px; height: 100%;">
+                                    </a>
                                 </h6>
                             </div>
                         </div>
@@ -134,6 +174,10 @@
                     <h6 style="color: #434141"><i class="icon-description" style="color: #434141"></i>Spesifikasi Teknis</h6>
                     <i class="icon-keyboard_arrow_down"></i>
                     <div class="content">
+                        <div class="trait-item" style="border: 1px solid rgb(90 87 87 / 17%);">
+                            <p style="color: #434141">Prosesor</p>
+                            <div class="title" style="color: #434141">{{$produk->prosesor}}</div>
+                        </div>
                         <div class="trait-item" style="border: 1px solid rgb(90 87 87 / 17%);">
                             <p style="color: #434141">Prosesor</p>
                             <div class="title" style="color: #434141">{{$produk->prosesor}}</div>
