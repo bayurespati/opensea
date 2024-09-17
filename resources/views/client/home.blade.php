@@ -261,8 +261,8 @@
                         <img src="assets/images/box-icon/step3.png" alt="">
                         <p style="color: #434141">Step 3</p>
                     </div>
-                    <h4 class="heading"><a href="https://wa.me/6281287133571?text=Halo Admin eCatalog PINS Indonesia" style="color: #434141">Hubungi Kami</a></h4>
-                    <p class="content" style="color: #434141">Hubungi Admin untuk mengetahui SOP pemesanan & negosiasi</p>
+                    <h4 class="heading"><a href="#" style="color: #434141">Cetak SPH</a></h4>
+                    <p class="content" style="color: #434141">Isi biodata user nama instansi, PIC, no Telpon dan alamat</p>
                     <div class="arrow">
                         <svg width="114" height="114" viewBox="0 0 114 114" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_625_20131)">

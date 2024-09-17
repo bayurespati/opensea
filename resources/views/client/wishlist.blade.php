@@ -130,7 +130,8 @@
                                 @foreach($order->order_items as $key => $item)
                                 <div class="column">
                                     {{$item->item_nama}}
-                                    <?php $qty += $item->qty; ?>
+                                    @if($key < $order->order_items->count() - 1),@endif
+                                        <?php $qty += $item->qty; ?>
                                 </div>
                                 @endforeach
                             </div>
