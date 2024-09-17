@@ -24,7 +24,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|unique:users,email,' . $model->id,
-            'phone' => 'required|unique:users,phone,' . $model->id,
+            'phone' => 'required',
             'is_admin' => 'required',
             'is_pins' => 'required',
         ];
