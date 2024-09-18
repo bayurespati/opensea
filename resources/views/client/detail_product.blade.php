@@ -136,7 +136,7 @@
                 </div>
                 <div data-wow-delay="0s" class="wow fadeInRight product-item time-sales" style="background: #DEE8E8;">
                     <div class="content">
-                        <div class="text" style="color: #434141">Harga saat ini (IDR)</div>
+                        <div class="text" style="color: #434141">Harga saat ini inc ppn (IDR)</div>
                         <div class="flex justify-between">
                             <p style="color: #434141">{{number_format($produk->harga, 0, '.', ',')}}</p>
                             <form id="commentform" class="comment-form" action="/wishlist/store" method="POST">
