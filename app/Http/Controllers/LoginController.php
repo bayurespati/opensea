@@ -21,6 +21,8 @@ class LoginController extends Controller
     {
         $witel = [
             "ACEH",
+            "BEKASI",
+            "BANTEN",
             "SUMUT",
             "RIAU",
             "SUMBAR JAMBI",
@@ -44,6 +46,7 @@ class LoginController extends Controller
             "SULBAGTENG",
             "SUMALUT",
             "PAPUA",
+            "PARIANGAN BARAT",
             "PAPUA BARAT"
         ];
         return view('register', ["witel" => $witel]);
@@ -69,6 +72,7 @@ class LoginController extends Controller
         $model->password = $request->password;
         $model->is_admin = 0;
         $model->is_pins = 0;
+        $model->is_accepted = 0;
         $model->save();
 
         return back()->with('success', 'Berhasil registrasi');
