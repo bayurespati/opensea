@@ -203,7 +203,7 @@
             </tr>
             <?php
             $total_qty += $barang->qty;
-            $total_harga += $barang->item_harga;
+            $total_harga += $barang->item_harga * $barang->qty;
             ?>
             @endforeach
             <tr>

@@ -34,22 +34,6 @@
 </head>
 
 <body class="body background-white">
-
-    <!-- preload -->
-    <div class="preload preload-container">
-        <div class="middle">
-            <div class="bar bar1"></div>
-            <div class="bar bar2"></div>
-            <div class="bar bar3"></div>
-            <div class="bar bar4"></div>
-            <div class="bar bar5"></div>
-            <div class="bar bar6"></div>
-            <div class="bar bar7"></div>
-            <div class="bar bar8"></div>
-        </div>
-    </div>
-    <!-- /preload -->
-
     <div id="wrapper">
         <div id="page" class="pt-40">
             <header id="header_main" class="header_1 header-fixed style-white">
@@ -105,49 +89,87 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading-section-1">
-                                <h2 class="tf-title pb-16" style="color: #434141">Login</h2>
-                                <p class="pb-40" style="color: #434141">Masukan kredensial Anda untuk mengakses eCatalog PINS</p>
+                                <h2 class="tf-title pb-16" style="color: #434141">Registrasi</h2>
+                                <p class="pb-40" style="color: #434141">Form Registrasi</p>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="widget-login" style="background: #DEE8E8">
-                                <form id="commentform" class="comment-form" action="/login" method="POST">
+                                <form id="commentform" class="comment-form" action="/register" method="POST">
                                     @csrf
                                     <fieldset class="email">
-                                        <label style="color: #434141">Email *</label>
-                                        <input class="search-produk" type="email" id="email" placeholder="Masukan alamat email terdaftar" name="email" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
+                                        <label style="color: #434141">Nama Lengkap</label>
+                                        <input class="search-produk" type="text" id="name" name="name" placeholder="Masukan nama lengkap" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
+                                    </fieldset>
+                                    <fieldset class="email">
+                                        <label style="color: #434141">Email</label>
+                                        <input class="search-produk" type="email" id="email" name="email" placeholder="Masukan alamat email" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
+                                    </fieldset>
+                                    <fieldset class="name">
+                                        <label style="color: #434141">Telpon</label>
+                                        <input class="search-produk" type="number" id="phone" name="phone" placeholder="Masukan nomor telpon" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
+                                    </fieldset>
+                                    <fieldset class="email">
+                                        <label style="color: #434141">Area</label>
+                                        <select id="area" name="area" required style="background-color: white !important; color: #434141">
+                                            <option value="">Pilih Area: </option>
+                                            <option value="TREG 1">TREG 1</option>
+                                            <option value="TREG 2">TREG 2</option>
+                                            <option value="TREG 3">TREG 3</option>
+                                            <option value="TREG 4">TREG 4</option>
+                                            <option value="TREG 5">TREG 5</option>
+                                            <option value="TREG 6">TREG 6</option>
+                                        </select>
+                                    </fieldset>
+                                    <fieldset class="name">
+                                        <label style="color: #434141">Witel</label>
+                                        <select id="witel" name="witel" required style="background-color: white !important; color: #434141">
+                                            <option value="">Pilih witel: </option>
+                                            @foreach($witel as $data)
+                                            <option value="{{$data}}">{{$data}}</option>
+                                            @endforeach
+                                        </select>
                                     </fieldset>
                                     <fieldset class="password" style="margin-bottom: 10px;">
                                         <label style="color: #434141">Password *</label>
                                         <input class="search-produk password-input" type="password" id="password" placeholder="Masukan kata sandi Anda" name="password" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
                                         <i class="icon-show password-addon" id="password-addon"></i>
                                     </fieldset>
-                                    <fieldset class="text" style="margin-bottom: 10px;">
-                                        <div class="captcha" style="margin-bottom: 10px;">
-                                            <span>{!! captcha_img('math') !!}</span>
-                                            <button type="button" class="btn btn-sm btn-danger" id="reload" style="margin-left: 10px; height: fit-content">
-                                                <h4>
-                                                    &#x21bb;
-                                                </h4>
-                                            </button>
-                                        </div>
-                                        <input class="search-produk" type="text" id="captcha" placeholder="CAPTCHA" name="captcha" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
+                                    <fieldset class="password" style="margin-bottom: 10px;">
+                                        <label style="color: #434141">Konfirmasi password *</label>
+                                        <input class="search-produk password-input" type="password" tabindex="2" value="" aria-required="true" required style="background-color: white !important" id="password-confirmation" placeholder="Konfirmasi kata sandi" name="password_confirmation">
+                                        <i class="icon-show password-addon" id="password-addon-confirmation"></i>
                                     </fieldset>
-                                    @error('captcha')
-                                    <div style="color: red !important; margin-bottom: 10px;">
-                                        <p style="color: red">* Captha Salah</p>
-                                    </div>
-                                    @enderror('captcha')
-                                    @error('email')
-                                    <div style="color: red !important; margin-bottom: 10px;">
-                                        <p style="color: red">{{ $errors->first('email') }}</p>
-                                    </div>
-                                    @enderror('email')
                                     <div class="btn-submit mb-30">
-                                        <button class="tf-button style-1 h50 w-100" type="submit">Login</button>
+                                        <button class="tf-button style-1 h50 w-100" type="submit">SUBMIT</button>
                                     </div>
+                                    @if ($errors->any())
+                                    <div style="color: red;">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                            <div style="color: red !important; margin-bottom: 10px;">
+                                                <p style="color: red">* {{ $error }}</p>
+                                            </div>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+                                    @if (\Session::has('success'))
+                                    <div class="alert alert-success alert-dismissible">
+                                        <ul>
+                                            <li>
+                                                {!! \Session::get('success') !!}
+                                            </li>
+                                            <li>
+                                                <div type="" class="close" data-dismiss="alert" style="top: -20px">
+                                                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    @endif
                                 </form>
-                                <div class="no-account" style="color: #434141">Don't have an account? <a href="/register" class="tf-color">Register</a></div>
+                                <div class="no-account"><a href="/login" class="tf-color">BACK</a></div>
                             </div>
                         </div>
                     </div>
@@ -214,11 +236,11 @@
             })
         });
 
-        // JavaScript to toggle password visibility
         const passwordInput = document.getElementById('password');
         const passwordAddon = document.getElementById('password-addon');
 
         passwordAddon.addEventListener('click', function() {
+            console.log("atas");
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text'; // Show the password
                 passwordAddon.classList.remove('icon-show');
@@ -227,6 +249,22 @@
                 passwordInput.type = 'password'; // Hide the password
                 passwordAddon.classList.remove('icon-hide');
                 passwordAddon.classList.add('icon-show'); // Change to show icon
+            }
+        });
+
+        const passwordInputConfirmation = document.getElementById('password-confirmation');
+        const passwordAddonConfirmation = document.getElementById('password-addon-confirmation');
+
+        passwordAddonConfirmation.addEventListener('click', function() {
+            console.log("bawah");
+            if (passwordInputConfirmation.type === 'password') {
+                passwordInputConfirmation.type = 'text'; // Show the password
+                passwordAddonConfirmation.classList.remove('icon-show');
+                passwordAddonConfirmation.classList.add('icon-hide'); // Change to hide icon
+            } else {
+                passwordInputConfirmation.type = 'password'; // Hide the password
+                passwordAddonConfirmation.classList.remove('icon-hide');
+                passwordAddonConfirmation.classList.add('icon-show'); // Change to show icon
             }
         });
     </script>

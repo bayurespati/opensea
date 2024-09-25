@@ -29,7 +29,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::post('/register', [LoginController::class, 'signup'])->name('singup');
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::get('/', [LoginController::class, 'index'])->name('home');
 Route::get('reload-captcha', [LoginController::class, 'reloadCaptcha'])->name('reload-captcha');
 
 Route::middleware('auth')->group(function () {
@@ -101,6 +103,7 @@ Route::middleware('auth')->group(function () {
 
         Route::group(['prefix' => 'user'], function () {
             Route::get('', [UserController::class, 'index'])->name('admin-user-index');
+            Route::get('/register', [UserController::class, 'getUserRegister'])->name('admin-user-register');
             Route::get('create', [UserController::class, 'create'])->name('admin-user-create');
             Route::post('store', [UserController::class, 'store'])->name('admin-user-store');
             Route::post('update/{user}', [UserController::class, 'update'])->name('admin-user-update');

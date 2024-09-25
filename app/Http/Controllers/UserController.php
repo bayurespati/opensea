@@ -17,8 +17,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::where('is_accepted', "=", 1)->get();
         return view('admin.user.index', ['users' => $users]);
+    }
+
+    /**
+     * Display a listing of register user.
+     */
+    public function getUserRegister()
+    {
+        $users = User::where('is_accepted', "=", NULL)->get();
+        return view('admin.user.register', ['users' => $users]);
     }
 
     /**
@@ -82,6 +91,7 @@ class UserController extends Controller
         $user->phone = $request->phone;
         $user->is_admin = $request->is_admin;
         $user->is_pins = $request->is_pins;
+        $user->is_accepted = $request->is_accpted;
         $user->save();
 
         return redirect('/admin/user');

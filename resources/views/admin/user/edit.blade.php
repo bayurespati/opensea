@@ -40,6 +40,15 @@
                                 </select>
                             </fieldset>
 
+                            <fieldset class="properties">
+                                <label>Status *</label>
+                                <select id="is_accepted" name="is_accepted" required>
+                                    <option value="">Pilih role: </option>
+                                    <option value="1" {{ $user->is_accepted == 1 ? 'selected' : '' }}>Aktif</option>
+                                    <option value="0" {{ $user->is_accepted == 0 ? 'selected' : '' }}>Non Aktif</option>
+                                </select>
+                            </fieldset>
+
                             <div class="btn-submit flex gap30 justify-center">
                                 <a href="/admin/user" class="tf-button style-1 h50 active">
                                     Cancel
