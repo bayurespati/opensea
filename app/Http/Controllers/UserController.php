@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function getUserRegister()
     {
-        $users = User::where('is_accepted', "=", NULL)->get();
+        $users = User::where('is_accepted', "=", 0)->get();
         return view('admin.user.register', ['users' => $users]);
     }
 
