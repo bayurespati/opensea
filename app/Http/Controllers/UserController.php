@@ -91,7 +91,7 @@ class UserController extends Controller
         $user->phone = $request->phone;
         $user->is_admin = $request->is_admin;
         $user->is_pins = $request->is_pins;
-        $user->is_accepted = $request->is_accpted;
+        $user->is_accepted = $request->is_accepted;
         $user->save();
 
         return redirect('/admin/user');
