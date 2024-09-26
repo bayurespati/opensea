@@ -19,36 +19,7 @@ class LoginController extends Controller
 
     public function register()
     {
-        $witel = [
-            "ACEH",
-            "BEKASI",
-            "BANTEN",
-            "SUMUT",
-            "RIAU",
-            "SUMBAR JAMBI",
-            "SUMBANGSEL",
-            "LAMPUNG BENGKULU",
-            "JAKARTA INNER",
-            "JAKARTA CENTRUM",
-            "JAKARTA OUTER",
-            "JATIM TIMUR",
-            "JATIM BARAT",
-            "BALI",
-            "NUSA TENGGARA",
-            "SEMARANG JATENG UTARA",
-            "YOGYA JATENG SELATAN",
-            "SOLO JATENG TIMUR",
-            "BALIKPAPAN",
-            "KALBAR",
-            "KALSELTENG",
-            "KALTIMTARA",
-            "SULBAGSEL",
-            "SULBAGTENG",
-            "SUMALUT",
-            "PAPUA",
-            "PARIANGAN BARAT",
-            "PAPUA BARAT"
-        ];
+        $witel = $this->getWitel();
         return view('register', ["witel" => $witel]);
     }
 

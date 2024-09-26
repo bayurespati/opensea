@@ -52,7 +52,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.user.create');
+        $witel = $this->getWitel();
+        return view('admin.user.create', ['witel' => $witel]);
     }
 
     /**
@@ -64,9 +65,12 @@ class UserController extends Controller
         $model->name = $request->name;
         $model->email = $request->email;
         $model->phone = $request->phone;
+        $model->area = $request->area;
+        $model->witel = $request->witel;
         $model->is_admin = $request->is_admin;
         $model->is_pins = $request->is_pins;
         $model->password = $request->password;
+        $model->is_accepted = 1;
         $model->save();
 
         return redirect('/admin/user');

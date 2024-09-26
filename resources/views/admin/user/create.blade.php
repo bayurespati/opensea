@@ -22,6 +22,27 @@
                                 <label>Phone *</label>
                                 <input value="{{ old('phone') }}" type="text" id="phone" placeholder="Phone" name="phone" tabindex="2" value="" aria-required="true" required>
                             </fieldset>
+                            <fieldset class="email">
+                                <label style="color: #434141">Area</label>
+                                <select id="area" name="area" required>
+                                    <option value="">Pilih Area: </option>
+                                    <option value="TREG 1">TREG 1</option>
+                                    <option value="TREG 2">TREG 2</option>
+                                    <option value="TREG 3">TREG 3</option>
+                                    <option value="TREG 4">TREG 4</option>
+                                    <option value="TREG 5">TREG 5</option>
+                                    <option value="TREG 6">TREG 6</option>
+                                </select>
+                            </fieldset>
+                            <fieldset class="name">
+                                <label style="color: #434141">Witel</label>
+                                <select id="witel" name="witel" required>
+                                    <option value="">Pilih witel: </option>
+                                    @foreach($witel as $data)
+                                    <option value="{{$data}}">{{$data}}</option>
+                                    @endforeach
+                                </select>
+                            </fieldset>
                             <fieldset class="properties">
                                 <label>Password *</label>
                                 <input value="{{ old('password') }}" type="password" id="password" placeholder="Password" name="password" tabindex="2" value="" aria-required="true" required>
