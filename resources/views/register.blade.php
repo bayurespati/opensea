@@ -102,7 +102,7 @@
                                         <input class="search-produk" type="text" id="name" name="name" placeholder="Masukan nama lengkap" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
                                     </fieldset>
                                     <fieldset class="email">
-                                        <label style="color: #434141">Email</label>
+                                        <label style="color: #434141">Email Telkom</label>
                                         <input class="search-produk" type="email" id="email" name="email" placeholder="Masukan alamat email" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
                                     </fieldset>
                                     <fieldset class="name">
