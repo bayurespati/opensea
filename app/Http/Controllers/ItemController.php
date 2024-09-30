@@ -276,6 +276,22 @@ class ItemController extends Controller
     public function search(Request $request)
     {
         $items = Item::with('user');
+        if ($request->search) {
+            $brand = Brand::where('nama', "LIKE", "%" . $request->search . "%")->first();
+            $subcategories = Subcategory::where('nama', "LIKE", "%" . $request->search . "%")->first();
+            $categories = Category::where('nama', "LIKE", "%" . $request->search . "%")->first();
+            $brand = Brand::where('nama', "LIKE", "%" . $request->search . "%")->first();
+            $items->where('nama_produk', "LIKE", "%" . $request->search . "%")->orWhere('jenis_produk', "LIKE", "%" . $request->search . "%");
+            if ($categories)
+                $items->orWhere('category_id', $categories->id);
+            if ($subcategories)
+                $items->orWhere('subcategory_id', $subcategories->id);
+            if ($brand)
+                $items->orWhere('brand_id', $brand->id);
+            if (Str::lower($request->search) == "tkdn") {
+                $items->orWhere('jenis_produk', "=", "pdn");
+            }
+        }
 
         if ($request->divisi_id != null)
             $items->whereIn('divisi_id', $request->divisi_id);
@@ -285,15 +301,6 @@ class ItemController extends Controller
             $items->whereIn('category_id', $request->category_id);
         if ($request->subcategory_id != null)
             $items->whereIn('subcategory_id', $request->subcategory_id);
-        if ($request->search) {
-            $brand = Brand::where('nama', "LIKE", "%" . $request->search . "%")->first();
-            $items->where('nama_produk', "LIKE", "%" . $request->search . "%")->orWhere('jenis_produk', "LIKE", "%" . $request->search . "%");
-            if ($brand)
-                $items->orWhere('brand_id', $brand->id);
-            if (Str::lower($request->search) == "tkdn") {
-                $items->orWhere('jenis_produk', "=", "pdn");
-            }
-        }
         if ($request->diskon_nilai) {
             $diskon = Diskon::where('nilai', $request->diskon_nilai)->first();
             $items->where('diskon_id', "=", $diskon->id);
