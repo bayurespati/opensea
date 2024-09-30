@@ -110,6 +110,7 @@ Route::middleware('auth')->group(function () {
             Route::get('edit/{user}', [UserController::class, 'edit'])->name('admin-user-edit');
             Route::get('delete/{user}', [UserController::class, 'destroy'])->name('admin-user-delete');
             Route::get('download', [UserController::class, 'download'])->name('admin-user-download');
+            Route::get('download-log', [UserController::class, 'downloadLog'])->name('admin-user-log-download');
         });
 
         Route::group(['prefix' => 'divisi'], function () {

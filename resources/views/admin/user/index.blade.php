@@ -5,9 +5,16 @@
     <div class="themesflat-container">
         <div class="row">
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
-                <div class="tf-button style-1 h50 w190">
+                <div class="flex gap30" style="margin-bottom: 10px;">
                     <a href="/admin/user/create">
-                        Create User
+                        <div class="tf-button style-1 h50 w190">
+                            Create User
+                        </div>
+                    </a>
+                    <a href="{{ route('admin-user-download') }}">
+                        <div class="tf-button style-1 h50 w190">
+                            Download User
+                        </div>
                     </a>
                 </div>
                 <div class="product-item offers mt-10">
