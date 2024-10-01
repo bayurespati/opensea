@@ -146,7 +146,7 @@ class OrderController extends Controller
         $no_telpon = $request->no_telpon;
         $alamat = $request->alamat;
         //SAVE ORDER
-        $order = Order::where('id', $request->order_id)->with(['order_items.item'])->first();
+        $order = Order::where('id', $request->order_id)->with(['order_items.item.brand'])->first();
         $order->kepada = $request->kepada;
         $order->nama_pic = $request->nama_pic;
         $order->no_telpon = $request->no_telpon;
