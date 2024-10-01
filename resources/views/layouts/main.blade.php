@@ -91,7 +91,7 @@
                                     <div id="site-logo">
                                         <div id="site-logo-inner" style="width: 180px;">
                                             <a href="/home" rel="home" class="main-logo">
-                                                <img id="logo_header" src="/assets/images/logo/logo_epins_fix_1.png">
+                                                <img id="logo_header" src="/assets/images/logo/logo_baru_epins.jpeg">
                                             </a>
                                         </div>
                                     </div><!-- logo -->
