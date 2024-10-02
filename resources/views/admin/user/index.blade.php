@@ -41,9 +41,6 @@
                                 <a <?php echo ("href=/admin/user/edit/" . $user->id) ?> class="icon">
                                     <img src="/assets/icon/custome/edit_white.svg" alt="whatsapp" style="width: 22px;">
                                 </a>
-                                <a <?php echo ("href=/admin/user/delete/" . $user->id) ?> class="icon">
-                                    <img src="/assets/icon/custome/trash_white.svg" alt="whatsapp" style="width: 22px;">
-                                </a>
                             </div>
                         </div>
                         @endforeach
