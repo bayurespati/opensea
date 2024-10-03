@@ -64,13 +64,13 @@
                             <div class="column">QTY</div>
                         </div>
 
-                        @foreach($order->items as $key => $item)
+                        @foreach($order->order_items as $key => $item)
                         <div class="table-item">
                             <div class="column" style="width: 10% !important;">{{ $key+1 }}</div>
-                            <div class="column">{{$item->nama_produk}}</div>
+                            <div class="column">{{$item->item_nama}}</div>
                             <div class="column">{{$item->brand->nama}}</div>
-                            <div class="column">{{number_format($item->harga, 2, '.', ',')}}</div>
-                            <div class="column">{{$item->pivot->qty}}</div>
+                            <div class="column">{{number_format($item->item_harga, 2, '.', ',')}}</div>
+                            <div class="column">{{$item->qty}}</div>
                         </div>
                         @endforeach
                     </div>

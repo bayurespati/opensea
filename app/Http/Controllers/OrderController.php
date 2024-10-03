@@ -113,7 +113,7 @@ class OrderController extends Controller
             'Selesai'
         ];
 
-        $data = Order::where('id', $order->id)->with(['items'])->first();
+        $data = Order::where('id', $order->id)->with(['order_items.brand'])->first();
 
         return view('admin.order.edit', ["order" => $data, "list_status" => $list_status]);
     }

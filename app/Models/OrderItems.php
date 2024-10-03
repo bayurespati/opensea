@@ -17,4 +17,9 @@ class OrderItems extends Model
     {
         return $this->belongsTo(Item::class);
     }
+
+    public function brand()
+    {
+        return $this->hasOneThrough(Brand::class, Item::class, 'id', 'id', 'item_id', 'brand_id');
+    }
 }

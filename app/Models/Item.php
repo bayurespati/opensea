@@ -39,7 +39,6 @@ class Item extends Model
         return $this->belongsTo(Subcategory::class, 'subcategory_id');
     }
 
-
     public function diskon()
     {
         return $this->belongsTo(Diskon::class, 'diskon_id');

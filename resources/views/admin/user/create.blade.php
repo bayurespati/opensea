@@ -31,7 +31,6 @@
                                     <option value="TREG 3">TREG 3</option>
                                     <option value="TREG 4">TREG 4</option>
                                     <option value="TREG 5">TREG 5</option>
-                                    <option value="TREG 6">TREG 6</option>
                                 </select>
                             </fieldset>
                             <fieldset class="name">
