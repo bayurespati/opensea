@@ -102,11 +102,11 @@
                                         <input class="search-produk" type="text" id="name" name="name" placeholder="Masukan nama lengkap" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
                                     </fieldset>
                                     <fieldset class="email">
-                                        <label style="color: #434141">Email Telkom</label>
+                                        <label style="color: #434141">Email Corporate</label>
                                         <input class="search-produk" type="email" id="email" name="email" placeholder="Masukan alamat email" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
                                     </fieldset>
                                     <fieldset class="name">
-                                        <label style="color: #434141">Telpon</label>
+                                        <label style="color: #434141">No Handphone</label>
                                         <input class="search-produk" type="number" id="phone" name="phone" placeholder="Masukan nomor telpon" tabindex="2" value="" aria-required="true" required style="background-color: white !important">
                                     </fieldset>
                                     <fieldset class="email">
