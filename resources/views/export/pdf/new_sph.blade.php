@@ -183,6 +183,7 @@
             <tr>
                 <th>No</th>
                 <th>Merk</th>
+                <th>Tipe</th>
                 <th>Deskripsi</th>
                 <th>Harga Tayang</th>
                 <th>Qty</th>
@@ -197,6 +198,7 @@
             <tr>
                 <td>{{$key + 1}}</td>
                 <td>{{$barang->item->brand->nama}}</td>
+                <td>{{$barang->item_nama}}</td>
                 <td>{{$barang->item->deskripsi}}</td>
                 <td style="min-width: 90px;">Rp {{ number_format($barang->item_harga, 2, '.', ',') }}</td>
                 <td>{{$barang->qty}}</td>
@@ -209,7 +211,7 @@
             ?>
             @endforeach
             <tr>
-                <td colspan="3"> </td>
+                <td colspan="4"> </td>
                 <td class="fw-bold">Total</td>
                 <td>{{$total_qty}}</td>
                 <td>{{ number_format($total_harga, 2, '.', ',') }}</td>
