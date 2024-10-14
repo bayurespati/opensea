@@ -91,6 +91,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate((new UpdateUserRequest())->rules($user));
+        $encryptedEmail = Crypt::encryptString($request->email);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
