@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Models\UserLogin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -41,10 +42,11 @@ class UserController extends Controller
             $users = User::where('name', 'like', '%' . $query . '%')->get()->pluck('id');
             $logs = UserLogin::whereIn('user_id', $users)
                 ->with(['user'])
+                ->orderBy('created_at', 'desc')
                 ->paginate(10)
                 ->appends(['query' => $query]);
         } else
-            $logs = UserLogin::with(['user'])->paginate(10);
+            $logs = UserLogin::with(['user'])->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.log.user.index', ['logs' => $logs]);
     }
 
