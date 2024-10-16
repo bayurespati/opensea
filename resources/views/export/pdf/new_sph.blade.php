@@ -125,22 +125,22 @@
                             <tr>
                                 <td>Instansi</td>
                                 <td>:</td>
-                                <td>{{$order->kepada}}</td>
+                                <td>{{$sph->kepada}}</td>
                             </tr>
                             <tr>
                                 <td>Nama PIC</td>
                                 <td>:</td>
-                                <td>{{$order->nama_pic}}</td>
+                                <td>{{$sph->nama_pic}}</td>
                             </tr>
                             <tr>
                                 <td>No Telp PIC</td>
                                 <td>:</td>
-                                <td>{{$order->no_telpon}}</td>
+                                <td>{{$sph->no_telpon}}</td>
                             </tr>
                             <tr>
                                 <td>Alamat</td>
                                 <td>:</td>
-                                <td>{{$order->alamat}}</td>
+                                <td>{{$sph->alamat}}</td>
                             </tr>
                         </table>
                     </div>

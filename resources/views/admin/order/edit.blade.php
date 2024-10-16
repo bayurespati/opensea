@@ -75,6 +75,39 @@
                         @endforeach
                     </div>
                 </div>
+                <!-- table -->
+                <div class="product-item offers mt-10">
+                    <h6>List SPH</h6>
+                    <i class="icon-keyboard_arrow_down"></i>
+                    <div class="content">
+                        <div class="table-heading">
+                            <div class="column" style="width: 10% !important;">NO</div>
+                            <div class="column">KEPADA</div>
+                            <div class="column">NAMA PIC</div>
+                            <div class="column">TELPON</div>
+                            <div class="column">CREATE</div>
+                            <div class="column">ACTION</div>
+                        </div>
+
+                        @foreach($order->sph as $key => $item)
+                        <div class="table-item">
+                            <div class="column" style="width: 10% !important;">{{ $key+1 }}</div>
+                            <div class="column">{{$item->kepada}}</div>
+                            <div class="column">{{$item->nama_pic}}</div>
+                            <div class="column">{{$item->no_telpon}}</div>
+                            <div class="column">{{ date('d-m-Y', strtotime($item->created_at)) }}</div>
+                            <div class="column">
+                                <form id="commentform" class="comment-form" action="/download-sph" method="GET">
+                                    <input name="sph_id" value="{{$item->id}}" hidden>
+                                    <div class="btn-submit">
+                                        <button class="tf-button style-1 h50" type="submit">Download</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>

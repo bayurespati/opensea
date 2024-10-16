@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Crypt;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -46,6 +47,26 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+
+    /**
+     * Accessors And Mutators
+     *
+     */
+    public function getEmailAttribute($value)
+    {
+        try {
+            // Attempt to decrypt email
+            return Crypt::decryptString($value);
+        } catch (\Exception $e) {
+            // Handle decryption error (e.g., invalid payload)
+            return $value;
+        }
+    }
+
+    /**
+     * Relations
+     *
+     */
     public function wishlists()
     {
         return  $this->BelongsToMany(Item::class, 'wishlists');

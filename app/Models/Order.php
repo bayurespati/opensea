@@ -23,6 +23,11 @@ class Order extends Model
         return $this->hasMany(OrderItems::class);
     }
 
+    public function sph()
+    {
+        return $this->hasMany(Sph::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

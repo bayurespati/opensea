@@ -6,8 +6,8 @@ use App\Models\User;
 use App\Models\UserLogin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
-use PhpParser\Node\Expr\FuncCall;
 
 class LoginController extends Controller
 {
@@ -141,6 +141,72 @@ class LoginController extends Controller
         ])->onlyInput('email');
     }
 
+
+    public function authenticateWithEncrypt(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+            'captcha' => ['required', 'captcha'],
+        ]);
+
+        // Retrieve user by decrypting emails in database
+        $user = User::all()->filter(function ($user) use ($request) {
+            try {
+                // Attempt to decrypt email
+                return Crypt::decryptString($user->email) === $request->email;
+            } catch (\Exception $e) {
+                // Handle decryption error (e.g., invalid payload)
+                return false;
+            }
+        })->first();
+
+        if (!$user) {
+            return back()->withErrors([
+                'email' => '* User belom terdaftar',
+            ])->onlyInput('email');
+        }
+
+        if ($user->is_accepted == NULL || $user->is_accepted == 0) {
+            return back()->withErrors([
+                'email' => '* User belom terverifikasi',
+            ])->onlyInput('email');
+        }
+
+        if ($user->is_pins) {
+            $username = explode("@", $request->email);
+            if ($this->_ldap_connect($username[0], $request->password)) {
+                $user = User::where('email', $request->email)->first();
+                $user->password = bcrypt($request->password);
+                $user->save();
+            } else {
+                return back()->withErrors([
+                    'email' => '* Alamat email atau password anda salahh',
+                ])->onlyInput('email');
+            }
+        }
+
+        // Check if the password is correct
+        if (Hash::check($request->password, $user->password)) {
+            // Log the user in manually
+            Auth::login($user);
+            $request->session()->regenerate();
+            UserLogin::create([
+                'user_id' => $user->id,
+                'ip_address' => request()->ip(),
+                'logged_in_at' => now()->setTimezone('Asia/Jakarta'),
+            ]);
+
+            // Redirect to the intended page
+            if (Auth::user()->is_admin)
+                return redirect()->intended('/admin/item');
+            return redirect()->intended('/home');
+        }
+
+        return back()->withErrors([
+            'email' => '* Alamat email atau password anda salah',
+        ])->onlyInput('email');
+    }
 
     private function _ldap_connect($username, $password)
     {

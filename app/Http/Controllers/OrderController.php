@@ -113,7 +113,7 @@ class OrderController extends Controller
             'Selesai'
         ];
 
-        $data = Order::where('id', $order->id)->with(['order_items.brand'])->first();
+        $data = Order::where('id', $order->id)->with(['order_items.brand', 'sph'])->first();
 
         return view('admin.order.edit', ["order" => $data, "list_status" => $list_status]);
     }
@@ -164,7 +164,33 @@ class OrderController extends Controller
         $file_name = 'qrcodes/transaction_' . $order->id . '.png';
         $value = $order->code;
         Storage::disk('public')->put($file_name, QrCode::format('png')->size(200)->generate($value));
-        $pdf = PDFS::loadView('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today, 'qrCode' => 'storage/' . $file_name])->setPaper('A4', 'portrait');
+        $pdf = PDFS::loadView('export.pdf.new_sph', [
+            'user' => $user,
+            'order' => $order,
+            'sph' => $sph,
+            'today' => $today,
+            'qrCode' => 'storage/' . $file_name
+        ])->setPaper('A4', 'portrait');
+        return $pdf->download('sph.pdf');
+    }
+
+    public function downloadSph(Request $request)
+    {
+        //SAVE ORDER
+        $sph = Sph::where('id', $request->sph_id)->first();
+        $order = Order::where('id', $sph->order_id)->with(['order_items.item.brand', 'user'])->first();
+        //SAVE SPH
+        $today = $sph->created_at->translatedFormat('d F Y');
+        $file_name = 'qrcodes/transaction_' . $order->id . '.png';
+        $value = $order->code;
+        Storage::disk('public')->put($file_name, QrCode::format('png')->size(200)->generate($value));
+        $pdf = PDFS::loadView('export.pdf.new_sph', [
+            'user' => $order->user,
+            'order' => $order,
+            'sph' => $sph,
+            'today' => $today,
+            'qrCode' => 'storage/' . $file_name
+        ])->setPaper('A4', 'portrait');
         return $pdf->download('sph.pdf');
     }
 

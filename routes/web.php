@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('preview', [OrderController::class, 'preview'])->name('preveiw-export-sph');
     Route::get('download-sph', [OrderController::class, 'sph'])->name('download-sph');
     Route::get('download-new-sph', [OrderController::class, 'newSPH'])->name('download-new-sph');
+    Route::get('download-sph', [OrderController::class, 'downloadSph'])->name('download-sph');
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
