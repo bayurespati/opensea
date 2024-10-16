@@ -25,7 +25,7 @@ class OrderController extends Controller
         if ($request->query != null) {
             $users = User::where('name', 'like', '%' . $query . '%')->get()->pluck('id');
             $orders = Order::where('status', 'like', '%' . $query . '%')->orWhere('code', 'like', '%' . $query . '%')->orWhereIn('user_id', $users)
-                ->with(['user'])
+                ->with(['user', 'sph'])
                 ->paginate(10)
                 ->appends(['query' => $query]);
         } else

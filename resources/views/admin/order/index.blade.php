@@ -32,7 +32,7 @@
                             <div class="column">KODE</div>
                             <div class="column">JUMLAH PRODUK</div>
                             <div class="column">TOTAL HARGA</div>
-                            <div class="column">STATUS</div>
+                            <div class="column">SPH</div>
                             <div class="column">AKSI</div>
                         </div>
                         @foreach($orders as $key => $order)
@@ -44,7 +44,7 @@
                             <div class="column">
                                 {{ number_format($order->total_price, 2, '.', ',') }}
                             </div>
-                            <div class="column">{{$order->status}}</div>
+                            <div class="column">{{count($order->sph) > 0 ? "Sudah" : "Belum"}}</div>
                             <div class="column">
                                 <a <?php echo ("href=/admin/order/edit/" . $order->id) ?> class="icon">
                                     <img src="/assets/icon/custome/edit_white.svg" alt="whatsapp" style="width: 22px;">
