@@ -26,10 +26,11 @@ class OrderController extends Controller
             $users = User::where('name', 'like', '%' . $query . '%')->get()->pluck('id');
             $orders = Order::where('status', 'like', '%' . $query . '%')->orWhere('code', 'like', '%' . $query . '%')->orWhereIn('user_id', $users)
                 ->with(['user', 'sph'])
+                ->orderBy('created_at', 'desc')
                 ->paginate(10)
                 ->appends(['query' => $query]);
         } else
-            $orders = Order::with('user')->paginate(10);
+            $orders = Order::with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.order.index', ['orders' => $orders]);
     }
 
