@@ -26,6 +26,7 @@ class UserExport implements FromCollection, WithHeadings, WithTitle, WithMapping
             "phone" => $data->phone,
             "area"  => $data->area,
             "witel" => $data->witel,
+            "tanggal_daftar" => $data->created_at,
         ];
     }
 
@@ -40,6 +41,7 @@ class UserExport implements FromCollection, WithHeadings, WithTitle, WithMapping
             'Telpon',
             'Area',
             'witel',
+            'Tanggal Daftar',
         ];
     }
 
