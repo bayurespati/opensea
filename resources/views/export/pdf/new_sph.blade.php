@@ -105,71 +105,52 @@
                 <h2 class="fw-bold m-0" style="font-size: 16px;">PT PINS Indonesia</h2>
                 <p class="m-0">The Telkom Hub, Tower II lt.42 Jl. Jendral Gatot Subroto Kav. 52, Jakarta Selatan 12710</p>
                 <div class="clearfix">
-                    <div style="float: left; width:30%">
+                    <div style="float: left; width:55%">
                         <table class="table table-borderless table-sm" style="width: 100%;">
                             <tr>
-                                <td>Sales Person</td>
-                                <td>:</td>
-                                <td>{{$user->name}}</td>
-                            </tr>
-                            <tr>
-                                <td>Telepon</td>
-                                <td>:</td>
-                                <td>{{$user->phone}}</td>
-                            </tr>
-                            <tr>
-                                <td>Email</td>
-                                <td>:</td>
-                                <td>{{$user->email}}</td>
-                            </tr>
-                            <tr>
-                                <td>Instansi</td>
-                                <td>:</td>
-                                <td>{{$sph->kepada}}</td>
-                            </tr>
-                            <tr>
-                                <td>Nama PIC</td>
-                                <td>:</td>
-                                <td>{{$sph->nama_pic}}</td>
-                            </tr>
-                            <tr>
-                                <td>No Telp PIC</td>
-                                <td>:</td>
-                                <td>{{$sph->no_telpon}}</td>
-                            </tr>
-                            <tr>
-                                <td>Alamat</td>
-                                <td>:</td>
-                                <td>{{$sph->alamat}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div style="float: right;width:30%; margin-right:80px">
-                        <table class="table table-borderless table-sm" style="width: 100%;">
-                            <tr>
-                                <td>Nomor SPH</td>
+                                <td style="width:50px">Nomor SPH</td>
                                 <td>:</td>
                                 <td>{{$order->code}}</td>
                             </tr>
                             <tr>
-                                <td>Tanggal</td>
+                                <td style="width:50px">Tanggal</td>
                                 <td>:</td>
                                 <td>{{$today}}</td>
                             </tr>
                             <tr>
-                                <td style="visibility: hidden;">tes</td>
+                                <td style="width:50px">Sales Person</td>
+                                <td>:</td>
+                                <td>{{$user->name}}</td>
                             </tr>
                             <tr>
-                                <td style="visibility: hidden;">tes</td>
+                                <td style="width:50px">Telepon</td>
+                                <td>:</td>
+                                <td> {{$user->phone}}</td>
                             </tr>
                             <tr>
-                                <td style="visibility: hidden;">tes</td>
+                                <td style="width:50px">Email</td>
+                                <td>:</td>
+                                <td>{{$user->email}}</td>
                             </tr>
                             <tr>
-                                <td style="visibility: hidden;">tes</td>
+                                <td style="width:50px">Instansi</td>
+                                <td>:</td>
+                                <td>{{$sph->kepada}}</td>
                             </tr>
                             <tr>
-                                <td style="visibility: hidden;">tes</td>
+                                <td style="width:50px">Nama PIC</td>
+                                <td>:</td>
+                                <td>{{$sph->nama_pic}}</td>
+                            </tr>
+                            <tr>
+                                <td style="width:50px">No Telp PIC</td>
+                                <td>:</td>
+                                <td>{{$sph->no_telpon}}</td>
+                            </tr>
+                            <tr>
+                                <td style="width:50px; vertical-align: top;">Alamat</td>
+                                <td style="vertical-align: top;">:</td>
+                                <td>{{$sph->alamat}}</td>
                             </tr>
                         </table>
                     </div>
