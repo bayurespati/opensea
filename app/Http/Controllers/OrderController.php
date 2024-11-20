@@ -160,6 +160,7 @@ class OrderController extends Controller
         $sph->nama_pic = $request->nama_pic;
         $sph->no_telpon = $request->no_telpon;
         $sph->alamat = $request->alamat;
+        $sph->ongkir = str_replace(",", "", $request->ongkos_kirim);
         $sph->save();
         $today = Carbon::now()->locale('id')->translatedFormat('d F Y');
         $file_name = 'qrcodes/transaction_' . $order->id . '.png';

@@ -16,6 +16,10 @@ return new class extends Migration
             $table->integer('order_id');
             $table->string('kepada');
             $table->timestamps();
+            $table->string('nama_pic');
+            $table->string('no_telpon');
+            $table->string('alamat');
+            $table->string('ongkir');
         });
     }
 

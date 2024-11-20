@@ -192,10 +192,15 @@
             ?>
             @endforeach
             <tr>
+                <td colspan="6" class="fw-bold">Estimasi ongkos kirim </td>
+                <td>{{ number_format($sph->ongkir, 2, '.', ',') }}</td>
+                <td></td>
+            </tr>
+            <tr>
                 <td colspan="4"> </td>
                 <td class="fw-bold">Total</td>
                 <td>{{$total_qty}}</td>
-                <td>{{ number_format($total_harga, 2, '.', ',') }}</td>
+                <td>{{ number_format($total_harga+$sph->ongkir, 2, '.', ',') }}</td>
                 <td></td>
             </tr>
         </table>

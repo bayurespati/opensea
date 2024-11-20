@@ -166,6 +166,7 @@
                         <input type="text" class="style-1" id="nama_pic" placeholder="Nama PIC" name="nama_pic" tabindex="2" value="" aria-required="true" required="" style="margin-bottom: 15px;">
                         <input type="text" class="style-1" id="no_telpon" placeholder="NO Telpon" name="no_telpon" tabindex="2" value="" aria-required="true" required="" style="margin-bottom: 15px;">
                         <textarea class="style-1" id="alamat" placeholder="Alamat" name="alamat" tabindex="2" aria-required="true" required="" style="margin-bottom: 15px;"></textarea>
+                        <input type="text" class="style-1" id="ongkos_kirim" placeholder="Estimasi Ongkir" name="ongkos_kirim" tabindex="2" value="" aria-required="true" required="" style="margin-bottom: 15px;">
                         <input id="hiden_order_id" type="text" name="order_id" value="" aria-required="true" hidden>
                         <div style="width: 36%; margin: 0 auto;">
                             <div class="btn-submit">
@@ -285,6 +286,25 @@
         $('input[type="radio"]').prop('checked', false);
         $('input[type="checkbox"]').prop('checked', false);
     }
+
+    $("#ongkos_kirim").on("keyup", function(event) {
+        var selection = window.getSelection().toString();
+        if (selection !== '') {
+            return;
+        }
+        // When the arrow keys are pressed, abort.
+        if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
+            return;
+        }
+        var $this = $(this);
+        // Get the value.
+        var input = $this.val();
+        input = input.replace(/[\D\s\._\-]+/g, "");
+        input = input ? parseInt(input, 10) : 0;
+        $this.val(function() {
+            return (input === 0) ? "" : input.toLocaleString("en-US");
+        });
+    })
 
     function submitItem() {
         document.getElementById("button-submit").disabled = true;
