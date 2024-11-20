@@ -47,6 +47,7 @@ return new class extends Migration
             $table->integer('diskon_id')->nullable();
             $table->boolean('is_ready')->default(1);
             $table->boolean('is_featured')->default(0);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

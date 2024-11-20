@@ -170,6 +170,15 @@
                                 </label>
                             </div>
 
+                            <fieldset class="name">
+                                <label>Status Aktif</label>
+                                <select id="is_active" name="is_active">
+                                    <option value="">Pilih status: </option>
+                                    <option value="1" {{ ($item->is_active == 1) ? 'selected' : '' }}>Ya</option>
+                                    <option value="0" {{ ($item->is_active == 0) ? 'selected' : '' }}>Tidak</option>
+                                </select>
+                            </fieldset>
+
                             <div class="btn-submit flex justify-between">
                                 <div></div>
                                 <div class="flex gap30 soft-right">

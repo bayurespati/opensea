@@ -73,6 +73,7 @@ Route::middleware('auth')->group(function () {
 
         Route::group(['prefix' => 'item'], function () {
             Route::get('', [ItemController::class, 'index'])->name('admin-item-index');
+            Route::get('/terhapus', [ItemController::class, 'trash'])->name('admin-item-terhapus');
             Route::get('setting/{item}', [ItemController::class, 'setting'])->name('admin-item-setting');
             Route::post('update-setting/{item}', [ItemController::class, 'updateSetting'])->name('admin-item-update-setting');
             Route::get('upload-view', [ItemController::class, 'uploadView'])->name('admin-item-upload-view');

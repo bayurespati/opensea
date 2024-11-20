@@ -69,7 +69,7 @@ class OrderController extends Controller
         $order->status = "Diterima";
         $order->save();
         foreach ($request->items_id as $key => $data) {
-            $item = Item::where('id', (int) $data)->first();
+            $item = Item::active()->where('id', (int) $data)->first();
             $order_item = new OrderItems();
             $order_item->order_id = $order->id;
             $order_item->item_id = $data;

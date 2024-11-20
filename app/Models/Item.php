@@ -14,6 +14,7 @@ class Item extends Model
 
     protected $guarded = [];
 
+    //Relation
     public function user()
     {
         return $this->belongsToMany(User::class, 'wishlists')->where('user_id', Auth::user()->id);
@@ -47,5 +48,11 @@ class Item extends Model
     public function images()
     {
         return $this->hasMany(ItemImage::class, 'item_id');
+    }
+
+    //Scope
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
     }
 }

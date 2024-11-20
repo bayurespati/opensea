@@ -18,9 +18,9 @@ class FrontViewController extends Controller
 {
     public function home()
     {
-        $new_items = Item::orderBy('created_at', 'desc')->take(8)->get();
-        $featured_items = Item::where('is_featured', '=', 1)->get();
-        $diskon_items = Item::where('diskon_id', '!=', null)->get();
+        $new_items = Item::active()->orderBy('created_at', 'desc')->take(8)->get();
+        $featured_items = Item::active()->where('is_featured', '=', 1)->get();
+        $diskon_items = Item::active()->where('diskon_id', '!=', null)->get();
         $diskons = Diskon::all();
         return view('client.home', [
             'new_items' => $new_items,
@@ -51,7 +51,7 @@ class FrontViewController extends Controller
 
     public function products()
     {
-        $items = Item::with(['user', 'brand'])->get();
+        $items = Item::active()->with(['user', 'brand'])->get();
         $divisi = Divisi::all();
         $categories = Category::all();
         $subcategories = Subcategory::all();
@@ -67,7 +67,7 @@ class FrontViewController extends Controller
 
     public function detail_product(Item $item)
     {
-        $produk = Item::where('id', $item->id)->with(['user', 'images'])->first();
+        $produk = Item::active()->where('id', $item->id)->with(['user', 'images'])->first();
         return view('client.detail_product', ['produk' => $produk]);
     }
 

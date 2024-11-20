@@ -23,31 +23,6 @@ class ItemImport implements ToModel, WithStartRow
     {
         $item = Item::where('nama_produk', $row[1])->first();
         if ($item) {
-            // $item->divisi_id = (int) $row[20];
-            // $item->brand_id = (int) $row[19];
-            // $item->category_id = (int) $row[21];
-            // $item->subcategory_id = (int) $row[22];
-            // $item->nama_produk = $row[1];
-            // $item->masa_berlaku_produk = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row[2]);
-            // $item->satuan = $row[3];
-            // $item->jenis_produk = $row[4];
-            // $item->nilai_tkdn = $row[5];
-            // $item->nilai_bmp = $row[6];
-            // $item->deskripsi = $row[7];
-            // $item->negara_asal_produk = $row[8];
-            // $item->harga = (int) $row[23];
-            // $item->type = $row[9];
-            // $item->prosesor = $row[10];
-            // $item->ram = $row[11];
-            // $item->storage = $row[12];
-            // $item->vga = $row[13];
-            // $item->sistem_operasi = $row[14];
-            // $item->created_at = date('Y-m-d H:i:s');
-            // $item->updated_at = date('Y-m-d H:i:s');
-            // $item->garansi = $row[15];
-            // $item->keterangan = $row[16];
-            // $item->web_marketplace = $row[17];
-            // $item->save();
             return;
         }
         if ($row[0] == null || $row[1] == null)

@@ -26,18 +26,40 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
-        $query = $request->input('query');
-        if ($request->query != null) {
-            $brand_id = Brand::where('nama', 'like', '%' . $query . '%')->get()->pluck('id');
-            $items = Item::whereIn('brand_id', $brand_id)
-                ->orWhere('nama_produk', 'like', '%' . $query . '%')
+        $queries = $request->input("query");
+        if ($queries != null) {
+            $brand_id = Brand::where('nama', 'like', '%' . $queries . '%')->get()->pluck('id');
+            $items = Item::active()
+                ->where(function ($query) use ($brand_id, $queries) {
+                    $query->whereIn('brand_id', $brand_id)
+                        ->orWhere('nama_produk', 'like', '%' . $queries . '%');
+                })
                 ->with(['brand', 'diskon'])
                 ->orderBy('is_featured', 'DESC')
                 ->paginate(10)
-                ->appends(['query' => $query]);
+                ->appends(['query' => $queries]);
         } else
-            $items = Item::with(['brand', 'diskon'])->orderBy('is_featured', 'DESC')->paginate(10);
+            $items = Item::active()->with(['brand', 'diskon'])->orderBy('is_featured', 'DESC')->paginate(10);
         return view('admin.item.index', ['items' => $items]);
+    }
+
+    public function trash(Request $request)
+    {
+        $queries = $request->input("query");
+        if ($queries != null) {
+            $brand_id = Brand::where('nama', 'like', '%' . $queries . '%')->get()->pluck('id');
+            $items = Item::where('is_active', 0)
+                ->where(function ($query) use ($brand_id, $queries) {
+                    $query->whereIn('brand_id', $brand_id)
+                        ->orWhere('nama_produk', 'like', '%' . $queries . '%');
+                })
+                ->with(['brand', 'diskon'])
+                ->orderBy('is_featured', 'DESC')
+                ->paginate(10)
+                ->appends(['query' => $queries]);
+        } else
+            $items = Item::where('is_active', 0)->with(['brand', 'diskon'])->orderBy('is_featured', 'DESC')->paginate(10);
+        return view('admin.item.trash', ['items' => $items]);
     }
 
     /**
@@ -61,7 +83,7 @@ class ItemController extends Controller
      */
     public function uploadImage(Request $request, Item $item)
     {
-        $data = Item::where('id', $item->id)->with(['images'])->first();
+        $data = Item::active()->where('id', $item->id)->with(['images'])->first();
         return view('admin.item.upload-image', ['item' => $data]);
     }
 
@@ -79,7 +101,7 @@ class ItemController extends Controller
      */
     public function updateSetting(Request $request, Item $item)
     {
-        $items = Item::where('is_featured', "=", 1)->get();
+        $items = Item::active()->where('is_featured', "=", 1)->get();
         if ($items->count() >= 11) {
             return redirect()->back()->with('error', "Item untuk show sudah max");
         }
@@ -258,6 +280,7 @@ class ItemController extends Controller
             $item->keterangan = $request->keterangan;
             $item->web_marketplace = $request->web_marketplace;
             $item->quantity = $request->quantity;
+            $item->is_active = $request->is_active;
             $item->save();
 
             if (!ItemImage::where('item_id', $item->id)->first() && $request->image != null) {
@@ -275,7 +298,7 @@ class ItemController extends Controller
 
     public function search(Request $request)
     {
-        $items = Item::with('user');
+        $items = Item::active();
         if ($request->search) {
             $brand = Brand::where('nama', "LIKE", "%" . $request->search . "%")->first();
             $subcategories = Subcategory::where('nama', "LIKE", "%" . $request->search . "%")->first();
@@ -322,7 +345,8 @@ class ItemController extends Controller
      */
     public function destroy(Item $item)
     {
-        $item->delete();
-        return redirect('/admin/item');
+        $item->is_active = 0;
+        $item->save();
+        return redirect('/admin/item')->with('success', "Berhasil hapus data");
     }
 }

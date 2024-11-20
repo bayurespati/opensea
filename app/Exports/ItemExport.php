@@ -15,7 +15,7 @@ class ItemExport implements FromCollection, WithHeadings, WithTitle, WithMapping
      */
     public function collection()
     {
-        return Item::with(['lini', 'brand', 'category', 'subcategory'])->get();
+        return Item::active()->with(['lini', 'brand', 'category', 'subcategory'])->get();
     }
 
     public function map($data): array
