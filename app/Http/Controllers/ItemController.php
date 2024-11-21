@@ -148,7 +148,6 @@ class ItemController extends Controller
         try {
             return Excel::download(new ItemExport(), "list_produk.xlsx");
         } catch (Exception $e) {
-            dd($e->getMessage());
             return redirect()->back()->with('error', $e->getMessage());
         }
     }

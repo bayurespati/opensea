@@ -64,12 +64,14 @@ Route::middleware('auth')->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('admin-dashboard-index');
         Route::get('user-log', [UserController::class, 'logView'])->name('admin-user-log');
 
-        Route::get('order', [OrderController::class, 'index'])->name('admin-order-index');
-        Route::get('order/edit/{order}', [OrderController::class, 'edit'])->name('admin-order-edit');
-        Route::post('order/update/{order}', [OrderController::class, 'update'])->name('admin-order-update');
-
-        Route::get('order/scan', [OrderController::class, 'scan'])->name('admin-order-scan');
-        Route::get('order/get/scan', [OrderController::class, 'scanValue'])->name('admin-order-scan-value');
+        Route::group(['prefix' => 'order'], function () {
+            Route::get('', [OrderController::class, 'index'])->name('admin-order-index');
+            Route::get('edit/{order}', [OrderController::class, 'edit'])->name('admin-order-edit');
+            Route::post('update/{order}', [OrderController::class, 'update'])->name('admin-order-update');
+            Route::get('scan', [OrderController::class, 'scan'])->name('admin-order-scan');
+            Route::get('get/scan', [OrderController::class, 'scanValue'])->name('admin-order-scan-value');
+            Route::get('download', [OrderController::class, 'download'])->name('admin-order-download');
+        });
 
         Route::group(['prefix' => 'item'], function () {
             Route::get('', [ItemController::class, 'index'])->name('admin-item-index');

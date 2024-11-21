@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OrderExport;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\OrderItems;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf as PDFS;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
@@ -203,5 +205,14 @@ class OrderController extends Controller
         $order = Order::where('id', $request->order_id ?? 10)->with(['items'])->first();
         $today = Carbon::now()->locale('id')->translatedFormat('d F Y');
         return view('export.pdf.new_sph', ['user' => $user, 'kepada' => $kepada, 'order' => $order, 'today' => $today, 'qrCode' => 'storage/qrcodes/transaction_13.png']);
+    }
+
+    public function download()
+    {
+        try {
+            return Excel::download(new OrderExport(), "list_order.xlsx");
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 }

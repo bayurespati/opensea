@@ -15,6 +15,13 @@
             </div>
             @endif
             <div data-wow-delay="0s" class="wow fadeInUp col-12">
+                <div class="flex gap30" style="margin-bottom: 10px;">
+                    <a href="{{ route('admin-order-download') }}">
+                        <div class="tf-button style-1 h50 w190">
+                            Download Order
+                        </div>
+                    </a>
+                </div>
                 <div class="widget-search" style="margin-bottom: 10px;">
                     <form action="{{ route('admin-order-index') }}" method="GET">
                         @csrf
