@@ -49,6 +49,12 @@
                                 </select>
                             </fieldset>
 
+                            <fieldset class="password" style="margin-bottom: 10px;">
+                                <label style="color: #434141">Password</label>
+                                <input class="search-produk password-input" type="password" id="password" placeholder="Masukan kata sandi Anda" name="password" tabindex="2" value="" aria-required="true">
+                                <i class="icon-show password-addon" id="password-addon"></i>
+                            </fieldset>
+
                             <div class="btn-submit flex gap30 justify-center">
                                 <a href="/admin/user" class="tf-button style-1 h50 active">
                                     Cancel
@@ -70,4 +76,21 @@
         </div>
     </div>
 </div>
+<script>
+    // JavaScript to toggle password visibility
+    const passwordInput = document.getElementById('password');
+    const passwordAddon = document.getElementById('password-addon');
+
+    passwordAddon.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text'; // Show the password
+            passwordAddon.classList.remove('icon-show');
+            passwordAddon.classList.add('icon-hide'); // Change to hide icon
+        } else {
+            passwordInput.type = 'password'; // Hide the password
+            passwordAddon.classList.remove('icon-hide');
+            passwordAddon.classList.add('icon-show'); // Change to show icon
+        }
+    });
+</script>
 @stop

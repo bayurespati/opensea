@@ -72,7 +72,7 @@ class UserController extends Controller
         $model->witel = $request->witel;
         $model->is_admin = $request->is_admin;
         $model->is_pins = $request->is_pins;
-        $model->password = $request->password;
+        $model->password = bcrypt($request->password);
         $model->is_accepted = 1;
         $model->save();
 
@@ -100,6 +100,7 @@ class UserController extends Controller
         $user->is_admin = $request->is_admin;
         $user->is_pins = $request->is_pins;
         $user->is_accepted = $request->is_accepted;
+        $user->password = bcrypt($request->password);
         $user->save();
 
         return redirect('/admin/user');
