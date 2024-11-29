@@ -209,7 +209,6 @@
 
         <ul>
             <li>Harga termasuk PPN 11%</li>
-            <li>Harga FOB Jakarta</li>
             <li>Mohon Konfirmasi kembali untuk ketersediaan stok</li>
             <li>Harga SPH dapat berubah sewaktu-waktu</li>
             <li>SPH ini tidak memerlukan tandatangan</li>
