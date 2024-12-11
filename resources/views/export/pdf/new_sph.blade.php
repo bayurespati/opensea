@@ -192,7 +192,7 @@
             ?>
             @endforeach
             <tr>
-                <td colspan="6" class="fw-bold">Estimasi ongkos kirim </td>
+                <td colspan="6" class="fw-bold">Estimasi biaya pengiriman </td>
                 <td>{{ number_format($sph->ongkir, 2, '.', ',') }}</td>
                 <td></td>
             </tr>
