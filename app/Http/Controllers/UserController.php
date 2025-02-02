@@ -93,7 +93,6 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate((new UpdateUserRequest())->rules($user));
-        $encryptedEmail = Crypt::encryptString($request->email);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
@@ -131,5 +130,20 @@ class UserController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function updateEncrypt()
+    {
+        // $user = User::where('id', 1)->first();
+        $users = User::all();
+        foreach ($users as $user) {
+            $user->email = $user->email;
+            $user->phone = $user->phone;
+            $user->save();
+        }
+        return response()->json(['message' => "oke", 'status' => 200]);
     }
 }

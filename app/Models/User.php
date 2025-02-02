@@ -47,21 +47,33 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
     /**
-     * Accessors And Mutators
+     * Setter
      *
      */
-    public function getEmailAttribute($value)
+    public function setEmailAttribute($value)
     {
-        try {
-            // Attempt to decrypt email
-            return Crypt::decryptString($value);
-        } catch (\Exception $e) {
-            // Handle decryption error (e.g., invalid payload)
-            return $value;
-        }
+        $this->attributes['email'] = Crypt::encryptString($value);
     }
+
+    public function setPhoneAttribute($value)
+    {
+        $this->attributes['phone'] = Crypt::encryptString($value);
+    }
+
+    /**
+     * Getter
+     *
+     */
+    // public function getEmailAttribute($value)
+    // {
+    //     return Crypt::decryptString($value);
+    // }
+
+    // public function getPhoneAttribute($value)
+    // {
+    //     return Crypt::decryptString($value);
+    // }
 
     /**
      * Relations

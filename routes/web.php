@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/login', [LoginController::class, 'authenticateWithEncrypt']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/register', [LoginController::class, 'signup'])->name('singup');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('download-sph', [OrderController::class, 'sph'])->name('download-sph');
     Route::get('download-new-sph', [OrderController::class, 'newSPH'])->name('download-new-sph');
     Route::get('download-sph', [OrderController::class, 'downloadSph'])->name('download-sph');
+    Route::post('upload-sph', [OrderController::class, 'uploadSph'])->name('upload-sph');
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 

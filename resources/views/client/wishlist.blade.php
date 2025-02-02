@@ -146,6 +146,9 @@
                                 <a data-toggle="modal" data-target="#popup_bid" class="tf-button style-101" data-order-id="{{ $order->id }}">
                                     SPH
                                 </a>
+                                <a data-toggle="modal" data-target="#popup_upload_sph" class="tf-button style-101" data-order-id="{{ $order->id }}">
+                                    UPLOAD
+                                </a>
                             </div>
                         </div>
                         @endforeach
@@ -154,7 +157,7 @@
             </div>
         </div>
     </div>
-    <!-- Modal content -->
+    <!-- Modal download sph -->
     <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -174,6 +177,34 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal upload sph -->
+    <div class="modal fade popup" id="popup_upload_sph" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="width: 100%;">
+                    <h2>FORM UPLOAD SPH</h2>
+                    <div class="widget-edit mb-30 avatar">
+                        <form id="commentform" class="comment-form" action="/upload-sph" method="POST">
+                            <div class="uploadfile flex">
+                                <div>
+                                    <label>
+                                        <input type="file" class="" name="file_sph" id="file_sph" accept="application/pdf">
+                                        <span class="text filename">No files selected</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <input id="hiden_order_id" type="text" name="order_id" value="" aria-required="true" hidden>
+                            <div style="width: 36%; margin: 0 auto;">
+                                <div class="btn-submit">
+                                    <button class="tf-button style-1 h50" type="submit">Upload</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

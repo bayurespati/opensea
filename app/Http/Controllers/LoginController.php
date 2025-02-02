@@ -36,7 +36,7 @@ class LoginController extends Controller
 
         $model = new User();
         $model->name = $request->name;
-        $model->email = $request->email;
+        $model->emawuseril = $request->email;
         $model->phone = $request->phone;
         $model->area = $request->area;
         $model->witel = $request->witel;
@@ -212,7 +212,7 @@ class LoginController extends Controller
     {
         set_time_limit(30);
 
-        $ad_host = "10.15.179.86";
+        $ad_host = "10.15.180.17";
 
         $ldap_connect = ldap_connect($ad_host);
 

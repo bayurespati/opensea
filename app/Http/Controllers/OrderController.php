@@ -215,4 +215,13 @@ class OrderController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+
+    public function uploadSph(Request $request)
+    {
+        try {
+            return Excel::download(new OrderExport(), "list_order.xlsx");
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
 }
