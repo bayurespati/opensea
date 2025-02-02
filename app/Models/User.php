@@ -65,15 +65,15 @@ class User extends Authenticatable
      * Getter
      *
      */
-    // public function getEmailAttribute($value)
-    // {
-    //     return Crypt::decryptString($value);
-    // }
+    public function getEmailAttribute($value)
+    {
+        return Crypt::decryptString($value);
+    }
 
-    // public function getPhoneAttribute($value)
-    // {
-    //     return Crypt::decryptString($value);
-    // }
+    public function getPhoneAttribute($value)
+    {
+        return Crypt::decryptString($value);
+    }
 
     /**
      * Relations
