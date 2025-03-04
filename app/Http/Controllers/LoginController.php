@@ -154,7 +154,7 @@ class LoginController extends Controller
         $user = User::all()->filter(function ($user) use ($request) {
             try {
                 // Attempt to decrypt email
-                return Crypt::decryptString($user->email) === $request->email;
+                return $user->email === $request->email;
             } catch (\Exception $e) {
                 // Handle decryption error (e.g., invalid payload)
                 return false;
@@ -176,7 +176,6 @@ class LoginController extends Controller
         if ($user->is_pins) {
             $username = explode("@", $request->email);
             if ($this->_ldap_connect($username[0], $request->password)) {
-                $user = User::where('email', $request->email)->first();
                 $user->password = bcrypt($request->password);
                 $user->save();
             } else {
