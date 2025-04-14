@@ -36,7 +36,7 @@ class LoginController extends Controller
 
         $model = new User();
         $model->name = $request->name;
-        $model->emawuseril = $request->email;
+        $model->email = $request->email;
         $model->phone = $request->phone;
         $model->area = $request->area;
         $model->witel = $request->witel;
